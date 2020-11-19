@@ -1,0 +1,546 @@
+---
+title: "Import SSFA datasets"
+author: "Ivan Calandra"
+date: "`r Sys.time()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: cerulean
+    highlight: pygments
+    number_sections: true
+  github_document: 
+    toc: true
+    toc_depth: 3
+    html_preview: false
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_format = "all", knit_root_dir = rprojroot::find_rstudio_root_file()) })
+---
+
+
+```{r Knitr Options, include = FALSE}
+knitr::opts_chunk$set(comment = NA, message = FALSE, indent = "", error = TRUE)
+```
+
+
+---
+
+
+# Goal of the script
+This script formats the output of the resulting files from applying SSFA.
+The script will:
+
+1. Read in the original files  
+2. Format the data  
+3. Write XLSX-files and save R objects ready for further analysis in R  
+
+```{r}
+dir_in  <- "R_analysis/raw_data"
+dir_out <- "R_analysis/derived_data"
+```
+
+Raw data must be located in "`r paste0("~/", dir_in)`".  
+Formatted data will be saved in "`r paste0("~/", dir_out)`".
+
+The knit directory for this script is the project directory.
+
+
+---
+
+
+# Load packages
+```{r}
+library(openxlsx)
+library(R.utils)
+library(tools)
+library(tidyverse)
+```
+
+
+---
+
+
+# Get names, path and information of all files 
+```{r}
+info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE) %>% 
+           md5sum()
+```
+
+The checksum (MD5 hashes) of the imported files are:  
+```{r, echo = FALSE}
+data.frame(files = basename(names(info_in)), checksum = info_in, row.names = NULL)
+```
+
+
+---
+
+
+# Guinea pigs
+## ConfoMap
+### Read in data
+```{r}
+# Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
+confoGP <- names(info_in) %>% 
+           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
+           read.csv(header = FALSE, na.strings = "*****")
+```
+
+### Exclude repeated rows and select columns
+```{r}
+confoGP_keep_col  <- c(12, 46:52) # Define columns to keep
+confoGP_keep_rows <- which(confoGP[[1]] != "#") # Define rows to keep
+confoGP_keep      <- confoGP[confoGP_keep_rows, confoGP_keep_col] # Subset rows and columns
+```
+
+### Add headers
+```{r}
+# Get headers from 2nd row
+colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>% 
+  
+                          # Convert to valid names
+                          make.names() %>% 
+  
+                          # Delete repeated periods
+                          gsub("\\.+", "\\.", x = .) %>% 
+  
+                          # Delete periods at the end of the names
+                          gsub("\\.$", "", x = .) %>%
+  
+                          # Keep only part after the last period
+                          gsub("^([A-Za-z0-9]+\\.)+", "", x = .) 
+```
+
+### Extract units
+```{r}
+confoGP_units <- unlist(confoGP[3, confoGP_keep_col[-1]]) # Extract unit line for considered columns
+names(confoGP_units) <- colnames(confoGP_keep)[-1]        # Get names associated to the units
+```
+
+### Convert to numeric and add column about software
+```{r}
+confoGP_keep <- type_convert(confoGP_keep) %>% 
+                mutate(Software = "ConfoMap")
+```
+
+
+## Toothfrax
+### Read in data
+```{r}
+# Extract file name for Toothfrax analysis on Guinea Pigs
+toothfraxGP <- names(info_in) %>% 
+               .[grepl("Toothfrax", .) & grepl("GuineaPigs", .)] %>% 
+
+               # Read in file
+               read.xlsx(check.names = TRUE)
+```
+
+### Select columns, edit headers and add column about software
+```{r}
+toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm, 
+                           R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                           HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
+                    mutate(Software = "Toothfrax")
+```
+
+### Edit column "Name"
+```{r}
+# Remove ".sur" at the end of the name and delete everything from the beginning to " --- "
+toothfraxGP_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
+                                   toothfraxGP_keep[["Name"]])
+```
+
+### Get units
+```{r}
+# Check if all units are identical
+if (length(unique(toothfraxGP[["Units"]])) != 1) {
+  warning(paste("The studiables have different units for the SSFA parameters.",
+                "Only the unit for the first studiable will be kept.",
+                "Please check in the original file.", sep = "\n"))
+}
+
+# Get units from the column "Units"
+toothfraxGP_units <- toothfraxGP[["Units"]][1]
+
+# Add names to it
+names(toothfraxGP_units) <- "Toothfrax_units" 
+```
+
+
+## Merge datasets
+### Merge
+```{r}
+GP_keep <- merge(confoGP_keep, toothfraxGP_keep, all = TRUE)
+```
+
+### Add column about diet
+```{r}
+GP_keep[grep("2CC4", GP_keep[["Name"]]), "Diet"] <- "Dry Lucerne"
+GP_keep[grep("2CC5", GP_keep[["Name"]]), "Diet"] <- "Dry Grass"
+GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry Bamboo"
+```
+
+### Add column about dataset and re-order columns
+```{r}
+GP_final <- GP_keep %>% 
+            mutate(Dataset = "GuineaPigs") %>% 
+            select(Dataset, Name, Diet, Software, everything())
+```
+
+### Combine both sets of units
+```{r}
+GP_units <- c(confoGP_units, toothfraxGP_units) 
+```
+
+### Check the result
+```{r}
+str(GP_final)
+head(GP_final)
+```
+
+
+---
+
+
+# Sheeps
+Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs).
+
+## ConfoMap
+### Read in data
+```{r}
+confoSheep <- names(info_in) %>% 
+              .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
+              read.csv(header = FALSE, na.strings = "*****")
+```
+
+### Exclude repeated rows and select columns
+```{r}
+confoSheep_keep_col  <- c(12, 43:49)
+confoSheep_keep_rows <- which(confoSheep[[1]] != "#")  
+confoSheep_keep      <- confoSheep[confoSheep_keep_rows, confoSheep_keep_col]
+```
+
+### Add headers
+```{r}
+colnames(confoSheep_keep) <- confoSheep[2, confoSheep_keep_col] %>% 
+                             make.names() %>% 
+                             gsub("\\.+", "\\.", x = .) %>% 
+                             gsub("\\.$", "", x = .) %>%
+                             gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
+```
+
+### Extract units
+```{r}
+confoSheep_units <- unlist(confoSheep[3, confoSheep_keep_col[-1]]) %>% 
+                    gsub("Â", "", .) 
+names(confoSheep_units) <- colnames(confoSheep_keep)[-1] 
+```
+
+### Convert to numeric and add column about software
+```{r}
+confoSheep_keep <- type_convert(confoSheep_keep) %>% 
+                   mutate(Software = "ConfoMap")
+```
+
+
+## Toothfrax
+### Read in data
+```{r}
+toothfraxSheep <- names(info_in) %>% 
+                  .[grepl("Toothfrax", .) & grepl("Sheeps", .)] %>% 
+                  read.xlsx(check.names = TRUE)
+```
+
+### Select columns, edit headers and add column about software
+```{r}
+toothfraxSheep_keep <- select(toothfraxSheep, Name = Filename, epLsar = epLsar1.80µm, 
+                              R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                              HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
+                       mutate(Software = "Toothfrax")
+```
+
+### Edit column "Name"
+```{r}
+toothfraxSheep_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
+                                      toothfraxSheep_keep[["Name"]]) 
+```
+
+### Get units
+```{r}
+if (length(unique(toothfraxSheep[["Units"]])) != 1) {
+  warning(paste("The studiables have different units for the SSFA parameters.",
+                "Only the unit for the first studiable will be kept.",
+                "Please check in the original file.", sep = "\n"))
+} 
+toothfraxSheep_units <- toothfraxSheep[["Units"]][1] 
+names(toothfraxSheep_units) <- "Toothfrax_units" 
+```
+
+
+## Merge datasets
+### Merge
+```{r}
+sheep_keep <- merge(confoSheep_keep, toothfraxSheep_keep, all = TRUE)
+```
+
+### Add column about diet
+```{r}
+sheep_keep[grep("L5", sheep_keep[["Name"]]), "Diet"] <- "Clover"
+sheep_keep[grep("L6", sheep_keep[["Name"]]), "Diet"] <- "Clover+Dust"
+sheep_keep[grep("L7", sheep_keep[["Name"]]), "Diet"] <- "Grass"
+sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+Dust"
+```
+
+### Add column about dataset and re-order columns
+```{r}
+sheep_final <- sheep_keep %>% 
+               mutate(Dataset = "Sheeps") %>% 
+               select(Dataset, Name, Diet, Software, everything())
+```
+
+### Add units
+```{r}
+sheep_units <- c(confoSheep_units, toothfraxSheep_units) 
+```
+
+### Check the result
+```{r}
+str(sheep_final)
+head(sheep_final)
+```
+
+
+---
+
+
+# Lithics
+Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs).
+
+## ConfoMap
+### Read in data
+```{r}
+confoLith <- names(info_in) %>% 
+             .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
+             read.csv(header = FALSE, na.strings = "*****")
+```
+
+### Exclude repeated rows and select columns
+```{r}
+confoLith_keep_col  <- c(12, 47:53) 
+confoLith_keep_rows <- which(confoLith[[1]] != "#")
+confoLith_keep      <- confoLith[confoLith_keep_rows, confoLith_keep_col] 
+```
+
+### Add headers
+```{r}
+colnames(confoLith_keep) <- confoLith[2, confoLith_keep_col] %>% 
+                            make.names() %>% 
+                            gsub("\\.+", "\\.", x = .) %>% 
+                            gsub("\\.$", "", x = .) %>%
+                            gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
+```
+
+### Extract units
+```{r}
+confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) 
+names(confoLith_units) <- colnames(confoLith_keep)[-1]
+```
+
+### Convert to numeric and add column about software
+```{r}
+confoLith_keep <- type_convert(confoLith_keep) %>% 
+                  mutate(Software = "ConfoMap")
+```
+
+
+## Toothfrax
+### Read in data
+```{r}
+toothfraxLith <- names(info_in) %>% 
+                 .[grepl("Toothfrax", .) & grepl("Lithics", .)] %>% 
+                 read.xlsx(check.names = TRUE)
+```
+
+### Select columns, edit headers and add column about software
+```{r}
+toothfraxLith_keep <- select(toothfraxLith, Name = Filename, epLsar = epLsar1.80µm, 
+                             R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                             HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
+                      mutate(Software = "Toothfrax")
+```
+
+### Edit column "Name"
+```{r}
+toothfraxLith_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
+                                     toothfraxLith_keep[["Name"]])
+```
+
+### Get units
+```{r}
+if (length(unique(toothfraxLith[["Units"]])) != 1) {
+  warning(paste("The studiables have different units for the SSFA parameters.",
+                "Only the unit for the first studiable will be kept.",
+                "Please check in the original file.", sep = "\n"))
+}  
+toothfraxLith_units <- toothfraxLith[["Units"]][1]
+names(toothfraxLith_units) <- "Toothfrax_units"
+```
+
+
+## Merge datasets
+### Merge
+```{r}
+lith_keep <- merge(confoLith_keep, toothfraxLith_keep, all = TRUE)
+```
+
+### Exclude FLT3-8_Area1 ("before" wrongly acquired )
+```{r}
+FLT3_8_Area1 <- grep("^FLT3-8_.+_Area1", lith_keep[["Name"]])
+lith_keep    <- lith_keep[-FLT3_8_Area1, ]
+```
+
+### Add columns about before/after and treatment
+```{r}
+lith_keep[grep("LSM_",  lith_keep[["Name"]]), "Before.after"] <- "Before"
+lith_keep[grep("LSM2_", lith_keep[["Name"]]), "Before.after"] <- "After"
+lith_keep[["Before.after"]] <- factor(lith_keep[["Before.after"]], levels = c("Before", "After"))
+
+lith_keep[grep("FLT3-8|QTZ3-2",   lith_keep[["Name"]]), "Treatment"] <- "Control"
+lith_keep[grep("FLT3-9|QTZ3-5",   lith_keep[["Name"]]), "Treatment"] <- "BrushNoDirt"
+lith_keep[grep("FLT3-13|QTZ3-3",  lith_keep[["Name"]]), "Treatment"] <- "RubDirt"
+lith_keep[grep("FLT3-10|QTZ3-13", lith_keep[["Name"]]), "Treatment"] <- "BrushDirt"
+```
+
+### Add column about dataset and re-order columns
+```{r}
+lith_final <- lith_keep %>% 
+              mutate(Dataset = "Lithics") %>% 
+              select(Dataset, Name, Treatment, Before.after, Software, everything())
+              
+```
+
+### Add units
+```{r}
+lith_units <- c(confoLith_units, toothfraxLith_units) 
+```
+
+### Check the result
+```{r}
+str(lith_final)
+head(lith_final)
+```
+
+
+---
+
+
+# Combine datasets
+## Merge datasets
+```{r}
+# Merge the first two datasets
+all_data <- merge(GP_final, sheep_final, all = TRUE) %>% 
+  
+            # Merge the first two with the third dataset
+            merge(lith_final, all = TRUE) %>% 
+  
+            # Re-order columns
+            select(Dataset, Name, Software, Diet, Treatment, Before.after, everything()) %>% 
+  
+            # Re-order rows
+            arrange(Dataset, Name, Software, Diet, Treatment, Before.after)
+```
+
+
+## Combine units
+```{r}
+# Test if units are identical across datasets
+if (all(sapply(list(GP_units, sheep_units), FUN = identical, lith_units)) == TRUE) {
+  
+  # If TRUE, use only lith_units
+  # Combine into a data.frame for export
+  units_table <- data.frame(variable = names(lith_units), units = lith_units) 
+  # Add as comment
+  comment(all_data) <- lith_units
+  
+  # If FALSE, use all units
+} else {
+  
+  # Combine into a data.frame for export
+  units_table <- data.frame(variable = names(lith_units), units_GP = GP_units, 
+                            units_sheep = sheep_units, units_lith = lith_units) 
+  
+  # Combine all units into a single vector
+  units_all <- c(GP_units, sheep_units, lith_units)
+  
+  # Rename the vector to reflect the dataset
+  names(units_all) <- length(GP_units) %>% 
+                      rep(c("GP", "sheep", "lith"), each = .) %>% 
+                      paste(names(x), sep=".")
+  
+  # Add as comment
+  comment(all_data) <- units_all
+}
+```
+
+Type `comment(all_data)` to check the units of the parameters.
+
+
+## Check the result
+```{r}
+str(all_data)
+head(all_data)
+```
+
+
+---
+
+
+# Save data
+## Create file names
+```{r}
+all_xlsx <- paste0(dir_out, "/SSFA_all_data.xlsx")
+all_rbin <- paste0(dir_out, "/SSFA_all_data.Rbin")
+```
+
+
+## Write to XLSX and Rbin
+```{r}
+write.xlsx(list(data = all_data, units = units_table), file = all_xlsx) 
+saveObject(all_data, file = all_rbin) 
+```
+
+Rbin files (e.g. `SSFA_all_data.Rbin`) can be easily read into an R object (e.g. `rbin_data`) using the following code:
+```{r, eval = FALSE}
+library(R.utils)
+rbin_data <- loadObject("SSFA_all_data.Rbin")
+```
+
+
+## Show files information
+```{r}
+info_out <- c(all_xlsx, all_rbin) %>%
+            md5sum()
+```
+
+The checksum (MD5 hashes) of the exported files are:  
+```{r, echo = FALSE}
+data.frame(files = basename(names(info_out)), checksum = info_out, row.names = NULL)
+```
+
+
+---
+
+
+# sessionInfo() and RStudio version
+
+```{r}
+sessionInfo()
+```
+
+RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+
+
+---
+
+
+END OF SCRIPT

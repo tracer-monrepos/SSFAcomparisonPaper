@@ -1,0 +1,147 @@
+---
+title: "Create Research Compendium - SSFAcomparisonPaper"
+author: "Ivan Calandra"
+date: "`r Sys.time()`"
+output:
+  github_document: 
+    toc: true
+    toc_depth: 2
+    html_preview: false
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cerulean
+    highlight: pygments
+    number_sections: true
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_format = "all", knit_root_dir = rprojroot::find_rstudio_root_file()) })
+---
+
+```{r Knitr Options, include = FALSE}
+knitr::opts_chunk$set(comment = NA, message = FALSE, indent = "", error = TRUE, eval = FALSE)
+```
+
+
+---
+
+
+# Goal of the script
+Create and set up a research compendium for the SSFA comparison paper using the R package `rrtools`.  
+For details on rrtools, see Ben Marwick's [GitHub repository](https://github.com/benmarwick/rrtools).  
+
+Note that this script is there only to show the steps taken to create the research compendium and is not part of the analysis per se. For this reason, the code is not evaluated (`knitr::opts_chunk$set(eval=FALSE)`).
+
+The knit directory for this script is the project directory.
+
+
+---
+
+
+# Prerequisites
+This script requires that you have a GitHub account and that you have connected RStudio, Git and GitHub. For details on how to do it, check [Happy Git](https://happygitwithr.com/).
+
+
+---
+
+
+# Preparations
+Before running this script, the first step is to [create a repository on GitHub and to download it to RStudio](https://happygitwithr.com/new-github-first.html). In this case, the repository is called "SSFAcomparisonPaper".  
+Finally, open the RStudio project created.
+
+
+---
+
+
+# Create the research compendium
+## Load packages
+```{r, eval = TRUE}
+library(rrtools)
+library(usethis)
+library(renv)
+library(holepunch)
+```
+
+## Create compendium
+```{r}
+rrtools::use_compendium(getwd())
+```
+A new project has openend in a new session.  
+Edit the fields "Title", "Author" and "Description" in the `DESCRIPTION` file. 
+
+## Create CC-BY, CC-0 or MIT license
+A project can have only one license. Run one line only:  
+```{r}
+#usethis::use_ccby_license(name = "Ivan Calandra")
+#usethis::use_cc0_license(name = "Ivan Calandra")
+usethis::use_mit_license(name = "Ivan Calandra")
+```
+
+## Create README.Rmd file
+```{r}
+rrtools::use_readme_rmd()
+```
+Edit the `README.Rmd` file as needed.  
+Make sure you render (knit) it to create the `README.md` file.
+
+## Create a folders 
+Create a folder 'R_analysis' and subfolders to contain raw data, derived data, plots, statistics and scripts. Also create a folder for the Python analysis:
+```{r}
+dir.create("R_analysis", showWarnings = FALSE)
+dir.create("R_analysis/raw_data", showWarnings = FALSE)
+dir.create("R_analysis/derived_data", showWarnings = FALSE)
+dir.create("R_analysis/plots", showWarnings = FALSE)
+dir.create("R_analysis/summary_stats", showWarnings = FALSE)
+dir.create("R_analysis/scripts", showWarnings = FALSE)
+dir.create("Python_analysis", showWarnings = FALSE)
+```
+Note that the folders cannot be pushed to GitHub as long as they are empty.
+
+## Delete file 'NAMESPACE'
+```{r}
+file.remove("NAMESPACE")
+```
+
+
+---
+
+
+# Before running the analyses
+After the creation of this research compendium, I have moved the raw, input data files to `"~/R_analysis/raw_data"` (as read-only files) and the R scripts to `"~/R_analysis/scripts"`.
+
+
+---
+
+
+# After running the analyses
+## Packages
+I have run this command to add the dependencies to the DESCRIPTION file.
+```{r}
+rrtools::add_dependencies_to_description()
+```
+
+## Create Binder badge
+```{r}
+holepunch::write_dockerfile(maintainer = "Ivan Calandra")
+holepunch::generate_badge()
+```
+Now paste to the README.Rmd, where you want the badge to appear.
+
+## renv
+Save the state of the project library using the `renv` package.  
+```{r}
+renv::init()
+```
+
+
+---
+
+# sessionInfo() and RStudio version
+```{r, eval = TRUE}
+sessionInfo()
+```
+
+RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+
+
+END OF SCRIPT

@@ -1,0 +1,217 @@
+---
+title: "Plots of SSFA variables"
+author: "Ivan Calandra"
+date: "`r Sys.time()`"
+output:
+  github_document: 
+    toc: true
+    toc_depth: 2
+    html_preview: false
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cerulean
+    highlight: pygments
+    number_sections: true
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_format = "all", knit_root_dir = rprojroot::find_rstudio_root_file()) })
+---
+
+```{r Knitr Options, include = FALSE}
+knitr::opts_chunk$set(comment = NA, message = FALSE, indent = "", error = TRUE)
+```
+
+
+---
+
+
+# Goal of the script
+The script plots all SSFA variables for each dataset to compare between the ConfoMap and Toothfrax analyses.   
+
+```{r}
+dir_in  <- "R_analysis/derived_data"
+dir_out <- "R_analysis/plots"
+```
+
+Input Rbin data file must be located in "`r paste0("~/", dir_in)`".  
+Plots will be saved in "`r paste0("~/", dir_out)`".
+
+The knit directory for this script is the project directory.
+
+
+---
+
+
+# Load packages
+```{r}
+library(R.utils)
+library(ggplot2)
+library(tools)
+library(tidyverse)
+```
+
+
+---
+
+
+# Read in data
+## Get names, path and information of input file 
+```{r}
+info_in <- list.files(dir_in, pattern = "\\.Rbin$", full.names = TRUE) %>% 
+           md5sum()
+```
+
+The checksum (MD5 hashes) of the loaded file is:  
+```{r, echo = FALSE}
+data.frame(files = basename(names(info_in)), checksum = info_in, row.names = NULL)
+```
+
+
+## Read in Rbin file
+```{r}
+all_data <- loadObject(names(info_in))
+str(all_data)
+```
+
+
+---
+
+
+# Define variables
+```{r}
+# x-axis (grouping)
+x_var_GP <- x_var_sheep <- "Diet"
+x_var_lith <- "Before.after"
+
+# y-axis
+y_var <- c("Asfc", "Smfc", "epLsar", "NewEplsar", "HAsfc9", "HAsfc81", "R²")
+
+# colors
+grp_colors <- "Software"
+
+# subplots Lithics dataset
+facet_lith <- "Treatment"
+```
+
+The following variables will be used:  
+```{r}
+x_var_GP
+x_var_sheep
+x_var_lith
+grp_colors
+facet_lith
+y_var
+```
+
+
+---
+
+
+# Plot each set of the selected numeric variables
+## Guinea Pigs
+```{r}
+# Filter dataset
+GP <- filter(all_data, Dataset == "GuineaPigs")
+
+# Change from wide to long format
+GP_plot <- pivot_longer(GP[c(x_var_GP, grp_colors, y_var)], all_of(y_var))
+
+# Re-order factor levels to fit order of plots on facet
+GP_plot$name <- factor(GP_plot$name, levels = y_var)
+
+# Plot all variables at once using facet_wrap()
+p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+        geom_boxplot(outlier.shape = NA) + 
+        geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+        facet_wrap(~name, scales = "free_y", ncol = 2) +
+        labs(x = NULL, y = NULL) + 
+        theme_classic()
+
+# Position the legend into an empty facet
+p_GP <- p_GP + theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+
+# Print and save resulting plot
+print(p_GP)
+ggsave(filename = "/SSFA_GuineaPigs_plot.pdf", path = dir_out, 
+       device = "pdf", width = 210, height = 297, units = "mm")
+```
+
+Warnings are due to the missing values for Toothfrax - NewEplsar.
+
+
+## Sheeps
+Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs).
+
+```{r}
+sheep <- filter(all_data, Dataset == "Sheeps")
+sheep_plot <- pivot_longer(sheep[c(x_var_sheep, grp_colors, y_var)], all_of(y_var))
+sheep_plot$name <- factor(sheep_plot$name, levels = y_var)
+p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
+           geom_boxplot(outlier.shape = NA) + 
+           geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+           facet_wrap(~name, scales = "free_y", ncol = 2) +
+           labs(x = NULL, y = NULL) + 
+           theme_classic() +
+           theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+print(p_sheep)
+ggsave(filename = "/SSFA_Sheeps_plot.pdf", path = dir_out, 
+       device = "pdf", width = 210, height = 297, units = "mm")
+```
+
+
+## Lithics
+Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs). 
+
+There is one difference though: here, three columns are used for the grouping ("Software", "Treatment", and "Before.after").  
+Software is still shown with colors.  
+"Before.after" is plotted on the x-axis and the variables are on the y-axes.  
+`facet_grid()` is used to plot a grid of subplots, with variables in rows and treatments in columns.
+
+```{r}
+lith <- filter(all_data, Dataset == "Lithics")
+lith_plot <- pivot_longer(lith[c(x_var_lith, grp_colors, facet_lith, y_var)], all_of(y_var))
+lith_plot$name <- factor(lith_plot$name, levels = y_var)
+p_lith <- ggplot(lith_plot, aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
+          geom_boxplot(outlier.shape = NA) + 
+          geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+          facet_grid(as.formula(paste0("name~", facet_lith)), scales = "free_y") +
+          labs(x = NULL, y = NULL) + 
+          theme_classic()
+print(p_lith)
+ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out, 
+       device = "pdf", width = 210, height = 297, units = "mm")
+```
+
+
+---
+
+
+# Show plot files information
+```{r}
+info_out <- list.files(path = dir_out, pattern = "\\.pdf$", full.names = TRUE) %>% 
+            md5sum()
+```
+
+The following plot(s) was (were) created and its (their) checksum(s) is (are):
+```{r, echo = FALSE}
+data.frame(files = basename(names(info_out)), checksum = info_out, row.names = NULL)
+```
+
+
+---
+
+
+# sessionInfo() and RStudio version
+
+```{r}
+sessionInfo()
+```
+
+RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+
+
+---
+
+
+END OF SCRIPT
