@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2020-11-19 17:05:43
+2020-11-19 17:17:40
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -15,7 +15,7 @@ Ivan Calandra
 <!-- badges: start -->
 
 [![Launch Rstudio
-Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/main?urlpath=rstudio)
+Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/master?urlpath=rstudio)
 
 <!-- badges: end -->
 
@@ -114,9 +114,9 @@ Alternatively, use [GitHub & BitBucket HTML
 Preview](https://htmlpreview.github.io/) to render it directly.  
 Here are direct links to display the files directly in your browser:
 
--   [SSFA\_1\_Import.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_1_Import.html)  
--   [SSFA\_2\_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_2_Summary-stats.html)  
--   [SSFA\_3\_Plots.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_3_Plots.html)  
+-   [SSFA\_1\_Import.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_1_Import.html)  
+-   [SSFA\_2\_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_2_Summary-stats.html)  
+-   [SSFA\_3\_Plots.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_3_Plots.html)  
 -   
 
 The [renv.lock](/renv.lock) file is the lockfile describing the state of
@@ -144,13 +144,13 @@ The simplest way to explore the text, code and data is to open an
 instance of RStudio in your browser using
 [binder](https://mybinder.org/), either by clicking on the “launch
 binder” badge at the top of this README, or by following [this
-link](https://mybinder.org/v2/gh/ivan-paleo/SSFAcomparisonPaper/main?urlpath=rstudio).
+link](https://mybinder.org/v2/gh/ivan-paleo/SSFAcomparisonPaper/master?urlpath=rstudio).
 Binder will have the compendium files ready to work with. Binder uses
 Docker images to ensure a consistent and reproducible computational
 environment. These Docker images can also be used locally.
 
 You can also download the compendium as [a ZIP
-archive](https://github.com/ivan-paleo/SSFAcomparisonPaper/archive/main.zip).  
+archive](https://github.com/ivan-paleo/SSFAcomparisonPaper/archive/master.zip).  
 Alternatively, if you use GitHub, you can [fork and
 clone](https://happygitwithr.com/fork-and-clone.html) the repository to
 your account. See also the [CONTRIBUTING.md](CONTRIBUTING.md) file.

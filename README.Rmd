@@ -12,7 +12,7 @@ output:
 
 <!-- badges: start -->
 
-[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/main?urlpath=rstudio)
+[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/master?urlpath=rstudio)
 
 <!-- badges: end -->
 
@@ -70,9 +70,9 @@ To download an HTML file from GitHub, first display the "raw" file and then save
 Alternatively, use [GitHub & BitBucket HTML Preview](https://htmlpreview.github.io/) to render it directly.  
 Here are direct links to display the files directly in your browser:
 
-- [SSFA_1_Import.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_1_Import.html)  
-- [SSFA_2_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_2_Summary-stats.html)  
-- [SSFA_3_Plots.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/main/R_analysis/scripts/SSFA_3_Plots.html)  
+- [SSFA_1_Import.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_1_Import.html)  
+- [SSFA_2_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_2_Summary-stats.html)  
+- [SSFA_3_Plots.html](http://htmlpreview.github.io/?https://github.com/ivan-paleo/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_3_Plots.html)  
 - 
 
 The [renv.lock](/renv.lock) file is the lockfile describing the state of the project's library. It is associated to the [activation script](/renv/activate.R) and the project's library. All these files have been created using the package [renv](https://rstudio.github.io/renv/index.html).
@@ -86,9 +86,9 @@ See the section [Contributions](#contributions) for details on [CONDUCT.md](/CON
 
 This research compendium has been developed using the statistical programming language R. To work with the compendium, you will need to install on your computer the [R software](https://cloud.r-project.org/) itself and optionally [RStudio Desktop](https://rstudio.com/products/rstudio/download/).
 
-The simplest way to explore the text, code and data is to open an instance of RStudio in your browser using [binder](https://mybinder.org/), either by clicking on the "launch binder" badge at the top of this README, or by following [this link](https://mybinder.org/v2/gh/ivan-paleo/`r repo`/main?urlpath=rstudio). Binder will have the compendium files ready to work with. Binder uses Docker images to ensure a consistent and reproducible computational environment. These Docker images can also be used locally.
+The simplest way to explore the text, code and data is to open an instance of RStudio in your browser using [binder](https://mybinder.org/), either by clicking on the "launch binder" badge at the top of this README, or by following [this link](https://mybinder.org/v2/gh/ivan-paleo/`r repo`/master?urlpath=rstudio). Binder will have the compendium files ready to work with. Binder uses Docker images to ensure a consistent and reproducible computational environment. These Docker images can also be used locally.
 
-You can also download the compendium as [a ZIP archive](https://github.com/ivan-paleo/`r repo`/archive/main.zip).  
+You can also download the compendium as [a ZIP archive](https://github.com/ivan-paleo/`r repo`/archive/master.zip).  
 Alternatively, if you use GitHub, you can [fork and clone](https://happygitwithr.com/fork-and-clone.html) the repository to your account. See also the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 If you want to work locally, either from the ZIP archive or from cloning the GitHub repository to your computer:
