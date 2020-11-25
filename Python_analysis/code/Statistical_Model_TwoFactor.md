@@ -11,7 +11,8 @@
    1. [Asfc](#Asfc)
    1. [Smfc](#Smfc)
    1. [HAsfc9](#HAsfc9)
-   1. [HAsfc81](#HAsfc81)       
+   1. [HAsfc81](#HAsfc81)
+1. [Summary](#summary)
 
 ## Used packages <a name="imports"></a>
 
@@ -4504,6 +4505,130 @@ However, when looking at the raw data at 'analysis/plots/SSFA_Sheeps_plot.pdf' o
 Thus, in combination with the chosen uninformative priors, the model correctly describes the distribution as bimodal.  
 In summary, we see no issue with the modeling and sampling.
 
+## Summary<a name="summary"></a>
+
+Set the surface parameters for every treatment dataframe:
+
+
+```python
+df_hdi_Asfc["SurfaceParameter"] = "Asfc"
+df_hdi_HAsfc9["SurfaceParameter"] = "HAsfc9"
+df_hdi_HAsfc81["SurfaceParameter"] = "HAsfc81"
+df_hdi_R["SurfaceParameter"] = "R²"
+df_hdi_epLsar["SurfaceParameter"] = "epLsar"
+```
+
+
+```python
+df_hdi_total = pd.concat([df_hdi_epLsar,df_hdi_R,df_hdi_Asfc,df_hdi_HAsfc9,df_hdi_HAsfc81],ignore_index=True)
+```
+
+Show the treatment pairs and surface parameters where the softwares differ
+
+
+```python
+df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total.isSignificant_on_Toothfrax][["Treatment_i","Treatment_j","SurfaceParameter","isSignificant_on_ConfoMap","isSignificant_on_Toothfrax","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>SurfaceParameter</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>isSignificant_on_Toothfrax</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Dry Lucerne</td>
+      <td>Dry Grass</td>
+      <td>epLsar</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0.000215</td>
+      <td>0.001528</td>
+      <td>-0.000166</td>
+      <td>0.001127</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>epLsar</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.000194</td>
+      <td>0.002930</td>
+      <td>0.000277</td>
+      <td>0.003761</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Grass</td>
+      <td>Clover+Dust</td>
+      <td>R²</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.000742</td>
+      <td>0.000319</td>
+      <td>-0.000812</td>
+      <td>-0.000138</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Grass+Dust</td>
+      <td>Clover</td>
+      <td>Asfc</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-6.182086</td>
+      <td>-0.207515</td>
+      <td>-6.128564</td>
+      <td>0.017583</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Grass+Dust</td>
+      <td>Grass</td>
+      <td>HAsfc81</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.462872</td>
+      <td>0.013858</td>
+      <td>-0.520055</td>
+      <td>-0.052666</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ### Write out
 
 
@@ -4512,7 +4637,7 @@ In summary, we see no issue with the modeling and sampling.
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to html
-    [NbConvertApp] Writing 26856074 bytes to Statistical_Model_TwoFactor.html
+    [NbConvertApp] Writing 24609826 bytes to Statistical_Model_TwoFactor.html
 
 
 
@@ -4521,81 +4646,6 @@ In summary, we see no issue with the modeling and sampling.
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to markdown
-    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_files/
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Writing 105046 bytes to Statistical_Model_TwoFactor.md
 
 
 
