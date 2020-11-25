@@ -8,6 +8,7 @@
 1. [Model specification](#model)
 1. [Inference](#inference)
    1. [NewEplsar](#NewEplsar) 
+1. [Summary](#summary)  
 
 ## Used packages <a name="imports"></a>
 
@@ -1793,6 +1794,112 @@ if writeOut:
     dfHDI.to_csv(outPathData+ 'hdi_{}.csv'.format('NewEplsar'))
 ```
 
+## Summary<a name="summary"></a>
+
+Show where NewEplsar yields other results then epLsar: 
+
+
+```python
+dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_Toothfrax) ][["Treatment_i","Treatment_j","isSignificant_NewEplsar","isSignificant_on_Toothfrax","isSignificant_on_ConfoMap","hdi_NewEplsar_2.5%","hdi_NewEplsar_97.5%","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>isSignificant_NewEplsar</th>
+      <th>isSignificant_on_Toothfrax</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>hdi_NewEplsar_2.5%</th>
+      <th>hdi_NewEplsar_97.5%</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Dry Lucerne</td>
+      <td>Dry Grass</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>0.000239</td>
+      <td>0.000892</td>
+      <td>0.000106</td>
+      <td>0.000752</td>
+      <td>-0.000082</td>
+      <td>0.000555</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.000695</td>
+      <td>0.000519</td>
+      <td>-0.000095</td>
+      <td>0.001442</td>
+      <td>0.000136</td>
+      <td>0.001852</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Grass+Dust</td>
+      <td>Clover</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>-0.001025</td>
+      <td>0.000078</td>
+      <td>0.000259</td>
+      <td>0.001605</td>
+      <td>0.000421</td>
+      <td>0.001720</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Grass+Dust</td>
+      <td>Clover+Dust</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>-0.000643</td>
+      <td>0.000438</td>
+      <td>0.000257</td>
+      <td>0.001669</td>
+      <td>0.000231</td>
+      <td>0.001516</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ### Write out
 
 
@@ -1801,7 +1908,7 @@ if writeOut:
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_NewEplsar.ipynb to html
-    [NbConvertApp] Writing 1087617 bytes to Statistical_Model_NewEplsar.html
+    [NbConvertApp] Writing 4920922 bytes to Statistical_Model_NewEplsar.html
 
 
 
@@ -1818,7 +1925,13 @@ if writeOut:
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
-    [NbConvertApp] Writing 29885 bytes to Statistical_Model_NewEplsar.md
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
+    [NbConvertApp] Writing 41539 bytes to Statistical_Model_NewEplsar.md
 
 
 
