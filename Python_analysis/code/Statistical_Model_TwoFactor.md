@@ -3542,17 +3542,6 @@ df_hdi_HAsfc9 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,siz
 
 
 ```python
-df_hdi_Asfc = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2)
-```
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_164_0.png)
-    
-
-
-
-```python
 df_hdi_HAsfc9
 ```
 
@@ -3794,7 +3783,7 @@ pm.model_to_graphviz(HAsfc81Model)
 
 
     
-![svg](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_171_0.svg)
+![svg](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_170_0.svg)
     
 
 
@@ -3814,7 +3803,7 @@ plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_174_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_173_0.png)
     
 
 
@@ -4086,25 +4075,25 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_1.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_1.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_2.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_2.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_3.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_3.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_4.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_4.png)
     
 
 
@@ -4116,7 +4105,7 @@ with HAsfc81Model as model:
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_183_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_0.png)
     
 
 
@@ -4128,7 +4117,7 @@ with HAsfc81Model as model:
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_184_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_183_0.png)
     
 
 
@@ -4172,7 +4161,7 @@ plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outP
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_187_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_186_0.png)
     
 
 
@@ -4183,7 +4172,7 @@ plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dic
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_188_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_187_0.png)
     
 
 
@@ -4205,7 +4194,7 @@ plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPath
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_191_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_190_0.png)
     
 
 
@@ -4216,7 +4205,7 @@ plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_192_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_191_0.png)
     
 
 
@@ -4229,7 +4218,7 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_194_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_193_0.png)
     
 
 
@@ -4240,7 +4229,7 @@ df_hdi_HAsfc81 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,si
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_195_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_194_0.png)
     
 
 
@@ -4458,7 +4447,7 @@ if writeOut:
     df_hdi_HAsfc81.to_csv(outPathData+ 'hdi_{}.csv'.format('HAsfc81'))
 ```
 
-#### Bimodal distribution in contrast plots
+#### Bimodal distribution in contrast plots of HAsfc81
 For e.g. the pair Clover+Dust vs. Clover shows an unexpected bimodal distribution of the contrast.
 We now examine the traces carefully to exclude errors in the sampling:  
 Get the traces on ConfoMap of the interactions
@@ -4492,7 +4481,7 @@ sns.pairplot(data=pd.DataFrame.from_dict(
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_203_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_202_0.png)
     
 
 
@@ -4505,7 +4494,7 @@ sns.jointplot(x=diff_b2,y=diff_m12);
 
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_205_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_204_0.png)
     
 
 
@@ -4596,7 +4585,17 @@ In summary, we see no issue with the modeling and sampling.
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Writing 94034 bytes to Statistical_Model_TwoFactor.md
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Writing 105046 bytes to Statistical_Model_TwoFactor.md
 
 
 
