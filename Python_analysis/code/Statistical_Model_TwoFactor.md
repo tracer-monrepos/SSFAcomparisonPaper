@@ -4527,7 +4527,7 @@ Show the treatment pairs and surface parameters where the softwares differ
 
 
 ```python
-df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total.isSignificant_on_Toothfrax][["Treatment_i","Treatment_j","SurfaceParameter","isSignificant_on_ConfoMap","isSignificant_on_Toothfrax","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+df_summary = df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total.isSignificant_on_Toothfrax][["Treatment_i","Treatment_j","SurfaceParameter","isSignificant_on_ConfoMap","isSignificant_on_Toothfrax","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
 ```
 
 
@@ -4646,6 +4646,80 @@ df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total.isSignifican
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_files/
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Writing 105992 bytes to Statistical_Model_TwoFactor.md
 
 
 

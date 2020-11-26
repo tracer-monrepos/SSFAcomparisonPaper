@@ -1800,7 +1800,8 @@ Show where NewEplsar yields other results then epLsar:
 
 
 ```python
-dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_Toothfrax) ][["Treatment_i","Treatment_j","isSignificant_NewEplsar","isSignificant_on_Toothfrax","isSignificant_on_ConfoMap","hdi_NewEplsar_2.5%","hdi_NewEplsar_97.5%","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+df_summary = dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_Toothfrax) ][["Treatment_i","Treatment_j","isSignificant_NewEplsar","isSignificant_on_Toothfrax","isSignificant_on_ConfoMap","hdi_NewEplsar_2.5%","hdi_NewEplsar_97.5%","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+df_summary
 ```
 
 
@@ -1900,6 +1901,12 @@ dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHD
 
 
 
+
+```python
+if writeOut:
+    df_summary.to_csv(outPathData+ 'summary.csv')
+```
+
 ### Write out
 
 
@@ -1908,7 +1915,7 @@ dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHD
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_NewEplsar.ipynb to html
-    [NbConvertApp] Writing 4920922 bytes to Statistical_Model_NewEplsar.html
+    [NbConvertApp] Writing 4926172 bytes to Statistical_Model_NewEplsar.html
 
 
 
@@ -1931,7 +1938,7 @@ dfHDI[(dfHDI.isSignificant_NewEplsar != dfHDI.isSignificant_on_ConfoMap) | (dfHD
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_files
-    [NbConvertApp] Writing 41539 bytes to Statistical_Model_NewEplsar.md
+    [NbConvertApp] Writing 44425 bytes to Statistical_Model_NewEplsar.md
 
 
 
