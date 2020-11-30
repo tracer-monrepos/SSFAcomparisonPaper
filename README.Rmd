@@ -121,18 +121,18 @@ See the section [Contributions](#contributions) for details on [CONDUCT.md](/CON
 
 # How to run in your browser or download and run locally
 
-This research compendium has been developed using the statistical programming languages R and Pÿthon. To work with the compendium, you will need to install on your computer the [R software](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/), and [Python]()...
+This research compendium has been developed using the statistical programming languages R and Python. To work with the compendium, you will need to install on your computer the [R software](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) for the R analysis, and [Python 3.8.5](https://www.python.org/downloads/release/python-385/) and the packages listed in [requirements.txt](/Python_analysis/requirements.txt) for the Python analysis.
 
 The simplest way to explore the R analysis is to open an instance of RStudio in your browser using [binder](https://mybinder.org/), either by clicking on the "launch binder" badge at the top of this README, or by following [this link](https://mybinder.org/v2/gh/tracer-monrepos/`r repo`/master?urlpath=rstudio). Binder will have the compendium files ready to work with. Binder uses Docker images to ensure a consistent and reproducible computational environment. These Docker images can also be used locally.
 
 If you want to work locally with the R analysis, either from the ZIP archive or from cloning the GitHub repository to your computer:
 
--   open the ``r repo`.Rproj` file in RStudio; this takes some time the first time.  
--   run `renv::status()` and then `renv::restore()` to restore the state of your project from [renv.lock](/renv.lock). Make sure that the package `devtools` is installed to be able to install packages from source.
+- open the ``r repo`.Rproj` file in RStudio; this takes some time the first time.  
+- run `renv::status()` and then `renv::restore()` to restore the state of your project from [renv.lock](/renv.lock). Make sure that the package `devtools` is installed to be able to install packages from source.
 
 Using the package `renv` implies that installing, removing and updating packages is done within the project. In other words, all the packages that you install/update while in a project using `renv` will not be available in any other project. If you want to globally install/remove/update packages, make sure you close the project first.
 
-For the Python analysis, the easiest way is to use the Docker image hosted on [Zenodo]()...
+For the Python analysis, the easiest way is to use the Docker image hosted on [Zenodo](). The detailed instructions are given in [RUN_DOCKER.md](/Python_analysis/RUN_DOCKER.md).
 
 You can also download the compendium as [a ZIP archive](https://github.com/tracer-monrepos/`r repo`/archive/master.zip).  
 Alternatively, if you use GitHub, you can [fork and clone](https://happygitwithr.com/fork-and-clone.html) the repository to your account. See also the [CONTRIBUTING.md](CONTRIBUTING.md) file.

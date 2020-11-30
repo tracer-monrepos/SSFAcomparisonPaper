@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2020-11-30 15:14:43
+2020-11-30 15:39:20
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -217,11 +217,14 @@ See the section [Contributions](#contributions) for details on
 # How to run in your browser or download and run locally
 
 This research compendium has been developed using the statistical
-programming languages R and Pÿthon. To work with the compendium, you
+programming languages R and Python. To work with the compendium, you
 will need to install on your computer the [R
 software](https://cloud.r-project.org/) and [RStudio
-Desktop](https://rstudio.com/products/rstudio/download/), and
-[Python]()…
+Desktop](https://rstudio.com/products/rstudio/download/) for the R
+analysis, and [Python
+3.8.5](https://www.python.org/downloads/release/python-385/) and the
+packages listed in [requirements.txt](/Python_analysis/requirements.txt)
+for the Python analysis.
 
 The simplest way to explore the R analysis is to open an instance of
 RStudio in your browser using [binder](https://mybinder.org/), either by
@@ -249,7 +252,8 @@ available in any other project. If you want to globally
 install/remove/update packages, make sure you close the project first.
 
 For the Python analysis, the easiest way is to use the Docker image
-hosted on [Zenodo]()…
+hosted on [Zenodo](). The detailed instructions are given in
+[RUN\_DOCKER.md](/Python_analysis/RUN_DOCKER.md).
 
 You can also download the compendium as [a ZIP
 archive](https://github.com/tracer-monrepos/SSFAcomparisonPaper/archive/master.zip).  
