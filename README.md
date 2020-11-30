@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2020-11-30 15:09:05
+2020-11-30 15:14:43
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -21,7 +21,7 @@ Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-m
 
 # SSFAcomparisonPaper
 
-This repository contains the data and code for our open-access paper:
+This repository contains the data and code for the paper:
 
 > Calandra I, Bob K, Merceron G, Hildebrandt A, Schulz-Kornas E, Souron
 > A & Winkler DE (submitted). *A note of caution: MountainsMap® SSFA
@@ -144,7 +144,7 @@ The [code](/Python_analysis/code) folder contains the following files:
 The [derived\_data](/Python_analysis/derived_data) folder contains the
 following files, organized in sub-folders for each model:
 
--   [preprocessed.dat](/Python_analysis/derived_data/preprocessed.dat):
+-   [preprocessed.dat](/Python_analysis/derived_data/preprocessing/preprocessed.dat):
     pre-processed raw data, used as input to the models.  
 -   `*.pkl` files: Serialized model object and traces of the statistical
     models.  
@@ -194,9 +194,9 @@ Here are direct links to display the files directly in your browser:
 -   [SSFA\_2\_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_2_Summary-stats.html)  
 -   [SSFA\_3\_Plots.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_3_Plots.html)  
 -   [Preprocessing.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Preprocessing.html)
--   [Statistical\_Model\_ThreeFactor.html](/http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_ThreeFactor.html)  
--   [Statistical\_Model\_TwoFactor.html](/http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_TwoFactor.html)  
--   [Statistical\_Model\_NewEplsar.html](/http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_NewEplsar.html)
+-   [Statistical\_Model\_ThreeFactor.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_ThreeFactor.html)  
+-   [Statistical\_Model\_TwoFactor.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_TwoFactor.html)  
+-   [Statistical\_Model\_NewEplsar.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/Python_analysis/code/Statistical_Model_NewEplsar.html)
 
 The [renv.lock](/renv.lock) file is the lockfile describing the state of
 the R project’s library. It is associated to the [activation
@@ -208,7 +208,7 @@ The [.binder](/.binder) directory contains the Docker image for the R
 analysis, while [Dockerfile](/Dockerfile) contains the instruction to
 build the Docker image for the Python analysis. See section [How to run
 in your browser or download and run
-locally](#how-to-run-in-your-browser-or-download-and-run-locally)) for
+locally](#how-to-run-in-your-browser-or-download-and-run-locally) for
 details.
 
 See the section [Contributions](#contributions) for details on
