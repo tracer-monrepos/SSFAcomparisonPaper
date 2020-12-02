@@ -9,7 +9,7 @@ For most linux distributions docker is provided by the respective package manage
 ### Docker image
 Download the image `ssfacomparison.tar` from [Zenodo](https://doi.org/10.5281/zenodo.4302092) and save it to disk.
 
-### Instructions
+## Instructions
 #### Open the command line
 Open *Terminal.app* (macOS) or *Command Prompt* (Win10) or a shell (Linux).
 
