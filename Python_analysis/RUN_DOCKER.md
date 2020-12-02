@@ -3,11 +3,11 @@
 A working installation of the docker software package and the docker image is required.
 ### Software
 #### Win10 and macOS
-
+For Windows10 and macOS [docker desktop](https://docs.docker.com/desktop/) can be used.
 #### Linux 
-
+For most linux distributions docker is provided by the respective package manager.  
 ### Docker image
-Download the image `ssfacomparison.tar` from [Zenodo](#https://doi.org/10.5281/zenodo.4302092) and save it to disk.
+Download the image `ssfacomparison.tar` from [Zenodo](https://doi.org/10.5281/zenodo.4302092) and save it to disk.
 
 ### Instructions
 #### Open the command line
@@ -21,5 +21,5 @@ Run the image with `docker run -p 8888:8888 ssfa_comparison`.
 The option `-p` allows you to specify the port.
 
 #### Open the web interface
-Open the links in the output of the command above with your browser or go to localhost:8888, where you need to provide the token from the output of the command above.
+Open the links in the output of the command above with your browser or go to [localhost:8888](localhost:8888), where you need to provide the token from the output of the command above.
 Adopt the port if you have changed it above.
