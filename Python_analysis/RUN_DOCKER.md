@@ -21,5 +21,5 @@ Run the image with `docker run -p 8888:8888 ssfa_comparison`.
 The option `-p` allows you to specify the port.
 
 #### Open the web interface
-Open the links in the output of the command above with your browser or go to [localhost:8888](localhost:8888), where you need to provide the token from the output of the command above.
+Open the links in the output of the command above with your browser or go to [localhost:8888](http://localhost:8888), where you need to provide the token from the output of the command above.
 Adopt the port if you have changed it above.
