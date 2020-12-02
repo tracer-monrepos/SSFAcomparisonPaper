@@ -14,13 +14,16 @@ ADD R_analysis/derived_data/SSFA_all_data.xlsx /home/SSFA/R_analysis/derived_dat
 # Add analysis data 
 ADD Python_analysis/ /home/SSFA/Python_analysis
 
-# change dir
+# Change dir
 WORKDIR /home/SSFA
 
-#RUN apt-get install -y python3-pip
+# Install dot
+RUN apt-get update && apt-get install -y graphviz
+
+# Upgrade pip
 RUN pip3 -q install pip --upgrade
 
-# Install packages
+# Install python packages
 RUN pip3 install --user -r Python_analysis/requirements.txt
 
 # Start notebook
