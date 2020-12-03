@@ -17,16 +17,19 @@ Open the Docker Desktop software and let it run in the background.
 Open *Terminal.app* (macOS) or *PowerShell* (Win10) or a shell (Linux).
 
 #### Load image
-Run `docker image load --input path/ssfa_comparison.tar`. `path` is where the image is located on your disk. On macOS and Win10 instead of specifying the path to /ssfa_comparison.tar, it is possible to simply drag and drop into the Terminal/Command Prompt window.
+Run  
+`docker image load --input path/ssfa_comparison.tar`.  
+`path` is where the image is located on your disk. On macOS and Win10 instead of specifying the path to /ssfa_comparison.tar, it is possible to simply drag and drop into the Terminal/Command Prompt window.
 
 #### Run container
-Run the image with `docker run -p 8888:8888 ssfa_comparison`.
+Run the image with  
+`docker run -p 8888:8888 ssfa_comparison`.  
 The option `-p` allows you to specify the port.
 
 #### Open the web interface
 Open the links in the output of the command above with your browser or go to [localhost:8888](http://localhost:8888), where you need to provide the token from the output of the command above.
 Adapt the port if you have changed it above.
-### Further remarks
+## Further remarks
 #### Stop the container
 In order to stop the running container, you can try to press `crtl+c` on macOS and Linux. For Win10 use the stop function in Docker Desktop.
 
