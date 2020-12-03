@@ -17,13 +17,13 @@ Open the Docker Desktop software and let it run in the background.
 Open *Terminal.app* (macOS) or *PowerShell* (Win10) or a shell (Linux).
 
 #### Load image
-Run  
-`docker image load --input path/ssfa_comparison.tar`.  
+To load the image from disk, run  
+`docker image load --input path/ssfa_comparison.tar`  
 `path` is where the image is located on your disk. On macOS and Win10 instead of specifying the path to /ssfa_comparison.tar, it is possible to simply drag and drop into the Terminal/Command Prompt window.
 
 #### Run container
 Run the image with  
-`docker run -p 8888:8888 ssfa_comparison`.  
+`docker run -p 8888:8888 ssfa_comparison`  
 The option `-p` allows you to specify the port.
 
 #### Open the web interface
