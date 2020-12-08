@@ -184,6 +184,46 @@ ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out,
 ```
 
 
+## Zoom in for Smfc
+The previous plots for the parameter Smfc show some extreme values for the sheep and lithic datasets.  
+In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values.
+
+```{r}
+y_Smfc <- "Smfc"
+
+# Sheep dataset
+sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
+p_sheep_Smfc <- ggplot(sheep_plot_Smfc, 
+                       aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
+                geom_boxplot(outlier.shape = NA) + 
+                geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+                labs(x = NULL, y = y_Smfc) + 
+                ylim(0, 10) +
+                theme_classic()
+print(p_sheep_Smfc)
+ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+
+# Lithic dataset
+lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
+lith_plot_Smfc_5 <- filter(lith_plot_Smfc, value <= 5)
+p_lith_Smfc <- ggplot(lith_plot_Smfc_5, 
+                      aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
+               geom_boxplot(outlier.shape = NA) + 
+               geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+               facet_wrap(~Treatment, scale = "free_y") +
+               labs(x = NULL, y = y_Smfc) + 
+               theme_classic()
+print(p_lith_Smfc) 
+ggsave(plot = p_lith_Smfc, filename = "/SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+```
+
+These plots of Smfc do not show all data points.  
+For the sheep plot, `r length(which(sheep_plot_Smfc$value > 10))` points are outside of the y-range shown and are therefore excluded from the plot.  
+For the lithic plots, `r length(which(lith_plot_Smfc$value > 5))` points are outside of the y-ranges shown and are therefore excluded from the plots.   
+
+
 ---
 
 

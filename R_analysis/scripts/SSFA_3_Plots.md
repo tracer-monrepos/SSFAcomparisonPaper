@@ -1,7 +1,7 @@
 Plots of SSFA variables
 ================
 Ivan Calandra
-2020-11-19 13:40:54
+2020-12-08 11:13:07
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -15,6 +15,7 @@ Ivan Calandra
     -   [Guinea Pigs](#guinea-pigs)
     -   [Sheeps](#sheeps)
     -   [Lithics](#lithics)
+    -   [Zoom in for Smfc](#zoom-in-for-smfc)
 -   [Show plot files information](#show-plot-files-information)
 -   [sessionInfo() and RStudio
     version](#sessioninfo-and-rstudio-version)
@@ -269,6 +270,70 @@ ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out,
 
     Warning: Removed 30 rows containing missing values (geom_point).
 
+## Zoom in for Smfc
+
+The previous plots for the parameter Smfc show some extreme values for
+the sheep and lithic datasets.  
+In order to better visualize the differences in software, we need
+zoomed-in plots excluding these extreme values.
+
+``` r
+y_Smfc <- "Smfc"
+
+# Sheep dataset
+sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
+p_sheep_Smfc <- ggplot(sheep_plot_Smfc, 
+                       aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
+                geom_boxplot(outlier.shape = NA) + 
+                geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+                labs(x = NULL, y = y_Smfc) + 
+                ylim(0, 10) +
+                theme_classic()
+print(p_sheep_Smfc)
+```
+
+    Warning: Removed 7 rows containing non-finite values (stat_boxplot).
+
+    Warning: Removed 7 rows containing missing values (geom_point).
+
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+``` r
+ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+```
+
+    Warning: Removed 7 rows containing non-finite values (stat_boxplot).
+
+    Warning: Removed 7 rows containing missing values (geom_point).
+
+``` r
+# Lithic dataset
+lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
+lith_plot_Smfc_5 <- filter(lith_plot_Smfc, value <= 5)
+p_lith_Smfc <- ggplot(lith_plot_Smfc_5, 
+                      aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
+               geom_boxplot(outlier.shape = NA) + 
+               geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+               facet_wrap(~Treatment, scale = "free_y") +
+               labs(x = NULL, y = y_Smfc) + 
+               theme_classic()
+print(p_lith_Smfc) 
+```
+
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
+
+``` r
+ggsave(plot = p_lith_Smfc, filename = "/SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+```
+
+These plots of Smfc do not show all data points.  
+For the sheep plot, 7 points are outside of the y-range shown and are
+therefore excluded from the plot.  
+For the lithic plots, 10 points are outside of the y-ranges shown and
+are therefore excluded from the plots.
+
 ------------------------------------------------------------------------
 
 # Show plot files information
@@ -281,10 +346,12 @@ info_out <- list.files(path = dir_out, pattern = "\\.pdf$", full.names = TRUE) %
 The following plot(s) was (were) created and its (their) checksum(s) is
 (are):
 
-                         files                         checksum
-    1 SSFA_GuineaPigs_plot.pdf 8624e9648b1c8b8a151b1d0bb2b3e3e5
-    2    SSFA_Lithics_plot.pdf a099475ea8c28bc431f7e100f47d6985
-    3     SSFA_Sheeps_plot.pdf 8bc4dac20933e481a66aee836915d198
+                           files                         checksum
+    1   SSFA_GuineaPigs_plot.pdf 0de17edd7427655f1247ecd1f416a90a
+    2      SSFA_Lithics_plot.pdf 2dbe67ccc5db2f114e0ad4b5b19888bb
+    3 SSFA_Lithics_plot_Smfc.pdf ecc46e344097ab0e7af4c5f99ae4e93c
+    4       SSFA_Sheeps_plot.pdf 159556849029453b5b93c0a63965c78a
+    5  SSFA_Sheeps_plot_Smfc.pdf 6a42e8ec1284406c899bf06b5b2a6137
 
 ------------------------------------------------------------------------
 
