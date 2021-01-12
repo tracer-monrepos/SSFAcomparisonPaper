@@ -49,6 +49,7 @@ library(R.utils)
 library(ggplot2)
 library(tools)
 library(tidyverse)
+library(ggh4x)
 ```
 
 
@@ -85,7 +86,7 @@ x_var_GP <- x_var_sheep <- "Diet"
 x_var_lith <- "Before.after"
 
 # y-axis
-y_var <- c("Asfc", "Smfc", "epLsar", "NewEplsar", "HAsfc9", "HAsfc81", "R²")
+y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar")
 
 # colors
 grp_colors <- "Software"
@@ -108,6 +109,26 @@ y_var
 ---
 
 
+# Calculate y-scales
+The range of the y-scales on the plots should be the same for the guinea pig and sheep datasets. Lithics are not comparable at all so this dataset is plotted with appropriate y-scales for this dataset alone.
+
+```{r}
+# Select guinea pig and sheep datasets
+GP_sheep <- filter(all_data, Dataset %in% c("GuineaPigs", "Sheeps"))
+
+# Create a named empty list to store the ranges of each parameter
+yscales <- vector(mode = "list", length = length(y_var))
+names(yscales) <- y_var
+
+# Calculate the range of each parameter
+for (i in y_var) {
+  yscales[[i]] <- scale_y_continuous(limits = range(GP_sheep[[i]], na.rm = TRUE))
+}
+```
+
+---
+
+
 # Plot each set of the selected numeric variables
 ## Guinea Pigs
 ```{r}
@@ -122,14 +143,27 @@ GP_plot$name <- factor(GP_plot$name, levels = y_var)
 
 # Plot all variables at once using facet_wrap()
 p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+        
+        # Do not show outliers
         geom_boxplot(outlier.shape = NA) + 
+  
+        # Define jitter for points within boxplots
         geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+  
+        # Wrap around parameters
         facet_wrap(~name, scales = "free_y", ncol = 2) +
+  
+        # Use custom y-scales
+        facetted_pos_scales(y = yscales) +
+  
+        # Remove axis labels
         labs(x = NULL, y = NULL) + 
-        theme_classic()
 
-# Position the legend into an empty facet
-p_GP <- p_GP + theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+        # Add an empty level to the x-axis to have the same with as for the sheep dataset
+        scale_x_discrete(limits = c(unique(GP_plot$Diet), " ")) +
+
+        # Choose a light theme
+        theme_classic()
 
 # Print and save resulting plot
 print(p_GP)
@@ -151,9 +185,9 @@ p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = g
            geom_boxplot(outlier.shape = NA) + 
            geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
            facet_wrap(~name, scales = "free_y", ncol = 2) +
+           facetted_pos_scales(y = yscales) +
            labs(x = NULL, y = NULL) + 
-           theme_classic() +
-           theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+           theme_classic()
 print(p_sheep)
 ggsave(filename = "/SSFA_Sheeps_plot.pdf", path = dir_out, 
        device = "pdf", width = 210, height = 297, units = "mm")
@@ -185,20 +219,32 @@ ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out,
 
 
 ## Zoom in for Smfc
-The previous plots for the parameter Smfc show some extreme values for the sheep and lithic datasets.  
+The previous plots for the parameter Smfc show some extreme values.  
 In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values.
 
 ```{r}
 y_Smfc <- "Smfc"
 
+# Guinea pig dataset
+GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
+p_GP_Smfc <- ggplot(GP_plot_Smfc, 
+                    aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+             geom_boxplot(outlier.shape = NA) + 
+             geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+             labs(x = NULL, y = y_Smfc) + 
+             theme_classic()
+print(p_GP_Smfc)
+ggsave(plot = p_GP_Smfc, filename = "/SSFA_GuineaPigs_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
-p_sheep_Smfc <- ggplot(sheep_plot_Smfc, 
+sheep_plot_Smfc_10 <- filter(sheep_plot_Smfc, value <= 10)
+p_sheep_Smfc <- ggplot(sheep_plot_Smfc_10, 
                        aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
                 geom_boxplot(outlier.shape = NA) + 
                 geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
                 labs(x = NULL, y = y_Smfc) + 
-                ylim(0, 10) +
                 theme_classic()
 print(p_sheep_Smfc)
 ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 

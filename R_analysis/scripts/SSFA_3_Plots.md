@@ -1,7 +1,7 @@
 Plots of SSFA variables
 ================
 Ivan Calandra
-2020-12-08 11:13:07
+2021-01-12 14:30:49
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -10,6 +10,7 @@ Ivan Calandra
         file](#get-names-path-and-information-of-input-file)
     -   [Read in Rbin file](#read-in-rbin-file)
 -   [Define variables](#define-variables)
+-   [Calculate y-scales](#calculate-y-scales)
 -   [Plot each set of the selected numeric
     variables](#plot-each-set-of-the-selected-numeric-variables)
     -   [Guinea Pigs](#guinea-pigs)
@@ -47,6 +48,7 @@ library(R.utils)
 library(ggplot2)
 library(tools)
 library(tidyverse)
+library(ggh4x)
 ```
 
 ------------------------------------------------------------------------
@@ -99,7 +101,7 @@ x_var_GP <- x_var_sheep <- "Diet"
 x_var_lith <- "Before.after"
 
 # y-axis
-y_var <- c("Asfc", "Smfc", "epLsar", "NewEplsar", "HAsfc9", "HAsfc81", "R²")
+y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar")
 
 # colors
 grp_colors <- "Software"
@@ -144,8 +146,29 @@ facet_lith
 y_var
 ```
 
-    [1] "Asfc"      "Smfc"      "epLsar"    "NewEplsar" "HAsfc9"    "HAsfc81"  
-    [7] "R²"       
+    [1] "Asfc"      "Smfc"      "HAsfc9"    "HAsfc81"   "epLsar"    "NewEplsar"
+
+------------------------------------------------------------------------
+
+# Calculate y-scales
+
+The range of the y-scales on the plots should be the same for the guinea
+pig and sheep datasets. Lithics are not comparable at all so this
+dataset is plotted with appropriate y-scales for this dataset alone.
+
+``` r
+# Select guinea pig and sheep datasets
+GP_sheep <- filter(all_data, Dataset %in% c("GuineaPigs", "Sheeps"))
+
+# Create a named empty list to store the ranges of each parameter
+yscales <- vector(mode = "list", length = length(y_var))
+names(yscales) <- y_var
+
+# Calculate the range of each parameter
+for (i in y_var) {
+  yscales[[i]] <- scale_y_continuous(limits = range(GP_sheep[[i]], na.rm = TRUE))
+}
+```
 
 ------------------------------------------------------------------------
 
@@ -165,14 +188,27 @@ GP_plot$name <- factor(GP_plot$name, levels = y_var)
 
 # Plot all variables at once using facet_wrap()
 p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+        
+        # Do not show outliers
         geom_boxplot(outlier.shape = NA) + 
+  
+        # Define jitter for points within boxplots
         geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+  
+        # Wrap around parameters
         facet_wrap(~name, scales = "free_y", ncol = 2) +
+  
+        # Use custom y-scales
+        facetted_pos_scales(y = yscales) +
+  
+        # Remove axis labels
         labs(x = NULL, y = NULL) + 
-        theme_classic()
 
-# Position the legend into an empty facet
-p_GP <- p_GP + theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+        # Add an empty level to the x-axis to have the same with as for the sheep dataset
+        scale_x_discrete(limits = c(unique(GP_plot$Diet), " ")) +
+
+        # Choose a light theme
+        theme_classic()
 
 # Print and save resulting plot
 print(p_GP)
@@ -182,7 +218,7 @@ print(p_GP)
 
     Warning: Removed 70 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_GuineaPigs_plot.pdf", path = dir_out, 
@@ -208,9 +244,9 @@ p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = g
            geom_boxplot(outlier.shape = NA) + 
            geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
            facet_wrap(~name, scales = "free_y", ncol = 2) +
+           facetted_pos_scales(y = yscales) +
            labs(x = NULL, y = NULL) + 
-           theme_classic() +
-           theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+           theme_classic()
 print(p_sheep)
 ```
 
@@ -218,7 +254,7 @@ print(p_sheep)
 
     Warning: Removed 40 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_Sheeps_plot.pdf", path = dir_out, 
@@ -259,7 +295,7 @@ print(p_lith)
 
     Warning: Removed 30 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out, 
@@ -272,42 +308,48 @@ ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out,
 
 ## Zoom in for Smfc
 
-The previous plots for the parameter Smfc show some extreme values for
-the sheep and lithic datasets.  
+The previous plots for the parameter Smfc show some extreme values.  
 In order to better visualize the differences in software, we need
 zoomed-in plots excluding these extreme values.
 
 ``` r
 y_Smfc <- "Smfc"
 
+# Guinea pig dataset
+GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
+p_GP_Smfc <- ggplot(GP_plot_Smfc, 
+                    aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+             geom_boxplot(outlier.shape = NA) + 
+             geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+             labs(x = NULL, y = y_Smfc) + 
+             theme_classic()
+print(p_GP_Smfc)
+```
+
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+``` r
+ggsave(plot = p_GP_Smfc, filename = "/SSFA_GuineaPigs_plot_Smfc.pdf", path = dir_out, 
+       device = "pdf")
+
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
-p_sheep_Smfc <- ggplot(sheep_plot_Smfc, 
+sheep_plot_Smfc_10 <- filter(sheep_plot_Smfc, value <= 10)
+p_sheep_Smfc <- ggplot(sheep_plot_Smfc_10, 
                        aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
                 geom_boxplot(outlier.shape = NA) + 
                 geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
                 labs(x = NULL, y = y_Smfc) + 
-                ylim(0, 10) +
                 theme_classic()
 print(p_sheep_Smfc)
 ```
 
-    Warning: Removed 7 rows containing non-finite values (stat_boxplot).
-
-    Warning: Removed 7 rows containing missing values (geom_point).
-
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ``` r
 ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
        device = "pdf")
-```
 
-    Warning: Removed 7 rows containing non-finite values (stat_boxplot).
-
-    Warning: Removed 7 rows containing missing values (geom_point).
-
-``` r
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
 lith_plot_Smfc_5 <- filter(lith_plot_Smfc, value <= 5)
@@ -321,7 +363,7 @@ p_lith_Smfc <- ggplot(lith_plot_Smfc_5,
 print(p_lith_Smfc) 
 ```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
 ``` r
 ggsave(plot = p_lith_Smfc, filename = "/SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
@@ -346,12 +388,13 @@ info_out <- list.files(path = dir_out, pattern = "\\.pdf$", full.names = TRUE) %
 The following plot(s) was (were) created and its (their) checksum(s) is
 (are):
 
-                           files                         checksum
-    1   SSFA_GuineaPigs_plot.pdf 0de17edd7427655f1247ecd1f416a90a
-    2      SSFA_Lithics_plot.pdf 2dbe67ccc5db2f114e0ad4b5b19888bb
-    3 SSFA_Lithics_plot_Smfc.pdf ecc46e344097ab0e7af4c5f99ae4e93c
-    4       SSFA_Sheeps_plot.pdf 159556849029453b5b93c0a63965c78a
-    5  SSFA_Sheeps_plot_Smfc.pdf 6a42e8ec1284406c899bf06b5b2a6137
+                              files                         checksum
+    1      SSFA_GuineaPigs_plot.pdf 78081aca071b58a263fdd81000cccf12
+    2 SSFA_GuineaPigs_plot_Smfc.pdf cf803fef26a0125090308f1074f07d7d
+    3         SSFA_Lithics_plot.pdf 18b54391008193f7591e391f9ee2df2d
+    4    SSFA_Lithics_plot_Smfc.pdf 48703a66028f884b42f91d4bdd93945b
+    5          SSFA_Sheeps_plot.pdf ad8520a7c628e6c06a71cdd74cb6205a
+    6     SSFA_Sheeps_plot_Smfc.pdf 9e58978faf4027cf015aa504dfeaf043
 
 ------------------------------------------------------------------------
 
@@ -363,7 +406,7 @@ sessionInfo()
 
     R version 4.0.3 (2020-10-10)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 18362)
+    Running under: Windows 10 x64 (build 19041)
 
     Matrix products: default
 
@@ -373,13 +416,14 @@ sessionInfo()
     [5] LC_TIME=French_France.1252    
 
     attached base packages:
-    [1] tools     stats     graphics  grDevices utils     datasets  methods  
+    [1] tools     stats     graphics  grDevices datasets  utils     methods  
     [8] base     
 
     other attached packages:
-     [1] forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4      
-     [5] readr_1.4.0       tidyr_1.1.2       tibble_3.0.4      tidyverse_1.3.0  
-     [9] ggplot2_3.3.2     R.utils_2.10.1    R.oo_1.24.0       R.methodsS3_1.8.1
+     [1] ggh4x_0.1.0.9000  forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2      
+     [5] purrr_0.3.4       readr_1.4.0       tidyr_1.1.2       tibble_3.0.4     
+     [9] tidyverse_1.3.0   ggplot2_3.3.2     R.utils_2.10.1    R.oo_1.24.0      
+    [13] R.methodsS3_1.8.1
 
     loaded via a namespace (and not attached):
      [1] tidyselect_1.1.0  xfun_0.19         haven_2.3.1       colorspace_2.0-0 
@@ -388,13 +432,13 @@ sessionInfo()
     [13] DBI_1.1.0         dbplyr_2.0.0      modelr_0.1.8      readxl_1.3.1     
     [17] lifecycle_0.2.0   munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0 
     [21] rvest_0.3.6       evaluate_0.14     labeling_0.4.2    knitr_1.30       
-    [25] fansi_0.4.1       broom_0.7.2       Rcpp_1.0.5        backports_1.2.0  
-    [29] scales_1.1.1      jsonlite_1.7.1    farver_2.0.3      fs_1.5.0         
-    [33] hms_0.5.3         digest_0.6.27     stringi_1.5.3     grid_4.0.3       
-    [37] rprojroot_2.0.2   cli_2.1.0         magrittr_1.5      crayon_1.3.4     
-    [41] pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2        reprex_0.3.0     
-    [45] lubridate_1.7.9.2 assertthat_0.2.1  rmarkdown_2.5     httr_1.4.2       
-    [49] rstudioapi_0.13   R6_2.5.0          compiler_4.0.3   
+    [25] fansi_0.4.1       broom_0.7.2       Rcpp_1.0.5        renv_0.12.2      
+    [29] scales_1.1.1      backports_1.2.0   jsonlite_1.7.1    farver_2.0.3     
+    [33] fs_1.5.0          hms_0.5.3         digest_0.6.27     stringi_1.5.3    
+    [37] grid_4.0.3        rprojroot_2.0.2   cli_2.1.0         magrittr_1.5     
+    [41] crayon_1.3.4      pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2       
+    [45] reprex_0.3.0      lubridate_1.7.9.2 rstudioapi_0.13   assertthat_0.2.1 
+    [49] rmarkdown_2.5     httr_1.4.2        R6_2.5.0          compiler_4.0.3   
 
 RStudio version 1.4.1043.
 
