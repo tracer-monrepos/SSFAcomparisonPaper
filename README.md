@@ -19,6 +19,8 @@ Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-m
 
 <!-- badges: end -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439451.svg)](https://doi.org/10.5281/zenodo.4439451)
+
 # SSFAcomparisonPaper
 
 This repository contains the data and code for the paper:
