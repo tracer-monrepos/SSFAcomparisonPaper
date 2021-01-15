@@ -16,6 +16,8 @@ output:
 
 <!-- badges: end -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439451.svg)](https://doi.org/10.5281/zenodo.4439451)
+
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
 Title <- "A note of caution: MountainsMap® SSFA module produces different results than Toothfrax"
