@@ -401,6 +401,18 @@
       "Repository": "CRAN",
       "Hash": "0ebdadbb2b742cd230cb3ec7fdf5898a"
     },
+    "ggh4x": {
+      "Package": "ggh4x",
+      "Version": "0.1.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ggh4x",
+      "RemoteUsername": "teunbrand",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "c7b0aacfea0f56efedc15ceb96b7736128f2120e",
+      "Hash": "21dbf27a81d706d60846e938be005d87"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.3.3",
