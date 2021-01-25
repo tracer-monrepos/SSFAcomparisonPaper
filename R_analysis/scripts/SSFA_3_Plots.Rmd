@@ -144,11 +144,19 @@ GP_plot$name <- factor(GP_plot$name, levels = y_var)
 # Plot all variables at once using facet_wrap()
 p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
         
-        # Do not show outliers
-        geom_boxplot(outlier.shape = NA) + 
+        # Hide outliers (all points are shown with geom_point() below)
+        # The factor 3/4 ensures that the box have the same width than for the sheep dataset, 
+        # which has 4 levels, while the GP dataset has only 3
+        geom_boxplot(outlier.shape = NA, 
+                     position = position_dodge(preserve = "single", width = 0.9*3/4),
+                     width = 0.8*3/4) + 
   
         # Define jitter for points within boxplots
-        geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+        # The factor 3/4 ensures that the box have the same width than for the sheep dataset, 
+        # which has 4 levels, while the GP dataset has only 3
+        geom_point(position = position_jitterdodge(jitter.width = 0.3*3/4,
+                                                   dodge.width = 0.9*3/4,
+                                                   seed = 123)) +
   
         # Wrap around parameters
         facet_wrap(~name, scales = "free_y", ncol = 2) +
@@ -159,16 +167,16 @@ p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors
         # Remove axis labels
         labs(x = NULL, y = NULL) + 
 
-        # Add an empty level to the x-axis to have the same with as for the sheep dataset
-        scale_x_discrete(limits = c(unique(GP_plot$Diet), " ")) +
-
         # Choose a light theme
-        theme_classic()
+        theme_classic() +
+
+        # Move legend to bottom and remove legend title
+        theme(legend.position="bottom", legend.title = element_blank())
 
 # Print and save resulting plot
 print(p_GP)
 ggsave(filename = "/SSFA_GuineaPigs_plot.pdf", path = dir_out, 
-       device = "pdf", width = 210, height = 297, units = "mm")
+       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 Warnings are due to the missing values for Toothfrax - NewEplsar.
@@ -182,15 +190,20 @@ sheep <- filter(all_data, Dataset == "Sheeps")
 sheep_plot <- pivot_longer(sheep[c(x_var_sheep, grp_colors, y_var)], all_of(y_var))
 sheep_plot$name <- factor(sheep_plot$name, levels = y_var)
 p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
-           geom_boxplot(outlier.shape = NA) + 
-           geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+           geom_boxplot(outlier.shape = NA, 
+                        position = position_dodge(preserve = "single", width = 0.8),
+                        width = 0.8) + 
+           geom_point(position = position_jitterdodge(jitter.width = 0.3, 
+                                                      dodge.width = 0.9,
+                                                      seed = 123)) +
            facet_wrap(~name, scales = "free_y", ncol = 2) +
            facetted_pos_scales(y = yscales) +
            labs(x = NULL, y = NULL) + 
-           theme_classic()
+           theme_classic() +
+           theme(legend.position="bottom", legend.title = element_blank())
 print(p_sheep)
 ggsave(filename = "/SSFA_Sheeps_plot.pdf", path = dir_out, 
-       device = "pdf", width = 210, height = 297, units = "mm")
+       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 
@@ -207,14 +220,19 @@ lith <- filter(all_data, Dataset == "Lithics")
 lith_plot <- pivot_longer(lith[c(x_var_lith, grp_colors, facet_lith, y_var)], all_of(y_var))
 lith_plot$name <- factor(lith_plot$name, levels = y_var)
 p_lith <- ggplot(lith_plot, aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
-          geom_boxplot(outlier.shape = NA) + 
-          geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
+          geom_boxplot(outlier.shape = NA,
+                       position = position_dodge(preserve = "single", width = 0.8),
+                       width = 0.7) + 
+          geom_point(position = position_jitterdodge(jitter.width = 0.3, 
+                                                     dodge.width = 0.8,
+                                                     seed = 123)) +
           facet_grid(as.formula(paste0("name~", facet_lith)), scales = "free_y") +
           labs(x = NULL, y = NULL) + 
-          theme_classic()
+          theme_classic() +
+          theme(legend.position="bottom", legend.title = element_blank())
 print(p_lith)
 ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out, 
-       device = "pdf", width = 210, height = 297, units = "mm")
+       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 

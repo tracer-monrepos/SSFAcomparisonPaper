@@ -111,6 +111,12 @@ colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>%
                           gsub("^([A-Za-z0-9]+\\.)+", "", x = .) 
 ```
 
+### Edit column "Name"
+```{r}
+# Delete everything from the beginning to " --- "
+confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
+```
+
 ### Extract units
 ```{r}
 confoGP_units <- unlist(confoGP[3, confoGP_keep_col[-1]]) # Extract unit line for considered columns
@@ -121,6 +127,12 @@ names(confoGP_units) <- colnames(confoGP_keep)[-1]        # Get names associated
 ```{r}
 confoGP_keep <- type_convert(confoGP_keep) %>% 
                 mutate(Software = "ConfoMap")
+```
+
+### Edit column "Name"
+```{r}
+# Delete everything from the beginning to " --- "
+confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
 ```
 
 
@@ -175,9 +187,9 @@ GP_keep <- merge(confoGP_keep, toothfraxGP_keep, all = TRUE)
 
 ### Add column about diet
 ```{r}
-GP_keep[grep("2CC4", GP_keep[["Name"]]), "Diet"] <- "Dry Lucerne"
-GP_keep[grep("2CC5", GP_keep[["Name"]]), "Diet"] <- "Dry Grass"
-GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry Bamboo"
+GP_keep[grep("2CC4", GP_keep[["Name"]]), "Diet"] <- "Dry lucerne"
+GP_keep[grep("2CC5", GP_keep[["Name"]]), "Diet"] <- "Dry grass"
+GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry bamboo"
 ```
 
 ### Add column about dataset and re-order columns
@@ -242,6 +254,12 @@ confoSheep_keep <- type_convert(confoSheep_keep) %>%
                    mutate(Software = "ConfoMap")
 ```
 
+### Edit column "Name"
+```{r}
+# Delete everything from the beginning to " --- "
+confoSheep_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoSheep_keep[["Name"]])
+```
+
 
 ## Toothfrax
 ### Read in data
@@ -286,9 +304,9 @@ sheep_keep <- merge(confoSheep_keep, toothfraxSheep_keep, all = TRUE)
 ### Add column about diet
 ```{r}
 sheep_keep[grep("L5", sheep_keep[["Name"]]), "Diet"] <- "Clover"
-sheep_keep[grep("L6", sheep_keep[["Name"]]), "Diet"] <- "Clover+Dust"
+sheep_keep[grep("L6", sheep_keep[["Name"]]), "Diet"] <- "Clover+dust"
 sheep_keep[grep("L7", sheep_keep[["Name"]]), "Diet"] <- "Grass"
-sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+Dust"
+sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+dust"
 ```
 
 ### Add column about dataset and re-order columns
@@ -352,6 +370,12 @@ confoLith_keep <- type_convert(confoLith_keep) %>%
                   mutate(Software = "ConfoMap")
 ```
 
+### Edit column "Name"
+```{r}
+# Delete everything from the beginning to " --- "
+confoLith_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoLith_keep[["Name"]])
+```
+
 
 ## Toothfrax
 ### Read in data
@@ -409,6 +433,8 @@ lith_keep[grep("FLT3-8|QTZ3-2",   lith_keep[["Name"]]), "Treatment"] <- "Control
 lith_keep[grep("FLT3-9|QTZ3-5",   lith_keep[["Name"]]), "Treatment"] <- "BrushNoDirt"
 lith_keep[grep("FLT3-13|QTZ3-3",  lith_keep[["Name"]]), "Treatment"] <- "RubDirt"
 lith_keep[grep("FLT3-10|QTZ3-13", lith_keep[["Name"]]), "Treatment"] <- "BrushDirt"
+lith_keep[["Treatment"]] <- factor(lith_keep[["Treatment"]], 
+                                   levels = c("Control", "RubDirt", "BrushNoDirt", "BrushDirt"))
 ```
 
 ### Add column about dataset and re-order columns
@@ -416,7 +442,6 @@ lith_keep[grep("FLT3-10|QTZ3-13", lith_keep[["Name"]]), "Treatment"] <- "BrushDi
 lith_final <- lith_keep %>% 
               mutate(Dataset = "Lithics") %>% 
               select(Dataset, Name, Treatment, Before.after, Software, everything())
-              
 ```
 
 ### Add units
@@ -537,7 +562,7 @@ data.frame(files = basename(names(info_out)), checksum = info_out, row.names = N
 sessionInfo()
 ```
 
-RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
 
 
 ---

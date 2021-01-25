@@ -1,7 +1,7 @@
 Import SSFA datasets
 ================
 Ivan Calandra
-2020-11-19 13:37:11
+2021-01-25 17:17:57
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -13,14 +13,16 @@ Ivan Calandra
         -   [Exclude repeated rows and select
             columns](#exclude-repeated-rows-and-select-columns)
         -   [Add headers](#add-headers)
+        -   [Edit column “Name”](#edit-column-name)
         -   [Extract units](#extract-units)
         -   [Convert to numeric and add column about
             software](#convert-to-numeric-and-add-column-about-software)
+        -   [Edit column “Name”](#edit-column-name-1)
     -   [Toothfrax](#toothfrax)
         -   [Read in data](#read-in-data-1)
         -   [Select columns, edit headers and add column about
             software](#select-columns-edit-headers-and-add-column-about-software)
-        -   [Edit column “Name”](#edit-column-name)
+        -   [Edit column “Name”](#edit-column-name-2)
         -   [Get units](#get-units)
     -   [Merge datasets](#merge-datasets)
         -   [Merge](#merge)
@@ -38,11 +40,12 @@ Ivan Calandra
         -   [Extract units](#extract-units-1)
         -   [Convert to numeric and add column about
             software](#convert-to-numeric-and-add-column-about-software-1)
+        -   [Edit column “Name”](#edit-column-name-3)
     -   [Toothfrax](#toothfrax-1)
         -   [Read in data](#read-in-data-3)
         -   [Select columns, edit headers and add column about
             software](#select-columns-edit-headers-and-add-column-about-software-1)
-        -   [Edit column “Name”](#edit-column-name-1)
+        -   [Edit column “Name”](#edit-column-name-4)
         -   [Get units](#get-units-1)
     -   [Merge datasets](#merge-datasets-1)
         -   [Merge](#merge-1)
@@ -60,11 +63,12 @@ Ivan Calandra
         -   [Extract units](#extract-units-2)
         -   [Convert to numeric and add column about
             software](#convert-to-numeric-and-add-column-about-software-2)
+        -   [Edit column “Name”](#edit-column-name-5)
     -   [Toothfrax](#toothfrax-2)
         -   [Read in data](#read-in-data-5)
         -   [Select columns, edit headers and add column about
             software](#select-columns-edit-headers-and-add-column-about-software-2)
-        -   [Edit column “Name”](#edit-column-name-2)
+        -   [Edit column “Name”](#edit-column-name-6)
         -   [Get units](#get-units-2)
     -   [Merge datasets](#merge-datasets-2)
         -   [Merge](#merge-2)
@@ -131,9 +135,9 @@ info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE) %>%
 The checksum (MD5 hashes) of the imported files are:
 
                                        files                         checksum
-    1 SSFA-ConfoMap_GuineaPigs_NMPfilled.csv 110b0de85f4b3999c927193bb4cf2209
-    2    SSFA-ConfoMap_Lithics_NMPfilled.csv 51faaaec543ed4c0642b3f81b8fbfe7b
-    3     SSFA-ConfoMap_Sheeps_NMPfilled.csv 23542e3e9aad38f9217f53b2306e788f
+    1 SSFA-ConfoMap_GuineaPigs_NMPfilled.csv bb465ffcd50b3c2038e2c29eb403acfe
+    2    SSFA-ConfoMap_Lithics_NMPfilled.csv cd8819fa914a7f2a0a25d7a2b86913b9
+    3     SSFA-ConfoMap_Sheeps_NMPfilled.csv e010ebe147f86c23a2ccd8fe9f507d3c
     4         SSFA-Toothfrax_GuineaPigs.xlsx 59684695c021e541699ea075a8c597a3
     5            SSFA-Toothfrax_Lithics.xlsx 5f9c641b05212b7565e79578d3a4eeac
     6             SSFA-Toothfrax_Sheeps.xlsx 90be4f96fe6178125f579b5b4993bdd5
@@ -180,6 +184,13 @@ colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>%
                           gsub("^([A-Za-z0-9]+\\.)+", "", x = .) 
 ```
 
+### Edit column “Name”
+
+``` r
+# Delete everything from the beginning to " --- "
+confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
+```
+
 ### Extract units
 
 ``` r
@@ -192,6 +203,13 @@ names(confoGP_units) <- colnames(confoGP_keep)[-1]        # Get names associated
 ``` r
 confoGP_keep <- type_convert(confoGP_keep) %>% 
                 mutate(Software = "ConfoMap")
+```
+
+### Edit column “Name”
+
+``` r
+# Delete everything from the beginning to " --- "
+confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
 ```
 
 ## Toothfrax
@@ -252,9 +270,9 @@ GP_keep <- merge(confoGP_keep, toothfraxGP_keep, all = TRUE)
 ### Add column about diet
 
 ``` r
-GP_keep[grep("2CC4", GP_keep[["Name"]]), "Diet"] <- "Dry Lucerne"
-GP_keep[grep("2CC5", GP_keep[["Name"]]), "Diet"] <- "Dry Grass"
-GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry Bamboo"
+GP_keep[grep("2CC4", GP_keep[["Name"]]), "Diet"] <- "Dry lucerne"
+GP_keep[grep("2CC5", GP_keep[["Name"]]), "Diet"] <- "Dry grass"
+GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry bamboo"
 ```
 
 ### Add column about dataset and re-order columns
@@ -280,34 +298,34 @@ str(GP_final)
     'data.frame':   140 obs. of  11 variables:
      $ Dataset  : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
      $ Name     : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
-     $ Diet     : chr  "Dry Lucerne" "Dry Lucerne" "Dry Lucerne" "Dry Lucerne" ...
+     $ Diet     : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
      $ Software : chr  "Toothfrax" "ConfoMap" "Toothfrax" "ConfoMap" ...
-     $ epLsar   : num  0.00147 0.00196 0.00269 0.00366 0.0028 ...
-     $ R²       : num  0.999 0.998 1 0.999 0.999 ...
-     $ Asfc     : num  12.9 14.3 12 12.9 12.7 ...
-     $ Smfc     : num  0.119 0.415 0.119 0.441 0.119 ...
-     $ HAsfc9   : num  0.182 0.164 0.159 0.171 0.117 ...
-     $ HAsfc81  : num  0.337 0.368 0.382 0.417 0.313 ...
-     $ NewEplsar: num  NA 0.0184 NA 0.0189 NA ...
+     $ epLsar   : num  0.00147 0.00207 0.00269 0.00381 0.0028 ...
+     $ R²       : num  0.999 0.998 1 0.998 0.999 ...
+     $ Asfc     : num  12.9 10.8 12 10 12.7 ...
+     $ Smfc     : num  0.119 0.448 0.119 0.591 0.119 ...
+     $ HAsfc9   : num  0.182 0.181 0.159 0.19 0.117 ...
+     $ HAsfc81  : num  0.337 0.365 0.382 0.407 0.313 ...
+     $ NewEplsar: num  NA 0.0185 NA 0.019 NA ...
 
 ``` r
 head(GP_final)
 ```
 
          Dataset                           Name        Diet  Software      epLsar
-    1 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Dry Lucerne Toothfrax 0.001471000
-    2 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Dry Lucerne  ConfoMap 0.001960011
-    3 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Dry Lucerne Toothfrax 0.002693000
-    4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Dry Lucerne  ConfoMap 0.003662312
-    5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry Lucerne Toothfrax 0.002797000
-    6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry Lucerne  ConfoMap 0.003140386
+    1 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Dry lucerne Toothfrax 0.001471000
+    2 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Dry lucerne  ConfoMap 0.002067361
+    3 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Dry lucerne Toothfrax 0.002693000
+    4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Dry lucerne  ConfoMap 0.003812140
+    5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry lucerne Toothfrax 0.002797000
+    6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry lucerne  ConfoMap 0.003270521
              R²     Asfc      Smfc    HAsfc9   HAsfc81  NewEplsar
     1 0.9993430 12.92579 0.1192190 0.1819939 0.3368939         NA
-    2 0.9983703 14.29323 0.4153938 0.1644618 0.3681239 0.01842431
+    2 0.9980105 10.78159 0.4484673 0.1806016 0.3645721 0.01846373
     3 0.9995140 11.99982 0.1192190 0.1586045 0.3818615         NA
-    4 0.9991123 12.90555 0.4408179 0.1713614 0.4172341 0.01888866
+    4 0.9984253 10.03406 0.5913959 0.1895997 0.4065172 0.01896205
     5 0.9992400 12.71147 0.1192190 0.1170325 0.3130522         NA
-    6 0.9989348 13.66607 0.4408179 0.1305287 0.3521687 0.01870314
+    6 0.9984926 10.49785 0.5913959 0.1137789 0.3633147 0.01875637
 
 ------------------------------------------------------------------------
 
@@ -357,6 +375,13 @@ names(confoSheep_units) <- colnames(confoSheep_keep)[-1]
 ``` r
 confoSheep_keep <- type_convert(confoSheep_keep) %>% 
                    mutate(Software = "ConfoMap")
+```
+
+### Edit column “Name”
+
+``` r
+# Delete everything from the beginning to " --- "
+confoSheep_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoSheep_keep[["Name"]])
 ```
 
 ## Toothfrax
@@ -409,9 +434,9 @@ sheep_keep <- merge(confoSheep_keep, toothfraxSheep_keep, all = TRUE)
 
 ``` r
 sheep_keep[grep("L5", sheep_keep[["Name"]]), "Diet"] <- "Clover"
-sheep_keep[grep("L6", sheep_keep[["Name"]]), "Diet"] <- "Clover+Dust"
+sheep_keep[grep("L6", sheep_keep[["Name"]]), "Diet"] <- "Clover+dust"
 sheep_keep[grep("L7", sheep_keep[["Name"]]), "Diet"] <- "Grass"
-sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+Dust"
+sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+dust"
 ```
 
 ### Add column about dataset and re-order columns
@@ -440,31 +465,31 @@ str(sheep_final)
      $ Diet     : chr  "Clover" "Clover" "Clover" "Clover" ...
      $ Software : chr  "Toothfrax" "ConfoMap" "ConfoMap" "Toothfrax" ...
      $ epLsar   : num  0.00192 0.0025 0.00121 0.00142 0.00243 ...
-     $ R²       : num  1 0.997 0.999 1 1 ...
-     $ Asfc     : num  9.56 9.31 2.15 2.23 5.88 ...
-     $ Smfc     : num  2.7 24.16 4.11 1.2 1.2 ...
-     $ HAsfc9   : num  1.33 1.328 0.236 0.248 0.483 ...
-     $ HAsfc81  : num  2.057 2.143 0.726 0.736 1.845 ...
+     $ R²       : num  1 0.999 0.999 1 1 ...
+     $ Asfc     : num  9.56 10.57 2.24 2.23 5.88 ...
+     $ Smfc     : num  2.7 13.18 2.47 1.2 1.2 ...
+     $ HAsfc9   : num  1.33 1.393 0.279 0.248 0.483 ...
+     $ HAsfc81  : num  2.057 2.247 0.771 0.736 1.845 ...
      $ NewEplsar: num  NA 0.0187 0.0172 NA NA ...
 
 ``` r
 head(sheep_final)
 ```
 
-      Dataset                  Name   Diet  Software      epLsar        R²     Asfc
-    1  Sheeps L5_Ovis_10098_lm2_sin Clover Toothfrax 0.001922000 0.9995440 9.562123
-    2  Sheeps L5_Ovis_10098_lm2_sin Clover  ConfoMap 0.002497369 0.9967923 9.308211
-    3  Sheeps L5_Ovis_11723_lm2_sin Clover  ConfoMap 0.001207926 0.9989390 2.150905
-    4  Sheeps L5_Ovis_11723_lm2_sin Clover Toothfrax 0.001416000 0.9998590 2.230088
-    5  Sheeps L5_Ovis_20939_lm2_sin Clover Toothfrax 0.002431000 0.9996860 5.877414
-    6  Sheeps L5_Ovis_20939_lm2_sin Clover  ConfoMap 0.002741181 0.9981801 5.621359
-           Smfc    HAsfc9   HAsfc81  NewEplsar
-    1  2.695842 1.3296145 2.0574152         NA
-    2 24.155831 1.3283692 2.1434048 0.01865613
-    3  4.106717 0.2358310 0.7257756 0.01715131
-    4  1.198152 0.2476403 0.7357331         NA
-    5  1.198152 0.4831631 1.8453318         NA
-    6  9.251129 0.5678206 1.9202353 0.01843511
+      Dataset                  Name   Diet  Software      epLsar        R²
+    1  Sheeps L5_Ovis_10098_lm2_sin Clover Toothfrax 0.001922000 0.9995440
+    2  Sheeps L5_Ovis_10098_lm2_sin Clover  ConfoMap 0.002497369 0.9987851
+    3  Sheeps L5_Ovis_11723_lm2_sin Clover  ConfoMap 0.001207926 0.9989063
+    4  Sheeps L5_Ovis_11723_lm2_sin Clover Toothfrax 0.001416000 0.9998590
+    5  Sheeps L5_Ovis_20939_lm2_sin Clover Toothfrax 0.002431000 0.9996860
+    6  Sheeps L5_Ovis_20939_lm2_sin Clover  ConfoMap 0.002741181 0.9982508
+           Asfc      Smfc    HAsfc9   HAsfc81  NewEplsar
+    1  9.562123  2.695842 1.3296145 2.0574152         NA
+    2 10.571084 13.181233 1.3929106 2.2468777 0.01865613
+    3  2.236940  2.471172 0.2792240 0.7705203 0.01715131
+    4  2.230088  1.198152 0.2476403 0.7357331         NA
+    5  5.877414  1.198152 0.4831631 1.8453318         NA
+    6  6.517426  2.304672 0.5974030 2.2430692 0.01843511
 
 ------------------------------------------------------------------------
 
@@ -513,6 +538,13 @@ names(confoLith_units) <- colnames(confoLith_keep)[-1]
 ``` r
 confoLith_keep <- type_convert(confoLith_keep) %>% 
                   mutate(Software = "ConfoMap")
+```
+
+### Edit column “Name”
+
+``` r
+# Delete everything from the beginning to " --- "
+confoLith_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoLith_keep[["Name"]])
 ```
 
 ## Toothfrax
@@ -579,6 +611,8 @@ lith_keep[grep("FLT3-8|QTZ3-2",   lith_keep[["Name"]]), "Treatment"] <- "Control
 lith_keep[grep("FLT3-9|QTZ3-5",   lith_keep[["Name"]]), "Treatment"] <- "BrushNoDirt"
 lith_keep[grep("FLT3-13|QTZ3-3",  lith_keep[["Name"]]), "Treatment"] <- "RubDirt"
 lith_keep[grep("FLT3-10|QTZ3-13", lith_keep[["Name"]]), "Treatment"] <- "BrushDirt"
+lith_keep[["Treatment"]] <- factor(lith_keep[["Treatment"]], 
+                                   levels = c("Control", "RubDirt", "BrushNoDirt", "BrushDirt"))
 ```
 
 ### Add column about dataset and re-order columns
@@ -604,15 +638,15 @@ str(lith_final)
     'data.frame':   60 obs. of  12 variables:
      $ Dataset     : chr  "Lithics" "Lithics" "Lithics" "Lithics" ...
      $ Name        : chr  "FLT3-10_LSM_50x-0.95_20190328_Area1_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area1_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area2_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area2_Topo" ...
-     $ Treatment   : chr  "BrushDirt" "BrushDirt" "BrushDirt" "BrushDirt" ...
+     $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: 4 4 4 4 4 4 4 4 2 2 ...
      $ Before.after: Factor w/ 2 levels "Before","After": 1 1 1 1 2 2 2 2 1 1 ...
      $ Software    : chr  "ConfoMap" "Toothfrax" "Toothfrax" "ConfoMap" ...
-     $ epLsar      : num  0.00109 0.00133 0.0015 0.00169 0.00144 ...
-     $ R²          : num  0.998 0.999 0.999 0.998 0.998 ...
-     $ Asfc        : num  42.5 42.5 39.3 38.9 45.4 ...
-     $ Smfc        : num  0.0983 0.0145 0.0145 0.0983 0.0983 ...
-     $ HAsfc9      : num  0.1155 0.0846 0.1142 0.1448 0.1066 ...
-     $ HAsfc81     : num  0.182 0.148 0.161 0.192 0.159 ...
+     $ epLsar      : num  0.00112 0.00133 0.0015 0.00175 0.0015 ...
+     $ R²          : num  0.965 0.999 0.999 0.965 0.964 ...
+     $ Asfc        : num  33.3 42.5 39.3 30.3 35.4 ...
+     $ Smfc        : num  0.1488 0.0145 0.0145 0.1488 0.1488 ...
+     $ HAsfc9      : num  0.1321 0.0846 0.1142 0.1481 0.1188 ...
+     $ HAsfc81     : num  0.228 0.148 0.161 0.241 0.201 ...
      $ NewEplsar   : num  0.0172 NA NA 0.0174 0.0171 ...
 
 ``` r
@@ -626,19 +660,19 @@ head(lith_final)
     4 Lithics  FLT3-10_LSM_50x-0.95_20190328_Area2_Topo BrushDirt       Before
     5 Lithics FLT3-10_LSM2_50x-0.95_20190731_Area1_Topo BrushDirt        After
     6 Lithics FLT3-10_LSM2_50x-0.95_20190731_Area1_Topo BrushDirt        After
-       Software      epLsar        R²     Asfc       Smfc     HAsfc9   HAsfc81
-    1  ConfoMap 0.001086565 0.9983105 42.47754 0.09827368 0.11549472 0.1817285
-    2 Toothfrax 0.001330000 0.9993130 42.52394 0.01451400 0.08457134 0.1481977
-    3 Toothfrax 0.001502000 0.9994600 39.32644 0.01451400 0.11421294 0.1611069
-    4  ConfoMap 0.001686946 0.9981817 38.86831 0.09827368 0.14477286 0.1915275
-    5  ConfoMap 0.001438974 0.9982742 45.35370 0.09827368 0.10656510 0.1592675
-    6 Toothfrax 0.001594000 0.9994940 45.69748 0.01451400 0.07897466 0.1266690
+       Software      epLsar        R²     Asfc      Smfc     HAsfc9   HAsfc81
+    1  ConfoMap 0.001123824 0.9649402 33.25589 0.1487768 0.13206142 0.2277338
+    2 Toothfrax 0.001330000 0.9993130 42.52394 0.0145140 0.08457134 0.1481977
+    3 Toothfrax 0.001502000 0.9994600 39.32644 0.0145140 0.11421294 0.1611069
+    4  ConfoMap 0.001747800 0.9645403 30.30263 0.1487768 0.14806842 0.2414522
+    5  ConfoMap 0.001501164 0.9640799 35.35793 0.1487768 0.11882219 0.2011162
+    6 Toothfrax 0.001594000 0.9994940 45.69748 0.0145140 0.07897466 0.1266690
        NewEplsar
-    1 0.01720891
+    1 0.01719387
     2         NA
     3         NA
-    4 0.01737361
-    5 0.01708277
+    4 0.01737158
+    5 0.01706059
     6         NA
 
 ------------------------------------------------------------------------
@@ -705,16 +739,16 @@ str(all_data)
      $ Dataset     : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
      $ Name        : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
      $ Software    : chr  "ConfoMap" "Toothfrax" "ConfoMap" "Toothfrax" ...
-     $ Diet        : chr  "Dry Lucerne" "Dry Lucerne" "Dry Lucerne" "Dry Lucerne" ...
-     $ Treatment   : chr  NA NA NA NA ...
+     $ Diet        : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
+     $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
      $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
-     $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
-     $ R²          : num  0.998 0.999 0.999 1 0.999 ...
-     $ Asfc        : num  14.3 12.9 12.9 12 13.7 ...
-     $ Smfc        : num  0.415 0.119 0.441 0.119 0.441 ...
-     $ HAsfc9      : num  0.164 0.182 0.171 0.159 0.131 ...
-     $ HAsfc81     : num  0.368 0.337 0.417 0.382 0.352 ...
-     $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
+     $ epLsar      : num  0.00207 0.00147 0.00381 0.00269 0.00327 ...
+     $ R²          : num  0.998 0.999 0.998 1 0.998 ...
+     $ Asfc        : num  10.8 12.9 10 12 10.5 ...
+     $ Smfc        : num  0.448 0.119 0.591 0.119 0.591 ...
+     $ HAsfc9      : num  0.181 0.182 0.19 0.159 0.114 ...
+     $ HAsfc81     : num  0.365 0.337 0.407 0.382 0.363 ...
+     $ NewEplsar   : num  0.0185 NA 0.019 NA 0.0188 ...
      - attr(*, "comment")= Named chr [1:8] "<no unit>" "<no unit>" "<no unit>" "<no unit>" ...
       ..- attr(*, "names")= chr [1:8] "epLsar" "NewEplsar" "R²" "Asfc" ...
 
@@ -723,25 +757,25 @@ head(all_data)
 ```
 
          Dataset                           Name  Software        Diet Treatment
-    1 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1  ConfoMap Dry Lucerne      <NA>
-    2 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Toothfrax Dry Lucerne      <NA>
-    3 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2  ConfoMap Dry Lucerne      <NA>
-    4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Toothfrax Dry Lucerne      <NA>
-    5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3  ConfoMap Dry Lucerne      <NA>
-    6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Toothfrax Dry Lucerne      <NA>
+    1 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1  ConfoMap Dry lucerne      <NA>
+    2 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_1 Toothfrax Dry lucerne      <NA>
+    3 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2  ConfoMap Dry lucerne      <NA>
+    4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Toothfrax Dry lucerne      <NA>
+    5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3  ConfoMap Dry lucerne      <NA>
+    6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Toothfrax Dry lucerne      <NA>
       Before.after      epLsar        R²     Asfc      Smfc    HAsfc9   HAsfc81
-    1         <NA> 0.001960011 0.9983703 14.29323 0.4153938 0.1644618 0.3681239
+    1         <NA> 0.002067361 0.9980105 10.78159 0.4484673 0.1806016 0.3645721
     2         <NA> 0.001471000 0.9993430 12.92579 0.1192190 0.1819939 0.3368939
-    3         <NA> 0.003662312 0.9991123 12.90555 0.4408179 0.1713614 0.4172341
+    3         <NA> 0.003812140 0.9984253 10.03406 0.5913959 0.1895997 0.4065172
     4         <NA> 0.002693000 0.9995140 11.99982 0.1192190 0.1586045 0.3818615
-    5         <NA> 0.003140386 0.9989348 13.66607 0.4408179 0.1305287 0.3521687
+    5         <NA> 0.003270521 0.9984926 10.49785 0.5913959 0.1137789 0.3633147
     6         <NA> 0.002797000 0.9992400 12.71147 0.1192190 0.1170325 0.3130522
        NewEplsar
-    1 0.01842431
+    1 0.01846373
     2         NA
-    3 0.01888866
+    3 0.01896205
     4         NA
-    5 0.01870314
+    5 0.01875637
     6         NA
 
 ------------------------------------------------------------------------
@@ -780,8 +814,8 @@ info_out <- c(all_xlsx, all_rbin) %>%
 The checksum (MD5 hashes) of the exported files are:
 
                    files                         checksum
-    1 SSFA_all_data.xlsx d0ccdc8387aac3732551c8a4d659a7bd
-    2 SSFA_all_data.Rbin 55465bdc7308d20cdff2d3d1bdeea63d
+    1 SSFA_all_data.xlsx 2de6b4d049705d5b17286ae5fde91f59
+    2 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a
 
 ------------------------------------------------------------------------
 
@@ -793,41 +827,43 @@ sessionInfo()
 
     R version 4.0.3 (2020-10-10)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 18362)
+    Running under: Windows 10 x64 (build 19041)
 
     Matrix products: default
 
     locale:
-    [1] LC_COLLATE=French_France.1252  LC_CTYPE=French_France.1252   
-    [3] LC_MONETARY=French_France.1252 LC_NUMERIC=C                  
-    [5] LC_TIME=French_France.1252    
+    [1] LC_COLLATE=English_United Kingdom.1252 
+    [2] LC_CTYPE=English_United Kingdom.1252   
+    [3] LC_MONETARY=English_United Kingdom.1252
+    [4] LC_NUMERIC=C                           
+    [5] LC_TIME=English_United Kingdom.1252    
 
     attached base packages:
-    [1] tools     stats     graphics  grDevices utils     datasets  methods  
+    [1] tools     stats     graphics  grDevices datasets  utils     methods  
     [8] base     
 
     other attached packages:
-     [1] forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4      
-     [5] readr_1.4.0       tidyr_1.1.2       tibble_3.0.4      ggplot2_3.3.2    
+     [1] forcats_0.5.0     stringr_1.4.0     dplyr_1.0.3       purrr_0.3.4      
+     [5] readr_1.4.0       tidyr_1.1.2       tibble_3.0.5      ggplot2_3.3.3    
      [9] tidyverse_1.3.0   R.utils_2.10.1    R.oo_1.24.0       R.methodsS3_1.8.1
     [13] openxlsx_4.2.3   
 
     loaded via a namespace (and not attached):
-     [1] tidyselect_1.1.0  xfun_0.19         haven_2.3.1       colorspace_2.0-0 
-     [5] vctrs_0.3.4       generics_0.1.0    htmltools_0.5.0   yaml_2.2.1       
-     [9] rlang_0.4.8       pillar_1.4.6      withr_2.3.0       glue_1.4.2       
-    [13] DBI_1.1.0         dbplyr_2.0.0      modelr_0.1.8      readxl_1.3.1     
+     [1] tidyselect_1.1.0  xfun_0.20         haven_2.3.1       colorspace_2.0-0 
+     [5] vctrs_0.3.6       generics_0.1.0    htmltools_0.5.1.1 yaml_2.2.1       
+     [9] rlang_0.4.10      pillar_1.4.7      withr_2.4.0       glue_1.4.2       
+    [13] DBI_1.1.1         dbplyr_2.0.0      modelr_0.1.8      readxl_1.3.1     
     [17] lifecycle_0.2.0   munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0 
     [21] rvest_0.3.6       zip_2.1.1         evaluate_0.14     knitr_1.30       
-    [25] fansi_0.4.1       broom_0.7.2       Rcpp_1.0.5        backports_1.2.0  
-    [29] scales_1.1.1      jsonlite_1.7.1    fs_1.5.0          hms_0.5.3        
-    [33] digest_0.6.27     stringi_1.5.3     grid_4.0.3        rprojroot_2.0.2  
-    [37] cli_2.1.0         magrittr_1.5      crayon_1.3.4      pkgconfig_2.0.3  
-    [41] ellipsis_0.3.1    xml2_1.3.2        reprex_0.3.0      lubridate_1.7.9.2
-    [45] rstudioapi_0.13   assertthat_0.2.1  rmarkdown_2.5     httr_1.4.2       
-    [49] R6_2.5.0          compiler_4.0.3   
+    [25] fansi_0.4.2       broom_0.7.3       Rcpp_1.0.6        renv_0.12.5      
+    [29] backports_1.2.1   scales_1.1.1      jsonlite_1.7.2    fs_1.5.0         
+    [33] hms_1.0.0         digest_0.6.27     stringi_1.5.3     rprojroot_2.0.2  
+    [37] grid_4.0.3        cli_2.2.0         magrittr_2.0.1    crayon_1.3.4     
+    [41] pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2        reprex_0.3.0     
+    [45] lubridate_1.7.9.2 rstudioapi_0.13   assertthat_0.2.1  rmarkdown_2.6    
+    [49] httr_1.4.2        R6_2.5.0          compiler_4.0.3   
 
-RStudio version 1.4.1043.
+RStudio version 1.4.1103.
 
 ------------------------------------------------------------------------
 
