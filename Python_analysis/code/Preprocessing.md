@@ -66,7 +66,7 @@ Compute hash sum of loaded file. If it is the same as the one reported below, th
 
 
 ```python
-checksum_origin = 'd0ccdc8387aac3732551c8a4d659a7bd'
+checksum_origin = '1a90206aa7c2daeb8c4054f3fc464b26'
 ```
 
 
@@ -80,7 +80,7 @@ checksum
 
 
 
-    'd0ccdc8387aac3732551c8a4d659a7bd'
+    '1a90206aa7c2daeb8c4054f3fc464b26'
 
 
 
@@ -146,23 +146,23 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.001960</td>
-      <td>0.998370</td>
-      <td>14.293226</td>
-      <td>0.415394</td>
-      <td>0.164462</td>
-      <td>0.368124</td>
-      <td>0.018424</td>
+      <td>0.002067</td>
+      <td>0.998010</td>
+      <td>10.781595</td>
+      <td>0.448467</td>
+      <td>0.180602</td>
+      <td>0.364572</td>
+      <td>0.018464</td>
     </tr>
     <tr>
       <th>1</th>
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.001471</td>
@@ -178,23 +178,23 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.003662</td>
-      <td>0.999112</td>
-      <td>12.905549</td>
-      <td>0.440818</td>
-      <td>0.171361</td>
-      <td>0.417234</td>
-      <td>0.018889</td>
+      <td>0.003812</td>
+      <td>0.998425</td>
+      <td>10.034063</td>
+      <td>0.591396</td>
+      <td>0.189600</td>
+      <td>0.406517</td>
+      <td>0.018962</td>
     </tr>
     <tr>
       <th>3</th>
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.002693</td>
@@ -210,16 +210,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.003140</td>
-      <td>0.998935</td>
-      <td>13.666070</td>
-      <td>0.440818</td>
-      <td>0.130529</td>
-      <td>0.352169</td>
-      <td>0.018703</td>
+      <td>0.003271</td>
+      <td>0.998493</td>
+      <td>10.497850</td>
+      <td>0.591396</td>
+      <td>0.113779</td>
+      <td>0.363315</td>
+      <td>0.018756</td>
     </tr>
     <tr>
       <th>...</th>
@@ -242,7 +242,7 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.004424</td>
@@ -258,15 +258,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
     </tr>
     <tr>
@@ -274,7 +274,7 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.003139</td>
@@ -290,15 +290,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
     </tr>
     <tr>
@@ -306,7 +306,7 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.000703</td>
@@ -374,24 +374,24 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
-      <td>0.001960</td>
-      <td>0.998370</td>
-      <td>14.293226</td>
-      <td>0.415394</td>
-      <td>0.164462</td>
-      <td>0.368124</td>
-      <td>0.018424</td>
+      <td>0.002067</td>
+      <td>0.998010</td>
+      <td>10.781595</td>
+      <td>0.448467</td>
+      <td>0.180602</td>
+      <td>0.364572</td>
+      <td>0.018464</td>
     </tr>
     <tr>
       <th>1</th>
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Lucerne</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>0.001471</td>
       <td>0.999343</td>
@@ -406,24 +406,24 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
-      <td>0.003662</td>
-      <td>0.999112</td>
-      <td>12.905549</td>
-      <td>0.440818</td>
-      <td>0.171361</td>
-      <td>0.417234</td>
-      <td>0.018889</td>
+      <td>0.003812</td>
+      <td>0.998425</td>
+      <td>10.034063</td>
+      <td>0.591396</td>
+      <td>0.189600</td>
+      <td>0.406517</td>
+      <td>0.018962</td>
     </tr>
     <tr>
       <th>3</th>
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Lucerne</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
       <td>0.002693</td>
       <td>0.999514</td>
@@ -438,16 +438,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC4B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Lucerne</td>
-      <td>Dry Lucerne</td>
+      <td>Dry lucerne</td>
+      <td>Dry lucerne</td>
       <td>NaN</td>
-      <td>0.003140</td>
-      <td>0.998935</td>
-      <td>13.666070</td>
-      <td>0.440818</td>
-      <td>0.130529</td>
-      <td>0.352169</td>
-      <td>0.018703</td>
+      <td>0.003271</td>
+      <td>0.998493</td>
+      <td>10.497850</td>
+      <td>0.591396</td>
+      <td>0.113779</td>
+      <td>0.363315</td>
+      <td>0.018756</td>
     </tr>
     <tr>
       <th>...</th>
@@ -470,8 +470,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.004424</td>
       <td>0.999360</td>
@@ -486,15 +486,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
     </tr>
     <tr>
@@ -502,8 +502,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003139</td>
       <td>0.999739</td>
@@ -518,15 +518,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
     </tr>
     <tr>
@@ -534,8 +534,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.000703</td>
       <td>0.999857</td>
@@ -560,9 +560,9 @@ df.Treatment.unique()
 
 
 
-    array(['Dry Lucerne', 'Dry Grass', 'Dry Bamboo', 'BrushDirt', 'RubDirt',
-           'Control', 'BrushNoDirt', 'Clover', 'Clover+Dust', 'Grass',
-           'Grass+Dust'], dtype=object)
+    array(['Dry lucerne', 'Dry grass', 'Dry bamboo', 'BrushDirt', 'RubDirt',
+           'Control', 'BrushNoDirt', 'Clover', 'Clover+dust', 'Grass',
+           'Grass+dust'], dtype=object)
 
 
 
@@ -616,24 +616,24 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.004417</td>
-      <td>0.998739</td>
-      <td>10.805118</td>
-      <td>0.347586</td>
-      <td>0.130091</td>
-      <td>0.355639</td>
-      <td>0.019460</td>
+      <td>0.004586</td>
+      <td>0.998684</td>
+      <td>8.109445</td>
+      <td>0.737898</td>
+      <td>0.118870</td>
+      <td>0.368635</td>
+      <td>0.019529</td>
     </tr>
     <tr>
       <th>1</th>
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.004721</td>
       <td>0.999560</td>
@@ -648,24 +648,24 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005866</td>
-      <td>0.997985</td>
-      <td>13.610750</td>
-      <td>0.391436</td>
-      <td>0.179356</td>
-      <td>0.294377</td>
-      <td>0.020079</td>
+      <td>0.006056</td>
+      <td>0.998708</td>
+      <td>10.395128</td>
+      <td>0.625040</td>
+      <td>0.175340</td>
+      <td>0.315513</td>
+      <td>0.020162</td>
     </tr>
     <tr>
       <th>3</th>
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.005856</td>
       <td>0.999467</td>
@@ -680,16 +680,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005042</td>
-      <td>0.998425</td>
-      <td>11.698166</td>
-      <td>0.308648</td>
-      <td>0.248885</td>
-      <td>0.413098</td>
-      <td>0.019722</td>
+      <td>0.005236</td>
+      <td>0.998271</td>
+      <td>8.497286</td>
+      <td>0.591396</td>
+      <td>0.221210</td>
+      <td>0.391002</td>
+      <td>0.019804</td>
     </tr>
     <tr>
       <th>...</th>
@@ -712,8 +712,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.004424</td>
       <td>0.999360</td>
@@ -728,15 +728,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
     </tr>
     <tr>
@@ -744,8 +744,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003139</td>
       <td>0.999739</td>
@@ -760,15 +760,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
     </tr>
     <tr>
@@ -776,8 +776,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.000703</td>
       <td>0.999857</td>
@@ -853,16 +853,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.004417</td>
-      <td>0.998739</td>
-      <td>10.805118</td>
-      <td>0.347586</td>
-      <td>0.130091</td>
-      <td>0.355639</td>
-      <td>0.019460</td>
+      <td>0.004586</td>
+      <td>0.998684</td>
+      <td>8.109445</td>
+      <td>0.737898</td>
+      <td>0.118870</td>
+      <td>0.368635</td>
+      <td>0.019529</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -873,8 +873,8 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.004721</td>
       <td>0.999560</td>
@@ -893,16 +893,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005866</td>
-      <td>0.997985</td>
-      <td>13.610750</td>
-      <td>0.391436</td>
-      <td>0.179356</td>
-      <td>0.294377</td>
-      <td>0.020079</td>
+      <td>0.006056</td>
+      <td>0.998708</td>
+      <td>10.395128</td>
+      <td>0.625040</td>
+      <td>0.175340</td>
+      <td>0.315513</td>
+      <td>0.020162</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -913,8 +913,8 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.005856</td>
       <td>0.999467</td>
@@ -933,16 +933,16 @@ df
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005042</td>
-      <td>0.998425</td>
-      <td>11.698166</td>
-      <td>0.308648</td>
-      <td>0.248885</td>
-      <td>0.413098</td>
-      <td>0.019722</td>
+      <td>0.005236</td>
+      <td>0.998271</td>
+      <td>8.497286</td>
+      <td>0.591396</td>
+      <td>0.221210</td>
+      <td>0.391002</td>
+      <td>0.019804</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -973,8 +973,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.004424</td>
       <td>0.999360</td>
@@ -993,15 +993,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
       <td>9</td>
       <td>0</td>
@@ -1013,8 +1013,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003139</td>
       <td>0.999739</td>
@@ -1033,15 +1033,15 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
       <td>9</td>
       <td>0</td>
@@ -1053,8 +1053,8 @@ df
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.000703</td>
       <td>0.999857</td>
@@ -1086,17 +1086,17 @@ dictTreatment
 
 
 
-    {5: 'Dry Bamboo',
-     6: 'Dry Grass',
-     7: 'Dry Lucerne',
+    {5: 'Dry bamboo',
+     6: 'Dry grass',
+     7: 'Dry lucerne',
      0: 'BrushDirt',
      1: 'BrushNoDirt',
      4: 'Control',
      10: 'RubDirt',
      2: 'Clover',
-     3: 'Clover+Dust',
+     3: 'Clover+dust',
      8: 'Grass',
-     9: 'Grass+Dust'}
+     9: 'Grass+dust'}
 
 
 
@@ -1326,12 +1326,12 @@ dataDF
       <td>0</td>
       <td>0</td>
       <td>116</td>
-      <td>0.004417</td>
-      <td>0.998739</td>
-      <td>10.805118</td>
-      <td>0.347586</td>
-      <td>0.130091</td>
-      <td>0.355639</td>
+      <td>0.004586</td>
+      <td>0.998684</td>
+      <td>8.109445</td>
+      <td>0.737898</td>
+      <td>0.118870</td>
+      <td>0.368635</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1352,12 +1352,12 @@ dataDF
       <td>0</td>
       <td>0</td>
       <td>117</td>
-      <td>0.005866</td>
-      <td>0.997985</td>
-      <td>13.610750</td>
-      <td>0.391436</td>
-      <td>0.179356</td>
-      <td>0.294377</td>
+      <td>0.006056</td>
+      <td>0.998708</td>
+      <td>10.395128</td>
+      <td>0.625040</td>
+      <td>0.175340</td>
+      <td>0.315513</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1378,12 +1378,12 @@ dataDF
       <td>0</td>
       <td>0</td>
       <td>118</td>
-      <td>0.005042</td>
-      <td>0.998425</td>
-      <td>11.698166</td>
-      <td>0.308648</td>
-      <td>0.248885</td>
-      <td>0.413098</td>
+      <td>0.005236</td>
+      <td>0.998271</td>
+      <td>8.497286</td>
+      <td>0.591396</td>
+      <td>0.221210</td>
+      <td>0.391002</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1418,11 +1418,11 @@ dataDF
       <td>2</td>
       <td>52</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
     </tr>
     <tr>
       <th>277</th>
@@ -1444,11 +1444,11 @@ dataDF
       <td>2</td>
       <td>53</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
     </tr>
     <tr>
       <th>279</th>
@@ -1544,12 +1544,12 @@ dictMeanStd
 
 
 
-    {'epLsar': (0.0028221512571428575, 0.0019000504797019124),
-     'R²': (0.998765273042857, 0.0015328558023807836),
-     'Asfc': (18.13129049385357, 16.348381888991312),
-     'Smfc': (4.938492967075, 38.106353908569346),
-     'HAsfc9': (0.3085220006979256, 0.2211140516395699),
-     'HAsfc81': (0.5639598041398011, 0.40668126467296095)}
+    {'epLsar': (0.002866777015225286, 0.0019173233323041528),
+     'R²': (0.9973197285182144, 0.006745323717352575),
+     'Asfc': (16.912804592866785, 16.042490777228107),
+     'Smfc': (2.589874101745179, 10.663178442785044),
+     'HAsfc9': (0.31872043020221136, 0.22913790943445264),
+     'HAsfc81': (0.5885203613280154, 0.42897734163543366)}
 
 
 
@@ -1606,12 +1606,12 @@ dataZ
       <td>0</td>
       <td>0</td>
       <td>116</td>
-      <td>0.839414</td>
-      <td>-0.017104</td>
-      <td>-0.448128</td>
-      <td>-0.120476</td>
-      <td>-0.806963</td>
-      <td>-0.512247</td>
+      <td>0.896441</td>
+      <td>0.202280</td>
+      <td>-0.548753</td>
+      <td>-0.173680</td>
+      <td>-0.872185</td>
+      <td>-0.512580</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1620,12 +1620,12 @@ dataZ
       <td>1</td>
       <td>0</td>
       <td>116</td>
-      <td>0.999368</td>
-      <td>0.518462</td>
-      <td>-0.477757</td>
-      <td>-0.126469</td>
-      <td>-0.782634</td>
-      <td>-0.497016</td>
+      <td>0.967089</td>
+      <td>0.332122</td>
+      <td>-0.410913</td>
+      <td>-0.231700</td>
+      <td>-0.799735</td>
+      <td>-0.528438</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1634,12 +1634,12 @@ dataZ
       <td>0</td>
       <td>0</td>
       <td>117</td>
-      <td>1.601888</td>
-      <td>-0.509024</td>
-      <td>-0.276513</td>
-      <td>-0.119325</td>
-      <td>-0.584158</td>
-      <td>-0.662886</td>
+      <td>1.663582</td>
+      <td>0.205805</td>
+      <td>-0.406276</td>
+      <td>-0.184263</td>
+      <td>-0.625739</td>
+      <td>-0.636413</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1648,12 +1648,12 @@ dataZ
       <td>1</td>
       <td>0</td>
       <td>117</td>
-      <td>1.596720</td>
-      <td>0.457791</td>
-      <td>-0.301685</td>
-      <td>-0.126469</td>
-      <td>-0.629947</td>
-      <td>-0.744422</td>
+      <td>1.559060</td>
+      <td>0.318335</td>
+      <td>-0.231484</td>
+      <td>-0.231700</td>
+      <td>-0.652395</td>
+      <td>-0.762985</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1662,12 +1662,12 @@ dataZ
       <td>0</td>
       <td>0</td>
       <td>118</td>
-      <td>1.168099</td>
-      <td>-0.221668</td>
-      <td>-0.393502</td>
-      <td>-0.121498</td>
-      <td>-0.269712</td>
-      <td>-0.370958</td>
+      <td>1.235447</td>
+      <td>0.140997</td>
+      <td>-0.524577</td>
+      <td>-0.187419</td>
+      <td>-0.425552</td>
+      <td>-0.460441</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1690,12 +1690,12 @@ dataZ
       <td>1</td>
       <td>2</td>
       <td>51</td>
-      <td>0.843056</td>
-      <td>0.387986</td>
-      <td>-0.997743</td>
-      <td>-0.092631</td>
-      <td>2.388080</td>
-      <td>1.346868</td>
+      <td>0.812186</td>
+      <td>0.302472</td>
+      <td>-0.940814</td>
+      <td>-0.110773</td>
+      <td>2.259947</td>
+      <td>1.219611</td>
     </tr>
     <tr>
       <th>276</th>
@@ -1704,12 +1704,12 @@ dataZ
       <td>0</td>
       <td>2</td>
       <td>52</td>
-      <td>0.305544</td>
-      <td>-0.791837</td>
-      <td>-0.967607</td>
-      <td>-0.104937</td>
-      <td>2.014963</td>
-      <td>2.573677</td>
+      <td>0.279516</td>
+      <td>0.134624</td>
+      <td>-0.883003</td>
+      <td>-0.199355</td>
+      <td>1.616592</td>
+      <td>2.457881</td>
     </tr>
     <tr>
       <th>277</th>
@@ -1718,12 +1718,12 @@ dataZ
       <td>1</td>
       <td>2</td>
       <td>52</td>
-      <td>0.166758</td>
-      <td>0.635237</td>
-      <td>-0.940337</td>
-      <td>-0.126098</td>
-      <td>2.926894</td>
-      <td>3.117333</td>
+      <td>0.141981</td>
+      <td>0.358659</td>
+      <td>-0.882314</td>
+      <td>-0.230373</td>
+      <td>2.779893</td>
+      <td>2.898056</td>
     </tr>
     <tr>
       <th>278</th>
@@ -1732,12 +1732,12 @@ dataZ
       <td>0</td>
       <td>2</td>
       <td>53</td>
-      <td>-0.843412</td>
-      <td>0.042974</td>
-      <td>-1.022523</td>
-      <td>-0.085082</td>
-      <td>0.280534</td>
-      <td>0.543577</td>
+      <td>-0.859089</td>
+      <td>0.269132</td>
+      <td>-0.964638</td>
+      <td>-0.118959</td>
+      <td>0.316720</td>
+      <td>0.540611</td>
     </tr>
     <tr>
       <th>279</th>
@@ -1746,12 +1746,12 @@ dataZ
       <td>1</td>
       <td>2</td>
       <td>53</td>
-      <td>-1.115313</td>
-      <td>0.712218</td>
-      <td>-1.021455</td>
-      <td>-0.118879</td>
-      <td>0.169999</td>
-      <td>0.678630</td>
+      <td>-1.128540</td>
+      <td>0.376153</td>
+      <td>-0.964978</td>
+      <td>-0.204577</td>
+      <td>0.119539</td>
+      <td>0.586105</td>
     </tr>
   </tbody>
 </table>
@@ -1854,31 +1854,10 @@ with open(datafile, "wb") as f:
 !jupyter nbconvert --to html Preprocessing.ipynb
 ```
 
-    [NbConvertApp] Converting notebook Preprocessing.ipynb to html
-    [NbConvertApp] Writing 1717341 bytes to Preprocessing.html
-
-
 
 ```python
 !jupyter nbconvert --to markdown Preprocessing.ipynb
 ```
-
-    [NbConvertApp] Converting notebook Preprocessing.ipynb to markdown
-    [NbConvertApp] Support files will be in Preprocessing_files/
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Making directory Preprocessing_files
-    [NbConvertApp] Writing 48782 bytes to Preprocessing.md
-
 
 
 ```python
