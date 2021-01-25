@@ -341,7 +341,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Import SSFA datasets</h1>
 <h4 class="author">Ivan Calandra</h4>
-<h4 class="date">2021-01-25 17:17:52</h4>
+<h4 class="date">2021-01-25 17:40:35</h4>
 
 </div>
 
@@ -920,21 +920,12 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <p>Rbin files (e.g. <code>SSFA_all_data.Rbin</code>) can be easily read into an R object (e.g. <code>rbin_data</code>) using the following code:</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(R.utils)</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>rbin_data <span class="ot">&lt;-</span> <span class="fu">loadObject</span>(<span class="st">&quot;SSFA_all_data.Rbin&quot;</span>)</span></code></pre></div>
-</div>
-<div id="show-files-information" class="section level2" number="8.3">
-<h2 number="8.3"><span class="header-section-number">8.3</span> Show files information</h2>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>info_out <span class="ot">&lt;-</span> <span class="fu">c</span>(all_xlsx, all_rbin) <span class="sc">%&gt;%</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">md5sum</span>()</span></code></pre></div>
-<p>The checksum (MD5 hashes) of the exported files are:</p>
-<pre><code>               files                         checksum
-1 SSFA_all_data.xlsx d33446e18a0785aabb3da94dd2dd1a36
-2 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a</code></pre>
 <hr />
 </div>
 </div>
 <div id="sessioninfo-and-rstudio-version" class="section level1" number="9">
 <h1 number="9"><span class="header-section-number">9</span> sessionInfo() and RStudio version</h1>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.3 (2020-10-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19041)

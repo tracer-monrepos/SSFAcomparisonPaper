@@ -541,18 +541,6 @@ rbin_data <- loadObject("SSFA_all_data.Rbin")
 ```
 
 
-## Show files information
-```{r}
-info_out <- c(all_xlsx, all_rbin) %>%
-            md5sum()
-```
-
-The checksum (MD5 hashes) of the exported files are:  
-```{r, echo = FALSE}
-data.frame(files = basename(names(info_out)), checksum = info_out, row.names = NULL)
-```
-
-
 ---
 
 

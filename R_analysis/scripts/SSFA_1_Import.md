@@ -1,7 +1,7 @@
 Import SSFA datasets
 ================
 Ivan Calandra
-2021-01-25 17:17:57
+2021-01-25 17:40:40
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -87,7 +87,6 @@ Ivan Calandra
 -   [Save data](#save-data)
     -   [Create file names](#create-file-names)
     -   [Write to XLSX and Rbin](#write-to-xlsx-and-rbin)
-    -   [Show files information](#show-files-information)
 -   [sessionInfo() and RStudio
     version](#sessioninfo-and-rstudio-version)
 
@@ -803,19 +802,6 @@ object (e.g. `rbin_data`) using the following code:
 library(R.utils)
 rbin_data <- loadObject("SSFA_all_data.Rbin")
 ```
-
-## Show files information
-
-``` r
-info_out <- c(all_xlsx, all_rbin) %>%
-            md5sum()
-```
-
-The checksum (MD5 hashes) of the exported files are:
-
-                   files                         checksum
-    1 SSFA_all_data.xlsx 2de6b4d049705d5b17286ae5fde91f59
-    2 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a
 
 ------------------------------------------------------------------------
 
