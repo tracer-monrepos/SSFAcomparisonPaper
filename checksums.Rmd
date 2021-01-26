@@ -44,7 +44,11 @@ check_R <- list.files(path = "R_analysis", full.names = TRUE, recursive = TRUE) 
 
 The MD5 checksums of the files created during the R analysis are:  
 ```{r, echo = FALSE}
-data.frame(files = names(check_R), checksum = check_R, row.names = NULL)
+for (i in seq_along(check_R)) {
+  cat("[", i, "] ", names(check_R)[i], "\n", sep = "")
+  cat(check_R[i], "\n")
+  cat("\n")
+}
 ```
 
 ## Python analysis
@@ -55,7 +59,11 @@ check_Python <- list.files(path = "Python_analysis", full.names = TRUE, recursiv
 
 The MD5 checksums of the files created during the Python analysis are:  
 ```{r, echo = FALSE}
-data.frame(files = names(check_Python), checksum = check_Python, row.names = NULL)
+for (i in seq_along(check_Python)) {
+  cat("[", i, "] ", names(check_Python)[i], "\n", sep = "")
+  cat(check_Python[i], "\n")
+  cat("\n")
+}
 ```
 
 

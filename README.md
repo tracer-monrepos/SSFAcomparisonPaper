@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2021-01-26 09:26:59
+2021-01-26 09:41:53
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -79,14 +79,16 @@ files:
 
 -   [SSFA\_0\_RStudioVersion.R](/R_analysis/scripts/SSFA_0_RStudioVersion.R):
     script to get the used version of RStudio and write it to a TXT file
-    ([RStudioVersion.txt](/R_analysis/scripts/RStudioVersion.txt)). This
-    is necessary as the function `RStudio.Version()` can only be run in
-    an interactive session (see [this
+    ([SSFA\_0\_RStudioVersion.txt](/R_analysis/scripts/SSFA_0_RStudioVersion.txt)).
+    This is necessary as the function `RStudio.Version()` can only be
+    run in an interactive session (see [this
     post](https://community.rstudio.com/t/rstudio-version-not-found-on-knit/8088)
     for details).
 -   [SSFA\_0\_CreateRC.Rmd](/R_analysis/scripts/SSFA_0_CreateRC.Rmd):
     script used to create this research compendium - it is not part of
     the analysis *per se* and is not meant to be run again. Rendered to
+    [SSFA\_0\_CreateRC.html](/R_analysis/scripts/SSFA_0_CreateRC.html)
+    and
     [SSFA\_0\_CreateRC.md](/R_analysis/scripts/SSFA_0_CreateRC.md).  
 -   [SSFA\_1\_Import.Rmd](/R_analysis/scripts/SSFA_1_Import.Rmd): script
     to import the raw, input data. Rendered to
