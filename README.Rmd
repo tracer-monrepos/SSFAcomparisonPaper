@@ -20,7 +20,7 @@ output:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
-Title <- "A note of caution: the scale-sensitive fractal analysis depends on the software"
+Title <- "Dental microwear texture analysis in Toothfrax and MountainsMap® SSFA module: Different software packages, different results?"
 Authors <- "Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A, Schulz-Kornas E, Souron A & Winkler DE"
 repo <- basename(getwd())
 ```
@@ -29,13 +29,13 @@ repo <- basename(getwd())
 
 This repository contains the data and code for the paper:
 
-> `r Authors` (submitted). *`r Title`*. Wear <https://doi.org/xxx/xxx>
+> `r Authors` (submitted). *`r Title`* Wear <https://doi.org/xxx/xxx>
 
 # How to cite
 
 Please cite this compendium as:
 
-> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`*. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439450>
+> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`* Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439450>
 
 
 # Contents
