@@ -4091,16 +4091,40 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_3.png)
+    
+
+
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_4.png)
+    
+
+
+
 ```python
 with HAsfc81Model as model:
     plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,'HAsfc81')
 ```
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_0.png)
+    
+
+
+
 ```python
 with HAsfc81Model as model:
     plotting_lib.pm.energyplot(trace_HAsfc81)
 ```
+
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_183_0.png)
+    
+
 
 #### Posterior predictive distribution
 
@@ -4110,15 +4134,52 @@ with HAsfc81Model as model:
     posterior_pred_HAsfc81 = pm.sample_posterior_predictive(trace_HAsfc81,samples=numPredSamples,random_seed=random_seed)
 ```
 
+    /home/bob/.local/lib/python3.8/site-packages/pymc3/sampling.py:1707: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
+      warnings.warn(
+
+
+
+
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [2000/2000 00:03<00:00]
+</div>
+
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,posterior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
 ```
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_186_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
+
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_187_0.png)
+    
+
 
 #### Compare prior and posterior for model parameters
 
@@ -4128,15 +4189,30 @@ with HAsfc81Model as model:
     pm_data_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81,prior=prior_pred_HAsfc81,posterior_predictive=posterior_pred_HAsfc81)
 ```
 
+    arviz.data.io_pymc3 - WARNING - posterior predictive variable HAsfc81_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
 ```
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_190_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
+
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_191_0.png)
+    
+
 
 #### Posterior and contrasts
 
@@ -4146,14 +4222,229 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_193_0.png)
+    
+
+
+
 ```python
 df_hdi_HAsfc81 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
 
 
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_194_0.png)
+    
+
+
+
 ```python
 df_hdi_HAsfc81
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+      <th>isSignificant_on_Toothfrax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>-0.009401</td>
+      <td>0.101134</td>
+      <td>False</td>
+      <td>0.018900</td>
+      <td>0.136196</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-0.030370</td>
+      <td>0.087266</td>
+      <td>False</td>
+      <td>-0.001664</td>
+      <td>0.109981</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>-0.073950</td>
+      <td>0.050741</td>
+      <td>False</td>
+      <td>-0.087209</td>
+      <td>0.039690</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BrushNoDirt</td>
+      <td>BrushDirt</td>
+      <td>-0.518195</td>
+      <td>0.206099</td>
+      <td>False</td>
+      <td>-0.147466</td>
+      <td>0.286371</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Control</td>
+      <td>BrushDirt</td>
+      <td>-0.376578</td>
+      <td>0.303712</td>
+      <td>False</td>
+      <td>-0.030208</td>
+      <td>0.268768</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Control</td>
+      <td>BrushNoDirt</td>
+      <td>-0.097626</td>
+      <td>0.347835</td>
+      <td>False</td>
+      <td>-0.157188</td>
+      <td>0.295603</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>RubDirt</td>
+      <td>BrushDirt</td>
+      <td>-0.493950</td>
+      <td>0.236296</td>
+      <td>False</td>
+      <td>-0.128138</td>
+      <td>0.198331</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RubDirt</td>
+      <td>BrushNoDirt</td>
+      <td>-0.231775</td>
+      <td>0.307111</td>
+      <td>False</td>
+      <td>-0.273242</td>
+      <td>0.218386</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RubDirt</td>
+      <td>Control</td>
+      <td>-0.321828</td>
+      <td>0.132966</td>
+      <td>False</td>
+      <td>-0.274491</td>
+      <td>0.088330</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Clover+dust</td>
+      <td>Clover</td>
+      <td>-0.455539</td>
+      <td>0.323286</td>
+      <td>False</td>
+      <td>-0.516906</td>
+      <td>0.156140</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>-0.656279</td>
+      <td>0.348255</td>
+      <td>False</td>
+      <td>-0.691228</td>
+      <td>0.029980</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Grass</td>
+      <td>Clover+dust</td>
+      <td>-0.454243</td>
+      <td>0.139046</td>
+      <td>False</td>
+      <td>-0.317566</td>
+      <td>0.103036</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Grass+dust</td>
+      <td>Clover</td>
+      <td>-1.007356</td>
+      <td>-0.112084</td>
+      <td>True</td>
+      <td>-0.965316</td>
+      <td>-0.269417</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>-0.689484</td>
+      <td>-0.292849</td>
+      <td>True</td>
+      <td>-0.567226</td>
+      <td>-0.229459</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Grass+dust</td>
+      <td>Grass</td>
+      <td>-0.708570</td>
+      <td>-0.038109</td>
+      <td>True</td>
+      <td>-0.516849</td>
+      <td>-0.061466</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -4193,12 +4484,24 @@ sns.pairplot(data=pd.DataFrame.from_dict(
 ));
 ```
 
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_202_0.png)
+    
+
+
 Let's have that of the differences again
 
 
 ```python
 sns.jointplot(x=diff_b2,y=diff_m12);
 ```
+
+
+    
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_204_0.png)
+    
+
 
 We see two sets that are distributed along parallel lines in the scatter plot.
 This means that the model estimates two subsets of possible differences.  
@@ -4233,6 +4536,177 @@ df_summary
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>SurfaceParameter</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>isSignificant_on_Toothfrax</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>epLsar</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0.000228</td>
+      <td>0.001524</td>
+      <td>-0.000167</td>
+      <td>0.001116</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>epLsar</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.000153</td>
+      <td>0.002973</td>
+      <td>0.000293</td>
+      <td>0.003795</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>BrushNoDirt</td>
+      <td>BrushDirt</td>
+      <td>R²</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.002096</td>
+      <td>-0.000672</td>
+      <td>-0.000420</td>
+      <td>0.000635</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>RubDirt</td>
+      <td>BrushNoDirt</td>
+      <td>R²</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0.000181</td>
+      <td>0.002386</td>
+      <td>-0.000556</td>
+      <td>0.000619</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Clover+dust</td>
+      <td>Clover</td>
+      <td>R²</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.001005</td>
+      <td>-0.000290</td>
+      <td>-0.000138</td>
+      <td>0.000401</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Grass</td>
+      <td>Clover+dust</td>
+      <td>R²</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.000639</td>
+      <td>0.000580</td>
+      <td>-0.000792</td>
+      <td>-0.000199</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>R²</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.001314</td>
+      <td>0.000824</td>
+      <td>-0.000515</td>
+      <td>-0.000045</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>BrushNoDirt</td>
+      <td>BrushDirt</td>
+      <td>Asfc</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0.013059</td>
+      <td>7.915624</td>
+      <td>-2.631889</td>
+      <td>6.887819</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Control</td>
+      <td>BrushNoDirt</td>
+      <td>Asfc</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0.022112</td>
+      <td>14.415237</td>
+      <td>-0.616464</td>
+      <td>13.182578</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>RubDirt</td>
+      <td>BrushDirt</td>
+      <td>Asfc</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.259987</td>
+      <td>20.831039</td>
+      <td>1.502426</td>
+      <td>13.522475</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>HAsfc81</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-0.009401</td>
+      <td>0.101134</td>
+      <td>0.018900</td>
+      <td>0.136196</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 if writeOut:
     df_summary.to_csv(outPathData+ 'summary.csv')
@@ -4245,10 +4719,79 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_TwoFactor.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to html
+    [NbConvertApp] Writing 19659153 bytes to Statistical_Model_TwoFactor.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_TwoFactor.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_files/
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Writing 94860 bytes to Statistical_Model_TwoFactor.md
+
 
 
 ```python

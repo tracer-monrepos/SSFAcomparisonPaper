@@ -3421,16 +3421,34 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_4.png)
+    
+
+
+
 ```python
 with HAsfc81Model as model:
     plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,'HAsfc81')
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_176_0.png)
+    
+
+
+
 ```python
 with HAsfc81Model as model:
     plotting_lib.pm.energyplot(trace_HAsfc81)
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_177_0.png)
+    
+
 
 #### Posterior predictive distribution
 
@@ -3440,10 +3458,41 @@ with HAsfc81Model as model:
     posterior_pred_HAsfc81 = pm.sample_posterior_predictive(trace_HAsfc81,samples=numPredSamples,random_seed=random_seed)
 ```
 
+    /home/bob/.local/lib/python3.8/site-packages/pymc3/sampling.py:1707: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
+      warnings.warn(
+
+
+
+
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [2000/2000 00:02<00:00]
+</div>
+
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,posterior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_180_0.png)
+    
+
 
 #### Compare prior and posterior for model parameters
 
@@ -3453,10 +3502,19 @@ with HAsfc81Model as model:
     pm_data_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81,prior=prior_pred_HAsfc81,posterior_predictive=posterior_pred_HAsfc81)
 ```
 
+    arviz.data.io_pymc3 - WARNING - posterior predictive variable HAsfc81_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_183_0.png)
+    
+
 
 #### Posterior and contrasts
 
@@ -3466,9 +3524,21 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_185_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc81,'HAsfc81')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_186_0.png)
+    
+
 
 ## Summary <a name="summary"></a>
 The contrast plots between the two software packages are shown below again for each variable except Smfc
@@ -3479,9 +3549,21 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_188_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_Rsquared,'R²')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_189_0.png)
+    
+
 
 
 ```python
@@ -3489,14 +3571,32 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_190_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc9,'HAsfc9')
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_191_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc81,'HAsfc81')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_192_0.png)
+    
+
 
 ### Write out
 
@@ -3505,10 +3605,80 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 !jupyter nbconvert --to html Statistical_Model_ThreeFactor.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor.ipynb to html
+    [NbConvertApp] Writing 9690517 bytes to Statistical_Model_ThreeFactor.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_ThreeFactor.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_ThreeFactor_files/
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
+    [NbConvertApp] Writing 79966 bytes to Statistical_Model_ThreeFactor.md
+
 
 
 ```python
