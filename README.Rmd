@@ -20,8 +20,8 @@ output:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
-Title <- "A note of caution: MountainsMap® SSFA module produces different results than Toothfrax"
-Authors <- "Calandra I, Bob K, Merceron G, Hildebrandt A, Schulz-Kornas E, Souron A & Winkler DE"
+Title <- "A note of caution: the scale-sensitive fractal analysis depends on the software"
+Authors <- "Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A, Schulz-Kornas E, Souron A & Winkler DE"
 repo <- basename(getwd())
 ```
 
@@ -44,6 +44,8 @@ This [README.md](/README.md) file has been created by rendering the [README.Rmd]
 The [DESCRIPTION](/DESCRIPTION) file contains information about the version, author, license and packages. For details on the license, see the [LICENSE.md](/LICENSE.md) and [LICENSE](/LICENSE) files.
 
 The [`r repo`.Rproj](/`r repo`.Rproj) file is the RStudio project file.
+
+The [checksums.Rmd](/checksums.Rmd) file gives the MD5 checksums for all files in the R and Python analyses folders. Rendered to [checksums.md](/checksums.md).
 
 The [R_analysis](/R_analysis) directory contains all files related to the R analysis. It is composed of the following folders:
 
@@ -106,6 +108,7 @@ To download an HTML file from GitHub, first display the "raw" file and then save
 Alternatively, use [GitHub & BitBucket HTML Preview](https://htmlpreview.github.io/) to render it directly.  
 Here are direct links to display the files directly in your browser:
 
+- [SSFA_0_CreateRC.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_0_CreateRC.html)
 - [SSFA_1_Import.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_1_Import.html)  
 - [SSFA_2_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_2_Summary-stats.html)  
 - [SSFA_3_Plots.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_3_Plots.html)  

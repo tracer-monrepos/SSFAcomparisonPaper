@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2020-11-30 15:39:20
+2021-01-26 09:26:59
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -25,19 +25,20 @@ Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-m
 
 This repository contains the data and code for the paper:
 
-> Calandra I, Bob K, Merceron G, Hildebrandt A, Schulz-Kornas E, Souron
-> A & Winkler DE (submitted). *A note of caution: MountainsMap® SSFA
-> module produces different results than Toothfrax*. Wear
-> <https://doi.org/xxx/xxx>
+> Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
+> Schulz-Kornas E, Souron A & Winkler DE (submitted). *A note of
+> caution: the scale-sensitive fractal analysis depends on the
+> software*. Wear <https://doi.org/xxx/xxx>
 
 # How to cite
 
 Please cite this compendium as:
 
-> Calandra I, Bob K, Merceron G, Hildebrandt A, Schulz-Kornas E, Souron
-> A & Winkler DE (2020). Compendium of code and data for *A note of
-> caution: MountainsMap® SSFA module produces different results than
-> Toothfrax*. Accessed 30 Nov 2020. Online at <https://doi.org/xxx/xxx>
+> Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
+> Schulz-Kornas E, Souron A & Winkler DE (2021). Compendium of code and
+> data for *A note of caution: the scale-sensitive fractal analysis
+> depends on the software*. Accessed 26 janv. 2021. Online at
+> <https://doi.org/xxx/xxx>
 
 # Contents
 
@@ -50,6 +51,10 @@ the [LICENSE.md](/LICENSE.md) and [LICENSE](/LICENSE) files.
 
 The [SSFAcomparisonPaper.Rproj](/SSFAcomparisonPaper.Rproj) file is the
 RStudio project file.
+
+The [checksums.Rmd](/checksums.Rmd) file gives the MD5 checksums for all
+files in the R and Python analyses folders. Rendered to
+[checksums.md](/checksums.md).
 
 The [R\_analysis](/R_analysis) directory contains all files related to
 the R analysis. It is composed of the following folders:
@@ -192,6 +197,7 @@ Alternatively, use [GitHub & BitBucket HTML
 Preview](https://htmlpreview.github.io/) to render it directly.  
 Here are direct links to display the files directly in your browser:
 
+-   [SSFA\_0\_CreateRC.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_0_CreateRC.html)
 -   [SSFA\_1\_Import.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_1_Import.html)  
 -   [SSFA\_2\_Summary-stats.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_2_Summary-stats.html)  
 -   [SSFA\_3\_Plots.html](http://htmlpreview.github.io/?https://github.com/tracer-monrepos/SSFAcomparisonPaper/blob/master/R_analysis/scripts/SSFA_3_Plots.html)  

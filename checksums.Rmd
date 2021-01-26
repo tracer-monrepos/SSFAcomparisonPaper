@@ -1,0 +1,77 @@
+---
+title: "Checksums"
+author: "Ivan Calandra"
+date: "`r Sys.time()`"
+output:
+  github_document: 
+    toc: true
+    toc_depth: 3
+    html_preview: false
+---
+
+
+```{r Knitr Options, include = FALSE}
+knitr::opts_chunk$set(comment = NA, message = FALSE, indent = "", error = TRUE)
+```
+
+
+---
+
+
+# Goal of the script
+This script calculates the MD5 checksums of all files in the repository to check for integrity and file versions.
+
+
+---
+
+
+# Load packages
+```{r}
+library(tools)
+library(tidyverse)
+```
+
+
+---
+
+
+# Get names, path and MD5 checksums of all files
+## R analysis
+```{r}
+check_R <- list.files(path = "R_analysis", full.names = TRUE, recursive = TRUE) %>% 
+           md5sum()
+```
+
+The MD5 checksums of the files created during the R analysis are:  
+```{r, echo = FALSE}
+data.frame(files = names(check_R), checksum = check_R, row.names = NULL)
+```
+
+## Python analysis
+```{r}
+check_Python <- list.files(path = "Python_analysis", full.names = TRUE, recursive = TRUE) %>% 
+                md5sum()
+```
+
+The MD5 checksums of the files created during the Python analysis are:  
+```{r, echo = FALSE}
+data.frame(files = names(check_Python), checksum = check_Python, row.names = NULL)
+```
+
+
+---
+
+
+# sessionInfo() and RStudio version
+
+```{r}
+sessionInfo()
+```
+
+RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
+
+
+---
+
+
+END OF SCRIPT
