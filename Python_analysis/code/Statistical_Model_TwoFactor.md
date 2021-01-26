@@ -226,12 +226,12 @@ for surfaceParam,(mean,std) in dictMeanStd.items():
     print("Surface parameter {} has mean {} and standard deviation {}".format(surfaceParam,mean,std))
 ```
 
-    Surface parameter epLsar has mean 0.0028221512571428575 and standard deviation 0.0019000504797019124
-    Surface parameter R² has mean 0.998765273042857 and standard deviation 0.0015328558023807836
-    Surface parameter Asfc has mean 18.13129049385357 and standard deviation 16.348381888991312
-    Surface parameter Smfc has mean 4.938492967075 and standard deviation 38.106353908569346
-    Surface parameter HAsfc9 has mean 0.3085220006979256 and standard deviation 0.2211140516395699
-    Surface parameter HAsfc81 has mean 0.5639598041398011 and standard deviation 0.40668126467296095
+    Surface parameter epLsar has mean 0.002866777015225286 and standard deviation 0.0019173233323041528
+    Surface parameter R² has mean 0.9973197285182144 and standard deviation 0.006745323717352575
+    Surface parameter Asfc has mean 16.912804592866785 and standard deviation 16.042490777228107
+    Surface parameter Smfc has mean 2.589874101745179 and standard deviation 10.663178442785044
+    Surface parameter HAsfc9 has mean 0.31872043020221136 and standard deviation 0.22913790943445264
+    Surface parameter HAsfc81 has mean 0.5885203613280154 and standard deviation 0.42897734163543366
 
 
 
@@ -240,17 +240,17 @@ for k,v in dictTreatment.items():
     print("Number {} encodes treatment {}".format(k,v))
 ```
 
-    Number 5 encodes treatment Dry Bamboo
-    Number 6 encodes treatment Dry Grass
-    Number 7 encodes treatment Dry Lucerne
+    Number 5 encodes treatment Dry bamboo
+    Number 6 encodes treatment Dry grass
+    Number 7 encodes treatment Dry lucerne
     Number 0 encodes treatment BrushDirt
     Number 1 encodes treatment BrushNoDirt
     Number 4 encodes treatment Control
     Number 10 encodes treatment RubDirt
     Number 2 encodes treatment Clover
-    Number 3 encodes treatment Clover+Dust
+    Number 3 encodes treatment Clover+dust
     Number 8 encodes treatment Grass
-    Number 9 encodes treatment Grass+Dust
+    Number 9 encodes treatment Grass+dust
 
 
 
@@ -308,12 +308,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>116</td>
-      <td>0.839414</td>
-      <td>-0.017104</td>
-      <td>-0.448128</td>
-      <td>-0.120476</td>
-      <td>-0.806963</td>
-      <td>-0.512247</td>
+      <td>0.896441</td>
+      <td>0.202280</td>
+      <td>-0.548753</td>
+      <td>-0.173680</td>
+      <td>-0.872185</td>
+      <td>-0.512580</td>
     </tr>
     <tr>
       <th>1</th>
@@ -322,12 +322,12 @@ display(dataZ)
       <td>1</td>
       <td>0</td>
       <td>116</td>
-      <td>0.999368</td>
-      <td>0.518462</td>
-      <td>-0.477757</td>
-      <td>-0.126469</td>
-      <td>-0.782634</td>
-      <td>-0.497016</td>
+      <td>0.967089</td>
+      <td>0.332122</td>
+      <td>-0.410913</td>
+      <td>-0.231700</td>
+      <td>-0.799735</td>
+      <td>-0.528438</td>
     </tr>
     <tr>
       <th>2</th>
@@ -336,12 +336,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>117</td>
-      <td>1.601888</td>
-      <td>-0.509024</td>
-      <td>-0.276513</td>
-      <td>-0.119325</td>
-      <td>-0.584158</td>
-      <td>-0.662886</td>
+      <td>1.663582</td>
+      <td>0.205805</td>
+      <td>-0.406276</td>
+      <td>-0.184263</td>
+      <td>-0.625739</td>
+      <td>-0.636413</td>
     </tr>
     <tr>
       <th>3</th>
@@ -350,12 +350,12 @@ display(dataZ)
       <td>1</td>
       <td>0</td>
       <td>117</td>
-      <td>1.596720</td>
-      <td>0.457791</td>
-      <td>-0.301685</td>
-      <td>-0.126469</td>
-      <td>-0.629947</td>
-      <td>-0.744422</td>
+      <td>1.559060</td>
+      <td>0.318335</td>
+      <td>-0.231484</td>
+      <td>-0.231700</td>
+      <td>-0.652395</td>
+      <td>-0.762985</td>
     </tr>
     <tr>
       <th>4</th>
@@ -364,12 +364,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>118</td>
-      <td>1.168099</td>
-      <td>-0.221668</td>
-      <td>-0.393502</td>
-      <td>-0.121498</td>
-      <td>-0.269712</td>
-      <td>-0.370958</td>
+      <td>1.235447</td>
+      <td>0.140997</td>
+      <td>-0.524577</td>
+      <td>-0.187419</td>
+      <td>-0.425552</td>
+      <td>-0.460441</td>
     </tr>
     <tr>
       <th>...</th>
@@ -392,12 +392,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>51</td>
-      <td>0.843056</td>
-      <td>0.387986</td>
-      <td>-0.997743</td>
-      <td>-0.092631</td>
-      <td>2.388080</td>
-      <td>1.346868</td>
+      <td>0.812186</td>
+      <td>0.302472</td>
+      <td>-0.940814</td>
+      <td>-0.110773</td>
+      <td>2.259947</td>
+      <td>1.219611</td>
     </tr>
     <tr>
       <th>276</th>
@@ -406,12 +406,12 @@ display(dataZ)
       <td>0</td>
       <td>2</td>
       <td>52</td>
-      <td>0.305544</td>
-      <td>-0.791837</td>
-      <td>-0.967607</td>
-      <td>-0.104937</td>
-      <td>2.014963</td>
-      <td>2.573677</td>
+      <td>0.279516</td>
+      <td>0.134624</td>
+      <td>-0.883003</td>
+      <td>-0.199355</td>
+      <td>1.616592</td>
+      <td>2.457881</td>
     </tr>
     <tr>
       <th>277</th>
@@ -420,12 +420,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>52</td>
-      <td>0.166758</td>
-      <td>0.635237</td>
-      <td>-0.940337</td>
-      <td>-0.126098</td>
-      <td>2.926894</td>
-      <td>3.117333</td>
+      <td>0.141981</td>
+      <td>0.358659</td>
+      <td>-0.882314</td>
+      <td>-0.230373</td>
+      <td>2.779893</td>
+      <td>2.898056</td>
     </tr>
     <tr>
       <th>278</th>
@@ -434,12 +434,12 @@ display(dataZ)
       <td>0</td>
       <td>2</td>
       <td>53</td>
-      <td>-0.843412</td>
-      <td>0.042974</td>
-      <td>-1.022523</td>
-      <td>-0.085082</td>
-      <td>0.280534</td>
-      <td>0.543577</td>
+      <td>-0.859089</td>
+      <td>0.269132</td>
+      <td>-0.964638</td>
+      <td>-0.118959</td>
+      <td>0.316720</td>
+      <td>0.540611</td>
     </tr>
     <tr>
       <th>279</th>
@@ -448,12 +448,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>53</td>
-      <td>-1.115313</td>
-      <td>0.712218</td>
-      <td>-1.021455</td>
-      <td>-0.118879</td>
-      <td>0.169999</td>
-      <td>0.678630</td>
+      <td>-1.128540</td>
+      <td>0.376153</td>
+      <td>-0.964978</td>
+      <td>-0.204577</td>
+      <td>0.119539</td>
+      <td>0.586105</td>
     </tr>
   </tbody>
 </table>
@@ -510,16 +510,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.004417</td>
-      <td>0.998739</td>
-      <td>10.805118</td>
-      <td>0.347586</td>
-      <td>0.130091</td>
-      <td>0.355639</td>
-      <td>0.019460</td>
+      <td>0.004586</td>
+      <td>0.998684</td>
+      <td>8.109445</td>
+      <td>0.737898</td>
+      <td>0.118870</td>
+      <td>0.368635</td>
+      <td>0.019529</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -530,8 +530,8 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.004721</td>
       <td>0.999560</td>
@@ -550,16 +550,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005866</td>
-      <td>0.997985</td>
-      <td>13.610750</td>
-      <td>0.391436</td>
-      <td>0.179356</td>
-      <td>0.294377</td>
-      <td>0.020079</td>
+      <td>0.006056</td>
+      <td>0.998708</td>
+      <td>10.395128</td>
+      <td>0.625040</td>
+      <td>0.175340</td>
+      <td>0.315513</td>
+      <td>0.020162</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -570,8 +570,8 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.005856</td>
       <td>0.999467</td>
@@ -590,16 +590,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005042</td>
-      <td>0.998425</td>
-      <td>11.698166</td>
-      <td>0.308648</td>
-      <td>0.248885</td>
-      <td>0.413098</td>
-      <td>0.019722</td>
+      <td>0.005236</td>
+      <td>0.998271</td>
+      <td>8.497286</td>
+      <td>0.591396</td>
+      <td>0.221210</td>
+      <td>0.391002</td>
+      <td>0.019804</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -630,8 +630,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.004424</td>
       <td>0.999360</td>
@@ -650,15 +650,15 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
       <td>9</td>
       <td>0</td>
@@ -670,8 +670,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003139</td>
       <td>0.999739</td>
@@ -690,15 +690,15 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
       <td>9</td>
       <td>0</td>
@@ -710,8 +710,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.000703</td>
       <td>0.999857</td>
@@ -848,8 +848,8 @@ epLsarModel.printParams(x1,x2,dataZ.epLsar_z.values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.0034852973454325, 1.2901096312620055)
-    The standard deviations used for the M12 priors are 0.08172156390242785
+    The standard deviations used for the beta priors are  (1.0100483277420549, 1.278487256789849)
+    The standard deviations used for the M12 priors are 0.08146666941376325
 
 
 
@@ -923,12 +923,12 @@ with epLsarModel as model:
         }
     </style>
   <progress value='15000' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [15000/15000 03:11<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [15000/15000 03:01<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 193 seconds.
+    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 183 seconds.
 
 
 
@@ -999,72 +999,72 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>epLsar_mu_b0</th>
-      <td>-0.09</td>
-      <td>0.79</td>
-      <td>-1.70</td>
-      <td>1.44</td>
+      <td>-0.11</td>
+      <td>0.81</td>
+      <td>-1.67</td>
+      <td>1.48</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5425.0</td>
-      <td>2884.0</td>
-      <td>5427.0</td>
-      <td>3762.0</td>
+      <td>5029.0</td>
+      <td>2319.0</td>
+      <td>5029.0</td>
+      <td>3627.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[0]</th>
-      <td>-0.03</td>
-      <td>0.70</td>
-      <td>-1.39</td>
-      <td>1.39</td>
+      <td>0.00</td>
+      <td>0.73</td>
+      <td>-1.48</td>
+      <td>1.36</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4860.0</td>
-      <td>2747.0</td>
-      <td>4867.0</td>
-      <td>3934.0</td>
+      <td>4766.0</td>
+      <td>3057.0</td>
+      <td>4763.0</td>
+      <td>3988.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[1]</th>
       <td>-0.07</td>
       <td>0.71</td>
-      <td>-1.53</td>
-      <td>1.25</td>
+      <td>-1.47</td>
+      <td>1.34</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5257.0</td>
-      <td>2785.0</td>
-      <td>5261.0</td>
-      <td>3982.0</td>
+      <td>4575.0</td>
+      <td>2861.0</td>
+      <td>4587.0</td>
+      <td>3606.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[0]</th>
       <td>-0.25</td>
-      <td>0.68</td>
-      <td>-1.59</td>
-      <td>1.06</td>
+      <td>0.66</td>
+      <td>-1.63</td>
+      <td>0.94</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4407.0</td>
-      <td>3292.0</td>
-      <td>4401.0</td>
-      <td>4000.0</td>
+      <td>3705.0</td>
+      <td>2967.0</td>
+      <td>3733.0</td>
+      <td>4054.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[1]</th>
       <td>-0.36</td>
       <td>0.67</td>
-      <td>-1.70</td>
-      <td>0.93</td>
+      <td>-1.64</td>
+      <td>0.98</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4184.0</td>
-      <td>3665.0</td>
-      <td>4184.0</td>
-      <td>3778.0</td>
+      <td>4093.0</td>
+      <td>3216.0</td>
+      <td>4098.0</td>
+      <td>3736.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1083,72 +1083,72 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>epLsar_mu[275]</th>
-      <td>0.68</td>
+      <td>0.66</td>
       <td>0.27</td>
-      <td>0.15</td>
-      <td>1.19</td>
+      <td>0.12</td>
+      <td>1.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5046.0</td>
-      <td>4965.0</td>
-      <td>5046.0</td>
-      <td>4460.0</td>
+      <td>5124.0</td>
+      <td>4919.0</td>
+      <td>5132.0</td>
+      <td>4303.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[276]</th>
-      <td>0.72</td>
+      <td>0.68</td>
       <td>0.31</td>
-      <td>0.12</td>
-      <td>1.32</td>
+      <td>0.09</td>
+      <td>1.30</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4876.0</td>
-      <td>4562.0</td>
-      <td>4894.0</td>
-      <td>3579.0</td>
+      <td>5093.0</td>
+      <td>5024.0</td>
+      <td>5103.0</td>
+      <td>3850.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[277]</th>
-      <td>0.68</td>
+      <td>0.66</td>
       <td>0.27</td>
-      <td>0.15</td>
-      <td>1.19</td>
+      <td>0.12</td>
+      <td>1.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5046.0</td>
-      <td>4965.0</td>
-      <td>5046.0</td>
-      <td>4460.0</td>
+      <td>5124.0</td>
+      <td>4919.0</td>
+      <td>5132.0</td>
+      <td>4303.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[278]</th>
-      <td>0.72</td>
+      <td>0.68</td>
       <td>0.31</td>
-      <td>0.12</td>
-      <td>1.32</td>
+      <td>0.09</td>
+      <td>1.30</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4876.0</td>
-      <td>4562.0</td>
-      <td>4894.0</td>
-      <td>3579.0</td>
+      <td>5093.0</td>
+      <td>5024.0</td>
+      <td>5103.0</td>
+      <td>3850.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[279]</th>
-      <td>0.68</td>
+      <td>0.66</td>
       <td>0.27</td>
-      <td>0.15</td>
-      <td>1.19</td>
+      <td>0.12</td>
+      <td>1.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5046.0</td>
-      <td>4965.0</td>
-      <td>5046.0</td>
-      <td>4460.0</td>
+      <td>5124.0</td>
+      <td>4919.0</td>
+      <td>5132.0</td>
+      <td>4303.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1335,167 +1335,167 @@ df_hdi_epLsar
   <tbody>
     <tr>
       <th>0</th>
-      <td>Dry Grass</td>
-      <td>Dry Bamboo</td>
-      <td>-0.004067</td>
-      <td>-0.002744</td>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>-0.004200</td>
+      <td>-0.002884</td>
       <td>True</td>
-      <td>-0.003976</td>
-      <td>-0.002647</td>
+      <td>-0.003967</td>
+      <td>-0.002636</td>
       <td>True</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Bamboo</td>
-      <td>-0.003291</td>
-      <td>-0.001971</td>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-0.003305</td>
+      <td>-0.001994</td>
       <td>True</td>
-      <td>-0.003465</td>
-      <td>-0.002210</td>
+      <td>-0.003411</td>
+      <td>-0.002161</td>
       <td>True</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>0.000215</td>
-      <td>0.001528</td>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>0.000228</td>
+      <td>0.001524</td>
       <td>True</td>
-      <td>-0.000166</td>
-      <td>0.001127</td>
+      <td>-0.000167</td>
+      <td>0.001116</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>BrushNoDirt</td>
       <td>BrushDirt</td>
-      <td>-0.001322</td>
-      <td>0.001007</td>
+      <td>-0.001227</td>
+      <td>0.001107</td>
       <td>False</td>
-      <td>-0.001513</td>
-      <td>0.000565</td>
+      <td>-0.001528</td>
+      <td>0.000527</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Control</td>
       <td>BrushDirt</td>
-      <td>-0.002129</td>
-      <td>0.000235</td>
+      <td>-0.002046</td>
+      <td>0.000359</td>
       <td>False</td>
       <td>-0.001954</td>
-      <td>0.000213</td>
+      <td>0.000235</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Control</td>
       <td>BrushNoDirt</td>
-      <td>-0.001726</td>
-      <td>0.000381</td>
+      <td>-0.001872</td>
+      <td>0.000384</td>
       <td>False</td>
-      <td>-0.001382</td>
-      <td>0.000666</td>
+      <td>-0.001414</td>
+      <td>0.000676</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>RubDirt</td>
       <td>BrushDirt</td>
-      <td>-0.001713</td>
-      <td>0.000537</td>
+      <td>-0.001636</td>
+      <td>0.000627</td>
       <td>False</td>
-      <td>-0.001373</td>
-      <td>0.000730</td>
+      <td>-0.001497</td>
+      <td>0.000683</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RubDirt</td>
       <td>BrushNoDirt</td>
-      <td>-0.001426</td>
-      <td>0.000616</td>
+      <td>-0.001442</td>
+      <td>0.000661</td>
       <td>False</td>
-      <td>-0.000906</td>
-      <td>0.001069</td>
+      <td>-0.000890</td>
+      <td>0.001130</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>RubDirt</td>
       <td>Control</td>
-      <td>-0.000705</td>
-      <td>0.001380</td>
+      <td>-0.000753</td>
+      <td>0.001508</td>
       <td>False</td>
-      <td>-0.000561</td>
-      <td>0.001490</td>
+      <td>-0.000598</td>
+      <td>0.001547</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Clover+Dust</td>
+      <td>Clover+dust</td>
       <td>Clover</td>
-      <td>-0.001075</td>
-      <td>0.001140</td>
+      <td>-0.001140</td>
+      <td>0.001047</td>
       <td>False</td>
-      <td>-0.000765</td>
-      <td>0.001629</td>
+      <td>-0.000746</td>
+      <td>0.001576</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Grass</td>
       <td>Clover</td>
-      <td>-0.000194</td>
-      <td>0.002930</td>
+      <td>-0.000153</td>
+      <td>0.002973</td>
       <td>False</td>
-      <td>0.000277</td>
-      <td>0.003761</td>
+      <td>0.000293</td>
+      <td>0.003795</td>
       <td>True</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>-0.000132</td>
-      <td>0.003035</td>
+      <td>Clover+dust</td>
+      <td>-0.000151</td>
+      <td>0.002972</td>
       <td>False</td>
-      <td>-0.000093</td>
-      <td>0.003438</td>
+      <td>-0.000175</td>
+      <td>0.003389</td>
       <td>False</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Clover</td>
-      <td>0.000526</td>
-      <td>0.003260</td>
+      <td>0.000533</td>
+      <td>0.003296</td>
       <td>True</td>
-      <td>0.000854</td>
-      <td>0.003494</td>
+      <td>0.000819</td>
+      <td>0.003383</td>
       <td>True</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Grass+Dust</td>
-      <td>Clover+Dust</td>
-      <td>0.000522</td>
-      <td>0.003389</td>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>0.000445</td>
+      <td>0.003307</td>
       <td>True</td>
-      <td>0.000470</td>
-      <td>0.003078</td>
+      <td>0.000379</td>
+      <td>0.002978</td>
       <td>True</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Grass</td>
-      <td>-0.001254</td>
-      <td>0.002331</td>
+      <td>-0.001303</td>
+      <td>0.002230</td>
       <td>False</td>
-      <td>-0.001810</td>
-      <td>0.001876</td>
+      <td>-0.001721</td>
+      <td>0.001958</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -1526,8 +1526,8 @@ RsquaredModel.printParams(x1,x2,dataZ["R²_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.0112351887037512, 2.890846695679254)
-    The standard deviations used for the M12 priors are 0.1531305915288677
+    The standard deviations used for the beta priors are  (1.3433087377122408, 2.3171005331515255)
+    The standard deviations used for the M12 priors are 0.13391632877981252
 
 
 
@@ -1593,12 +1593,12 @@ with RsquaredModel as model:
         }
     </style>
   <progress value='15000' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [15000/15000 12:10<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [15000/15000 1:06:10<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 732 seconds.
+    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 3971 seconds.
 
 
 
@@ -1659,72 +1659,72 @@ pm.summary(dataTrace_Rsquared,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>R²_mu_b0</th>
-      <td>0.06</td>
-      <td>0.81</td>
-      <td>-1.52</td>
+      <td>0.07</td>
+      <td>0.83</td>
+      <td>-1.55</td>
       <td>1.64</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5502.0</td>
-      <td>2696.0</td>
-      <td>5518.0</td>
-      <td>3915.0</td>
+      <td>7950.0</td>
+      <td>2327.0</td>
+      <td>7929.0</td>
+      <td>4058.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b1[0]</th>
-      <td>-0.21</td>
-      <td>0.72</td>
-      <td>-1.61</td>
-      <td>1.24</td>
+      <td>-0.05</td>
+      <td>0.73</td>
+      <td>-1.49</td>
+      <td>1.35</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4648.0</td>
-      <td>3068.0</td>
-      <td>4644.0</td>
-      <td>3840.0</td>
+      <td>6903.0</td>
+      <td>2379.0</td>
+      <td>6902.0</td>
+      <td>3964.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b1[1]</th>
-      <td>0.27</td>
+      <td>0.11</td>
       <td>0.72</td>
-      <td>-1.10</td>
-      <td>1.74</td>
+      <td>-1.23</td>
+      <td>1.58</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5066.0</td>
-      <td>3627.0</td>
-      <td>5073.0</td>
-      <td>4140.0</td>
+      <td>7161.0</td>
+      <td>2924.0</td>
+      <td>7164.0</td>
+      <td>4300.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b2[0]</th>
       <td>-0.01</td>
-      <td>0.67</td>
-      <td>-1.34</td>
-      <td>1.25</td>
+      <td>0.66</td>
+      <td>-1.24</td>
+      <td>1.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>3977.0</td>
-      <td>2832.0</td>
-      <td>3960.0</td>
-      <td>3601.0</td>
+      <td>5941.0</td>
+      <td>2544.0</td>
+      <td>5938.0</td>
+      <td>3984.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b2[1]</th>
-      <td>-0.03</td>
+      <td>-0.05</td>
       <td>0.66</td>
-      <td>-1.30</td>
-      <td>1.25</td>
+      <td>-1.31</td>
+      <td>1.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4154.0</td>
-      <td>3450.0</td>
-      <td>4155.0</td>
-      <td>3974.0</td>
+      <td>6122.0</td>
+      <td>2330.0</td>
+      <td>6086.0</td>
+      <td>3681.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1743,72 +1743,72 @@ pm.summary(dataTrace_Rsquared,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>R²_mu[275]</th>
-      <td>0.53</td>
-      <td>0.07</td>
-      <td>0.39</td>
-      <td>0.68</td>
+      <td>0.34</td>
+      <td>0.01</td>
+      <td>0.31</td>
+      <td>0.36</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4891.0</td>
-      <td>4891.0</td>
-      <td>4951.0</td>
-      <td>4145.0</td>
+      <td>4973.0</td>
+      <td>4968.0</td>
+      <td>4975.0</td>
+      <td>4789.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[276]</th>
-      <td>-0.01</td>
-      <td>0.12</td>
-      <td>-0.23</td>
-      <td>0.21</td>
+      <td>0.11</td>
+      <td>0.10</td>
+      <td>-0.03</td>
+      <td>0.26</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4383.0</td>
-      <td>2619.0</td>
-      <td>4827.0</td>
-      <td>4134.0</td>
+      <td>4537.0</td>
+      <td>4387.0</td>
+      <td>4704.0</td>
+      <td>4535.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[277]</th>
-      <td>0.53</td>
-      <td>0.07</td>
-      <td>0.39</td>
-      <td>0.68</td>
+      <td>0.34</td>
+      <td>0.01</td>
+      <td>0.31</td>
+      <td>0.36</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4891.0</td>
-      <td>4891.0</td>
-      <td>4951.0</td>
-      <td>4145.0</td>
+      <td>4973.0</td>
+      <td>4968.0</td>
+      <td>4975.0</td>
+      <td>4789.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[278]</th>
-      <td>-0.01</td>
-      <td>0.12</td>
-      <td>-0.23</td>
-      <td>0.21</td>
+      <td>0.11</td>
+      <td>0.10</td>
+      <td>-0.03</td>
+      <td>0.26</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4383.0</td>
-      <td>2619.0</td>
-      <td>4827.0</td>
-      <td>4134.0</td>
+      <td>4537.0</td>
+      <td>4387.0</td>
+      <td>4704.0</td>
+      <td>4535.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[279]</th>
-      <td>0.53</td>
-      <td>0.07</td>
-      <td>0.39</td>
-      <td>0.68</td>
+      <td>0.34</td>
+      <td>0.01</td>
+      <td>0.31</td>
+      <td>0.36</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4891.0</td>
-      <td>4891.0</td>
-      <td>4951.0</td>
-      <td>4145.0</td>
+      <td>4973.0</td>
+      <td>4968.0</td>
+      <td>4975.0</td>
+      <td>4789.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1981,9 +1981,13 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 df_hdi_R = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Rsquared,'R²',x1,x2)
 ```
 
+    /home/bob/.local/lib/python3.8/site-packages/seaborn/distributions.py:305: UserWarning: Dataset has 0 variance; skipping density estimate.
+      warnings.warn(msg, UserWarning)
+
+
 
     
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_89_0.png)
+![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_89_1.png)
     
 
 
@@ -2026,167 +2030,167 @@ df_hdi_R
   <tbody>
     <tr>
       <th>0</th>
-      <td>Dry Grass</td>
-      <td>Dry Bamboo</td>
-      <td>-0.000170</td>
-      <td>0.000357</td>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>-0.000285</td>
+      <td>0.000175</td>
       <td>False</td>
-      <td>-0.000320</td>
-      <td>0.000205</td>
+      <td>-0.000257</td>
+      <td>0.000188</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Bamboo</td>
-      <td>-0.000111</td>
-      <td>0.000435</td>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-0.000116</td>
+      <td>0.000248</td>
       <td>False</td>
-      <td>-0.000353</td>
-      <td>0.000114</td>
+      <td>-0.000326</td>
+      <td>0.000121</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>-0.000182</td>
-      <td>0.000285</td>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>-0.000115</td>
+      <td>0.000330</td>
       <td>False</td>
-      <td>-0.000338</td>
-      <td>0.000222</td>
+      <td>-0.000349</td>
+      <td>0.000179</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>BrushNoDirt</td>
       <td>BrushDirt</td>
-      <td>-0.000799</td>
-      <td>0.000192</td>
-      <td>False</td>
-      <td>-0.000403</td>
-      <td>0.000604</td>
+      <td>-0.002096</td>
+      <td>-0.000672</td>
+      <td>True</td>
+      <td>-0.000420</td>
+      <td>0.000635</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Control</td>
       <td>BrushDirt</td>
-      <td>-0.000806</td>
-      <td>0.000270</td>
+      <td>-0.001249</td>
+      <td>0.000041</td>
       <td>False</td>
-      <td>-0.000464</td>
-      <td>0.000426</td>
+      <td>-0.000416</td>
+      <td>0.000408</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Control</td>
       <td>BrushNoDirt</td>
-      <td>-0.000439</td>
-      <td>0.000502</td>
+      <td>-0.000080</td>
+      <td>0.001656</td>
       <td>False</td>
-      <td>-0.000690</td>
-      <td>0.000398</td>
+      <td>-0.000801</td>
+      <td>0.000387</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>RubDirt</td>
       <td>BrushDirt</td>
-      <td>-0.000495</td>
-      <td>0.000548</td>
+      <td>-0.001154</td>
+      <td>0.000799</td>
       <td>False</td>
-      <td>-0.000228</td>
-      <td>0.000622</td>
+      <td>-0.000185</td>
+      <td>0.000635</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RubDirt</td>
       <td>BrushNoDirt</td>
-      <td>-0.000164</td>
-      <td>0.000742</td>
-      <td>False</td>
-      <td>-0.000409</td>
-      <td>0.000594</td>
+      <td>0.000181</td>
+      <td>0.002386</td>
+      <td>True</td>
+      <td>-0.000556</td>
+      <td>0.000619</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>RubDirt</td>
       <td>Control</td>
-      <td>-0.000214</td>
-      <td>0.000759</td>
+      <td>-0.000680</td>
+      <td>0.001489</td>
       <td>False</td>
-      <td>-0.000243</td>
-      <td>0.000693</td>
+      <td>-0.000252</td>
+      <td>0.000722</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Clover+Dust</td>
+      <td>Clover+dust</td>
       <td>Clover</td>
-      <td>-0.000156</td>
-      <td>0.000715</td>
-      <td>False</td>
-      <td>-0.000183</td>
-      <td>0.000480</td>
+      <td>-0.001005</td>
+      <td>-0.000290</td>
+      <td>True</td>
+      <td>-0.000138</td>
+      <td>0.000401</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Grass</td>
       <td>Clover</td>
-      <td>-0.000479</td>
-      <td>0.000628</td>
-      <td>False</td>
-      <td>-0.000705</td>
-      <td>0.000042</td>
-      <td>False</td>
+      <td>-0.001250</td>
+      <td>-0.000102</td>
+      <td>True</td>
+      <td>-0.000719</td>
+      <td>-0.000045</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>-0.000742</td>
-      <td>0.000319</td>
+      <td>Clover+dust</td>
+      <td>-0.000639</td>
+      <td>0.000580</td>
       <td>False</td>
-      <td>-0.000812</td>
-      <td>-0.000138</td>
+      <td>-0.000792</td>
+      <td>-0.000199</td>
       <td>True</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Clover</td>
-      <td>-0.000138</td>
-      <td>0.000808</td>
+      <td>-0.001970</td>
+      <td>0.000084</td>
       <td>False</td>
-      <td>-0.000443</td>
-      <td>0.000248</td>
+      <td>-0.000435</td>
+      <td>0.000140</td>
       <td>False</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Grass+Dust</td>
-      <td>Clover+Dust</td>
-      <td>-0.000456</td>
-      <td>0.000426</td>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>-0.001314</td>
+      <td>0.000824</td>
       <td>False</td>
-      <td>-0.000563</td>
-      <td>0.000042</td>
-      <td>False</td>
+      <td>-0.000515</td>
+      <td>-0.000045</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Grass</td>
-      <td>-0.000380</td>
-      <td>0.000764</td>
+      <td>-0.001536</td>
+      <td>0.000874</td>
       <td>False</td>
-      <td>-0.000120</td>
-      <td>0.000575</td>
+      <td>-0.000091</td>
+      <td>0.000540</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -2217,8 +2221,8 @@ AsfcModel.printParams(x1,x2,dataZ["Asfc_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.0422213301584404, 0.6910746316178924)
-    The standard deviations used for the M12 priors are 0.06252618346546977
+    The standard deviations used for the beta priors are  (1.0620939450667206, 0.7885965314025212)
+    The standard deviations used for the M12 priors are 0.06614242279897746
 
 
 
@@ -2286,12 +2290,12 @@ with AsfcModel as model:
         }
     </style>
   <progress value='15000' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [15000/15000 15:30<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [15000/15000 17:10<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 931 seconds.
+    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 1032 seconds.
 
 
 
@@ -2352,72 +2356,72 @@ pm.summary(dataTrace_Asfc,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>Asfc_mu_b0</th>
-      <td>0.02</td>
-      <td>0.80</td>
-      <td>-1.56</td>
-      <td>1.56</td>
+      <td>0.03</td>
+      <td>0.79</td>
+      <td>-1.54</td>
+      <td>1.57</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6414.0</td>
-      <td>2566.0</td>
-      <td>6418.0</td>
-      <td>3790.0</td>
+      <td>7171.0</td>
+      <td>2541.0</td>
+      <td>7170.0</td>
+      <td>3979.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b1[0]</th>
-      <td>0.00</td>
-      <td>0.73</td>
-      <td>-1.45</td>
-      <td>1.44</td>
+      <td>-0.08</td>
+      <td>0.70</td>
+      <td>-1.44</td>
+      <td>1.28</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5801.0</td>
-      <td>2387.0</td>
-      <td>5814.0</td>
-      <td>3868.0</td>
+      <td>6377.0</td>
+      <td>2385.0</td>
+      <td>6384.0</td>
+      <td>3933.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b1[1]</th>
-      <td>0.02</td>
-      <td>0.72</td>
-      <td>-1.42</td>
-      <td>1.41</td>
+      <td>0.11</td>
+      <td>0.71</td>
+      <td>-1.33</td>
+      <td>1.47</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5774.0</td>
-      <td>2489.0</td>
-      <td>5858.0</td>
-      <td>3660.0</td>
+      <td>6789.0</td>
+      <td>2647.0</td>
+      <td>6777.0</td>
+      <td>4089.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b2[0]</th>
-      <td>0.79</td>
       <td>0.67</td>
-      <td>-0.49</td>
-      <td>2.13</td>
+      <td>0.68</td>
+      <td>-0.75</td>
+      <td>1.92</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5568.0</td>
-      <td>4274.0</td>
-      <td>5588.0</td>
-      <td>3081.0</td>
+      <td>6024.0</td>
+      <td>4059.0</td>
+      <td>6090.0</td>
+      <td>3494.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b2[1]</th>
-      <td>0.82</td>
+      <td>0.80</td>
       <td>0.68</td>
-      <td>-0.47</td>
-      <td>2.17</td>
+      <td>-0.50</td>
+      <td>2.16</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5994.0</td>
-      <td>4271.0</td>
-      <td>5950.0</td>
-      <td>3934.0</td>
+      <td>6900.0</td>
+      <td>4532.0</td>
+      <td>6872.0</td>
+      <td>3974.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -2436,72 +2440,72 @@ pm.summary(dataTrace_Asfc,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>Asfc_mu[275]</th>
-      <td>-0.99</td>
-      <td>0.06</td>
-      <td>-1.10</td>
-      <td>-0.88</td>
+      <td>-0.94</td>
+      <td>0.05</td>
+      <td>-1.04</td>
+      <td>-0.84</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4965.0</td>
-      <td>4965.0</td>
-      <td>4968.0</td>
-      <td>4536.0</td>
+      <td>4903.0</td>
+      <td>4900.0</td>
+      <td>4919.0</td>
+      <td>4492.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[276]</th>
-      <td>-1.00</td>
-      <td>0.06</td>
-      <td>-1.11</td>
-      <td>-0.89</td>
+      <td>-0.94</td>
+      <td>0.05</td>
+      <td>-1.04</td>
+      <td>-0.84</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4854.0</td>
-      <td>4854.0</td>
-      <td>4859.0</td>
-      <td>4733.0</td>
+      <td>5312.0</td>
+      <td>5312.0</td>
+      <td>5324.0</td>
+      <td>4413.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[277]</th>
-      <td>-0.99</td>
-      <td>0.06</td>
-      <td>-1.10</td>
-      <td>-0.88</td>
+      <td>-0.94</td>
+      <td>0.05</td>
+      <td>-1.04</td>
+      <td>-0.84</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4965.0</td>
-      <td>4965.0</td>
-      <td>4968.0</td>
-      <td>4536.0</td>
+      <td>4903.0</td>
+      <td>4900.0</td>
+      <td>4919.0</td>
+      <td>4492.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[278]</th>
-      <td>-1.00</td>
-      <td>0.06</td>
-      <td>-1.11</td>
-      <td>-0.89</td>
+      <td>-0.94</td>
+      <td>0.05</td>
+      <td>-1.04</td>
+      <td>-0.84</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4854.0</td>
-      <td>4854.0</td>
-      <td>4859.0</td>
-      <td>4733.0</td>
+      <td>5312.0</td>
+      <td>5312.0</td>
+      <td>5324.0</td>
+      <td>4413.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[279]</th>
-      <td>-0.99</td>
-      <td>0.06</td>
-      <td>-1.10</td>
-      <td>-0.88</td>
+      <td>-0.94</td>
+      <td>0.05</td>
+      <td>-1.04</td>
+      <td>-0.84</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4965.0</td>
-      <td>4965.0</td>
-      <td>4968.0</td>
-      <td>4536.0</td>
+      <td>4903.0</td>
+      <td>4900.0</td>
+      <td>4919.0</td>
+      <td>4492.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -2596,7 +2600,7 @@ with AsfcModel as model:
         }
     </style>
   <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
+  100.00% [2000/2000 00:03<00:00]
 </div>
 
 
@@ -2719,167 +2723,167 @@ df_hdi_Asfc
   <tbody>
     <tr>
       <th>0</th>
-      <td>Dry Grass</td>
-      <td>Dry Bamboo</td>
-      <td>-4.590184</td>
-      <td>1.147175</td>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>-3.939803</td>
+      <td>0.935695</td>
       <td>False</td>
-      <td>-4.558174</td>
-      <td>0.815497</td>
+      <td>-4.447570</td>
+      <td>0.965258</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Bamboo</td>
-      <td>-5.494453</td>
-      <td>-0.013526</td>
-      <td>True</td>
-      <td>-5.244830</td>
-      <td>-0.130161</td>
-      <td>True</td>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-4.031412</td>
+      <td>0.625569</td>
+      <td>False</td>
+      <td>-5.003380</td>
+      <td>0.239099</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>-3.003669</td>
-      <td>1.160887</td>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>-2.410119</td>
+      <td>1.424301</td>
       <td>False</td>
-      <td>-2.904640</td>
-      <td>1.154366</td>
+      <td>-2.515884</td>
+      <td>1.276464</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>BrushNoDirt</td>
       <td>BrushDirt</td>
-      <td>-4.739801</td>
-      <td>5.943660</td>
-      <td>False</td>
-      <td>-3.249920</td>
-      <td>6.365292</td>
+      <td>0.013059</td>
+      <td>7.915624</td>
+      <td>True</td>
+      <td>-2.631889</td>
+      <td>6.887819</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Control</td>
       <td>BrushDirt</td>
-      <td>1.157339</td>
-      <td>11.554010</td>
+      <td>3.910899</td>
+      <td>18.434847</td>
       <td>True</td>
-      <td>1.327801</td>
-      <td>14.288748</td>
+      <td>1.604132</td>
+      <td>14.612596</td>
       <td>True</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Control</td>
       <td>BrushNoDirt</td>
-      <td>-0.023134</td>
-      <td>12.236542</td>
-      <td>False</td>
-      <td>-0.655977</td>
-      <td>13.044664</td>
+      <td>0.022112</td>
+      <td>14.415237</td>
+      <td>True</td>
+      <td>-0.616464</td>
+      <td>13.182578</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>RubDirt</td>
       <td>BrushDirt</td>
-      <td>0.315135</td>
-      <td>9.771061</td>
-      <td>True</td>
-      <td>1.263154</td>
-      <td>13.157769</td>
+      <td>-0.259987</td>
+      <td>20.831039</td>
+      <td>False</td>
+      <td>1.502426</td>
+      <td>13.522475</td>
       <td>True</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RubDirt</td>
       <td>BrushNoDirt</td>
-      <td>-0.902446</td>
-      <td>10.179298</td>
+      <td>-4.336062</td>
+      <td>16.137641</td>
       <td>False</td>
-      <td>-0.778604</td>
-      <td>11.638509</td>
+      <td>-1.231718</td>
+      <td>11.842114</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>RubDirt</td>
       <td>Control</td>
-      <td>-6.656884</td>
-      <td>3.955110</td>
+      <td>-14.247123</td>
+      <td>11.427003</td>
       <td>False</td>
-      <td>-8.631530</td>
-      <td>6.598749</td>
+      <td>-8.595219</td>
+      <td>7.100929</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Clover+Dust</td>
+      <td>Clover+dust</td>
       <td>Clover</td>
-      <td>-4.401580</td>
-      <td>1.531404</td>
+      <td>-4.902063</td>
+      <td>2.035175</td>
       <td>False</td>
-      <td>-4.469708</td>
-      <td>1.591586</td>
+      <td>-4.562186</td>
+      <td>1.844004</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Grass</td>
       <td>Clover</td>
-      <td>-5.547873</td>
-      <td>0.620996</td>
+      <td>-5.948810</td>
+      <td>1.110713</td>
       <td>False</td>
-      <td>-5.618248</td>
-      <td>0.604946</td>
+      <td>-5.876442</td>
+      <td>0.688654</td>
       <td>False</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>-3.465540</td>
-      <td>1.510666</td>
+      <td>Clover+dust</td>
+      <td>-3.539383</td>
+      <td>1.255674</td>
       <td>False</td>
-      <td>-3.286469</td>
-      <td>1.643290</td>
+      <td>-3.501566</td>
+      <td>1.339794</td>
       <td>False</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Clover</td>
-      <td>-6.182086</td>
-      <td>-0.207515</td>
-      <td>True</td>
-      <td>-6.128564</td>
-      <td>0.017583</td>
+      <td>-6.781348</td>
+      <td>0.056399</td>
+      <td>False</td>
+      <td>-6.135492</td>
+      <td>0.254948</td>
       <td>False</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Grass+Dust</td>
-      <td>Clover+Dust</td>
-      <td>-3.967283</td>
-      <td>0.884150</td>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>-4.430594</td>
+      <td>0.335530</td>
       <td>False</td>
-      <td>-4.158386</td>
-      <td>0.756972</td>
+      <td>-3.919102</td>
+      <td>0.673998</td>
       <td>False</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Grass</td>
-      <td>-3.168229</td>
-      <td>1.958645</td>
+      <td>-3.353905</td>
+      <td>1.617864</td>
       <td>False</td>
-      <td>-3.075500</td>
-      <td>1.888422</td>
+      <td>-3.044589</td>
+      <td>1.686165</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -2910,8 +2914,8 @@ SmfcModel.printParams(x1,x2,dataZ.Smfc_z.values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.3943421938332237, 3.387697874270125)
-    The standard deviations used for the M12 priors are 0.18317127941381783
+    The standard deviations used for the beta priors are  (1.190539275484547, 2.890262579386322)
+    The standard deviations used for the M12 priors are 0.15629300643560595
 
 
 
@@ -2978,8 +2982,8 @@ with SmfcModel as model:
             background: #F44336;
         }
     </style>
-  <progress value='2127' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  14.18% [2127/15000 12:41<1:16:46 Sampling 10 chains, 0 divergences]
+  <progress value='2257' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  15.05% [2257/15000 18:47<1:46:07 Sampling 10 chains, 0 divergences]
 </div>
 
 
@@ -3027,7 +3031,7 @@ with SmfcModel as model:
 
     ValueError                                Traceback (most recent call last)
 
-    <ipython-input-91-4de91012caf3> in <module>
+    <ipython-input-90-4de91012caf3> in <module>
           1 with SmfcModel as model:
     ----> 2     trace_Smfc = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.99,random_seed=random_seed)
     
@@ -3078,8 +3082,8 @@ HAsfc9Model.printParams(x1,x2,dataZ["HAsfc9_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.0299664523718457, 2.0653529113379627)
-    The standard deviations used for the M12 priors are 0.11539620380870036
+    The standard deviations used for the beta priors are  (1.0540496136136044, 2.005676747692769)
+    The standard deviations used for the M12 priors are 0.11328900878057889
 
 
 
@@ -3147,12 +3151,12 @@ with HAsfc9Model as model:
         }
     </style>
   <progress value='15000' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [15000/15000 06:32<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [15000/15000 06:51<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 394 seconds.
+    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 412 seconds.
 
 
 
@@ -3214,71 +3218,71 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
     <tr>
       <th>HAsfc9_mu_b0</th>
       <td>-0.07</td>
-      <td>0.83</td>
-      <td>-1.66</td>
-      <td>1.58</td>
+      <td>0.80</td>
+      <td>-1.65</td>
+      <td>1.43</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5152.0</td>
-      <td>2742.0</td>
-      <td>5154.0</td>
-      <td>3850.0</td>
+      <td>5695.0</td>
+      <td>2359.0</td>
+      <td>5673.0</td>
+      <td>4066.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b1[0]</th>
-      <td>0.01</td>
+      <td>0.04</td>
       <td>0.72</td>
-      <td>-1.38</td>
-      <td>1.49</td>
+      <td>-1.34</td>
+      <td>1.51</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4806.0</td>
-      <td>2997.0</td>
-      <td>4806.0</td>
-      <td>3874.0</td>
+      <td>5050.0</td>
+      <td>2946.0</td>
+      <td>5057.0</td>
+      <td>3783.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b1[1]</th>
-      <td>-0.08</td>
-      <td>0.73</td>
-      <td>-1.46</td>
-      <td>1.42</td>
+      <td>-0.10</td>
+      <td>0.72</td>
+      <td>-1.49</td>
+      <td>1.35</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4874.0</td>
-      <td>2965.0</td>
-      <td>4873.0</td>
-      <td>4131.0</td>
+      <td>4834.0</td>
+      <td>2979.0</td>
+      <td>4834.0</td>
+      <td>3973.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b2[0]</th>
-      <td>-0.30</td>
+      <td>-0.26</td>
       <td>0.66</td>
-      <td>-1.64</td>
-      <td>0.95</td>
+      <td>-1.56</td>
+      <td>1.03</td>
       <td>0.01</td>
       <td>0.01</td>
       <td>4119.0</td>
-      <td>3526.0</td>
-      <td>4134.0</td>
-      <td>3967.0</td>
+      <td>2839.0</td>
+      <td>4127.0</td>
+      <td>3512.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b2[1]</th>
-      <td>-0.17</td>
-      <td>0.68</td>
-      <td>-1.47</td>
-      <td>1.20</td>
+      <td>-0.20</td>
+      <td>0.67</td>
+      <td>-1.57</td>
+      <td>1.08</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4664.0</td>
-      <td>3355.0</td>
-      <td>4667.0</td>
-      <td>4027.0</td>
+      <td>3738.0</td>
+      <td>3165.0</td>
+      <td>3749.0</td>
+      <td>3996.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -3297,72 +3301,72 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>HAsfc9_mu[275]</th>
-      <td>0.01</td>
-      <td>0.20</td>
-      <td>-0.37</td>
-      <td>0.43</td>
+      <td>-0.03</td>
+      <td>0.19</td>
+      <td>-0.41</td>
+      <td>0.34</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5151.0</td>
-      <td>4276.0</td>
-      <td>5148.0</td>
-      <td>4522.0</td>
+      <td>4547.0</td>
+      <td>4013.0</td>
+      <td>4560.0</td>
+      <td>4624.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[276]</th>
-      <td>-0.03</td>
-      <td>0.21</td>
-      <td>-0.44</td>
-      <td>0.39</td>
+      <td>0.06</td>
+      <td>0.24</td>
+      <td>-0.39</td>
+      <td>0.52</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4911.0</td>
-      <td>3439.0</td>
-      <td>4923.0</td>
-      <td>4077.0</td>
+      <td>4766.0</td>
+      <td>2887.0</td>
+      <td>4774.0</td>
+      <td>4037.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[277]</th>
-      <td>0.01</td>
-      <td>0.20</td>
-      <td>-0.37</td>
-      <td>0.43</td>
+      <td>-0.03</td>
+      <td>0.19</td>
+      <td>-0.41</td>
+      <td>0.34</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5151.0</td>
-      <td>4276.0</td>
-      <td>5148.0</td>
-      <td>4522.0</td>
+      <td>4547.0</td>
+      <td>4013.0</td>
+      <td>4560.0</td>
+      <td>4624.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[278]</th>
-      <td>-0.03</td>
-      <td>0.21</td>
-      <td>-0.44</td>
-      <td>0.39</td>
+      <td>0.06</td>
+      <td>0.24</td>
+      <td>-0.39</td>
+      <td>0.52</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4911.0</td>
-      <td>3439.0</td>
-      <td>4923.0</td>
-      <td>4077.0</td>
+      <td>4766.0</td>
+      <td>2887.0</td>
+      <td>4774.0</td>
+      <td>4037.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[279]</th>
-      <td>0.01</td>
-      <td>0.20</td>
-      <td>-0.37</td>
-      <td>0.43</td>
+      <td>-0.03</td>
+      <td>0.19</td>
+      <td>-0.41</td>
+      <td>0.34</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5151.0</td>
-      <td>4276.0</td>
-      <td>5148.0</td>
-      <td>4522.0</td>
+      <td>4547.0</td>
+      <td>4013.0</td>
+      <td>4560.0</td>
+      <td>4624.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -3580,167 +3584,167 @@ df_hdi_HAsfc9
   <tbody>
     <tr>
       <th>0</th>
-      <td>Dry Grass</td>
-      <td>Dry Bamboo</td>
-      <td>0.004741</td>
-      <td>0.154269</td>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>0.000670</td>
+      <td>0.138311</td>
       <td>True</td>
-      <td>0.009964</td>
-      <td>0.146980</td>
+      <td>0.002941</td>
+      <td>0.143668</td>
       <td>True</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Bamboo</td>
-      <td>-0.039222</td>
-      <td>0.077737</td>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-0.035688</td>
+      <td>0.084977</td>
       <td>False</td>
-      <td>-0.035389</td>
-      <td>0.075596</td>
+      <td>-0.042002</td>
+      <td>0.076006</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>-0.135338</td>
-      <td>0.023288</td>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>-0.117764</td>
+      <td>0.031872</td>
       <td>False</td>
-      <td>-0.125951</td>
-      <td>0.018912</td>
+      <td>-0.125602</td>
+      <td>0.021941</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>BrushNoDirt</td>
       <td>BrushDirt</td>
-      <td>-0.154694</td>
-      <td>0.173059</td>
+      <td>-0.231361</td>
+      <td>0.146793</td>
       <td>False</td>
-      <td>-0.051301</td>
-      <td>0.218016</td>
+      <td>-0.063532</td>
+      <td>0.221075</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Control</td>
       <td>BrushDirt</td>
-      <td>-0.096697</td>
-      <td>0.183108</td>
+      <td>-0.159309</td>
+      <td>0.177833</td>
       <td>False</td>
-      <td>-0.014656</td>
-      <td>0.238499</td>
+      <td>-0.020488</td>
+      <td>0.239702</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Control</td>
       <td>BrushNoDirt</td>
-      <td>-0.129790</td>
-      <td>0.194543</td>
+      <td>-0.118868</td>
+      <td>0.215704</td>
       <td>False</td>
-      <td>-0.115211</td>
-      <td>0.189870</td>
+      <td>-0.121261</td>
+      <td>0.192874</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>RubDirt</td>
       <td>BrushDirt</td>
-      <td>-0.173911</td>
-      <td>0.089835</td>
+      <td>-0.223620</td>
+      <td>0.119671</td>
       <td>False</td>
-      <td>-0.088172</td>
-      <td>0.144856</td>
+      <td>-0.093554</td>
+      <td>0.146212</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RubDirt</td>
       <td>BrushNoDirt</td>
-      <td>-0.217105</td>
-      <td>0.097660</td>
+      <td>-0.184998</td>
+      <td>0.151141</td>
       <td>False</td>
-      <td>-0.194993</td>
-      <td>0.099310</td>
+      <td>-0.204337</td>
+      <td>0.093804</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>RubDirt</td>
       <td>Control</td>
-      <td>-0.224113</td>
-      <td>0.034596</td>
+      <td>-0.211662</td>
+      <td>0.080935</td>
       <td>False</td>
-      <td>-0.220132</td>
-      <td>0.051093</td>
+      <td>-0.212686</td>
+      <td>0.056618</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Clover+Dust</td>
+      <td>Clover+dust</td>
       <td>Clover</td>
-      <td>-0.174753</td>
-      <td>0.114866</td>
+      <td>-0.147903</td>
+      <td>0.136656</td>
       <td>False</td>
-      <td>-0.082380</td>
-      <td>0.151813</td>
+      <td>-0.081257</td>
+      <td>0.155239</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Grass</td>
       <td>Clover</td>
-      <td>-0.202863</td>
-      <td>0.096800</td>
+      <td>-0.251859</td>
+      <td>0.071005</td>
       <td>False</td>
-      <td>-0.121873</td>
-      <td>0.115497</td>
+      <td>-0.126162</td>
+      <td>0.116917</td>
       <td>False</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>-0.138433</td>
-      <td>0.091202</td>
+      <td>Clover+dust</td>
+      <td>-0.231351</td>
+      <td>0.051562</td>
       <td>False</td>
-      <td>-0.148223</td>
-      <td>0.078917</td>
+      <td>-0.160442</td>
+      <td>0.079536</td>
       <td>False</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Clover</td>
-      <td>-0.290836</td>
-      <td>0.004972</td>
+      <td>-0.310090</td>
+      <td>0.004148</td>
       <td>False</td>
-      <td>-0.205483</td>
-      <td>0.039646</td>
+      <td>-0.202760</td>
+      <td>0.043221</td>
       <td>False</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Grass+Dust</td>
-      <td>Clover+Dust</td>
-      <td>-0.218805</td>
-      <td>0.016317</td>
-      <td>False</td>
-      <td>-0.229822</td>
-      <td>0.000143</td>
-      <td>False</td>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>-0.272959</td>
+      <td>-0.010159</td>
+      <td>True</td>
+      <td>-0.240244</td>
+      <td>-0.005423</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
       <td>Grass</td>
-      <td>-0.211966</td>
-      <td>0.043802</td>
+      <td>-0.211711</td>
+      <td>0.091591</td>
       <td>False</td>
-      <td>-0.211792</td>
-      <td>0.033222</td>
+      <td>-0.206979</td>
+      <td>0.039560</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -3771,8 +3775,8 @@ HAsfc81Model.printParams(x1,x2,dataZ["HAsfc81_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11)
-    The standard deviations used for the beta priors are  (1.0035538697180921, 1.674345831114272)
-    The standard deviations used for the M12 priors are 0.09760320603847883
+    The standard deviations used for the beta priors are  (1.0444803217312628, 1.586983908089902)
+    The standard deviations used for the M12 priors are 0.09499285587637817
 
 
 
@@ -3840,12 +3844,12 @@ with HAsfc81Model as model:
         }
     </style>
   <progress value='15000' class='' max='15000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [15000/15000 10:41<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [15000/15000 11:57<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 642 seconds.
+    Sampling 10 chains for 1_000 tune and 500 draw iterations (10_000 + 5_000 draws total) took 718 seconds.
 
 
 
@@ -3906,72 +3910,72 @@ pm.summary(dataTrace_HAsfc81,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>HAsfc81_mu_b0</th>
-      <td>-0.08</td>
-      <td>0.79</td>
-      <td>-1.63</td>
-      <td>1.47</td>
+      <td>-0.06</td>
+      <td>0.81</td>
+      <td>-1.66</td>
+      <td>1.48</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5680.0</td>
-      <td>2624.0</td>
-      <td>5669.0</td>
-      <td>3994.0</td>
+      <td>5438.0</td>
+      <td>3055.0</td>
+      <td>5456.0</td>
+      <td>4451.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b1[0]</th>
-      <td>-0.04</td>
-      <td>0.71</td>
-      <td>-1.38</td>
-      <td>1.38</td>
+      <td>0.01</td>
+      <td>0.72</td>
+      <td>-1.40</td>
+      <td>1.39</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5284.0</td>
-      <td>2779.0</td>
-      <td>5277.0</td>
-      <td>3962.0</td>
+      <td>4786.0</td>
+      <td>2800.0</td>
+      <td>4784.0</td>
+      <td>3776.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b1[1]</th>
-      <td>-0.01</td>
-      <td>0.70</td>
-      <td>-1.44</td>
-      <td>1.33</td>
+      <td>-0.08</td>
+      <td>0.74</td>
+      <td>-1.54</td>
+      <td>1.35</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5321.0</td>
-      <td>2812.0</td>
-      <td>5321.0</td>
-      <td>3952.0</td>
+      <td>4760.0</td>
+      <td>2996.0</td>
+      <td>4760.0</td>
+      <td>3738.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b2[0]</th>
-      <td>-0.41</td>
-      <td>0.66</td>
-      <td>-1.70</td>
-      <td>0.88</td>
+      <td>-0.36</td>
+      <td>0.67</td>
+      <td>-1.69</td>
+      <td>0.90</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4284.0</td>
-      <td>3170.0</td>
-      <td>4276.0</td>
-      <td>3847.0</td>
+      <td>3853.0</td>
+      <td>3574.0</td>
+      <td>3866.0</td>
+      <td>3483.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b2[1]</th>
       <td>-0.40</td>
-      <td>0.68</td>
-      <td>-1.70</td>
-      <td>0.96</td>
+      <td>0.67</td>
+      <td>-1.68</td>
+      <td>0.92</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4457.0</td>
-      <td>3595.0</td>
-      <td>4455.0</td>
-      <td>3814.0</td>
+      <td>4465.0</td>
+      <td>3899.0</td>
+      <td>4474.0</td>
+      <td>3963.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -3990,72 +3994,72 @@ pm.summary(dataTrace_HAsfc81,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>HAsfc81_mu[275]</th>
-      <td>-0.10</td>
-      <td>0.18</td>
-      <td>-0.40</td>
-      <td>0.26</td>
+      <td>-0.16</td>
+      <td>0.17</td>
+      <td>-0.45</td>
+      <td>0.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4839.0</td>
-      <td>4614.0</td>
-      <td>4936.0</td>
-      <td>4783.0</td>
+      <td>5195.0</td>
+      <td>5195.0</td>
+      <td>5325.0</td>
+      <td>4756.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[276]</th>
-      <td>-0.12</td>
-      <td>0.15</td>
-      <td>-0.41</td>
-      <td>0.16</td>
+      <td>-0.10</td>
+      <td>0.21</td>
+      <td>-0.44</td>
+      <td>0.34</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5236.0</td>
-      <td>4918.0</td>
-      <td>5285.0</td>
-      <td>4728.0</td>
+      <td>4753.0</td>
+      <td>4660.0</td>
+      <td>5116.0</td>
+      <td>4932.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[277]</th>
-      <td>-0.10</td>
-      <td>0.18</td>
-      <td>-0.40</td>
-      <td>0.26</td>
+      <td>-0.16</td>
+      <td>0.17</td>
+      <td>-0.45</td>
+      <td>0.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4839.0</td>
-      <td>4614.0</td>
-      <td>4936.0</td>
-      <td>4783.0</td>
+      <td>5195.0</td>
+      <td>5195.0</td>
+      <td>5325.0</td>
+      <td>4756.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[278]</th>
-      <td>-0.12</td>
-      <td>0.15</td>
-      <td>-0.41</td>
-      <td>0.16</td>
+      <td>-0.10</td>
+      <td>0.21</td>
+      <td>-0.44</td>
+      <td>0.34</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>5236.0</td>
-      <td>4918.0</td>
-      <td>5285.0</td>
-      <td>4728.0</td>
+      <td>4753.0</td>
+      <td>4660.0</td>
+      <td>5116.0</td>
+      <td>4932.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[279]</th>
-      <td>-0.10</td>
-      <td>0.18</td>
-      <td>-0.40</td>
-      <td>0.26</td>
+      <td>-0.16</td>
+      <td>0.17</td>
+      <td>-0.45</td>
+      <td>0.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4839.0</td>
-      <td>4614.0</td>
-      <td>4936.0</td>
-      <td>4783.0</td>
+      <td>5195.0</td>
+      <td>5195.0</td>
+      <td>5325.0</td>
+      <td>4756.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -4087,40 +4091,16 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_3.png)
-    
-
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_4.png)
-    
-
-
-
 ```python
 with HAsfc81Model as model:
     plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,'HAsfc81')
 ```
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_0.png)
-    
-
-
-
 ```python
 with HAsfc81Model as model:
     plotting_lib.pm.energyplot(trace_HAsfc81)
 ```
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_183_0.png)
-    
-
 
 #### Posterior predictive distribution
 
@@ -4130,52 +4110,15 @@ with HAsfc81Model as model:
     posterior_pred_HAsfc81 = pm.sample_posterior_predictive(trace_HAsfc81,samples=numPredSamples,random_seed=random_seed)
 ```
 
-    /home/bob/.local/lib/python3.8/site-packages/pymc3/sampling.py:1707: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
-      warnings.warn(
-
-
-
-
-<div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
-  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
-</div>
-
-
-
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,posterior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
 ```
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_186_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_187_0.png)
-    
-
 
 #### Compare prior and posterior for model parameters
 
@@ -4185,30 +4128,15 @@ with HAsfc81Model as model:
     pm_data_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81,prior=prior_pred_HAsfc81,posterior_predictive=posterior_pred_HAsfc81)
 ```
 
-    arviz.data.io_pymc3 - WARNING - posterior predictive variable HAsfc81_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
-
-
 
 ```python
 plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
 ```
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_190_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_191_0.png)
-    
-
 
 #### Posterior and contrasts
 
@@ -4218,229 +4146,14 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_193_0.png)
-    
-
-
-
 ```python
 df_hdi_HAsfc81 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
 ```
 
 
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_194_0.png)
-    
-
-
-
 ```python
 df_hdi_HAsfc81
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Treatment_i</th>
-      <th>Treatment_j</th>
-      <th>hdi_ConfoMap_2.5%</th>
-      <th>hdi_ConfoMap_97.5%</th>
-      <th>isSignificant_on_ConfoMap</th>
-      <th>hdi_Toothfrax_2.5%</th>
-      <th>hdi_Toothfrax_97.5%</th>
-      <th>isSignificant_on_Toothfrax</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Dry Grass</td>
-      <td>Dry Bamboo</td>
-      <td>0.015803</td>
-      <td>0.141280</td>
-      <td>True</td>
-      <td>0.017960</td>
-      <td>0.136534</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Bamboo</td>
-      <td>-0.007991</td>
-      <td>0.109962</td>
-      <td>False</td>
-      <td>-0.002442</td>
-      <td>0.112198</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>-0.089879</td>
-      <td>0.046539</td>
-      <td>False</td>
-      <td>-0.082805</td>
-      <td>0.045862</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>BrushNoDirt</td>
-      <td>BrushDirt</td>
-      <td>-0.299553</td>
-      <td>0.301233</td>
-      <td>False</td>
-      <td>-0.141142</td>
-      <td>0.294944</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Control</td>
-      <td>BrushDirt</td>
-      <td>-0.109822</td>
-      <td>0.338131</td>
-      <td>False</td>
-      <td>-0.031861</td>
-      <td>0.276561</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Control</td>
-      <td>BrushNoDirt</td>
-      <td>-0.136611</td>
-      <td>0.359291</td>
-      <td>False</td>
-      <td>-0.171764</td>
-      <td>0.286131</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>RubDirt</td>
-      <td>BrushDirt</td>
-      <td>-0.275800</td>
-      <td>0.249341</td>
-      <td>False</td>
-      <td>-0.119907</td>
-      <td>0.203854</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>RubDirt</td>
-      <td>BrushNoDirt</td>
-      <td>-0.278006</td>
-      <td>0.310684</td>
-      <td>False</td>
-      <td>-0.288717</td>
-      <td>0.208890</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>RubDirt</td>
-      <td>Control</td>
-      <td>-0.339363</td>
-      <td>0.089056</td>
-      <td>False</td>
-      <td>-0.266739</td>
-      <td>0.090167</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Clover+Dust</td>
-      <td>Clover</td>
-      <td>-0.531301</td>
-      <td>0.215196</td>
-      <td>False</td>
-      <td>-0.548465</td>
-      <td>0.102834</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Grass</td>
-      <td>Clover</td>
-      <td>-0.743303</td>
-      <td>0.159757</td>
-      <td>False</td>
-      <td>-0.688675</td>
-      <td>0.008759</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>-0.367636</td>
-      <td>0.088254</td>
-      <td>False</td>
-      <td>-0.293908</td>
-      <td>0.128010</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Grass+Dust</td>
-      <td>Clover</td>
-      <td>-0.917794</td>
-      <td>-0.142649</td>
-      <td>True</td>
-      <td>-0.956987</td>
-      <td>-0.285984</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Grass+Dust</td>
-      <td>Clover+Dust</td>
-      <td>-0.518937</td>
-      <td>-0.208945</td>
-      <td>True</td>
-      <td>-0.555644</td>
-      <td>-0.214369</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Grass+Dust</td>
-      <td>Grass</td>
-      <td>-0.462872</td>
-      <td>0.013858</td>
-      <td>False</td>
-      <td>-0.520055</td>
-      <td>-0.052666</td>
-      <td>True</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 
 ```python
@@ -4480,24 +4193,12 @@ sns.pairplot(data=pd.DataFrame.from_dict(
 ));
 ```
 
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_202_0.png)
-    
-
-
 Let's have that of the differences again
 
 
 ```python
 sns.jointplot(x=diff_b2,y=diff_m12);
 ```
-
-
-    
-![png](Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_204_0.png)
-    
-
 
 We see two sets that are distributed along parallel lines in the scatter plot.
 This means that the model estimates two subsets of possible differences.  
@@ -4528,106 +4229,14 @@ Show the treatment pairs and surface parameters where the softwares differ
 
 ```python
 df_summary = df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total.isSignificant_on_Toothfrax][["Treatment_i","Treatment_j","SurfaceParameter","isSignificant_on_ConfoMap","isSignificant_on_Toothfrax","hdi_ConfoMap_2.5%","hdi_ConfoMap_97.5%","hdi_Toothfrax_2.5%","hdi_Toothfrax_97.5%"]]
+df_summary
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Treatment_i</th>
-      <th>Treatment_j</th>
-      <th>SurfaceParameter</th>
-      <th>isSignificant_on_ConfoMap</th>
-      <th>isSignificant_on_Toothfrax</th>
-      <th>hdi_ConfoMap_2.5%</th>
-      <th>hdi_ConfoMap_97.5%</th>
-      <th>hdi_Toothfrax_2.5%</th>
-      <th>hdi_Toothfrax_97.5%</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2</th>
-      <td>Dry Lucerne</td>
-      <td>Dry Grass</td>
-      <td>epLsar</td>
-      <td>True</td>
-      <td>False</td>
-      <td>0.000215</td>
-      <td>0.001528</td>
-      <td>-0.000166</td>
-      <td>0.001127</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Grass</td>
-      <td>Clover</td>
-      <td>epLsar</td>
-      <td>False</td>
-      <td>True</td>
-      <td>-0.000194</td>
-      <td>0.002930</td>
-      <td>0.000277</td>
-      <td>0.003761</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Grass</td>
-      <td>Clover+Dust</td>
-      <td>R²</td>
-      <td>False</td>
-      <td>True</td>
-      <td>-0.000742</td>
-      <td>0.000319</td>
-      <td>-0.000812</td>
-      <td>-0.000138</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>Grass+Dust</td>
-      <td>Clover</td>
-      <td>Asfc</td>
-      <td>True</td>
-      <td>False</td>
-      <td>-6.182086</td>
-      <td>-0.207515</td>
-      <td>-6.128564</td>
-      <td>0.017583</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>Grass+Dust</td>
-      <td>Grass</td>
-      <td>HAsfc81</td>
-      <td>False</td>
-      <td>True</td>
-      <td>-0.462872</td>
-      <td>0.013858</td>
-      <td>-0.520055</td>
-      <td>-0.052666</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+```python
+if writeOut:
+    df_summary.to_csv(outPathData+ 'summary.csv')
+```
 
 ### Write out
 
@@ -4636,91 +4245,10 @@ df_summary = df_hdi_total[df_hdi_total.isSignificant_on_ConfoMap != df_hdi_total
 !jupyter nbconvert --to html Statistical_Model_TwoFactor.ipynb
 ```
 
-    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to html
-    [NbConvertApp] Writing 24609826 bytes to Statistical_Model_TwoFactor.html
-
-
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_TwoFactor.ipynb
 ```
-
-    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to markdown
-    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_files/
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Writing 105992 bytes to Statistical_Model_TwoFactor.md
-
 
 
 ```python
