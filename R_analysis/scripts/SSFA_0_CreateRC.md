@@ -1,7 +1,7 @@
 Create Research Compendium - SSFAcomparisonPaper
 ================
 Ivan Calandra
-2020-11-19 13:45:51
+2021-01-26 15:14:44
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Prerequisites](#prerequisites)
@@ -74,7 +74,7 @@ library(holepunch)
 rrtools::use_compendium(getwd())
 ```
 
-A new project has openend in a new session.  
+A new project has opened in a new session.  
 Edit the fields “Title”, “Author” and “Description” in the `DESCRIPTION`
 file.
 
@@ -83,9 +83,9 @@ file.
 A project can have only one license. Run one line only:
 
 ``` r
-#usethis::use_ccby_license(name = "Ivan Calandra")
-#usethis::use_cc0_license(name = "Ivan Calandra")
-usethis::use_mit_license(name = "Ivan Calandra")
+#usethis::use_ccby_license()
+#usethis::use_cc0_license()
+usethis::use_mit_license(copyright_holder = "Ivan Calandra")
 ```
 
 ## Create README.Rmd file
@@ -169,7 +169,7 @@ sessionInfo()
 
     R version 4.0.3 (2020-10-10)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 18362)
+    Running under: Windows 10 x64 (build 19041)
 
     Matrix products: default
 
@@ -179,25 +179,26 @@ sessionInfo()
     [5] LC_TIME=French_France.1252    
 
     attached base packages:
-    [1] stats     graphics  grDevices utils     datasets  methods   base     
+    [1] stats     graphics  grDevices datasets  utils     methods   base     
 
     other attached packages:
-    [1] holepunch_0.1.28.9000 renv_0.12.2           usethis_1.6.3        
+    [1] holepunch_0.1.28.9000 renv_0.12.5           usethis_2.0.0        
     [4] rrtools_0.1.0        
 
     loaded via a namespace (and not attached):
-     [1] Rcpp_1.0.5        cliapp_0.1.1      compiler_4.0.3    git2r_0.27.1     
+     [1] Rcpp_1.0.6        cliapp_0.1.1      compiler_4.0.3    git2r_0.28.0     
      [5] prettyunits_1.1.1 tools_4.0.3       progress_1.2.2    digest_0.6.27    
-     [9] lubridate_1.7.9.2 jsonlite_1.7.1    evaluate_0.14     pkgconfig_2.0.3  
-    [13] rlang_0.4.8       cli_2.1.0         rstudioapi_0.13   curl_4.3         
-    [17] yaml_2.2.1        xfun_0.19         httr_1.4.2        withr_2.3.0      
-    [21] stringr_1.4.0     knitr_1.30        xml2_1.3.2        generics_0.1.0   
-    [25] desc_1.2.0        fs_1.5.0          vctrs_0.3.4       hms_0.5.3        
-    [29] rprojroot_2.0.2   glue_1.4.2        here_1.0.0        R6_2.5.0         
-    [33] gh_1.1.0          fansi_0.4.1       rmarkdown_2.5     bookdown_0.21    
-    [37] selectr_0.4-2     magrittr_1.5      clisymbols_1.2.0  htmltools_0.5.0  
-    [41] assertthat_0.2.1  stringi_1.5.3     crayon_1.3.4     
+     [9] lubridate_1.7.9.2 jsonlite_1.7.2    evaluate_0.14     lifecycle_0.2.0  
+    [13] pkgconfig_2.0.3   rlang_0.4.10      cli_2.2.0         rstudioapi_0.13  
+    [17] curl_4.3          yaml_2.2.1        xfun_0.20         httr_1.4.2       
+    [21] xml2_1.3.2        withr_2.4.0       stringr_1.4.0     knitr_1.30       
+    [25] generics_0.1.0    desc_1.2.0        fs_1.5.0          vctrs_0.3.6      
+    [29] hms_1.0.0         rprojroot_2.0.2   glue_1.4.2        here_1.0.1       
+    [33] R6_2.5.0          gh_1.2.0          fansi_0.4.2       rmarkdown_2.6    
+    [37] bookdown_0.21     purrr_0.3.4       selectr_0.4-2     magrittr_2.0.1   
+    [41] clisymbols_1.2.0  htmltools_0.5.1.1 ellipsis_0.3.1    assertthat_0.2.1 
+    [45] stringi_1.5.3     crayon_1.3.4     
 
-RStudio version 1.4.1043.
+RStudio version 1.4.1103.
 
 END OF SCRIPT

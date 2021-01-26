@@ -66,15 +66,15 @@ library(holepunch)
 ```{r}
 rrtools::use_compendium(getwd())
 ```
-A new project has openend in a new session.  
+A new project has opened in a new session.  
 Edit the fields "Title", "Author" and "Description" in the `DESCRIPTION` file. 
 
 ## Create CC-BY, CC-0 or MIT license
 A project can have only one license. Run one line only:  
 ```{r}
-#usethis::use_ccby_license(name = "Ivan Calandra")
-#usethis::use_cc0_license(name = "Ivan Calandra")
-usethis::use_mit_license(name = "Ivan Calandra")
+#usethis::use_ccby_license()
+#usethis::use_cc0_license()
+usethis::use_mit_license(copyright_holder = "Ivan Calandra")
 ```
 
 ## Create README.Rmd file
@@ -141,7 +141,7 @@ renv::init()
 sessionInfo()
 ```
 
-RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
 
 
 END OF SCRIPT
