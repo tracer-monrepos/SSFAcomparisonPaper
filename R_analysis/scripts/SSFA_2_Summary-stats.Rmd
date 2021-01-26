@@ -148,14 +148,8 @@ str(all_stats)
 
 # Write results to XLSX
 ```{r}
-xlsx_md5 <- paste0(dir_out, "/SSFA_summary_stats.xlsx") %T>% 
-            write.xlsx(list(summary_stats = all_stats), file = .) %>% 
-            md5sum()
-```
-
-The checksum (MD5 hashes) of the exported file is:  
-```{r, echo = FALSE}
-data.frame(files = basename(names(xlsx_md5)), checksum = xlsx_md5, row.names = NULL)
+write.xlsx(list(summary_stats = all_stats), 
+           file = paste0(dir_out, "/SSFA_summary_stats.xlsx"))
 ```
 
 
@@ -168,7 +162,7 @@ data.frame(files = basename(names(xlsx_md5)), checksum = xlsx_md5, row.names = N
 sessionInfo()
 ```
 
-RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
 
 
 ---

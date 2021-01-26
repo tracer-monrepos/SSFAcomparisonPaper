@@ -35,7 +35,7 @@ This repository contains the data and code for the paper:
 
 Please cite this compendium as:
 
-> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`*. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`*. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439451>
 
 # Contents
 

@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2021-01-26 09:41:53
+2021-01-26 09:56:38
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -38,7 +38,7 @@ Please cite this compendium as:
 > Schulz-Kornas E, Souron A & Winkler DE (2021). Compendium of code and
 > data for *A note of caution: the scale-sensitive fractal analysis
 > depends on the software*. Accessed 26 janv. 2021. Online at
-> <https://doi.org/xxx/xxx>
+> <https://doi.org/10.5281/zenodo.4439451>
 
 # Contents
 

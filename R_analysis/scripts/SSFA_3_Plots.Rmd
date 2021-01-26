@@ -129,6 +129,18 @@ for (i in y_var) {
 ---
 
 
+# Number of diets
+In order to have the same width of the boxes for the sheep and guinea pig datasets, we need to calculate how many diets there are in each dataset.
+```{r}
+diet_GP <- length(unique(all_data[all_data$Dataset == "GuineaPigs", "Diet"]))
+diet_sheep <- length(unique(all_data[all_data$Dataset == "Sheeps", "Diet"]))
+ratio_diet <- diet_GP / diet_sheep
+```
+
+
+---
+
+
 # Plot each set of the selected numeric variables
 ## Guinea Pigs
 ```{r}
@@ -145,17 +157,17 @@ GP_plot$name <- factor(GP_plot$name, levels = y_var)
 p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
         
         # Hide outliers (all points are shown with geom_point() below)
-        # The factor 3/4 ensures that the box have the same width than for the sheep dataset, 
-        # which has 4 levels, while the GP dataset has only 3
+        # The factor 'ratio_diet' ensures that the boxes have the same width 
+        # as for the sheep dataset
         geom_boxplot(outlier.shape = NA, 
-                     position = position_dodge(preserve = "single", width = 0.9*3/4),
-                     width = 0.8*3/4) + 
+                     position = position_dodge(preserve = "single", width = 0.9*ratio_diet),
+                     width = 0.8*ratio_diet) + 
   
         # Define jitter for points within boxplots
-        # The factor 3/4 ensures that the box have the same width than for the sheep dataset, 
-        # which has 4 levels, while the GP dataset has only 3
-        geom_point(position = position_jitterdodge(jitter.width = 0.3*3/4,
-                                                   dodge.width = 0.9*3/4,
+        # The factor 'ratio_diet' ensures that the boxes have the same width 
+        # as for the sheep dataset
+        geom_point(position = position_jitterdodge(jitter.width = 0.3*ratio_diet,
+                                                   dodge.width = 0.9*ratio_diet,
                                                    seed = 123)) +
   
         # Wrap around parameters
@@ -191,7 +203,7 @@ sheep_plot <- pivot_longer(sheep[c(x_var_sheep, grp_colors, y_var)], all_of(y_va
 sheep_plot$name <- factor(sheep_plot$name, levels = y_var)
 p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
            geom_boxplot(outlier.shape = NA, 
-                        position = position_dodge(preserve = "single", width = 0.8),
+                        position = position_dodge(preserve = "single", width = 0.9),
                         width = 0.8) + 
            geom_point(position = position_jitterdodge(jitter.width = 0.3, 
                                                       dodge.width = 0.9,
@@ -237,11 +249,12 @@ ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out,
 
 
 ## Zoom in for Smfc
-The previous plots for the parameter Smfc show some extreme values.  
-In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values.
+The previous plots for the parameter Smfc show some extreme values for the sheep and lithic datasets.  
+In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values (> 10).
 
 ```{r}
 y_Smfc <- "Smfc"
+ext_val <- 10
 
 # Guinea pig dataset
 GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
@@ -250,56 +263,51 @@ p_GP_Smfc <- ggplot(GP_plot_Smfc,
              geom_boxplot(outlier.shape = NA) + 
              geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
              labs(x = NULL, y = y_Smfc) + 
-             theme_classic()
+             theme_classic() +
+             theme(legend.position="bottom", legend.title = element_blank())
 print(p_GP_Smfc)
 ggsave(plot = p_GP_Smfc, filename = "/SSFA_GuineaPigs_plot_Smfc.pdf", path = dir_out, 
        device = "pdf")
 
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
-sheep_plot_Smfc_10 <- filter(sheep_plot_Smfc, value <= 10)
-p_sheep_Smfc <- ggplot(sheep_plot_Smfc_10, 
+sheep_plot_Smfc_filt <- filter(sheep_plot_Smfc, value <= ext_val)
+p_sheep_Smfc <- ggplot(sheep_plot_Smfc_filt, 
                        aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
                 geom_boxplot(outlier.shape = NA) + 
                 geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
                 labs(x = NULL, y = y_Smfc) + 
-                theme_classic()
+                theme_classic() +
+                theme(legend.position="bottom", legend.title = element_blank())
 print(p_sheep_Smfc)
 ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
        device = "pdf")
 
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
-lith_plot_Smfc_5 <- filter(lith_plot_Smfc, value <= 5)
-p_lith_Smfc <- ggplot(lith_plot_Smfc_5, 
+lith_plot_Smfc_filt <- filter(lith_plot_Smfc, value <= ext_val)
+p_lith_Smfc <- ggplot(lith_plot_Smfc_filt, 
                       aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
                geom_boxplot(outlier.shape = NA) + 
                geom_point(position = position_jitterdodge(jitter.width = 0.2, seed = 123)) +
                facet_wrap(~Treatment, scale = "free_y") +
                labs(x = NULL, y = y_Smfc) + 
-               theme_classic()
+               theme_classic() +
+               theme(legend.position="bottom", legend.title = element_blank())
 print(p_lith_Smfc) 
 ggsave(plot = p_lith_Smfc, filename = "/SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
        device = "pdf")
 ```
 
 These plots of Smfc do not show all data points.  
-For the sheep plot, `r length(which(sheep_plot_Smfc$value > 10))` points are outside of the y-range shown and are therefore excluded from the plot.  
-For the lithic plots, `r length(which(lith_plot_Smfc$value > 5))` points are outside of the y-ranges shown and are therefore excluded from the plots.   
-
-
----
-
-
-# Show plot files information
+For the sheep plot, these points are outside of the y-range shown and are therefore excluded from the plot:  
 ```{r}
-info_out <- list.files(path = dir_out, pattern = "\\.pdf$", full.names = TRUE) %>% 
-            md5sum()
+data.frame(sheep_plot_Smfc[sheep_plot_Smfc$value > ext_val, ])
 ```
 
-The following plot(s) was (were) created and its (their) checksum(s) is (are):
-```{r, echo = FALSE}
-data.frame(files = basename(names(info_out)), checksum = info_out, row.names = NULL)
+For the lithic plots, these points are outside of the y-ranges shown and were therefore excluded from the plots:   
+```{r}
+data.frame(lith_plot_Smfc[lith_plot_Smfc$value > ext_val, ])
 ```
 
 
@@ -312,7 +320,7 @@ data.frame(files = basename(names(info_out)), checksum = info_out, row.names = N
 sessionInfo()
 ```
 
-RStudio version `r readLines("R_analysis/scripts/RStudioVersion.txt", n = 1)`.
+RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
 
 
 ---
