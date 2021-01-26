@@ -7,7 +7,7 @@ For Windows10 and macOS [docker desktop](https://docs.docker.com/desktop/) can b
 #### Linux 
 For most linux distributions docker is provided by the respective package manager.  
 ### Docker image
-Download the image `ssfacomparison.tar` from [Zenodo](https://doi.org/10.5281/zenodo.4442018) and save it to disk.
+Download the image `ssfacomparison.tar` from [Zenodo](https://doi.org/10.5281/zenodo.4302091) and save it to disk.
 
 ## Instructions
 #### Open Docker Desktop (on macOS or Win10)
