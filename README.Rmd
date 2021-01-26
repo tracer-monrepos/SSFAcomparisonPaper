@@ -16,7 +16,7 @@ output:
 
 <!-- badges: end -->
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439451.svg)](https://doi.org/10.5281/zenodo.4439451)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
@@ -35,7 +35,8 @@ This repository contains the data and code for the paper:
 
 Please cite this compendium as:
 
-> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`*. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439451>
+> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`*. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439450>
+
 
 # Contents
 
@@ -137,7 +138,7 @@ If you want to work locally with the R analysis, either from the ZIP archive or 
 
 Using the package `renv` implies that installing, removing and updating packages is done within the project. In other words, all the packages that you install/update while in a project using `renv` will not be available in any other project. If you want to globally install/remove/update packages, make sure you close the project first.
 
-For the Python analysis, the easiest way is to use the Docker image hosted on [Zenodo](). The detailed instructions are given in [RUN_DOCKER.md](/Python_analysis/RUN_DOCKER.md).
+For the Python analysis, the easiest way is to use the Docker image hosted on [Zenodo](https://doi.org/10.5281/zenodo.4302091). The detailed instructions are given in [RUN_DOCKER.md](/Python_analysis/RUN_DOCKER.md).
 
 You can also download the compendium as [a ZIP archive](https://github.com/tracer-monrepos/`r repo`/archive/master.zip).  
 Alternatively, if you use GitHub, you can [fork and clone](https://happygitwithr.com/fork-and-clone.html) the repository to your account. See also the [CONTRIBUTING.md](CONTRIBUTING.md) file.

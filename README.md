@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2021-01-26 09:56:38
+2021-01-26 13:40:48
 
 -   [SSFAcomparisonPaper](#ssfacomparisonpaper)
 -   [How to cite](#how-to-cite)
@@ -19,7 +19,7 @@ Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-m
 
 <!-- badges: end -->
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439451.svg)](https://doi.org/10.5281/zenodo.4439451)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
 
 # SSFAcomparisonPaper
 
@@ -38,7 +38,7 @@ Please cite this compendium as:
 > Schulz-Kornas E, Souron A & Winkler DE (2021). Compendium of code and
 > data for *A note of caution: the scale-sensitive fractal analysis
 > depends on the software*. Accessed 26 janv. 2021. Online at
-> <https://doi.org/10.5281/zenodo.4439451>
+> <https://doi.org/10.5281/zenodo.4439450>
 
 # Contents
 
@@ -262,7 +262,8 @@ available in any other project. If you want to globally
 install/remove/update packages, make sure you close the project first.
 
 For the Python analysis, the easiest way is to use the Docker image
-hosted on [Zenodo](). The detailed instructions are given in
+hosted on [Zenodo](https://doi.org/10.5281/zenodo.4302091). The detailed
+instructions are given in
 [RUN\_DOCKER.md](/Python_analysis/RUN_DOCKER.md).
 
 You can also download the compendium as [a ZIP
