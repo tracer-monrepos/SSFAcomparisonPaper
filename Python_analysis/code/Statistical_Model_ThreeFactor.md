@@ -240,12 +240,12 @@ for surfaceParam,(mean,std) in dictMeanStd.items():
     print("Surface parameter {} has mean {} and standard deviation {}".format(surfaceParam,mean,std))
 ```
 
-    Surface parameter epLsar has mean 0.0028221512571428575 and standard deviation 0.0019000504797019124
-    Surface parameter R² has mean 0.998765273042857 and standard deviation 0.0015328558023807836
-    Surface parameter Asfc has mean 18.13129049385357 and standard deviation 16.348381888991312
-    Surface parameter Smfc has mean 4.938492967075 and standard deviation 38.106353908569346
-    Surface parameter HAsfc9 has mean 0.3085220006979256 and standard deviation 0.2211140516395699
-    Surface parameter HAsfc81 has mean 0.5639598041398011 and standard deviation 0.40668126467296095
+    Surface parameter epLsar has mean 0.002866777015225286 and standard deviation 0.0019173233323041528
+    Surface parameter R² has mean 0.9973197285182144 and standard deviation 0.006745323717352575
+    Surface parameter Asfc has mean 16.912804592866785 and standard deviation 16.042490777228107
+    Surface parameter Smfc has mean 2.589874101745179 and standard deviation 10.663178442785044
+    Surface parameter HAsfc9 has mean 0.31872043020221136 and standard deviation 0.22913790943445264
+    Surface parameter HAsfc81 has mean 0.5885203613280154 and standard deviation 0.42897734163543366
 
 
 
@@ -254,17 +254,17 @@ for k,v in dictTreatment.items():
     print("Number {} encodes treatment {}".format(k,v))
 ```
 
-    Number 5 encodes treatment Dry Bamboo
-    Number 6 encodes treatment Dry Grass
-    Number 7 encodes treatment Dry Lucerne
+    Number 5 encodes treatment Dry bamboo
+    Number 6 encodes treatment Dry grass
+    Number 7 encodes treatment Dry lucerne
     Number 0 encodes treatment BrushDirt
     Number 1 encodes treatment BrushNoDirt
     Number 4 encodes treatment Control
     Number 10 encodes treatment RubDirt
     Number 2 encodes treatment Clover
-    Number 3 encodes treatment Clover+Dust
+    Number 3 encodes treatment Clover+dust
     Number 8 encodes treatment Grass
-    Number 9 encodes treatment Grass+Dust
+    Number 9 encodes treatment Grass+dust
 
 
 
@@ -322,12 +322,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>116</td>
-      <td>0.839414</td>
-      <td>-0.017104</td>
-      <td>-0.448128</td>
-      <td>-0.120476</td>
-      <td>-0.806963</td>
-      <td>-0.512247</td>
+      <td>0.896441</td>
+      <td>0.202280</td>
+      <td>-0.548753</td>
+      <td>-0.173680</td>
+      <td>-0.872185</td>
+      <td>-0.512580</td>
     </tr>
     <tr>
       <th>1</th>
@@ -336,12 +336,12 @@ display(dataZ)
       <td>1</td>
       <td>0</td>
       <td>116</td>
-      <td>0.999368</td>
-      <td>0.518462</td>
-      <td>-0.477757</td>
-      <td>-0.126469</td>
-      <td>-0.782634</td>
-      <td>-0.497016</td>
+      <td>0.967089</td>
+      <td>0.332122</td>
+      <td>-0.410913</td>
+      <td>-0.231700</td>
+      <td>-0.799735</td>
+      <td>-0.528438</td>
     </tr>
     <tr>
       <th>2</th>
@@ -350,12 +350,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>117</td>
-      <td>1.601888</td>
-      <td>-0.509024</td>
-      <td>-0.276513</td>
-      <td>-0.119325</td>
-      <td>-0.584158</td>
-      <td>-0.662886</td>
+      <td>1.663582</td>
+      <td>0.205805</td>
+      <td>-0.406276</td>
+      <td>-0.184263</td>
+      <td>-0.625739</td>
+      <td>-0.636413</td>
     </tr>
     <tr>
       <th>3</th>
@@ -364,12 +364,12 @@ display(dataZ)
       <td>1</td>
       <td>0</td>
       <td>117</td>
-      <td>1.596720</td>
-      <td>0.457791</td>
-      <td>-0.301685</td>
-      <td>-0.126469</td>
-      <td>-0.629947</td>
-      <td>-0.744422</td>
+      <td>1.559060</td>
+      <td>0.318335</td>
+      <td>-0.231484</td>
+      <td>-0.231700</td>
+      <td>-0.652395</td>
+      <td>-0.762985</td>
     </tr>
     <tr>
       <th>4</th>
@@ -378,12 +378,12 @@ display(dataZ)
       <td>0</td>
       <td>0</td>
       <td>118</td>
-      <td>1.168099</td>
-      <td>-0.221668</td>
-      <td>-0.393502</td>
-      <td>-0.121498</td>
-      <td>-0.269712</td>
-      <td>-0.370958</td>
+      <td>1.235447</td>
+      <td>0.140997</td>
+      <td>-0.524577</td>
+      <td>-0.187419</td>
+      <td>-0.425552</td>
+      <td>-0.460441</td>
     </tr>
     <tr>
       <th>...</th>
@@ -406,12 +406,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>51</td>
-      <td>0.843056</td>
-      <td>0.387986</td>
-      <td>-0.997743</td>
-      <td>-0.092631</td>
-      <td>2.388080</td>
-      <td>1.346868</td>
+      <td>0.812186</td>
+      <td>0.302472</td>
+      <td>-0.940814</td>
+      <td>-0.110773</td>
+      <td>2.259947</td>
+      <td>1.219611</td>
     </tr>
     <tr>
       <th>276</th>
@@ -420,12 +420,12 @@ display(dataZ)
       <td>0</td>
       <td>2</td>
       <td>52</td>
-      <td>0.305544</td>
-      <td>-0.791837</td>
-      <td>-0.967607</td>
-      <td>-0.104937</td>
-      <td>2.014963</td>
-      <td>2.573677</td>
+      <td>0.279516</td>
+      <td>0.134624</td>
+      <td>-0.883003</td>
+      <td>-0.199355</td>
+      <td>1.616592</td>
+      <td>2.457881</td>
     </tr>
     <tr>
       <th>277</th>
@@ -434,12 +434,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>52</td>
-      <td>0.166758</td>
-      <td>0.635237</td>
-      <td>-0.940337</td>
-      <td>-0.126098</td>
-      <td>2.926894</td>
-      <td>3.117333</td>
+      <td>0.141981</td>
+      <td>0.358659</td>
+      <td>-0.882314</td>
+      <td>-0.230373</td>
+      <td>2.779893</td>
+      <td>2.898056</td>
     </tr>
     <tr>
       <th>278</th>
@@ -448,12 +448,12 @@ display(dataZ)
       <td>0</td>
       <td>2</td>
       <td>53</td>
-      <td>-0.843412</td>
-      <td>0.042974</td>
-      <td>-1.022523</td>
-      <td>-0.085082</td>
-      <td>0.280534</td>
-      <td>0.543577</td>
+      <td>-0.859089</td>
+      <td>0.269132</td>
+      <td>-0.964638</td>
+      <td>-0.118959</td>
+      <td>0.316720</td>
+      <td>0.540611</td>
     </tr>
     <tr>
       <th>279</th>
@@ -462,12 +462,12 @@ display(dataZ)
       <td>1</td>
       <td>2</td>
       <td>53</td>
-      <td>-1.115313</td>
-      <td>0.712218</td>
-      <td>-1.021455</td>
-      <td>-0.118879</td>
-      <td>0.169999</td>
-      <td>0.678630</td>
+      <td>-1.128540</td>
+      <td>0.376153</td>
+      <td>-0.964978</td>
+      <td>-0.204577</td>
+      <td>0.119539</td>
+      <td>0.586105</td>
     </tr>
   </tbody>
 </table>
@@ -524,16 +524,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.004417</td>
-      <td>0.998739</td>
-      <td>10.805118</td>
-      <td>0.347586</td>
-      <td>0.130091</td>
-      <td>0.355639</td>
-      <td>0.019460</td>
+      <td>0.004586</td>
+      <td>0.998684</td>
+      <td>8.109445</td>
+      <td>0.737898</td>
+      <td>0.118870</td>
+      <td>0.368635</td>
+      <td>0.019529</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -544,8 +544,8 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_1</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.004721</td>
       <td>0.999560</td>
@@ -564,16 +564,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005866</td>
-      <td>0.997985</td>
-      <td>13.610750</td>
-      <td>0.391436</td>
-      <td>0.179356</td>
-      <td>0.294377</td>
-      <td>0.020079</td>
+      <td>0.006056</td>
+      <td>0.998708</td>
+      <td>10.395128</td>
+      <td>0.625040</td>
+      <td>0.175340</td>
+      <td>0.315513</td>
+      <td>0.020162</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -584,8 +584,8 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_2</td>
       <td>Toothfrax</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
       <td>0.005856</td>
       <td>0.999467</td>
@@ -604,16 +604,16 @@ display(df)
       <td>GuineaPigs</td>
       <td>capor_2CC6B1_txP4_#1_1_100xL_3</td>
       <td>ConfoMap</td>
-      <td>Dry Bamboo</td>
-      <td>Dry Bamboo</td>
+      <td>Dry bamboo</td>
+      <td>Dry bamboo</td>
       <td>NaN</td>
-      <td>0.005042</td>
-      <td>0.998425</td>
-      <td>11.698166</td>
-      <td>0.308648</td>
-      <td>0.248885</td>
-      <td>0.413098</td>
-      <td>0.019722</td>
+      <td>0.005236</td>
+      <td>0.998271</td>
+      <td>8.497286</td>
+      <td>0.591396</td>
+      <td>0.221210</td>
+      <td>0.391002</td>
+      <td>0.019804</td>
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -644,8 +644,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90730-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.004424</td>
       <td>0.999360</td>
@@ -664,15 +664,15 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003403</td>
-      <td>0.997552</td>
-      <td>2.312486</td>
-      <td>0.939718</td>
-      <td>0.754059</td>
-      <td>1.610626</td>
+      <td>0.998228</td>
+      <td>2.747241</td>
+      <td>0.464115</td>
+      <td>0.689143</td>
+      <td>1.642896</td>
       <td>0.018978</td>
       <td>9</td>
       <td>0</td>
@@ -684,8 +684,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90764-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.003139</td>
       <td>0.999739</td>
@@ -704,15 +704,15 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>ConfoMap</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.001220</td>
-      <td>0.998831</td>
-      <td>1.414701</td>
-      <td>1.696316</td>
-      <td>0.370552</td>
-      <td>0.785022</td>
+      <td>0.999135</td>
+      <td>1.437607</td>
+      <td>1.321398</td>
+      <td>0.391293</td>
+      <td>0.820430</td>
       <td>0.017498</td>
       <td>9</td>
       <td>0</td>
@@ -724,8 +724,8 @@ display(df)
       <td>Sheeps</td>
       <td>L8-Ovis-90814-lm2sin-a</td>
       <td>Toothfrax</td>
-      <td>Grass+Dust</td>
-      <td>Grass+Dust</td>
+      <td>Grass+dust</td>
+      <td>Grass+dust</td>
       <td>NaN</td>
       <td>0.000703</td>
       <td>0.999857</td>
@@ -817,12 +817,12 @@ dfRawDiff
       <td>116</td>
       <td>-1</td>
       <td>-1</td>
-      <td>-0.159954</td>
-      <td>-0.535566</td>
-      <td>0.029629</td>
-      <td>0.005993</td>
-      <td>-0.024329</td>
-      <td>-0.015230</td>
+      <td>-0.070648</td>
+      <td>-0.129842</td>
+      <td>-0.137839</td>
+      <td>0.058020</td>
+      <td>-0.072450</td>
+      <td>0.015858</td>
     </tr>
     <tr>
       <th>1</th>
@@ -831,12 +831,12 @@ dfRawDiff
       <td>117</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.005168</td>
-      <td>-0.966815</td>
-      <td>0.025172</td>
-      <td>0.007144</td>
-      <td>0.045788</td>
-      <td>0.081537</td>
+      <td>0.104522</td>
+      <td>-0.112529</td>
+      <td>-0.174792</td>
+      <td>0.047436</td>
+      <td>0.026656</td>
+      <td>0.126571</td>
     </tr>
     <tr>
       <th>2</th>
@@ -845,12 +845,12 @@ dfRawDiff
       <td>118</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.139785</td>
-      <td>-0.550288</td>
-      <td>0.039022</td>
-      <td>0.004971</td>
-      <td>0.142403</td>
-      <td>0.139025</td>
+      <td>0.239671</td>
+      <td>-0.147984</td>
+      <td>-0.159759</td>
+      <td>0.044281</td>
+      <td>0.016639</td>
+      <td>0.080289</td>
     </tr>
     <tr>
       <th>3</th>
@@ -859,12 +859,12 @@ dfRawDiff
       <td>119</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.370716</td>
-      <td>-0.763882</td>
-      <td>0.041183</td>
-      <td>0.007772</td>
-      <td>0.113397</td>
-      <td>-0.223817</td>
+      <td>0.476779</td>
+      <td>-0.302235</td>
+      <td>-0.168608</td>
+      <td>0.050771</td>
+      <td>0.103129</td>
+      <td>-0.109117</td>
     </tr>
     <tr>
       <th>4</th>
@@ -873,12 +873,12 @@ dfRawDiff
       <td>120</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.138629</td>
-      <td>-0.150835</td>
-      <td>0.074677</td>
-      <td>0.007772</td>
-      <td>0.179692</td>
-      <td>0.075084</td>
+      <td>0.236874</td>
+      <td>-0.167349</td>
+      <td>-0.211669</td>
+      <td>0.038471</td>
+      <td>0.204357</td>
+      <td>0.131015</td>
     </tr>
     <tr>
       <th>...</th>
@@ -901,12 +901,12 @@ dfRawDiff
       <td>49</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.576471</td>
-      <td>-0.505284</td>
-      <td>-0.008495</td>
-      <td>0.004560</td>
-      <td>0.011585</td>
-      <td>0.007728</td>
+      <td>0.571277</td>
+      <td>-0.343614</td>
+      <td>0.106248</td>
+      <td>-0.005013</td>
+      <td>0.221809</td>
+      <td>0.418985</td>
     </tr>
     <tr>
       <th>136</th>
@@ -915,12 +915,12 @@ dfRawDiff
       <td>50</td>
       <td>-1</td>
       <td>-1</td>
-      <td>1.728006</td>
-      <td>-1.316577</td>
-      <td>-0.005035</td>
-      <td>0.005599</td>
-      <td>0.579285</td>
-      <td>0.167894</td>
+      <td>1.712439</td>
+      <td>-0.337458</td>
+      <td>0.006518</td>
+      <td>0.013172</td>
+      <td>1.765524</td>
+      <td>0.968364</td>
     </tr>
     <tr>
       <th>137</th>
@@ -929,12 +929,12 @@ dfRawDiff
       <td>51</td>
       <td>-1</td>
       <td>-1</td>
-      <td>-2.151764</td>
-      <td>-2.659380</td>
-      <td>-0.008650</td>
-      <td>0.510897</td>
-      <td>0.095887</td>
-      <td>0.165743</td>
+      <td>-2.132379</td>
+      <td>-0.403501</td>
+      <td>-0.002979</td>
+      <td>0.273535</td>
+      <td>-0.015592</td>
+      <td>0.324495</td>
     </tr>
     <tr>
       <th>138</th>
@@ -943,12 +943,12 @@ dfRawDiff
       <td>52</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.138786</td>
-      <td>-1.427074</td>
-      <td>-0.027269</td>
-      <td>0.021161</td>
-      <td>-0.911931</td>
-      <td>-0.543656</td>
+      <td>0.137536</td>
+      <td>-0.224035</td>
+      <td>-0.000689</td>
+      <td>0.031018</td>
+      <td>-1.163301</td>
+      <td>-0.440175</td>
     </tr>
     <tr>
       <th>139</th>
@@ -957,12 +957,12 @@ dfRawDiff
       <td>53</td>
       <td>-1</td>
       <td>-1</td>
-      <td>0.271901</td>
-      <td>-0.669244</td>
-      <td>-0.001067</td>
-      <td>0.033797</td>
-      <td>0.110535</td>
-      <td>-0.135053</td>
+      <td>0.269451</td>
+      <td>-0.107021</td>
+      <td>0.000340</td>
+      <td>0.085619</td>
+      <td>0.197181</td>
+      <td>-0.045494</td>
     </tr>
   </tbody>
 </table>
@@ -1139,7 +1139,7 @@ epLsarModel.printParams(x1,x2,x3,dataZ.epLsar_z.values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.0034852973454325, 1.2901096312620055, 1.5215268338889083)
+    The standard deviations used for the beta priors are (1.0100483277420549, 1.278487256789849, 1.5078196766225158)
 
 
 
@@ -1213,12 +1213,12 @@ with epLsarModel as model:
         }
     </style>
   <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [20000/20000 18:55<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [20000/20000 20:58<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 1137 seconds.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 1266 seconds.
     The number of effective samples is smaller than 10% for some parameters.
 
 
@@ -1280,73 +1280,73 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>epLsar_mu_b0</th>
-      <td>-0.06</td>
-      <td>0.82</td>
-      <td>-1.67</td>
-      <td>1.48</td>
+      <td>-0.04</td>
+      <td>0.80</td>
+      <td>-1.57</td>
+      <td>1.59</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>8287.0</td>
-      <td>5027.0</td>
-      <td>8296.0</td>
-      <td>7497.0</td>
-      <td>1.0</td>
+      <td>7622.0</td>
+      <td>5554.0</td>
+      <td>7613.0</td>
+      <td>7245.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[0]</th>
-      <td>0.00</td>
-      <td>0.70</td>
-      <td>-1.34</td>
-      <td>1.39</td>
+      <td>0.03</td>
+      <td>0.69</td>
+      <td>-1.28</td>
+      <td>1.48</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>8365.0</td>
-      <td>5752.0</td>
-      <td>8342.0</td>
-      <td>7640.0</td>
-      <td>1.0</td>
+      <td>7462.0</td>
+      <td>4854.0</td>
+      <td>7449.0</td>
+      <td>6737.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[1]</th>
-      <td>-0.06</td>
+      <td>-0.07</td>
       <td>0.69</td>
-      <td>-1.37</td>
-      <td>1.32</td>
+      <td>-1.41</td>
+      <td>1.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>8990.0</td>
-      <td>5503.0</td>
-      <td>8990.0</td>
-      <td>7313.0</td>
-      <td>1.0</td>
+      <td>7114.0</td>
+      <td>4883.0</td>
+      <td>7145.0</td>
+      <td>6557.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[0]</th>
-      <td>-0.26</td>
-      <td>0.53</td>
-      <td>-1.32</td>
-      <td>0.75</td>
+      <td>-0.28</td>
+      <td>0.52</td>
+      <td>-1.28</td>
+      <td>0.73</td>
       <td>0.01</td>
       <td>0.00</td>
-      <td>4827.0</td>
-      <td>4811.0</td>
-      <td>4780.0</td>
-      <td>6328.0</td>
-      <td>1.0</td>
+      <td>4471.0</td>
+      <td>4471.0</td>
+      <td>4424.0</td>
+      <td>5675.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[1]</th>
-      <td>-0.50</td>
-      <td>0.53</td>
-      <td>-1.49</td>
-      <td>0.57</td>
+      <td>-0.52</td>
+      <td>0.52</td>
+      <td>-1.50</td>
+      <td>0.51</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>4168.0</td>
-      <td>4149.0</td>
-      <td>4156.0</td>
-      <td>5540.0</td>
-      <td>1.0</td>
+      <td>3907.0</td>
+      <td>3907.0</td>
+      <td>3877.0</td>
+      <td>5589.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1364,73 +1364,73 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>epLsar_mu[275]</th>
-      <td>0.43</td>
-      <td>0.76</td>
-      <td>-1.42</td>
-      <td>1.13</td>
-      <td>0.03</td>
+      <td>0.44</td>
+      <td>0.72</td>
+      <td>-1.47</td>
+      <td>1.11</td>
       <td>0.02</td>
-      <td>710.0</td>
-      <td>710.0</td>
-      <td>1342.0</td>
-      <td>2187.0</td>
-      <td>1.0</td>
+      <td>0.02</td>
+      <td>848.0</td>
+      <td>848.0</td>
+      <td>1775.0</td>
+      <td>1849.0</td>
+      <td>1.01</td>
     </tr>
     <tr>
       <th>epLsar_mu[276]</th>
-      <td>0.27</td>
-      <td>0.12</td>
-      <td>0.04</td>
-      <td>0.50</td>
+      <td>0.28</td>
+      <td>0.11</td>
+      <td>0.06</td>
+      <td>0.52</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>11139.0</td>
-      <td>8611.0</td>
-      <td>10983.0</td>
-      <td>7449.0</td>
-      <td>1.0</td>
+      <td>10579.0</td>
+      <td>9610.0</td>
+      <td>10492.0</td>
+      <td>8014.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu[277]</th>
-      <td>0.21</td>
-      <td>0.12</td>
-      <td>-0.03</td>
-      <td>0.43</td>
+      <td>0.15</td>
+      <td>0.11</td>
+      <td>-0.08</td>
+      <td>0.39</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>11102.0</td>
-      <td>7679.0</td>
-      <td>10946.0</td>
-      <td>7539.0</td>
-      <td>1.0</td>
+      <td>10684.0</td>
+      <td>8439.0</td>
+      <td>10561.0</td>
+      <td>7691.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu[278]</th>
-      <td>-0.92</td>
+      <td>-0.91</td>
       <td>0.13</td>
-      <td>-1.17</td>
-      <td>-0.65</td>
+      <td>-1.16</td>
+      <td>-0.64</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10940.0</td>
-      <td>10940.0</td>
-      <td>11017.0</td>
-      <td>7556.0</td>
-      <td>1.0</td>
+      <td>10847.0</td>
+      <td>10847.0</td>
+      <td>10995.0</td>
+      <td>7407.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>epLsar_mu[279]</th>
-      <td>-0.98</td>
+      <td>-1.03</td>
       <td>0.13</td>
-      <td>-1.25</td>
-      <td>-0.73</td>
+      <td>-1.28</td>
+      <td>-0.76</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10936.0</td>
-      <td>10936.0</td>
-      <td>11000.0</td>
-      <td>7728.0</td>
-      <td>1.0</td>
+      <td>10794.0</td>
+      <td>10794.0</td>
+      <td>11021.0</td>
+      <td>7493.0</td>
+      <td>1.00</td>
     </tr>
   </tbody>
 </table>
@@ -1524,7 +1524,7 @@ with epLsarModel as model:
         }
     </style>
   <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
+  100.00% [2000/2000 00:03<00:00]
 </div>
 
 
@@ -1602,7 +1602,7 @@ RsquaredModel.printParams(x1,x2,x3,dataZ["R²_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.0112351887037512, 2.890846695679254, 6.372712717079752)
+    The standard deviations used for the beta priors are (1.3433087377122408, 2.3171005331515255, 4.743899942874919)
 
 
 
@@ -1670,12 +1670,12 @@ with RsquaredModel as model:
         }
     </style>
   <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [20000/20000 10:34<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [20000/20000 1:07:45<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 636 seconds.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 4073 seconds.
     The number of effective samples is smaller than 10% for some parameters.
 
 
@@ -1737,73 +1737,73 @@ pm.summary(dataTrace_Rsquared,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>R²_mu_b0</th>
-      <td>0.02</td>
-      <td>0.80</td>
-      <td>-1.54</td>
-      <td>1.60</td>
+      <td>0.08</td>
+      <td>0.81</td>
+      <td>-1.48</td>
+      <td>1.69</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7488.0</td>
-      <td>6433.0</td>
-      <td>7488.0</td>
-      <td>7567.0</td>
-      <td>1.00</td>
+      <td>6762.0</td>
+      <td>6163.0</td>
+      <td>6757.0</td>
+      <td>7576.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b1[0]</th>
-      <td>-0.21</td>
-      <td>0.69</td>
-      <td>-1.60</td>
-      <td>1.12</td>
+      <td>-0.02</td>
+      <td>0.70</td>
+      <td>-1.42</td>
+      <td>1.30</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6630.0</td>
-      <td>6234.0</td>
-      <td>6640.0</td>
-      <td>7314.0</td>
-      <td>1.00</td>
+      <td>6681.0</td>
+      <td>6320.0</td>
+      <td>6682.0</td>
+      <td>7535.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b1[1]</th>
-      <td>0.25</td>
-      <td>0.69</td>
-      <td>-1.09</td>
-      <td>1.59</td>
+      <td>0.10</td>
+      <td>0.70</td>
+      <td>-1.27</td>
+      <td>1.48</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6754.0</td>
-      <td>6464.0</td>
-      <td>6756.0</td>
-      <td>6869.0</td>
-      <td>1.00</td>
+      <td>6703.0</td>
+      <td>6116.0</td>
+      <td>6708.0</td>
+      <td>7195.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b2[0]</th>
-      <td>0.02</td>
-      <td>0.52</td>
-      <td>-0.97</td>
-      <td>1.06</td>
+      <td>-0.02</td>
+      <td>0.51</td>
+      <td>-0.99</td>
+      <td>0.99</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>2703.0</td>
-      <td>2703.0</td>
-      <td>2701.0</td>
-      <td>5022.0</td>
-      <td>1.00</td>
+      <td>2647.0</td>
+      <td>2647.0</td>
+      <td>2635.0</td>
+      <td>5175.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu_b2[1]</th>
-      <td>0.02</td>
-      <td>0.52</td>
+      <td>-0.06</td>
+      <td>0.50</td>
       <td>-1.02</td>
-      <td>1.03</td>
+      <td>0.94</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>2798.0</td>
-      <td>2798.0</td>
-      <td>2787.0</td>
-      <td>4860.0</td>
-      <td>1.00</td>
+      <td>2857.0</td>
+      <td>2857.0</td>
+      <td>2841.0</td>
+      <td>5241.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1821,73 +1821,73 @@ pm.summary(dataTrace_Rsquared,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>R²_mu[275]</th>
-      <td>0.04</td>
-      <td>0.67</td>
-      <td>-1.74</td>
-      <td>0.77</td>
-      <td>0.02</td>
-      <td>0.01</td>
-      <td>1631.0</td>
-      <td>1535.0</td>
-      <td>3108.0</td>
-      <td>3027.0</td>
-      <td>1.01</td>
+      <td>0.18</td>
+      <td>0.13</td>
+      <td>-0.03</td>
+      <td>0.40</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>5636.0</td>
+      <td>4146.0</td>
+      <td>6347.0</td>
+      <td>7580.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[276]</th>
-      <td>-0.32</td>
-      <td>0.38</td>
-      <td>-1.00</td>
-      <td>0.32</td>
+      <td>0.17</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.27</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>8948.0</td>
-      <td>6818.0</td>
-      <td>10701.0</td>
-      <td>7802.0</td>
-      <td>1.00</td>
+      <td>9507.0</td>
+      <td>6626.0</td>
+      <td>9754.0</td>
+      <td>6729.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[277]</th>
-      <td>0.22</td>
-      <td>0.38</td>
-      <td>-0.46</td>
-      <td>0.86</td>
+      <td>0.32</td>
+      <td>0.06</td>
+      <td>0.23</td>
+      <td>0.43</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>8920.0</td>
-      <td>6761.0</td>
-      <td>10664.0</td>
-      <td>8104.0</td>
-      <td>1.00</td>
+      <td>9769.0</td>
+      <td>8101.0</td>
+      <td>9835.0</td>
+      <td>6548.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[278]</th>
-      <td>0.10</td>
+      <td>0.25</td>
+      <td>0.05</td>
       <td>0.15</td>
-      <td>-0.20</td>
-      <td>0.42</td>
+      <td>0.33</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10768.0</td>
-      <td>4635.0</td>
-      <td>10676.0</td>
-      <td>6613.0</td>
-      <td>1.00</td>
+      <td>10851.0</td>
+      <td>5275.0</td>
+      <td>9471.0</td>
+      <td>6342.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>R²_mu[279]</th>
-      <td>0.64</td>
-      <td>0.16</td>
-      <td>0.34</td>
-      <td>0.96</td>
+      <td>0.40</td>
+      <td>0.05</td>
+      <td>0.31</td>
+      <td>0.49</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10634.0</td>
-      <td>10634.0</td>
-      <td>10524.0</td>
-      <td>6410.0</td>
-      <td>1.00</td>
+      <td>11002.0</td>
+      <td>6677.0</td>
+      <td>9808.0</td>
+      <td>6533.0</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1989,7 +1989,7 @@ with RsquaredModel as model:
         }
     </style>
   <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
+  100.00% [2000/2000 00:03<00:00]
 </div>
 
 
@@ -2067,7 +2067,7 @@ AsfcModel.printParams(x1,x2,x3,dataZ["Asfc_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.0422213301584404, 0.6910746316178924, 0.4801483731544936)
+    The standard deviations used for the beta priors are (1.0620939450667206, 0.7885965314025212, 0.651156614448482)
 
 
 
@@ -2137,12 +2137,12 @@ with AsfcModel as model:
         }
     </style>
   <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [20000/20000 1:28:26<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [20000/20000 46:06<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 5307 seconds.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 2767 seconds.
     The number of effective samples is smaller than 10% for some parameters.
 
 
@@ -2205,71 +2205,71 @@ pm.summary(dataTrace_Asfc,hdi_prob=0.95).round(2)
     <tr>
       <th>Asfc_mu_b0</th>
       <td>0.06</td>
-      <td>0.82</td>
-      <td>-1.51</td>
-      <td>1.69</td>
+      <td>0.83</td>
+      <td>-1.59</td>
+      <td>1.65</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7447.0</td>
-      <td>5776.0</td>
-      <td>7446.0</td>
-      <td>7394.0</td>
+      <td>8891.0</td>
+      <td>5324.0</td>
+      <td>8899.0</td>
+      <td>7339.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b1[0]</th>
-      <td>0.03</td>
+      <td>-0.03</td>
       <td>0.70</td>
-      <td>-1.33</td>
-      <td>1.43</td>
+      <td>-1.45</td>
+      <td>1.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7109.0</td>
-      <td>5649.0</td>
-      <td>7115.0</td>
-      <td>7132.0</td>
+      <td>8832.0</td>
+      <td>6211.0</td>
+      <td>8820.0</td>
+      <td>8127.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b1[1]</th>
+      <td>0.10</td>
+      <td>0.71</td>
+      <td>-1.26</td>
+      <td>1.50</td>
       <td>0.01</td>
-      <td>0.69</td>
-      <td>-1.32</td>
-      <td>1.39</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>7552.0</td>
-      <td>5825.0</td>
-      <td>7558.0</td>
-      <td>7622.0</td>
+      <td>8935.0</td>
+      <td>6109.0</td>
+      <td>8938.0</td>
+      <td>7797.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b2[0]</th>
-      <td>1.02</td>
-      <td>0.54</td>
-      <td>-0.09</td>
-      <td>2.03</td>
+      <td>0.94</td>
+      <td>0.55</td>
+      <td>-0.17</td>
+      <td>1.98</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>3499.0</td>
-      <td>3361.0</td>
-      <td>3432.0</td>
-      <td>5699.0</td>
+      <td>0.00</td>
+      <td>5261.0</td>
+      <td>5261.0</td>
+      <td>5234.0</td>
+      <td>6534.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu_b2[1]</th>
       <td>1.17</td>
       <td>0.56</td>
-      <td>0.04</td>
-      <td>2.24</td>
+      <td>0.08</td>
+      <td>2.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>2981.0</td>
-      <td>2907.0</td>
-      <td>2952.0</td>
-      <td>4442.0</td>
+      <td>4678.0</td>
+      <td>4678.0</td>
+      <td>4685.0</td>
+      <td>6474.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -2288,72 +2288,72 @@ pm.summary(dataTrace_Asfc,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>Asfc_mu[275]</th>
-      <td>-1.02</td>
-      <td>0.03</td>
-      <td>-1.07</td>
-      <td>-0.97</td>
+      <td>-0.88</td>
+      <td>0.07</td>
+      <td>-1.01</td>
+      <td>-0.74</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>9456.0</td>
-      <td>9456.0</td>
-      <td>9569.0</td>
-      <td>6577.0</td>
+      <td>10206.0</td>
+      <td>9471.0</td>
+      <td>9696.0</td>
+      <td>7353.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[276]</th>
-      <td>-0.94</td>
-      <td>0.03</td>
-      <td>-1.00</td>
-      <td>-0.88</td>
+      <td>-0.95</td>
+      <td>0.07</td>
+      <td>-1.09</td>
+      <td>-0.81</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>11371.0</td>
-      <td>11055.0</td>
-      <td>9957.0</td>
-      <td>6840.0</td>
+      <td>9236.0</td>
+      <td>9236.0</td>
+      <td>9372.0</td>
+      <td>7709.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[277]</th>
-      <td>-0.97</td>
-      <td>0.03</td>
-      <td>-1.02</td>
-      <td>-0.91</td>
+      <td>-0.82</td>
+      <td>0.07</td>
+      <td>-0.95</td>
+      <td>-0.67</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>11345.0</td>
-      <td>11109.0</td>
-      <td>10011.0</td>
-      <td>6933.0</td>
+      <td>9314.0</td>
+      <td>9314.0</td>
+      <td>9458.0</td>
+      <td>7407.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[278]</th>
-      <td>-1.01</td>
-      <td>0.02</td>
-      <td>-1.05</td>
-      <td>-0.96</td>
+      <td>-1.03</td>
+      <td>0.07</td>
+      <td>-1.17</td>
+      <td>-0.90</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10217.0</td>
-      <td>10198.0</td>
-      <td>10062.0</td>
-      <td>7580.0</td>
+      <td>10064.0</td>
+      <td>10064.0</td>
+      <td>10103.0</td>
+      <td>7744.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>Asfc_mu[279]</th>
+      <td>-0.90</td>
+      <td>0.07</td>
       <td>-1.04</td>
-      <td>0.02</td>
-      <td>-1.08</td>
-      <td>-0.99</td>
+      <td>-0.77</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10185.0</td>
-      <td>10165.0</td>
-      <td>10023.0</td>
-      <td>7435.0</td>
+      <td>9929.0</td>
+      <td>9929.0</td>
+      <td>9977.0</td>
+      <td>7300.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -2448,7 +2448,7 @@ with AsfcModel as model:
         }
     </style>
   <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
+  100.00% [2000/2000 00:03<00:00]
 </div>
 
 
@@ -2526,7 +2526,7 @@ SmfcModel.printParams(x1,x2,x3,dataZ.Smfc_z.values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.3943421938332237, 3.387697874270125, 9.05131085356785)
+    The standard deviations used for the beta priors are (1.190539275484547, 2.890262579386322, 5.950218540146849)
 
 
 
@@ -2595,87 +2595,27 @@ with SmfcModel as model:
             background: #F44336;
         }
     </style>
-  <progress value='2157' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  10.79% [2157/20000 17:51<2:27:45 Sampling 10 chains, 0 divergences]
+  <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [20000/20000 2:31:29<00:00 Sampling 10 chains, 2,294 divergences]
 </div>
 
 
 
-
-    ---------------------------------------------------------------------------
-
-    KeyboardInterrupt                         Traceback (most recent call last)
-
-    ~/.local/lib/python3.8/site-packages/pymc3/sampling.py in _mp_sample(draws, tune, step, chains, cores, chain, random_seed, start, progressbar, trace, model, callback, discard_tuned_samples, mp_ctx, pickle_backend, **kwargs)
-       1485             with sampler:
-    -> 1486                 for draw in sampler:
-       1487                     trace = traces[draw.chain - chain]
-
-
-    ~/.local/lib/python3.8/site-packages/pymc3/parallel_sampling.py in __iter__(self)
-        491         while self._active:
-    --> 492             draw = ProcessAdapter.recv_draw(self._active)
-        493             proc, is_last, draw, tuning, stats, warns = draw
-
-
-    ~/.local/lib/python3.8/site-packages/pymc3/parallel_sampling.py in recv_draw(processes, timeout)
-        351         pipes = [proc._msg_pipe for proc in processes]
-    --> 352         ready = multiprocessing.connection.wait(pipes)
-        353         if not ready:
-
-
-    /usr/lib/python3.8/multiprocessing/connection.py in wait(object_list, timeout)
-        930             while True:
-    --> 931                 ready = selector.select(timeout)
-        932                 if ready:
-
-
-    /usr/lib/python3.8/selectors.py in select(self, timeout)
-        414         try:
-    --> 415             fd_event_list = self._selector.poll(timeout)
-        416         except InterruptedError:
-
-
-    KeyboardInterrupt: 
-
-    
-    During handling of the above exception, another exception occurred:
-
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-85-755e53d074df> in <module>
-          1 with SmfcModel as model:
-    ----> 2     trace_Smfc = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.8,random_seed=random_seed)
-          3     #fit_Smfc = pm.fit(random_seed=random_seed)
-          4     #trace_Smfc = fit_Smfc.sample(draws=numSamples)
-
-
-    ~/.local/lib/python3.8/site-packages/pymc3/sampling.py in sample(draws, step, init, n_init, start, trace, chain_idx, chains, cores, tune, progressbar, model, random_seed, discard_tuned_samples, compute_convergence_checks, callback, return_inferencedata, idata_kwargs, mp_ctx, pickle_backend, **kwargs)
-        543         _print_step_hierarchy(step)
-        544         try:
-    --> 545             trace = _mp_sample(**sample_args, **parallel_args)
-        546         except pickle.PickleError:
-        547             _log.warning("Could not pickle model, sampling singlethreaded.")
-
-
-    ~/.local/lib/python3.8/site-packages/pymc3/sampling.py in _mp_sample(draws, tune, step, chains, cores, chain, random_seed, start, progressbar, trace, model, callback, discard_tuned_samples, mp_ctx, pickle_backend, **kwargs)
-       1510     except KeyboardInterrupt:
-       1511         if discard_tuned_samples:
-    -> 1512             traces, length = _choose_chains(traces, tune)
-       1513         else:
-       1514             traces, length = _choose_chains(traces, 0)
-
-
-    ~/.local/lib/python3.8/site-packages/pymc3/sampling.py in _choose_chains(traces, tune)
-       1528     lengths = [max(0, len(trace) - tune) for trace in traces]
-       1529     if not sum(lengths):
-    -> 1530         raise ValueError("Not enough samples to build a trace.")
-       1531 
-       1532     idxs = np.argsort(lengths)[::-1]
-
-
-    ValueError: Not enough samples to build a trace.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 9091 seconds.
+    There were 264 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 182 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 124 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 160 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 742 divergences after tuning. Increase `target_accept` or reparameterize.
+    The acceptance probability does not match the target. It is 0.3985393735661282, but should be close to 0.8. Try to increase the number of tuning steps.
+    There were 211 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 68 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 154 divergences after tuning. Increase `target_accept` or reparameterize.
+    The acceptance probability does not match the target. It is 0.7083666219961883, but should be close to 0.8. Try to increase the number of tuning steps.
+    There were 76 divergences after tuning. Increase `target_accept` or reparameterize.
+    There were 313 divergences after tuning. Increase `target_accept` or reparameterize.
+    The rhat statistic is larger than 1.4 for some parameters. The sampler did not converge.
+    The estimated number of effective samples is smaller than 200 for some parameters.
 
 
 Analysis stopped here because sampling did not converge.
@@ -2697,7 +2637,7 @@ HAsfc9Model.printParams(x1,x2,x3,dataZ["HAsfc9_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.0299664523718457, 2.0653529113379627, 2.5833026311707217)
+    The standard deviations used for the beta priors are (1.0540496136136044, 2.005676747692769, 1.9447674898721503)
 
 
 
@@ -2767,12 +2707,12 @@ with HAsfc9Model as model:
         }
     </style>
   <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [20000/20000 53:56<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [20000/20000 41:27<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 3237 seconds.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 2488 seconds.
     The rhat statistic is larger than 1.05 for some parameters. This indicates slight problems during sampling.
     The estimated number of effective samples is smaller than 200 for some parameters.
 
@@ -2836,71 +2776,71 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
     <tr>
       <th>HAsfc9_mu_b0</th>
       <td>0.02</td>
-      <td>0.82</td>
+      <td>0.81</td>
       <td>-1.57</td>
-      <td>1.63</td>
+      <td>1.60</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7718.0</td>
-      <td>4985.0</td>
-      <td>7730.0</td>
-      <td>7316.0</td>
+      <td>9256.0</td>
+      <td>6269.0</td>
+      <td>9260.0</td>
+      <td>7822.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b1[0]</th>
-      <td>0.04</td>
+      <td>0.06</td>
       <td>0.69</td>
-      <td>-1.36</td>
-      <td>1.36</td>
+      <td>-1.29</td>
+      <td>1.42</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7548.0</td>
-      <td>5733.0</td>
-      <td>7518.0</td>
-      <td>7411.0</td>
+      <td>9596.0</td>
+      <td>6147.0</td>
+      <td>9589.0</td>
+      <td>7595.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b1[1]</th>
-      <td>-0.03</td>
+      <td>-0.05</td>
       <td>0.70</td>
-      <td>-1.42</td>
-      <td>1.30</td>
+      <td>-1.44</td>
+      <td>1.29</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7414.0</td>
-      <td>5426.0</td>
-      <td>7407.0</td>
-      <td>7311.0</td>
+      <td>10666.0</td>
+      <td>5860.0</td>
+      <td>10642.0</td>
+      <td>7766.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b2[0]</th>
-      <td>-0.48</td>
-      <td>0.52</td>
-      <td>-1.50</td>
-      <td>0.56</td>
+      <td>-0.44</td>
+      <td>0.53</td>
+      <td>-1.47</td>
+      <td>0.62</td>
       <td>0.01</td>
-      <td>0.00</td>
-      <td>4597.0</td>
-      <td>4597.0</td>
-      <td>4582.0</td>
-      <td>6172.0</td>
+      <td>0.01</td>
+      <td>4598.0</td>
+      <td>4598.0</td>
+      <td>4586.0</td>
+      <td>6293.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu_b2[1]</th>
       <td>-0.26</td>
-      <td>0.52</td>
+      <td>0.53</td>
       <td>-1.28</td>
-      <td>0.73</td>
+      <td>0.80</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>3897.0</td>
-      <td>3897.0</td>
-      <td>3880.0</td>
-      <td>5847.0</td>
+      <td>4238.0</td>
+      <td>4238.0</td>
+      <td>4219.0</td>
+      <td>6258.0</td>
       <td>1.00</td>
     </tr>
     <tr>
@@ -2919,72 +2859,72 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>HAsfc9_mu[275]</th>
-      <td>2.39</td>
-      <td>0.04</td>
-      <td>2.31</td>
-      <td>2.48</td>
+      <td>2.17</td>
+      <td>0.08</td>
+      <td>2.02</td>
+      <td>2.33</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>10050.0</td>
-      <td>10050.0</td>
-      <td>10017.0</td>
-      <td>7890.0</td>
+      <td>10260.0</td>
+      <td>10260.0</td>
+      <td>10106.0</td>
+      <td>7282.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[276]</th>
-      <td>2.17</td>
-      <td>0.36</td>
-      <td>1.84</td>
-      <td>3.08</td>
+      <td>1.77</td>
+      <td>0.42</td>
+      <td>1.41</td>
+      <td>2.96</td>
+      <td>0.02</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>761.0</td>
-      <td>711.0</td>
-      <td>1589.0</td>
-      <td>2185.0</td>
+      <td>720.0</td>
+      <td>665.0</td>
+      <td>1653.0</td>
+      <td>1250.0</td>
       <td>1.01</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[277]</th>
-      <td>2.08</td>
-      <td>0.36</td>
-      <td>1.75</td>
-      <td>2.99</td>
+      <td>1.64</td>
+      <td>0.42</td>
+      <td>1.26</td>
+      <td>2.82</td>
+      <td>0.02</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>761.0</td>
-      <td>709.0</td>
-      <td>1588.0</td>
-      <td>2159.0</td>
+      <td>722.0</td>
+      <td>664.0</td>
+      <td>1691.0</td>
+      <td>1345.0</td>
       <td>1.01</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[278]</th>
-      <td>0.27</td>
-      <td>0.04</td>
-      <td>0.18</td>
-      <td>0.36</td>
+      <td>0.28</td>
+      <td>0.06</td>
+      <td>0.17</td>
+      <td>0.40</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>9874.0</td>
-      <td>9874.0</td>
-      <td>9900.0</td>
-      <td>8275.0</td>
+      <td>10374.0</td>
+      <td>9833.0</td>
+      <td>10289.0</td>
+      <td>8135.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>HAsfc9_mu[279]</th>
-      <td>0.18</td>
+      <td>0.15</td>
+      <td>0.06</td>
       <td>0.04</td>
-      <td>0.10</td>
-      <td>0.27</td>
+      <td>0.26</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>9767.0</td>
-      <td>9666.0</td>
-      <td>9773.0</td>
-      <td>8522.0</td>
+      <td>10228.0</td>
+      <td>8894.0</td>
+      <td>10218.0</td>
+      <td>8232.0</td>
       <td>1.00</td>
     </tr>
   </tbody>
@@ -3157,7 +3097,7 @@ HAsfc81Model.printParams(x1,x2,x3,dataZ["HAsfc81_z"].values)
 ```
 
     The number of levels of the x variables are (2, 11, 140)
-    The standard deviations used for the beta priors are (1.0035538697180921, 1.674345831114272, 1.8608701769937184)
+    The standard deviations used for the beta priors are (1.0444803217312628, 1.586983908089902, 1.3271002181181868)
 
 
 
@@ -3227,12 +3167,12 @@ with HAsfc81Model as model:
         }
     </style>
   <progress value='20000' class='' max='20000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [20000/20000 1:11:03<00:00 Sampling 10 chains, 0 divergences]
+  100.00% [20000/20000 46:32<00:00 Sampling 10 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 4265 seconds.
+    Sampling 10 chains for 1_000 tune and 1_000 draw iterations (10_000 + 10_000 draws total) took 2793 seconds.
     The number of effective samples is smaller than 10% for some parameters.
 
 
@@ -3294,72 +3234,72 @@ pm.summary(dataTrace_HAsfc81,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>HAsfc81_mu_b0</th>
-      <td>0.03</td>
-      <td>0.83</td>
-      <td>-1.60</td>
-      <td>1.62</td>
+      <td>0.02</td>
+      <td>0.82</td>
+      <td>-1.61</td>
+      <td>1.61</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6328.0</td>
-      <td>5593.0</td>
-      <td>6339.0</td>
-      <td>7044.0</td>
+      <td>9904.0</td>
+      <td>5333.0</td>
+      <td>9905.0</td>
+      <td>7858.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b1[0]</th>
-      <td>0.03</td>
+      <td>0.08</td>
       <td>0.70</td>
-      <td>-1.35</td>
-      <td>1.38</td>
+      <td>-1.24</td>
+      <td>1.47</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>7201.0</td>
-      <td>5956.0</td>
-      <td>7198.0</td>
-      <td>7184.0</td>
+      <td>10595.0</td>
+      <td>5672.0</td>
+      <td>10574.0</td>
+      <td>7773.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b1[1]</th>
-      <td>-0.03</td>
-      <td>0.69</td>
-      <td>-1.36</td>
-      <td>1.35</td>
+      <td>-0.04</td>
+      <td>0.70</td>
+      <td>-1.42</td>
+      <td>1.33</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5990.0</td>
-      <td>5990.0</td>
-      <td>6007.0</td>
-      <td>6910.0</td>
+      <td>10887.0</td>
+      <td>5476.0</td>
+      <td>10904.0</td>
+      <td>7653.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b2[0]</th>
-      <td>-0.55</td>
+      <td>-0.49</td>
       <td>0.54</td>
-      <td>-1.69</td>
-      <td>0.47</td>
+      <td>-1.53</td>
+      <td>0.60</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>3153.0</td>
-      <td>3153.0</td>
-      <td>3150.0</td>
-      <td>4960.0</td>
+      <td>0.00</td>
+      <td>5378.0</td>
+      <td>5378.0</td>
+      <td>5358.0</td>
+      <td>6343.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu_b2[1]</th>
-      <td>-0.42</td>
+      <td>-0.44</td>
       <td>0.54</td>
-      <td>-1.54</td>
-      <td>0.58</td>
+      <td>-1.50</td>
+      <td>0.65</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>3787.0</td>
-      <td>3787.0</td>
-      <td>3774.0</td>
-      <td>5995.0</td>
+      <td>0.00</td>
+      <td>5367.0</td>
+      <td>5367.0</td>
+      <td>5348.0</td>
+      <td>6651.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -3378,72 +3318,72 @@ pm.summary(dataTrace_HAsfc81,hdi_prob=0.95).round(2)
     </tr>
     <tr>
       <th>HAsfc81_mu[275]</th>
-      <td>1.39</td>
-      <td>0.05</td>
-      <td>1.29</td>
-      <td>1.49</td>
+      <td>1.31</td>
+      <td>0.10</td>
+      <td>1.12</td>
+      <td>1.50</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>9779.0</td>
-      <td>9779.0</td>
-      <td>9781.0</td>
-      <td>7388.0</td>
+      <td>9863.0</td>
+      <td>9863.0</td>
+      <td>9664.0</td>
+      <td>7128.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[276]</th>
-      <td>2.70</td>
-      <td>0.26</td>
-      <td>2.43</td>
-      <td>3.26</td>
-      <td>0.01</td>
+      <td>2.59</td>
+      <td>0.25</td>
+      <td>2.28</td>
+      <td>3.10</td>
       <td>0.00</td>
-      <td>1242.0</td>
-      <td>1169.0</td>
-      <td>2138.0</td>
-      <td>4486.0</td>
+      <td>0.00</td>
+      <td>3424.0</td>
+      <td>3257.0</td>
+      <td>4346.0</td>
+      <td>6605.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[277]</th>
-      <td>2.62</td>
-      <td>0.26</td>
-      <td>2.36</td>
-      <td>3.18</td>
-      <td>0.01</td>
+      <td>2.47</td>
+      <td>0.25</td>
+      <td>2.17</td>
+      <td>2.98</td>
       <td>0.00</td>
-      <td>1241.0</td>
-      <td>1166.0</td>
-      <td>2111.0</td>
-      <td>4217.0</td>
+      <td>0.00</td>
+      <td>3406.0</td>
+      <td>3227.0</td>
+      <td>4273.0</td>
+      <td>6371.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[278]</th>
-      <td>0.65</td>
-      <td>0.10</td>
-      <td>0.48</td>
-      <td>0.82</td>
+      <td>0.62</td>
+      <td>0.09</td>
+      <td>0.46</td>
+      <td>0.79</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>7362.0</td>
-      <td>7321.0</td>
-      <td>7854.0</td>
-      <td>8632.0</td>
+      <td>10539.0</td>
+      <td>10159.0</td>
+      <td>10427.0</td>
+      <td>8048.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>HAsfc81_mu[279]</th>
-      <td>0.57</td>
-      <td>0.10</td>
-      <td>0.40</td>
-      <td>0.74</td>
+      <td>0.50</td>
+      <td>0.09</td>
+      <td>0.34</td>
+      <td>0.66</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>7379.0</td>
-      <td>7313.0</td>
-      <td>7925.0</td>
-      <td>8249.0</td>
+      <td>10651.0</td>
+      <td>10249.0</td>
+      <td>10515.0</td>
+      <td>8472.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -3481,34 +3421,16 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_4.png)
-    
-
-
-
 ```python
 with HAsfc81Model as model:
     plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,'HAsfc81')
 ```
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_176_0.png)
-    
-
-
-
 ```python
 with HAsfc81Model as model:
     plotting_lib.pm.energyplot(trace_HAsfc81)
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_177_0.png)
-    
-
 
 #### Posterior predictive distribution
 
@@ -3518,41 +3440,10 @@ with HAsfc81Model as model:
     posterior_pred_HAsfc81 = pm.sample_posterior_predictive(trace_HAsfc81,samples=numPredSamples,random_seed=random_seed)
 ```
 
-    /home/bob/.local/lib/python3.8/site-packages/pymc3/sampling.py:1707: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
-      warnings.warn(
-
-
-
-
-<div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
-  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:02<00:00]
-</div>
-
-
-
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,posterior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_180_0.png)
-    
-
 
 #### Compare prior and posterior for model parameters
 
@@ -3562,19 +3453,10 @@ with HAsfc81Model as model:
     pm_data_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81,prior=prior_pred_HAsfc81,posterior_predictive=posterior_pred_HAsfc81)
 ```
 
-    arviz.data.io_pymc3 - WARNING - posterior predictive variable HAsfc81_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
-
-
 
 ```python
 plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_183_0.png)
-    
-
 
 #### Posterior and contrasts
 
@@ -3584,21 +3466,9 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_185_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc81,'HAsfc81')
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_186_0.png)
-    
-
 
 ## Summary <a name="summary"></a>
 The contrast plots between the two software packages are shown below again for each variable except Smfc
@@ -3609,21 +3479,9 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_188_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_Rsquared,'R²')
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_189_0.png)
-    
-
 
 
 ```python
@@ -3631,32 +3489,14 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_190_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc9,'HAsfc9')
 ```
 
 
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_191_0.png)
-    
-
-
-
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc81,'HAsfc81')
 ```
-
-
-    
-![png](Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_192_0.png)
-    
-
 
 ### Write out
 
@@ -3665,80 +3505,10 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 !jupyter nbconvert --to html Statistical_Model_ThreeFactor.ipynb
 ```
 
-    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor.ipynb to html
-    [NbConvertApp] Writing 9742523 bytes to Statistical_Model_ThreeFactor.html
-
-
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_ThreeFactor.ipynb
 ```
-
-    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor.ipynb to markdown
-    [NbConvertApp] Support files will be in Statistical_Model_ThreeFactor_files/
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_files
-    [NbConvertApp] Writing 81991 bytes to Statistical_Model_ThreeFactor.md
-
 
 
 ```python
