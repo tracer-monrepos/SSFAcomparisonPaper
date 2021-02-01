@@ -1,7 +1,7 @@
 Checksums
 ================
 Ivan Calandra
-2021-01-26 09:47:57
+2021-02-01 15:32:12
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -48,22 +48,22 @@ The MD5 checksums of the files created during the R analysis are:
     1a90206aa7c2daeb8c4054f3fc464b26 
 
     [3] R_analysis/plots/SSFA_GuineaPigs_plot.pdf
-    f4e2b5e2327ea1a1ac7e207e6655f56d 
+    d9b331642bfd0d192e4eff5808b2a30f 
 
     [4] R_analysis/plots/SSFA_GuineaPigs_plot_Smfc.pdf
-    d54f897c0ab7b6c38018f4f73b83d45a 
+    6dd874a394b14e4fb32da06b78fbe216 
 
     [5] R_analysis/plots/SSFA_Lithics_plot.pdf
-    772422eacdccb3f245eea686b270d59e 
+    0cd70b6f51de5f4647e7637d93bfc21c 
 
     [6] R_analysis/plots/SSFA_Lithics_plot_Smfc.pdf
-    01d18e1319268773c49c76f0c9eb2044 
+    d15e77beb1d19071bbd70bf9870e9236 
 
     [7] R_analysis/plots/SSFA_Sheeps_plot.pdf
-    84d12ff53a664c224c3f837e000e589d 
+    c1ae6475b30ab3eefcdc8e948ae7aa3e 
 
     [8] R_analysis/plots/SSFA_Sheeps_plot_Smfc.pdf
-    65e746b88996db7cf086e212b62cb88c 
+    6820be39c42d15cf5703023baed5893c 
 
     [9] R_analysis/raw_data/SSFA-ConfoMap_GuineaPigs_NMPfilled.csv
     bb465ffcd50b3c2038e2c29eb403acfe 
@@ -84,13 +84,13 @@ The MD5 checksums of the files created during the R analysis are:
     90be4f96fe6178125f579b5b4993bdd5 
 
     [15] R_analysis/scripts/SSFA_0_CreateRC.html
-    3ddaf6e51bdd9d0376e4c47e89dcd7c3 
+    0501f089c0253cefaafff41470154a69 
 
     [16] R_analysis/scripts/SSFA_0_CreateRC.md
-    241cb867b1d2a26740a9cb1ea8c97eda 
+    248ae7ce39cdd50c69aa4a6391024aea 
 
     [17] R_analysis/scripts/SSFA_0_CreateRC.Rmd
-    77760192c91b47d074001ab77b63365b 
+    0af686b90f935a9c863704626fd9715e 
 
     [18] R_analysis/scripts/SSFA_0_RStudioVersion.R
     ef459250d4a8f0247ec6b027382798be 
@@ -108,31 +108,31 @@ The MD5 checksums of the files created during the R analysis are:
     540b2cc1cd9e3ca4d84b03958aa6a2a2 
 
     [23] R_analysis/scripts/SSFA_2_Summary-stats.html
-    74edb5a092487e20459ccb05fbffffb6 
+    96e694260630703d768ea0ef0c5a7ec3 
 
     [24] R_analysis/scripts/SSFA_2_Summary-stats.md
-    93b92c42844e78814af8c2648bf7cd6c 
+    63b445cbf6e2453f9d7727d7765a5c01 
 
     [25] R_analysis/scripts/SSFA_2_Summary-stats.Rmd
-    8ed776201cb4097b3be17b2ebe9eb57f 
+    ba69228f04f99e7429b21ca807a54d83 
 
     [26] R_analysis/scripts/SSFA_3_Plots.html
-    13514a2174f9c1013f7909b5cff3dff7 
+    8c79d06138e1a11d347d9741e8acbe72 
 
     [27] R_analysis/scripts/SSFA_3_Plots.md
-    4001658dd4780778257ae56743903b71 
+    9ce4a35e75243284718e8e9b1f966bb7 
 
     [28] R_analysis/scripts/SSFA_3_Plots.Rmd
-    dca4509d82f0b7929185b7b4958382b0 
+    56f7a870ea7d32624e047e7b2c72d6c6 
 
     [29] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-10-1.png
-    631dc9a7ef7c552d8922c250c16303ef 
+    00d816db5fd35a3372d61629220d0c0b 
 
     [30] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png
-    0471fe6338fda1876a05162be099d1e9 
+    05d0e6f5805ee8ea1f3c1a3049708f1e 
 
     [31] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-1.png
-    3ec45c68c487bb8dafddef4e8c8d18f7 
+    6b3aed3e2ee5bf04ea006e2e115ca2f2 
 
     [32] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-2.png
     ec7e7751b860b645c81b112649306503 
@@ -140,11 +140,20 @@ The MD5 checksums of the files created during the R analysis are:
     [33] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-3.png
     729f9bdcdd32af8b811f0cf60479012e 
 
-    [34] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-9-1.png
+    [34] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-1.png
+    d4971a4c0b4f5f1272b0963b1b2b8a7d 
+
+    [35] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-2.png
+    6a6f8cba978425d082caf6a489c84ea7 
+
+    [36] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-3.png
+    093a3ae46853ccf5653affe2ea283161 
+
+    [37] R_analysis/scripts/SSFA_3_Plots_files/figure-gfm/unnamed-chunk-9-1.png
     1f1785fcdf2d98752418ffa49ce95bfa 
 
-    [35] R_analysis/summary_stats/SSFA_summary_stats.xlsx
-    aeaff0fd6daa923692991db35ac2f4ba 
+    [38] R_analysis/summary_stats/SSFA_summary_stats.xlsx
+    de723c7e41e776035992c001caab11c6 
 
 ## Python analysis
 
@@ -159,31 +168,31 @@ The MD5 checksums of the files created during the Python analysis are:
     c05a4787dac1e76a298ea3975ac8bd90 
 
     [2] Python_analysis/code/Preprocessing.html
-    b1b45c06be5aaf463582f46716c323c8 
+    f1f24365a0ffd5f26dc75ef0b7274805 
 
     [3] Python_analysis/code/Preprocessing.ipynb
-    e0c2056f7f506ad5c2b43c784ea1441e 
+    21326b6ba61c40a7ca1e62253efbfd85 
 
     [4] Python_analysis/code/Preprocessing.md
-    da0f269f9f343fa970ab84612f353619 
+    341551e198a98791ac30c60ebaf04033 
 
     [5] Python_analysis/code/Preprocessing_files/Preprocessing_33_0.png
-    ad57bd0524dc2a624733723f710fe90e 
+    89021367f68fb5cbba528011691d2b19 
 
     [6] Python_analysis/code/Preprocessing_files/Preprocessing_33_1.png
-    e47c192390d4cf51784e56ca1df735fe 
+    4a4cd07784b529686956b83598a82499 
 
     [7] Python_analysis/code/Preprocessing_files/Preprocessing_33_2.png
-    644e6bf694d03b6949c1c53e4aa5d9bd 
+    4b61170299c3e02582740b179eb6aff4 
 
     [8] Python_analysis/code/Preprocessing_files/Preprocessing_33_3.png
-    e6a53d03e38ce1e9570f11e68530eb9d 
+    ba1129eaa6c680e7af4fda04bec6e523 
 
     [9] Python_analysis/code/Preprocessing_files/Preprocessing_33_4.png
-    4bb2fcab3dd54cb4f2dd3969551fbb98 
+    05bfad1b3debafcffe1cc694a89fd2bf 
 
     [10] Python_analysis/code/Preprocessing_files/Preprocessing_33_5.png
-    342a5fa2b56345c5ec30388441523fdb 
+    20732a5637038c03e4370b014415c6ba 
 
     [11] Python_analysis/code/Preprocessing_files/Preprocessing_45_0.png
     c8620e3365b6ed25af7e857cbef82a62 
@@ -204,403 +213,403 @@ The MD5 checksums of the files created during the Python analysis are:
     67f9c2ef18d6f1b0942fb72928620396 
 
     [17] Python_analysis/code/Statistical_Model_NewEplsar.html
-    75b24709455127285037f058e6a4e355 
+    5047819d2157fe8cfd1309fe554a1934 
 
     [18] Python_analysis/code/Statistical_Model_NewEplsar.ipynb
-    5b1739d4ece56d7ab6a91b0e65d39d91 
+    af01184c5a59aae586a6f3e0348b2bfc 
 
     [19] Python_analysis/code/Statistical_Model_NewEplsar.md
-    7531f360cc6d7c9bdeec7dff3ca804a1 
+    332a94b2b6a5981bb50bf6d8eebc89e5 
 
     [20] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_33_0.png
-    02d518a1a16e7413f0df9585b08eb368 
+    d565ace50267423d909f7fe9c12d2909 
 
     [21] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_35_0.png
-    2832e76b0cd627d0a48c9b91511f47ea 
+    a3bcbb687672d2996cc5fb6ebc011100 
 
     [22] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_37_0.png
-    67bf1db2ea3ac5f374c691098b19abce 
+    e949218c7a079bbfca1f4130cd5b61f4 
 
     [23] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_38_0.png
-    4d17aff9c65bfec16fb0b6a30b4e3fef 
+    e0ef6b9d2f75685aa6055a66072e7460 
 
     [24] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_39_0.png
-    0d274800919df562266a264b30001ad2 
+    4615c20ea6607683f2049c4ced3d8020 
 
     [25] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_54_0.svg
-    89b703d39e14b7d81e18d31abface5c7 
+    fff184a7c8c897e936c4f5663df2cf88 
 
     [26] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_57_0.png
-    573c7d0d17815abd9e58b3968d497510 
+    0281842b445201efef0a64c7a3cfd01f 
 
     [27] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_65_0.png
-    d875154bb42dd54cb9a4e8e4ea29b7cf 
+    0c1da8cdc5d56d1c28ed9b0ba8e130c4 
 
     [28] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_66_0.png
-    a9e78f1c0f4257898719760572d062bd 
+    77a2b8bf8cea38bf19964c1550624f07 
 
     [29] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_67_0.png
-    cda47211c4e88b2ec8c100c8f202e8b3 
+    a9aaa108fd4f31ea58129e34e6976079 
 
     [30] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_70_0.png
-    9b7a5103545b91ffbc5812d39a31bdc5 
+    e6e630a035101335a3cc8d8cb59d17d3 
 
     [31] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_73_0.png
-    35a00dd379343a148ec1e301b114ee82 
+    7dcaba7483c73308f67d382ae7e09248 
 
     [32] Python_analysis/code/Statistical_Model_NewEplsar_files/Statistical_Model_NewEplsar_78_0.png
-    fa2d1052539b500c82b0baf038feb39d 
+    ec26645b9c3344f687cefb7a3e5f2acd 
 
     [33] Python_analysis/code/Statistical_Model_ThreeFactor.html
-    03bfedfc50e079b2f273c39ea6a0332c 
+    49ef0096c890ee8a65fb4cb8a7e0b17a 
 
     [34] Python_analysis/code/Statistical_Model_ThreeFactor.ipynb
-    685fb51389107c010a61a135477b063d 
+    524140488f2966caf85843221526a4f5 
 
     [35] Python_analysis/code/Statistical_Model_ThreeFactor.md
-    dc1fd1f84d0fb00ea77be9b85bc78718 
+    9800b7208d1e56f6bf862a5c07e8aefc 
 
     [36] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_101_0.png
-    b8568ab5856f6055facefba220afc2b6 
+    93373468166e8d8bddf2b7256ba56b72 
 
     [37] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_109_1.png
-    039bbe3b647ab73a91edf9e4d148b284 
+    48458979a2ec2453cc41a587f1d67205 
 
     [38] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_109_2.png
-    e7b8335e7a61d887138fb9a7f661713c 
+    b37ae8a2562e605ddcd91303fd31abbe 
 
     [39] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_109_3.png
-    d1e89069381b7c0f6b7e7b1cddc4bcb6 
+    cfb290897bbc3c4a007af4b123b60700 
 
     [40] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_109_4.png
-    b61a4256b0e316af1d9a358273913f5e 
+    5cd3205ee932aca078aa29a1eb135140 
 
     [41] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_110_0.png
-    003ef235a241790d9ae3c8cf41313b1c 
+    ae4a5d4b6a5afaad56686d52fabd452a 
 
     [42] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_111_0.png
-    167b5d1aa1b320a8890aaa1ac99fedaa 
+    fabceaae9b5c007d95a3552a81dd7085 
 
     [43] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_114_0.png
-    564deb8ae4b42d411f4acd68325e4623 
+    894d0589f32f3dc4d23711d184c7ec86 
 
     [44] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_117_0.png
-    af315b28812a611dc19b6c575ba171de 
+    4f5a191b790ee50bc4b73ed179db23c0 
 
     [45] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_119_0.png
-    0c56a1418e3cea31adb4d1796e46e7cb 
+    9ae56a60716feb07c47f5c1622dbdbac 
 
     [46] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_120_0.png
-    57213cb2cce5ba449acc063f726fef35 
+    81476d67ab0404fca113647b7c673378 
 
     [47] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_125_0.svg
-    4012461c927fff5ec15cc766556bbdcd 
+    14de0f93137f317e06596f723d3308c7 
 
     [48] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_128_0.png
-    363c4a75a5f42d29c28c88967d77e626 
+    be71cee9058bc9931189b5a0598a2426 
 
     [49] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_137_0.svg
-    d5002c411a97e2e5395cc465ca673681 
+    3da5ca7f4ba1dc3b85fe70f89350c898 
 
     [50] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_140_0.png
-    6a29a8c633cd46c60a7c4c0e2ed5575c 
+    23a776ab79fbc1cd1e01e1fc1d24462c 
 
     [51] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_148_1.png
-    865557a3f7a35c797ab10ed56fc374bc 
+    5d38da4e962fdf235760bcb269f432fd 
 
     [52] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_148_2.png
-    f5a6baabdb2b637da40faa4191c99eb0 
+    867059774f7cb4c46c67e4d18d33036d 
 
     [53] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_148_3.png
-    a84516182e592c66563ef57a4412f807 
+    736f00cba9b30ec71e7f92da7e872b9e 
 
     [54] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_148_4.png
-    9e1cd518e3b279a9bcd184a1ba21088b 
+    09ecde1fd1ba47af93722bd680bc30be 
 
     [55] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_149_0.png
-    aca93fb781fdc9e6b902681abf8d0de4 
+    00f974017b3ee7edc195344b1bfd200c 
 
     [56] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_150_0.png
-    32e93e43736df7995edeb9aa9d9dbd85 
+    0b61064bc8a18987c334bc6eb7c0d415 
 
     [57] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_153_0.png
-    79e45eadf719f2168e71290ec10e8381 
+    2b7c30c588d2f79cc98cb6d29db8a8a0 
 
     [58] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_156_0.png
-    04ae85012e989d8ef5d305163512233c 
+    3fd9eeda3209045d4e0dde00acb9087c 
 
     [59] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_158_0.png
-    38f2f42df29f962321662c67acc48d27 
+    12d958a9b13dd3b2e95121c3a913d927 
 
     [60] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_159_0.png
-    bd49e52417d85ed2455041ffde7673af 
+    a9898a579ca3e4e5d3afa3e31c4373ef 
 
     [61] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_164_0.svg
-    709ae72a4bb7858c1f2a060eecce8f9a 
+    367c940b1aa96deaafabddd1a52b2d6d 
 
     [62] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_167_0.png
-    e24e874a951efc16e71a5370b94c91d3 
+    cb83480128e21fc65c33c9594c6719e7 
 
     [63] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_1.png
-    8d79c2b27847a89c70d9bc5ee515828c 
+    d59389e0ee20c0ab307a44280fdf88a5 
 
     [64] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_2.png
-    21ca481f25b6b9683a8bd68c3d49da13 
+    f59cb36dec839a753a388a1e42456ece 
 
     [65] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_3.png
-    bfc68481b058f7e8f521ba97a1750e0c 
+    b0de872b175fba453989f4f17b207495 
 
     [66] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_175_4.png
-    7e35349cc4cc25801349a06704cec515 
+    1a72c5a2c8647131003baeabc5b42ddc 
 
     [67] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_176_0.png
-    4949e161b113f2c46610e8f1be707745 
+    7943b3673de56bf97adb74bec632b4ce 
 
     [68] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_177_0.png
-    385857f35130cab031cb0fcf1917b49a 
+    0b0e0ef2a376f35fc62590cd5c0cde48 
 
     [69] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_180_0.png
-    70b79e6a0573f3a21a38ae8775b1110d 
+    ea3ab0815a8b120dacd8e57da8cf6e9c 
 
     [70] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_183_0.png
-    60b01c4106fa2d53abd4e5b106f0da44 
+    594300409222061e2ce3834ee86ca16f 
 
     [71] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_185_0.png
-    69d62765e76099e2081bd0faee437dee 
+    e43412c9a55fd9524d7437c8143287fb 
 
     [72] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_186_0.png
-    ab4c7d941547c32a2ed3f950004eedd0 
+    4e50a138b2bf6f64c3f22387cb48922f 
 
     [73] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_188_0.png
-    a8bcef1a055b07cc60148372b45c4c45 
+    0095bac5503a600bdfeee9fbe7af241b 
 
     [74] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_189_0.png
-    8b1e68dc9d112fc477627922ba313f71 
+    8900c1cf6e5561b7ef94733a409c80e3 
 
     [75] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_190_0.png
-    57213cb2cce5ba449acc063f726fef35 
+    81476d67ab0404fca113647b7c673378 
 
     [76] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_191_0.png
-    bd49e52417d85ed2455041ffde7673af 
+    a9898a579ca3e4e5d3afa3e31c4373ef 
 
     [77] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_192_0.png
-    ab4c7d941547c32a2ed3f950004eedd0 
+    4e50a138b2bf6f64c3f22387cb48922f 
 
     [78] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_0.png
-    7085086ed305de95830868468f133d80 
+    43afa0cb375655b615cb7e5eb92d30c6 
 
     [79] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_1.png
-    9c1b09534ba48530257d1c742cca5727 
+    313583d12821d1c14806a19d6fd02da0 
 
     [80] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_2.png
-    09cc1e1dfa586debdeea2051ccfa733c 
+    79c7f6d8873cc01352da6c0d3a30708f 
 
     [81] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_3.png
-    bb329997d01dbcc9d4a6b29e79de6244 
+    69f199a5e8a19b19d68a5d32dbbde125 
 
     [82] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_4.png
-    8d96d809520cfb9b0f276007d65315eb 
+    0fe32be66585713885462ba1b7457dae 
 
     [83] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_37_5.png
-    b44a470862390769a35bd9649a5562e1 
+    2b43cd7b87cf3d9c0a934248bf9eaa4a 
 
     [84] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_45_0.svg
-    40f2f79959ecd005349e87a939145195 
+    22d25010370647f748cf9577f4680425 
 
     [85] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_48_0.png
-    02e38ffe7f693212c55d6e4fffd4ba28 
+    01202a3f4a95270ef92c440f37f13ec3 
 
     [86] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_56_1.png
-    4bc6f74515bf1f9fd7d684431dd10100 
+    d0698029e2adf83d8ba7f611382baf47 
 
     [87] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_56_2.png
-    5ea44f0c56c27a2d54dfb96e1b10a475 
+    db0e8361c08969bc21eacb646d11b745 
 
     [88] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_56_3.png
-    7bbcbf33ea79216c42be6ae5ee8087d2 
+    4bc125554caa4ba9444f6d25bbc74546 
 
     [89] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_56_4.png
-    12f0f23b5d57288605498f3e7bd5cf51 
+    f5006df4429af13f97dfde4bb421bb4f 
 
     [90] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_57_0.png
-    9f54d51b81f1a66fe412bec5a8026fa1 
+    17bcfeaccbd64fc0c1fefcf7687d5a56 
 
     [91] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_58_0.png
-    7d1ba4ad1b65c958c4561fef962f22dd 
+    4114ffa06ae22d155e97a83b039a7270 
 
     [92] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_61_0.png
-    fcabb6625c63627f0d28cf2f8ec2142b 
+    c833202a8c67df30406a603a90f935fd 
 
     [93] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_64_0.png
-    09d8cdcd99a6d9b17a06af37d3fff7fe 
+    bb8ab3b8709a9d348956d2f034f1dd25 
 
     [94] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_66_0.png
-    a0ee6838773cc3b630037fb6897b56eb 
+    06363bcc71cc078806fc2def21a53b39 
 
     [95] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_67_0.png
-    a8bcef1a055b07cc60148372b45c4c45 
+    0095bac5503a600bdfeee9fbe7af241b 
 
     [96] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_72_0.svg
-    3c558f19f00cb276153afc6cd0f3f6ac 
+    6ff435a30be811f87396a93a57513bfc 
 
     [97] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_75_0.png
-    4e249423920c6be4389a5536e7afb339 
+    c1175937cf6874df6c05bb25eea8d586 
 
     [98] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_82_1.png
-    d4026fa9f30061e0f690cbd240764ae7 
+    a02eab9c985c4adcd962d666b76219ec 
 
     [99] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_82_2.png
-    73ee65bda29495ed655cea0c5d8bbcef 
+    42b91a055916cd06cd6da469d55bd752 
 
     [100] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_82_3.png
-    f1c421385366ca5740c694ef064408b0 
+    617234317e891a0691d46ce5f861e6de 
 
     [101] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_82_4.png
-    423a0f278f7aa21bce0f429813a0e354 
+    10aabe87e68117f95084cad10f360275 
 
     [102] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_83_0.png
-    44df44bcfe1f716dcb82d9846156a2f0 
+    c7f66c3a14f58cd7cea0b4ce96659c06 
 
     [103] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_84_0.png
-    9e64a8acf444e3358a98cb05e0c82f4c 
+    7696ed16e0264397bb50b288560fda8e 
 
     [104] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_87_0.png
-    6053cc2ff6094dff1b0e275bc35fdb28 
+    bc65cd98b8ea3f91c95010500b094ae8 
 
     [105] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_90_0.png
-    0d3a8afd37a51de50bfc0228b3e5e854 
+    7213f381f0445ecdc5c43a65c31d8996 
 
     [106] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_92_0.png
-    b8fe9f405bdb37a22c6dba21f61d6706 
+    12d7e8b128316ac2b57ddb14be28d08b 
 
     [107] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_93_0.png
-    8b1e68dc9d112fc477627922ba313f71 
+    8900c1cf6e5561b7ef94733a409c80e3 
 
     [108] Python_analysis/code/Statistical_Model_ThreeFactor_files/Statistical_Model_ThreeFactor_98_0.svg
-    4585f0a092a89efd3171a48725856e35 
+    57791e6397a58023428b7cb3d6f513e1 
 
     [109] Python_analysis/code/Statistical_Model_TwoFactor.html
-    4ea093f62cfaa9c14eaf2f1d6fb6ee09 
+    446ab283dccd29197fac5e2893129a5f 
 
     [110] Python_analysis/code/Statistical_Model_TwoFactor.ipynb
-    2e1975ca9fc414169cba4ffdf21537e4 
+    6c341911a08d0676e3c4077719752911 
 
     [111] Python_analysis/code/Statistical_Model_TwoFactor.md
-    07597fab2570370fc48d24b50fdd79a9 
+    816e5e2637256fcac44a9c22be6a68cb 
 
     [112] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_107_1.png
-    730034fdf48a56db85beadb0199be9f1 
+    4fd0627e36605b0376abf4554c5529f5 
 
     [113] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_107_2.png
-    864e5d0045e2c7a0d119681bb29c7b58 
+    2d6c2d727c8dda61ff5b61f506ab504f 
 
     [114] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_107_3.png
-    55c8760bc38da3265e65ba82fa98f8d9 
+    b4da5725751b4c1d8d76a4a2a8950cdb 
 
     [115] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_107_4.png
-    60aa979348de14037920fdf5244190e1 
+    5b592b22ec7030391536841a15fcb3e9 
 
     [116] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_108_0.png
-    de987b62a95bf218930e48b242ccb2de 
+    d92894d20dd157f30b4e87fdc8d76bb6 
 
     [117] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_109_0.png
-    1004e48eb84277322de52fd31ba1d2df 
+    777e63a063c2ff4557acd3eb5f760109 
 
     [118] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_112_0.png
-    444bc8b2c82c00c037683841963c64fc 
+    c42a52d490868cf238f79d693992725b 
 
     [119] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_113_0.png
-    02f271cfb23d86c70cfa744a13d681d4 
+    1f2550ba351c49cd6c43cc5bc7ae9690 
 
     [120] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_114_0.png
-    24815c1f9875c8e34dea2e109c295a60 
+    d0a3080b12a786a17f57aeaa18fff149 
 
     [121] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_117_0.png
-    ebae425a377a37fb2faa9a7e686dcb8d 
+    a519a363083839aa6ee23c072caecbb4 
 
     [122] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_119_0.png
-    7fca6807545156267a06d5f4a30c7157 
+    df07d2e2a5780301124bcb73d6e99063 
 
     [123] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_120_0.png
-    e706b8bf759f7cc90a1c5c3fb1a55e41 
+    f323319c321e68de5a9725c9e2ff95f8 
 
     [124] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_127_0.svg
-    192a6c49c9dde3abb04044d868f2b324 
+    3ad0003d1eeeda959ca996b784a4c5b5 
 
     [125] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_130_0.png
-    a1e01c7b53718b7cf5037fd325346796 
+    a6b5cafb2c6a84852352d495506dd59e 
 
     [126] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_139_0.svg
-    36b7a3f88438ab752d6e0d216a04a4a4 
+    078a93dd6f9370ea12fffb7220e0cf3b 
 
     [127] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_142_0.png
-    9c84a00ab1e712b67bb627d7fdf8f064 
+    89f8fc1e2507cb6c1e9fbf7e30ad39aa 
 
     [128] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_150_1.png
-    5091a9de009a0035a4e6bd32a7592f6d 
+    f44e2c2155e379d12fb515a7f8c37041 
 
     [129] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_150_2.png
-    68d6c6e162598bd8b7becfe59aceef77 
+    162901c6d1e7a3316a107ac20edfa65c 
 
     [130] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_150_3.png
-    8c0367f0588ded7bea3554f0430e708a 
+    9bccb4856c816e6d18568324af7412ef 
 
     [131] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_150_4.png
-    5a77df6034a9e01e056eb0f8c799fa6b 
+    29fb522b1d42e877dc8f9d93b9dd67ac 
 
     [132] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_151_0.png
-    ee5857d7994e34af5ec8c621f8e378e6 
+    924c12348ba807b2cce56b5163bd406e 
 
     [133] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_152_0.png
-    a50e3ead50a8d49efb78e405effe5088 
+    c34236d50f9919426d64228e382f7a84 
 
     [134] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_155_0.png
-    412fdd1bcfd5b8e75b347aac27f6555c 
+    c5fd53046377db4d25e947b152cdec33 
 
     [135] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_156_0.png
-    9cf4817e8d9fd481ce09926604cbfea5 
+    c792b8d1db0c20087a140b7c9b5d4c24 
 
     [136] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_157_0.png
-    531888fe87a5fe0dd14ee05020e03383 
+    cd871335d7224a65462f138550d24c53 
 
     [137] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_160_0.png
-    2361be7d70aff814c4cedd8873a30a6f 
+    94cefaa8183a827ba0e954c549eeb32d 
 
     [138] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_162_0.png
-    a9ec92e9579ed4387c9449b376fec0d0 
+    28df8ed70f8aeb6ad4817426c3834c37 
 
     [139] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_163_0.png
-    93211249e62e2189731bfcffd13be5e2 
+    1945cdf4b304f235d44407b3b404f92b 
 
     [140] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_164_0.png
     e706b8bf759f7cc90a1c5c3fb1a55e41 
 
     [141] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_170_0.svg
-    3fbbb91f74e6d78d1594db03155fcc7a 
+    5da61a47c7c558b70fb1d6374f0f62d9 
 
     [142] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_171_0.svg
     3fbbb91f74e6d78d1594db03155fcc7a 
 
     [143] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_173_0.png
-    7289cff0aa017b5091fcb5f44dee0a6b 
+    533d0b1f71ca21c60515a94bcc42a3ee 
 
     [144] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_174_0.png
     7289cff0aa017b5091fcb5f44dee0a6b 
 
     [145] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_1.png
-    05abb5591c5b1c8b6df4c61ba2d0c4d1 
+    856881ba1286b302007630c156ab4bb7 
 
     [146] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_2.png
-    91a75bc96bd312286f12df775e31c2c6 
+    27d7a3b21677103e91d728ad4cdf4e62 
 
     [147] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_3.png
-    a5cf47a1d6ff7b5b2f2b4939741ee7b4 
+    849f0a34fed987f6f6e585dce8d5ee91 
 
     [148] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_181_4.png
-    76e3d9598b0e7564b97037d7dc5e413a 
+    0c31ee518b5e4701456e6ff701ce141e 
 
     [149] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_0.png
-    01c59b72e21a011d23b6471df8a01c35 
+    28e8a13d68b4a0cca222030f1be42b6b 
 
     [150] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_182_1.png
     05abb5591c5b1c8b6df4c61ba2d0c4d1 
@@ -615,526 +624,529 @@ The MD5 checksums of the files created during the Python analysis are:
     76e3d9598b0e7564b97037d7dc5e413a 
 
     [154] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_183_0.png
-    eef6473c37e4197676cecfd941550a8b 
+    50f288322e7b451688bd1007284c2e40 
 
     [155] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_184_0.png
     eef6473c37e4197676cecfd941550a8b 
 
     [156] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_186_0.png
-    6b1e5fa007a553aa0668922282c03767 
+    715c7c27239bf1774425ba36833e67d1 
 
     [157] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_187_0.png
-    1895ada6f064e5b9d7ba2074c2dd09c6 
+    4c649f9f5ac49215b1a25c29f7a45aa9 
 
     [158] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_188_0.png
     1895ada6f064e5b9d7ba2074c2dd09c6 
 
     [159] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_190_0.png
-    aac8aee7ce73537c387da2c99bc49ad5 
+    1c7b4e299b72ebb668b5a3839720a362 
 
     [160] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_191_0.png
-    be7bbf93882dc0e15e1d25b94d11b6d0 
+    5bb51928bf77b4cccd6e02b3ae9dbd58 
 
     [161] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_192_0.png
     be7bbf93882dc0e15e1d25b94d11b6d0 
 
     [162] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_193_0.png
-    d9f1b7da55acc0a8568ef7c16a59e280 
+    b4745825a5c4a82a811c1a8667580863 
 
     [163] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_194_0.png
-    811db30e453c23a639120f14bac1f251 
+    4789e3b60436d68f79f35caf20046c2a 
 
     [164] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_195_0.png
     811db30e453c23a639120f14bac1f251 
 
     [165] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_202_0.png
-    4ea81314ffcd2e516f4c5af9b2794f5d 
+    f4333097af66c003984134af4b73f18f 
 
     [166] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_203_0.png
     4ea81314ffcd2e516f4c5af9b2794f5d 
 
     [167] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_204_0.png
-    4730a18002a7b2de3b8f1e154288e1d0 
+    bdd1b8f0fcf7bd5646617800b9692b60 
 
     [168] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_205_0.png
     4730a18002a7b2de3b8f1e154288e1d0 
 
     [169] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_36_0.svg
-    f28a373441cc0f4de9155896bbaec351 
+    2002091251590d0ede792773e1592e12 
 
     [170] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_39_0.png
-    67250837bac4b48b8a319626716e32a6 
+    e0d6ecbe7880de3ce1b539da6f7f78e7 
 
     [171] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_49_1.png
-    116a4652e9a3f9ec661bf1073921dd72 
+    e758e575679372d8519992981f98edc2 
 
     [172] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_49_2.png
-    f519dcf3fabcf7062fbb55c06b3dc191 
+    a9aa4d86c3703c260dde889ad17964fa 
 
     [173] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_49_3.png
-    3f3cd008a1ee38b3156ddc63ffd227a8 
+    24e88fd2451f8e39d96f89d540e9111d 
 
     [174] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_49_4.png
-    29162d9a83413ed5b3f18e81da1828aa 
+    ad4fcf841b1f9300c9cbc450241d56aa 
 
     [175] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_50_0.png
-    25be9a3341e5d25fde01607f947e8d0f 
+    1974d67767cb8566662a810322d9d5fb 
 
     [176] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_51_0.png
-    27054240f43530a3a69cb8aa5a908ca9 
+    459c48f43a44909334c19e905f2220fd 
 
     [177] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_54_0.png
-    183288d44422280493f1273222a23749 
+    056a9761e54ddd3444835aeb3c291979 
 
     [178] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_56_0.png
-    1d984a5c6aa4c2f4fd22250e3758b5ea 
+    78df30bdccaf71aff6156c1edaf0c569 
 
     [179] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_57_0.png
-    79ae91775327f48e2dfdd30f90b375f4 
+    864dda3aff0f22fdc87e64557aec0fd3 
 
     [180] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_59_0.png
-    b4d037d67812e0730ea130a51719bcb0 
+    03ff421bcecb319cc4bb281754e83a61 
 
     [181] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_66_0.svg
-    3a69704d6e663470394bde94bfca2570 
+    8fe6b030339b44a0e1a357519614e74d 
 
     [182] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_69_0.png
-    b95f0d8653d6d9fc116cc278bf2c1d28 
+    a5367695c6a4ec45638028ecd418e2f7 
 
     [183] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_76_1.png
-    ba96d91136f3bf4f52a4f192cb4605e3 
+    e605772c60d8196e761579abb1e69516 
 
     [184] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_76_2.png
-    b2e87ea6167487dbf6eb2fabe852bfa2 
+    c8ed8feb5a2475e054b1968fa89d5811 
 
     [185] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_76_3.png
-    b692e8890bbd8fa18d421159ae17f817 
+    470d52e0fedb84981adad3b483461054 
 
     [186] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_76_4.png
-    074cc02a67702ecffe89526119b3ba6c 
+    b8091b1074ff39b623c32820612135d2 
 
     [187] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_77_0.png
-    e1a31fa64db56f30631e577ecbc362c8 
+    950b2f96fcc5db8f0b0815e6b7e0c348 
 
     [188] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_78_0.png
-    e94a3099c25106e7cecb7be7d2a73514 
+    42aa4fd7763b9d22cf0908ffee3fa893 
 
     [189] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_81_0.png
-    e53826a552d53ea91094f1783342f845 
+    a211140747372501817d699ee28fe7ba 
 
     [190] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_84_0.png
-    11c0db232fdfbb7f1f13514d6fca51e0 
+    7dd94d63fa6e88faf3bbbbaad2165c7d 
 
     [191] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_85_0.png
-    99816ed37f5d085bb638ded87793a0ea 
+    b339b03731b1f6b5262ec4fc37c1efdf 
 
     [192] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_86_0.png
-    1562640185861ae74e6366d495398e74 
+    7afd39704acc9b2167cffc2f985cab63 
 
     [193] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_88_0.png
-    d9350aee8c5187c1220aa6aacb44259d 
+    c7ed5828621c031905256ba62b1939f1 
 
     [194] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_89_0.png
     a91960977a9ec5560077312112ea1237 
 
-    [195] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_96_0.svg
-    0079aa65ad91b1e19f2d7f7a94fcaa2e 
+    [195] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_89_1.png
+    eb49302195fd326e62abebc6caf7d9c9 
 
-    [196] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_99_0.png
-    1ab478e8b966144c22c7065d2d807e3c 
+    [196] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_96_0.svg
+    9ca7a4e3e76db2258023b36bb754ca81 
 
-    [197] Python_analysis/derived_data/preprocessing/preprocessed.dat
-    c9eaaa1f93ecb2d341328d09bc983339 
+    [197] Python_analysis/code/Statistical_Model_TwoFactor_files/Statistical_Model_TwoFactor_99_0.png
+    367e3aafa8bd255fb2f33a1b5b818939 
 
-    [198] Python_analysis/derived_data/statistical_model_neweplsar/hdi_NewEplsar.csv
-    7e2d110b909aa763d4dc8b421ff1441f 
+    [198] Python_analysis/derived_data/preprocessing/preprocessed.dat
+    98f2839d4e2d27da5b510a4b861b12fc 
 
-    [199] Python_analysis/derived_data/statistical_model_neweplsar/model_NewEplsar.pkl
-    503fd7d0c6994b7917722b6b4c9ca8f8 
+    [199] Python_analysis/derived_data/statistical_model_neweplsar/hdi_NewEplsar.csv
+    ae110bfadc06deeba14be715434c7acb 
 
-    [200] Python_analysis/derived_data/statistical_model_neweplsar/summary.csv
-    c521ce7accd7e44b00bf57ef31388cc7 
+    [200] Python_analysis/derived_data/statistical_model_neweplsar/model_NewEplsar.pkl
+    c41d1c5e0e1a698cdec5de5ac3692d6e 
 
-    [201] Python_analysis/derived_data/statistical_model_three_factors/model_Asfc.pkl
-    7602e4b3bb5c868121d53a026b763803 
+    [201] Python_analysis/derived_data/statistical_model_neweplsar/summary.csv
+    da1a67e41060efefff83b3e4307e4fcc 
 
-    [202] Python_analysis/derived_data/statistical_model_three_factors/model_epLsar.pkl
-    8febed3b0a20ea7f5cef5330583d6b5c 
+    [202] Python_analysis/derived_data/statistical_model_three_factors/model_Asfc.pkl
+    351de1ef5f41f5427cce5dbb03a7c2b4 
 
-    [203] Python_analysis/derived_data/statistical_model_three_factors/model_HAsfc81.pkl
-    2fdfd35ef779c9f9b18b1400ad0617db 
+    [203] Python_analysis/derived_data/statistical_model_three_factors/model_epLsar.pkl
+    b8fbcd2f80171ea9481d9565f9768674 
 
-    [204] Python_analysis/derived_data/statistical_model_three_factors/model_HAsfc9.pkl
-    6c0d38712ed08704c7b3a5d4fa85ff79 
+    [204] Python_analysis/derived_data/statistical_model_three_factors/model_HAsfc81.pkl
+    836298e10202cfe7ed0b1e76dafc9f95 
 
-    [205] Python_analysis/derived_data/statistical_model_three_factors/model_R².pkl
-    d93bd57ffdf9d520d60e17e5041f39dc 
+    [205] Python_analysis/derived_data/statistical_model_three_factors/model_HAsfc9.pkl
+    495a04fcf889cbf8486d984d66add339 
 
-    [206] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldb1.npy
-    737a78722c98b0c7faf594bdf11be7b2 
+    [206] Python_analysis/derived_data/statistical_model_three_factors/model_R².pkl
+    c8efaea7aa08f1d29141d6472eaaa944 
 
-    [207] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldb2.npy
-    340215f91559437ef9b3482c2eaaecbe 
+    [207] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldb1.npy
+    de4555692046cb8f1e66f8998bc22a42 
 
-    [208] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldM12.npy
-    cc3f180eae26fbed13cbe4a86f1cf8f8 
+    [208] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldb2.npy
+    b14c8c3dee54afb9965510e5b357e036 
 
-    [209] Python_analysis/derived_data/statistical_model_two_factors/hdi_Asfc.csv
-    6ad7a158ee3cfed820fcf37cbd919875 
+    [209] Python_analysis/derived_data/statistical_model_two_factors/epLsar_oldM12.npy
+    bb022d3d4bd1bcf8cfb8bfc5ef2b757d 
 
-    [210] Python_analysis/derived_data/statistical_model_two_factors/hdi_epLsar.csv
-    54849347dd3cb4ea5b7fd5f3898ed6c2 
+    [210] Python_analysis/derived_data/statistical_model_two_factors/hdi_Asfc.csv
+    848d4ed4ddd79a3b691e3377bcc32e6f 
 
-    [211] Python_analysis/derived_data/statistical_model_two_factors/hdi_HAsfc81.csv
-    c6a5158beb69e6d7182d1bba343d5fed 
+    [211] Python_analysis/derived_data/statistical_model_two_factors/hdi_epLsar.csv
+    0abe646b9a79093ee7f0abd5357c19f6 
 
-    [212] Python_analysis/derived_data/statistical_model_two_factors/hdi_HAsfc9.csv
-    4160b55e42fd5e138d035c1c7626c5d0 
+    [212] Python_analysis/derived_data/statistical_model_two_factors/hdi_HAsfc81.csv
+    e895ed166fd2d6830acfb6db38684ecc 
 
-    [213] Python_analysis/derived_data/statistical_model_two_factors/hdi_R².csv
-    c5b30c9e2eb24d73ede6b25d5178e1da 
+    [213] Python_analysis/derived_data/statistical_model_two_factors/hdi_HAsfc9.csv
+    c899d9c42e14f9c7c0152719363902eb 
 
-    [214] Python_analysis/derived_data/statistical_model_two_factors/model_Asfc.pkl
-    12c01ec16790433f79042d5c4408cdc3 
+    [214] Python_analysis/derived_data/statistical_model_two_factors/hdi_R².csv
+    5aa9514b7a92d496440188f94f06ef3d 
 
-    [215] Python_analysis/derived_data/statistical_model_two_factors/model_epLsar.pkl
-    11011c02a1a3a3b5511f4c1400e0dd08 
+    [215] Python_analysis/derived_data/statistical_model_two_factors/model_Asfc.pkl
+    a5e6f63d2e4be146fd1c40f92d6b3bcb 
 
-    [216] Python_analysis/derived_data/statistical_model_two_factors/model_HAsfc81.pkl
-    55fffab111f710d60b40e291d16b3eed 
+    [216] Python_analysis/derived_data/statistical_model_two_factors/model_epLsar.pkl
+    e802602607d32f8faea66278cb01ff0f 
 
-    [217] Python_analysis/derived_data/statistical_model_two_factors/model_HAsfc9.pkl
-    695aa9a7a8cc13bae45818740a032062 
+    [217] Python_analysis/derived_data/statistical_model_two_factors/model_HAsfc81.pkl
+    a91534c420d17826e5965889249975c9 
 
-    [218] Python_analysis/derived_data/statistical_model_two_factors/model_R².pkl
-    f6353c1e2f401a3a2ef77c9a428407d3 
+    [218] Python_analysis/derived_data/statistical_model_two_factors/model_HAsfc9.pkl
+    033b56270676ac18baad676b85719a66 
 
-    [219] Python_analysis/derived_data/statistical_model_two_factors/summary.csv
-    7679aa6201b888a8c542d73866fc5a9d 
+    [219] Python_analysis/derived_data/statistical_model_two_factors/model_R².pkl
+    e072f271043d03d1a49cf8c417b46783 
 
-    [220] Python_analysis/plots/statistical_model_neweplsar/posterior_b_NewEplsar.pdf
-    05617ed15b44e0bc1ecb6f87edafeec7 
+    [220] Python_analysis/derived_data/statistical_model_two_factors/summary.csv
+    8b13dabf4960dce96264526a0903ac46 
 
-    [221] Python_analysis/plots/statistical_model_neweplsar/posterior_forest_NewEplsar.pdf
-    eba4dc7a87c2aa69d050b599a56ff74a 
+    [221] Python_analysis/plots/statistical_model_neweplsar/posterior_b_NewEplsar.pdf
+    d0a6beb40d5edec5965fed1429a98a43 
 
-    [222] Python_analysis/plots/statistical_model_neweplsar/prior_posterior_predicitive_NewEplsar.pdf
-    6fda126a665eb44a83fd1087bb004d70 
+    [222] Python_analysis/plots/statistical_model_neweplsar/posterior_forest_NewEplsar.pdf
+    16a85623298160b9c0e9f2b77c8498f0 
 
-    [223] Python_analysis/plots/statistical_model_neweplsar/prior_predicitive_NewEplsar.pdf
-    d0e7a4d9837ac48eb4229ec5a262dec6 
+    [223] Python_analysis/plots/statistical_model_neweplsar/prior_posterior_predicitive_NewEplsar.pdf
+    e0669551f6f60998f3b865479ce22d48 
 
-    [224] Python_analysis/plots/statistical_model_neweplsar/trace_NewEplsar.pdf
-    7c7034d25254a9973a102272878f281f 
+    [224] Python_analysis/plots/statistical_model_neweplsar/prior_predicitive_NewEplsar.pdf
+    262d36e5d6e2c84683eea13718487cf3 
 
-    [225] Python_analysis/plots/statistical_model_neweplsar/treatment_pairs_NewEplsar.pdf
-    006e320f4360d1f6427857d2cbfc6ba2 
+    [225] Python_analysis/plots/statistical_model_neweplsar/trace_NewEplsar.pdf
+    7740257d34a35e163d8d81369058fdbf 
 
-    [226] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_Asfc.pdf
-    6bc2dcad7b0457a3f79a4b0c92ff289d 
+    [226] Python_analysis/plots/statistical_model_neweplsar/treatment_pairs_NewEplsar.pdf
+    622e800235729d3e9edad6e84530d81b 
 
-    [227] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_epLsar.pdf
-    f7eb02d654c16da62fa814d7cc798a40 
+    [227] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_Asfc.pdf
+    e1bd42d3ad98e0f37face30253355d1b 
 
-    [228] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_HAsfc81.pdf
-    2f04fa9a868a0e4e5e1122540c3f7dd8 
+    [228] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_epLsar.pdf
+    9c0af50922a1d668bf3f895f5c9f5e45 
 
-    [229] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_HAsfc9.pdf
-    e9ea1fadfe56d3bcc5e706e8b3fa7e0a 
+    [229] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_HAsfc81.pdf
+    ce2dd3eeec58eeb0958bde992744c743 
 
-    [230] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_R².pdf
-    482c73a550a083a37b3bcecf52ae4b52 
+    [230] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_HAsfc9.pdf
+    313f989da596d7ff44a0ba16ab9d6dcf 
 
-    [231] Python_analysis/plots/statistical_model_three_factors/posterior_b_Asfc.pdf
-    077170dd26c54977f9ab0186ed072595 
+    [231] Python_analysis/plots/statistical_model_three_factors/contrast_ConfoMap_Toothfrax_R².pdf
+    2c566881a8c61cebb89f119b50f546e5 
 
-    [232] Python_analysis/plots/statistical_model_three_factors/posterior_b_epLsar.pdf
-    5407de6f6e7ebd4373b189673f82f714 
+    [232] Python_analysis/plots/statistical_model_three_factors/posterior_b_Asfc.pdf
+    4d5aa63c660493b65f88de847215bad6 
 
-    [233] Python_analysis/plots/statistical_model_three_factors/posterior_b_HAsfc81.pdf
-    2857db606ea44d7aa86024ea82c11ff2 
+    [233] Python_analysis/plots/statistical_model_three_factors/posterior_b_epLsar.pdf
+    6d9405c07264ff17720b558649dc55e0 
 
-    [234] Python_analysis/plots/statistical_model_three_factors/posterior_b_HAsfc9.pdf
-    16a9a989cc68832a553bd23cdb656598 
+    [234] Python_analysis/plots/statistical_model_three_factors/posterior_b_HAsfc81.pdf
+    0e589da62e05e88703eb6f55bdf7f97d 
 
-    [235] Python_analysis/plots/statistical_model_three_factors/posterior_b_R².pdf
-    1bcd5abc8fcb498f311ae7cad6fe1569 
+    [235] Python_analysis/plots/statistical_model_three_factors/posterior_b_HAsfc9.pdf
+    c249a41ecbf80b564c0b1b5b132c8569 
 
-    [236] Python_analysis/plots/statistical_model_three_factors/posterior_forest_Asfc.pdf
-    accf9a1090b5db075ca39ce635357ed3 
+    [236] Python_analysis/plots/statistical_model_three_factors/posterior_b_R².pdf
+    3d6adeca22dea30c442338847f10116e 
 
-    [237] Python_analysis/plots/statistical_model_three_factors/posterior_forest_epLsar.pdf
-    e40913d7187b8a7b713ddff113ad84cd 
+    [237] Python_analysis/plots/statistical_model_three_factors/posterior_forest_Asfc.pdf
+    0acb31b9ebd7e186dea426955a3ff904 
 
-    [238] Python_analysis/plots/statistical_model_three_factors/posterior_forest_HAsfc81.pdf
-    b745b4d8f2751f466d6c72e7b804b9b1 
+    [238] Python_analysis/plots/statistical_model_three_factors/posterior_forest_epLsar.pdf
+    bf03468ae975aa22943368340e573fbe 
 
-    [239] Python_analysis/plots/statistical_model_three_factors/posterior_forest_HAsfc9.pdf
-    aec67ed1fa2b36748bac588a3119001c 
+    [239] Python_analysis/plots/statistical_model_three_factors/posterior_forest_HAsfc81.pdf
+    0568a295161ced37efdf0f4cdd21fcce 
 
-    [240] Python_analysis/plots/statistical_model_three_factors/posterior_forest_R².pdf
-    5720d3d7b803087d61af42a39d657938 
+    [240] Python_analysis/plots/statistical_model_three_factors/posterior_forest_HAsfc9.pdf
+    2074a36e5baf9683fbd97cd48d8fe121 
 
-    [241] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_Asfc.pdf
-    ffccf431bb30564fc5f38fe7f2af9785 
+    [241] Python_analysis/plots/statistical_model_three_factors/posterior_forest_R².pdf
+    2bbd3693bdddd34bf7310c61770830d0 
 
-    [242] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_epLsar.pdf
-    cab7b70953f68e1996b372a243dc6791 
+    [242] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_Asfc.pdf
+    bbdcd8cea3b4800083cfd85e0bea34ed 
 
-    [243] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_HAsfc81.pdf
-    a545e48aa9276ac40c3eb7770802bcdf 
+    [243] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_epLsar.pdf
+    84afb4d9c0c7f25279391d7a7ed2f684 
 
-    [244] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_HAsfc9.pdf
-    8e0c5687f5860f56b80517fe87cd0d88 
+    [244] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_HAsfc81.pdf
+    2243860cea1ae4d220b64162918bb601 
 
-    [245] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_R².pdf
-    a14ce21687be4d52ed760a8dd35de06f 
+    [245] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_HAsfc9.pdf
+    1503a39c24dae97143d23c11c6248f33 
 
-    [246] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_Asfc.pdf
-    0a990ed04c281d7fca61fd6f52a1d97d 
+    [246] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b1_R².pdf
+    ea6fc1462ca02b4605a3ab88ad719ccc 
 
-    [247] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_epLsar.pdf
-    83320178b10efe1dfbb5e4bf312aeed3 
+    [247] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_Asfc.pdf
+    d10c2161700d1f6ba162b5222b2e2edb 
 
-    [248] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_HAsfc81.pdf
-    a29f0b77bfa6c6418b62d9d948e39da5 
+    [248] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_epLsar.pdf
+    f451fbaad9b79b0503658102f172d4d4 
 
-    [249] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_HAsfc9.pdf
-    47ffea61dc6a7e6ab1daf3d53ce1b27f 
+    [249] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_HAsfc81.pdf
+    615c2d21f2305110e151f7478cd541be 
 
-    [250] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_R².pdf
-    eee80c3e99f745e9ea38953088aefd9c 
+    [250] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_HAsfc9.pdf
+    41d117d9708233320158261a5eb0826f 
 
-    [251] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_Asfc.pdf
-    e8a6591f6a31a3e7b0a10fecfeae1325 
+    [251] Python_analysis/plots/statistical_model_three_factors/posterior_pair_b2_R².pdf
+    fd5a5f717f78b83aa1908ffaf2001070 
 
-    [252] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_epLsar.pdf
-    f928054ea6af2ce12815f25633ea0ef7 
+    [252] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_Asfc.pdf
+    50ed9bf28f1e051b251cfd59d51fef03 
 
-    [253] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_HAsfc81.pdf
-    597e71ea347751d67af1b22392c66366 
+    [253] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_epLsar.pdf
+    fdcb0d3e5e233ad8b35a5052c9e8fc91 
 
-    [254] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_HAsfc9.pdf
-    52e46bc6ae690587399dacce94014ad7 
+    [254] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_HAsfc81.pdf
+    ed3695e1e3913636d416b05232af2f57 
 
-    [255] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_R².pdf
-    f385508fe31c016b046d6b79ac01ffde 
+    [255] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_HAsfc9.pdf
+    180461985c1eeb4a48f2c40f7c911768 
 
-    [256] Python_analysis/plots/statistical_model_three_factors/prior_posterior_Asfc_b1.pdf
-    87c3b6fa09d04c75fcca1984ab184dec 
+    [256] Python_analysis/plots/statistical_model_three_factors/posterior_parallel_R².pdf
+    171af86dde3445d74b58955111786044 
 
-    [257] Python_analysis/plots/statistical_model_three_factors/prior_posterior_epLsar_b1.pdf
-    550f8155afc6c1ffc37555fee95c244a 
+    [257] Python_analysis/plots/statistical_model_three_factors/prior_posterior_Asfc_b1.pdf
+    67b299edc60bbd1ff81ed31b2242b72c 
 
-    [258] Python_analysis/plots/statistical_model_three_factors/prior_posterior_HAsfc81_b1.pdf
-    f00a0ff86adc22bbbee77193c96bc956 
+    [258] Python_analysis/plots/statistical_model_three_factors/prior_posterior_epLsar_b1.pdf
+    89b6ea7716c54e5fae7ed123cee3c905 
 
-    [259] Python_analysis/plots/statistical_model_three_factors/prior_posterior_HAsfc9_b1.pdf
-    9309c67a06c0363e895093044f033b82 
+    [259] Python_analysis/plots/statistical_model_three_factors/prior_posterior_HAsfc81_b1.pdf
+    a96b10cc0117b54040e19f614cd692da 
 
-    [260] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_Asfc.pdf
-    9ce4345047ef3ca0540df5d03adeca75 
+    [260] Python_analysis/plots/statistical_model_three_factors/prior_posterior_HAsfc9_b1.pdf
+    e52ac5b856daa78d3eac89837698e5fe 
 
-    [261] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_epLsar.pdf
-    7026defe0642977988bfaa18fd88054f 
+    [261] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_Asfc.pdf
+    d46c413ea1fa775e8139c2a75e0c0d36 
 
-    [262] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_HAsfc81.pdf
-    c2a536242f35e875f77653655f136a03 
+    [262] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_epLsar.pdf
+    b8d7b7e9af85140149cda9e3a508c77e 
 
-    [263] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_HAsfc9.pdf
-    8d6f1d98cb1275c640bc4f1bfe15af1b 
+    [263] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_HAsfc81.pdf
+    2d6f0a1fa57166a3603ac369967cbee4 
 
-    [264] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_R².pdf
-    70db7b402033819839f198da597805ed 
+    [264] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_HAsfc9.pdf
+    af260265214b5afc2cdea0375c487ddd 
 
-    [265] Python_analysis/plots/statistical_model_three_factors/prior_posterior_R²_b1.pdf
-    8f77e0425fde17b7465fd0f942663bef 
+    [265] Python_analysis/plots/statistical_model_three_factors/prior_posterior_predicitive_R².pdf
+    0c55418c143c009e23b84c7eee89e5b8 
 
-    [266] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_Asfc.pdf
-    66d764d3cb22ee36b7c5b8a78d6293da 
+    [266] Python_analysis/plots/statistical_model_three_factors/prior_posterior_R²_b1.pdf
+    bcb53e3bc9bd9ddadc5c0e5a9ddb42b8 
 
-    [267] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_epLsar.pdf
-    cdaa665dff47ba05cce6f80382db92cd 
+    [267] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_Asfc.pdf
+    0471feb9bba4069d344eb6aea8ed178d 
 
-    [268] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_HAsfc81.pdf
-    30fa5e520aaa230c6c878872c70de639 
+    [268] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_epLsar.pdf
+    068c5b599be61708a784e23d0834ac25 
 
-    [269] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_HAsfc9.pdf
-    9ad7a56eb7b17d4c558d175d5ac50c15 
+    [269] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_HAsfc81.pdf
+    6970ac22ed2cd108f750230962a88755 
 
-    [270] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_R².pdf
-    a1aacfb8e2b13411028f29992115ea13 
+    [270] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_HAsfc9.pdf
+    4065f61bb71123048c4b188e60bb9656 
 
-    [271] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_Smfc.pdf
-    ddbdd27e68f7969adf10cc19dad22546 
+    [271] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_R².pdf
+    713f0ab29ed5ddd404cef2ac491a59bb 
 
-    [272] Python_analysis/plots/statistical_model_three_factors/trace_Asfc.pdf
-    175ff9b201e36ecfecc40c2e708ed5e6 
+    [272] Python_analysis/plots/statistical_model_three_factors/prior_predicitive_Smfc.pdf
+    085f4fb338500cb7f8db40041364cdbf 
 
-    [273] Python_analysis/plots/statistical_model_three_factors/trace_epLsar.pdf
-    3196f9b083efe4a81776d3d9151ede8d 
+    [273] Python_analysis/plots/statistical_model_three_factors/trace_Asfc.pdf
+    9836be04169910e9e531abd5cfb55733 
 
-    [274] Python_analysis/plots/statistical_model_three_factors/trace_HAsfc81.pdf
-    2e23e4e5a59881fee879f85af3635ce8 
+    [274] Python_analysis/plots/statistical_model_three_factors/trace_epLsar.pdf
+    91b9749cf79636b16653c28e22eec597 
 
-    [275] Python_analysis/plots/statistical_model_three_factors/trace_HAsfc9.pdf
-    e20bd23a68e4de9b29c20bcf120a010f 
+    [275] Python_analysis/plots/statistical_model_three_factors/trace_HAsfc81.pdf
+    e50eacf5a06c07f2fc4bbc291506a58f 
 
-    [276] Python_analysis/plots/statistical_model_three_factors/trace_R².pdf
-    ed06312a36e1e88b790f3615e8f5cc88 
+    [276] Python_analysis/plots/statistical_model_three_factors/trace_HAsfc9.pdf
+    dbd9e70d921619e540461018706694f2 
 
-    [277] Python_analysis/plots/statistical_model_two_factors/posterior_b_Asfc.pdf
-    57f5555c5e990e95168cb1bb233cb83f 
+    [277] Python_analysis/plots/statistical_model_three_factors/trace_R².pdf
+    11758dea3297b0fc830ec8e02e473331 
 
-    [278] Python_analysis/plots/statistical_model_two_factors/posterior_b_HAsfc81.pdf
-    ee354d82e5086f87c8fcb41a14cb540d 
+    [278] Python_analysis/plots/statistical_model_two_factors/posterior_b_Asfc.pdf
+    9df6135c37115e87dbc4a4d33faa62d8 
 
-    [279] Python_analysis/plots/statistical_model_two_factors/posterior_b_HAsfc9.pdf
-    df8b6ca22ec9069ed40d440813b69068 
+    [279] Python_analysis/plots/statistical_model_two_factors/posterior_b_HAsfc81.pdf
+    9d09d1f3417b4e8c0f374f9deacae74c 
 
-    [280] Python_analysis/plots/statistical_model_two_factors/posterior_b_R².pdf
-    d1d31c2a58c278cdfb7df5d7b180fbbb 
+    [280] Python_analysis/plots/statistical_model_two_factors/posterior_b_HAsfc9.pdf
+    2655f4451c349a7cdeacab1d5fcd9af9 
 
-    [281] Python_analysis/plots/statistical_model_two_factors/posterior_forest_Asfc.pdf
-    7dfeced112052acb28011d1d5d65c8c3 
+    [281] Python_analysis/plots/statistical_model_two_factors/posterior_b_R².pdf
+    cc863ec87018eb668fc10e34d54d1873 
 
-    [282] Python_analysis/plots/statistical_model_two_factors/posterior_forest_epLsar.pdf
-    2a69ffc24cd6d05f1a10059f28d2b155 
+    [282] Python_analysis/plots/statistical_model_two_factors/posterior_forest_Asfc.pdf
+    623b3d0b110e69dc5a7c283e1673eb4f 
 
-    [283] Python_analysis/plots/statistical_model_two_factors/posterior_forest_HAsfc81.pdf
-    020a62f3500b10d456e2a619df0ddfc4 
+    [283] Python_analysis/plots/statistical_model_two_factors/posterior_forest_epLsar.pdf
+    40f528acb6dd74252b6d6a0da1173ae8 
 
-    [284] Python_analysis/plots/statistical_model_two_factors/posterior_forest_HAsfc9.pdf
-    a0626b220d001aa0ed6850f45bcfc459 
+    [284] Python_analysis/plots/statistical_model_two_factors/posterior_forest_HAsfc81.pdf
+    264df21b622cc956fef7a49f2e4cb546 
 
-    [285] Python_analysis/plots/statistical_model_two_factors/posterior_forest_R².pdf
-    8ce603708b2cfcb1dae473f177a3615f 
+    [285] Python_analysis/plots/statistical_model_two_factors/posterior_forest_HAsfc9.pdf
+    904cb932d81b40bd5e28794123eab511 
 
-    [286] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_Asfc.pdf
-    74a72c5dfb97af8a6eb008bf8e546d84 
+    [286] Python_analysis/plots/statistical_model_two_factors/posterior_forest_R².pdf
+    c13eb8ab63ae031264f53c98f8a3fa5a 
 
-    [287] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_epLsar.pdf
-    3b5d98ccf2046d7c1167caca0d6bf45f 
+    [287] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_Asfc.pdf
+    a0eea9c853c56d68270da28573aff919 
 
-    [288] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_HAsfc81.pdf
-    b2df2020a53964828e8c00278fe63010 
+    [288] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_epLsar.pdf
+    729fcb7a6672fdbecaaa67f6426222f7 
 
-    [289] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_HAsfc9.pdf
-    61ee2b0eaeee2ecb0c5074ebaa350844 
+    [289] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_HAsfc81.pdf
+    7b1d746e1616dd3693d714978e63a448 
 
-    [290] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_R².pdf
-    97b1abbe73333fb89c27b2a8c727f991 
+    [290] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_HAsfc9.pdf
+    7d5043faf9b30e2bc7d616b98fefe080 
 
-    [291] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_Asfc.pdf
-    ce41b77040e53ef1e537e1b1ffece2bf 
+    [291] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b1_R².pdf
+    72770fc88a69e095fd57699c13fdabda 
 
-    [292] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_epLsar.pdf
-    a836006d1a489e59ee8387bca84ba897 
+    [292] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_Asfc.pdf
+    88f53d256a7f28d8257648916f6e5e09 
 
-    [293] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_HAsfc81.pdf
-    55777095b2f37a731e7bfbf63dafcf0e 
+    [293] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_epLsar.pdf
+    260ff32d99e4bcad942157d0ea5d1d6a 
 
-    [294] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_HAsfc9.pdf
-    3ee8fb96b82be96bad6b77bef09cc74c 
+    [294] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_HAsfc81.pdf
+    927d8080aa1c5b14d2e5071ef10a3a1a 
 
-    [295] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_R².pdf
-    3eb681ff20744d1272b08ee7d81efa99 
+    [295] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_HAsfc9.pdf
+    3fb2db786be23f8525510bb695a7b652 
 
-    [296] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_Asfc.pdf
-    30ce3822da17a11748c4dfd9998828d4 
+    [296] Python_analysis/plots/statistical_model_two_factors/posterior_pair_b2_R².pdf
+    2854fb9f739a99626abcf58f969e677c 
 
-    [297] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_epLsar.pdf
-    411fa0aae5167e0b47e5a23f3c4b443e 
+    [297] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_Asfc.pdf
+    049e1f9946b4c871ba3653c403546914 
 
-    [298] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_HAsfc81.pdf
-    935099975df60971f3e3a9e33ed9ca30 
+    [298] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_epLsar.pdf
+    08a85eb71742ac8a9dc02fba1854f898 
 
-    [299] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_HAsfc9.pdf
-    625a6c41faf90603865afb63a98ec8b2 
+    [299] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_HAsfc81.pdf
+    cd4ef036a32ff6e315b50ff3215e30c9 
 
-    [300] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_R².pdf
-    b5d6f7df266e5048661de02cb7d929b6 
+    [300] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_HAsfc9.pdf
+    de8df856072490d2976e17cf55754df8 
 
-    [301] Python_analysis/plots/statistical_model_two_factors/prior_posterior_Asfc_b1.pdf
-    a2c361d7b0e4471196a0fb6c5fa43864 
+    [301] Python_analysis/plots/statistical_model_two_factors/posterior_parallel_R².pdf
+    3994a46f7a895fbf45a7b9965a8b583a 
 
-    [302] Python_analysis/plots/statistical_model_two_factors/prior_posterior_HAsfc81_b1.pdf
-    99aed20d7d92266cf4e89f56e6a0bb68 
+    [302] Python_analysis/plots/statistical_model_two_factors/prior_posterior_Asfc_b1.pdf
+    d888a9f2bb2386a0fe246a11a3205a88 
 
-    [303] Python_analysis/plots/statistical_model_two_factors/prior_posterior_HAsfc9_b1.pdf
-    df75d58421bd302d073acef0de6ed3a9 
+    [303] Python_analysis/plots/statistical_model_two_factors/prior_posterior_HAsfc81_b1.pdf
+    ab3d75e623452e0b90b1b62efc95010a 
 
-    [304] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_Asfc.pdf
-    5da31500dc237b6de6f5db0a4e188dc0 
+    [304] Python_analysis/plots/statistical_model_two_factors/prior_posterior_HAsfc9_b1.pdf
+    993ddc6116e532f1c6c3225bdc16e5d1 
 
-    [305] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_epLsar.pdf
-    1b851a028aa1f731a2b82a581f771b6b 
+    [305] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_Asfc.pdf
+    f17c93f85b0d7ad60ba36ce66306f06f 
 
-    [306] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_HAsfc81.pdf
-    8c5fa8ef42aa7c2541ae61e85ec5fb0b 
+    [306] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_epLsar.pdf
+    9cc523136a7c4f92aede7e7d99f18a6a 
 
-    [307] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_HAsfc9.pdf
-    15b197fd5e0140674189a5cf48f4ca5b 
+    [307] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_HAsfc81.pdf
+    3c480ef23d2949c7799494b46c19053b 
 
-    [308] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_R².pdf
-    98de9a78158432ca4736c92ce9893432 
+    [308] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_HAsfc9.pdf
+    bba421ca85d7d88ef684d1d59e76f063 
 
-    [309] Python_analysis/plots/statistical_model_two_factors/prior_posterior_R²_b1.pdf
-    af03b52b492e41b9da225d6583fa2a09 
+    [309] Python_analysis/plots/statistical_model_two_factors/prior_posterior_predicitive_R².pdf
+    5ef1bf660b581b74e324418f47c01a98 
 
-    [310] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_Asfc.pdf
-    8fad4db1927517cfd22342b5fa85111f 
+    [310] Python_analysis/plots/statistical_model_two_factors/prior_posterior_R²_b1.pdf
+    a4fd0a8ccfc562e85699d144071609fe 
 
-    [311] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_epLsar.pdf
-    665dd686970bbfc4475cc7975dfbe7c1 
+    [311] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_Asfc.pdf
+    37483f673b04fe3e983be7c177264cb4 
 
-    [312] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_HAsfc81.pdf
-    6874e4b64fde807959a2920b3794fda9 
+    [312] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_epLsar.pdf
+    eaee7ce372c0678469d86b697319e871 
 
-    [313] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_HAsfc9.pdf
-    f0ef04550b6ff29c485f5c4e8216cf3a 
+    [313] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_HAsfc81.pdf
+    b1bf319eff5160b1c44e3e61b434bc23 
 
-    [314] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_R².pdf
-    bc29cd86643615d58ce64192dbdfa11e 
+    [314] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_HAsfc9.pdf
+    e03f3beddd6139d17f8d98f275a2f41b 
 
-    [315] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_Smfc.pdf
-    ab3d170797ca29b4356b616e1f005063 
+    [315] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_R².pdf
+    69253dab85b1206af09ee0db7146659d 
 
-    [316] Python_analysis/plots/statistical_model_two_factors/trace_Asfc.pdf
-    ef3579357b6a6632ae20af03344e5e21 
+    [316] Python_analysis/plots/statistical_model_two_factors/prior_predicitive_Smfc.pdf
+    af4f24516e43525582df48a4039ed0b5 
 
-    [317] Python_analysis/plots/statistical_model_two_factors/trace_epLsar.pdf
-    3942e9430a0f5f15c6b1aab1f7b4c6bb 
+    [317] Python_analysis/plots/statistical_model_two_factors/trace_Asfc.pdf
+    e92b1c77454d8093c3a0c85fe2cf8f2f 
 
-    [318] Python_analysis/plots/statistical_model_two_factors/trace_HAsfc81.pdf
-    49d853cd83104f0520e24e3d1a976762 
+    [318] Python_analysis/plots/statistical_model_two_factors/trace_epLsar.pdf
+    31c5970fb1987f4071507720741d2206 
 
-    [319] Python_analysis/plots/statistical_model_two_factors/trace_HAsfc9.pdf
-    a9c8b7d264ec82eab63b6b9a3c03584e 
+    [319] Python_analysis/plots/statistical_model_two_factors/trace_HAsfc81.pdf
+    91d4d61665e319e7eee1157fd48c02f5 
 
-    [320] Python_analysis/plots/statistical_model_two_factors/trace_R².pdf
-    42dcebb6b69141f155e387544b5dd9fe 
+    [320] Python_analysis/plots/statistical_model_two_factors/trace_HAsfc9.pdf
+    d7d841b086d3d40168b93b80cff75b4b 
 
-    [321] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_Asfc.pdf
-    2c4617e648e649556d53cff8a2fc9a08 
+    [321] Python_analysis/plots/statistical_model_two_factors/trace_R².pdf
+    22e05da4504ff2c5016968f768599648 
 
-    [322] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_epLsar.pdf
-    33206f933bba1226398f30bde33a3c05 
+    [322] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_Asfc.pdf
+    f4f22c377287e488950e338e135c8c60 
 
-    [323] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_HAsfc81.pdf
-    37bee1ef79adf9c9c5375c655b62232c 
+    [323] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_epLsar.pdf
+    e805f3a29ee6d1f9022ba6a053eb8a6e 
 
-    [324] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_HAsfc9.pdf
-    a811438bf5625a82a58b63a8a958c86a 
+    [324] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_HAsfc81.pdf
+    b778c1eb0304750b755a390e750e426c 
 
-    [325] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_R².pdf
-    6b29ac8f8c709818e135e20c97f0f0c2 
+    [325] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_HAsfc9.pdf
+    ff9d4aaf0f06415ec25c751c4ab3ffad 
 
-    [326] Python_analysis/requirements.txt
+    [326] Python_analysis/plots/statistical_model_two_factors/treatment_pairs_R².pdf
+    6af26ab351fc32907821b86cac297251 
+
+    [327] Python_analysis/requirements.txt
     29c0a7eb1ebc42a17ab8a84be5c70be6 
 
-    [327] Python_analysis/RUN_DOCKER.md
-    87fe28d39c1f5c8198c3f801359dc0a1 
+    [328] Python_analysis/RUN_DOCKER.md
+    92a91b9310eb72122b471b659b371742 
 
 ------------------------------------------------------------------------
 
