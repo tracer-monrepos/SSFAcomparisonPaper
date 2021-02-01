@@ -4505,7 +4505,7 @@ sns.jointplot(x=diff_b2,y=diff_m12);
 
 We see two sets that are distributed along parallel lines in the scatter plot.
 This means that the model estimates two subsets of possible differences.  
-However, when looking at the raw data at 'analysis/plots/SSFA_Sheeps_plot.pdf' one can see that the distribution of values for HAsfc81 on Clover (Sheep) measured by ConfoMap appear to have a bimodal distribution.  
+However, when looking at the raw data at 'R_analysis/plots/SSFA_Sheeps_plot.pdf' one can see that the distribution of values for HAsfc81 on Clover (Sheep) measured by ConfoMap appear to have a bimodal distribution.  
 Thus, in combination with the chosen uninformative priors, the model correctly describes the distribution as bimodal.  
 In summary, we see no issue with the modeling and sampling.
 
@@ -4720,7 +4720,7 @@ if writeOut:
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_TwoFactor.ipynb to html
-    [NbConvertApp] Writing 19659153 bytes to Statistical_Model_TwoFactor.html
+    [NbConvertApp] Writing 24528302 bytes to Statistical_Model_TwoFactor.html
 
 
 
@@ -4790,7 +4790,19 @@ if writeOut:
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
     [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
-    [NbConvertApp] Writing 94860 bytes to Statistical_Model_TwoFactor.md
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_files
+    [NbConvertApp] Writing 109106 bytes to Statistical_Model_TwoFactor.md
 
 
 
