@@ -341,7 +341,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Plots of SSFA variables</h1>
 <h4 class="author">Ivan Calandra</h4>
-<h4 class="date">2021-01-26 10:38:33</h4>
+<h4 class="date">2021-02-04 09:48:02</h4>
 
 </div>
 
@@ -368,17 +368,15 @@ Plots will be saved in “~/R_analysis/plots”.</p>
 </div>
 <div id="read-in-data" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Read in data</h1>
-<div id="get-names-path-and-information-of-input-file" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Get names, path and information of input file</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>info_in <span class="ot">&lt;-</span> <span class="fu">list.files</span>(dir_in, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rbin$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">md5sum</span>()</span></code></pre></div>
-<p>The checksum (MD5 hashes) of the loaded file is:</p>
-<pre><code>               files                         checksum
-1 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a</code></pre>
+<div id="get-name-and-path-of-input-file" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Get name and path of input file</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>info_in <span class="ot">&lt;-</span> <span class="fu">list.files</span>(dir_in, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rbin$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>info_in</span></code></pre></div>
+<pre><code>[1] &quot;R_analysis/derived_data/SSFA_all_data.Rbin&quot;</code></pre>
 </div>
 <div id="read-in-rbin-file" class="section level2" number="3.2">
 <h2 number="3.2"><span class="header-section-number">3.2</span> Read in Rbin file</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">loadObject</span>(<span class="fu">names</span>(info_in))</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">loadObject</span>(info_in)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(all_data)</span></code></pre></div>
 <pre><code>&#39;data.frame&#39;:   280 obs. of  13 variables:
  $ Dataset     : chr  &quot;GuineaPigs&quot; &quot;GuineaPigs&quot; &quot;GuineaPigs&quot; &quot;GuineaPigs&quot; ...
@@ -655,9 +653,11 @@ Running under: Windows 10 x64 (build 19041)
 Matrix products: default
 
 locale:
-[1] LC_COLLATE=French_France.1252  LC_CTYPE=French_France.1252   
-[3] LC_MONETARY=French_France.1252 LC_NUMERIC=C                  
-[5] LC_TIME=French_France.1252    
+[1] LC_COLLATE=English_United Kingdom.1252 
+[2] LC_CTYPE=English_United Kingdom.1252   
+[3] LC_MONETARY=English_United Kingdom.1252
+[4] LC_NUMERIC=C                           
+[5] LC_TIME=English_United Kingdom.1252    
 
 attached base packages:
 [1] tools     stats     graphics  grDevices datasets  utils     methods  

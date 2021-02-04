@@ -1,13 +1,13 @@
 Summary statistics on SSFA datasets
 ================
 Ivan Calandra
-2021-01-26 10:03:52
+2021-02-04 09:49:21
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
 -   [Read in data](#read-in-data)
-    -   [Get names, path and information of input
-        file](#get-names-path-and-information-of-input-file)
+    -   [Get name and path of input
+        file](#get-name-and-path-of-input-file)
     -   [Read in Rbin file](#read-in-rbin-file)
 -   [Summary statistics](#summary-statistics)
     -   [Create function to compute the statistics at
@@ -66,22 +66,19 @@ library(tidyverse)
 
 # Read in data
 
-## Get names, path and information of input file
+## Get name and path of input file
 
 ``` r
-info_in <- list.files(dir_in, pattern = "\\.Rbin$", full.names = TRUE) %>% 
-           md5sum()
+info_in <- list.files(dir_in, pattern = "\\.Rbin$", full.names = TRUE)
+info_in
 ```
 
-The checksum (MD5 hashes) of the loaded file is:
-
-                   files                         checksum
-    1 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a
+    [1] "R_analysis/derived_data/SSFA_all_data.Rbin"
 
 ## Read in Rbin file
 
 ``` r
-all_data <- loadObject(names(info_in))
+all_data <- loadObject(info_in)
 str(all_data)
 ```
 
@@ -295,9 +292,11 @@ sessionInfo()
     Matrix products: default
 
     locale:
-    [1] LC_COLLATE=French_France.1252  LC_CTYPE=French_France.1252   
-    [3] LC_MONETARY=French_France.1252 LC_NUMERIC=C                  
-    [5] LC_TIME=French_France.1252    
+    [1] LC_COLLATE=English_United Kingdom.1252 
+    [2] LC_CTYPE=English_United Kingdom.1252   
+    [3] LC_MONETARY=English_United Kingdom.1252
+    [4] LC_NUMERIC=C                           
+    [5] LC_TIME=English_United Kingdom.1252    
 
     attached base packages:
     [1] tools     stats     graphics  grDevices datasets  utils     methods  

@@ -1,12 +1,11 @@
 Import SSFA datasets
 ================
 Ivan Calandra
-2021-01-25 17:40:40
+2021-02-04 09:49:47
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
--   [Get names, path and information of all
-    files](#get-names-path-and-information-of-all-files)
+-   [Get names and path all files](#get-names-and-path-all-files)
 -   [Guinea pigs](#guinea-pigs)
     -   [ConfoMap](#confomap)
         -   [Read in data](#read-in-data)
@@ -124,22 +123,19 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-# Get names, path and information of all files
+# Get names and path all files
 
 ``` r
-info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE) %>% 
-           md5sum()
+info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
+info_in
 ```
 
-The checksum (MD5 hashes) of the imported files are:
-
-                                       files                         checksum
-    1 SSFA-ConfoMap_GuineaPigs_NMPfilled.csv bb465ffcd50b3c2038e2c29eb403acfe
-    2    SSFA-ConfoMap_Lithics_NMPfilled.csv cd8819fa914a7f2a0a25d7a2b86913b9
-    3     SSFA-ConfoMap_Sheeps_NMPfilled.csv e010ebe147f86c23a2ccd8fe9f507d3c
-    4         SSFA-Toothfrax_GuineaPigs.xlsx 59684695c021e541699ea075a8c597a3
-    5            SSFA-Toothfrax_Lithics.xlsx 5f9c641b05212b7565e79578d3a4eeac
-    6             SSFA-Toothfrax_Sheeps.xlsx 90be4f96fe6178125f579b5b4993bdd5
+    [1] "R_analysis/raw_data/SSFA-ConfoMap_GuineaPigs_NMPfilled.csv"
+    [2] "R_analysis/raw_data/SSFA-ConfoMap_Lithics_NMPfilled.csv"   
+    [3] "R_analysis/raw_data/SSFA-ConfoMap_Sheeps_NMPfilled.csv"    
+    [4] "R_analysis/raw_data/SSFA-Toothfrax_GuineaPigs.xlsx"        
+    [5] "R_analysis/raw_data/SSFA-Toothfrax_Lithics.xlsx"           
+    [6] "R_analysis/raw_data/SSFA-Toothfrax_Sheeps.xlsx"            
 
 ------------------------------------------------------------------------
 
@@ -151,7 +147,7 @@ The checksum (MD5 hashes) of the imported files are:
 
 ``` r
 # Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
-confoGP <- names(info_in) %>% 
+confoGP <- info_in %>% 
            .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
            read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -217,7 +213,7 @@ confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Na
 
 ``` r
 # Extract file name for Toothfrax analysis on Guinea Pigs
-toothfraxGP <- names(info_in) %>% 
+toothfraxGP <- info_in %>% 
                .[grepl("Toothfrax", .) & grepl("GuineaPigs", .)] %>% 
 
                # Read in file
@@ -338,7 +334,7 @@ in the section about [Guinea Pigs](#guinea-pigs).
 ### Read in data
 
 ``` r
-confoSheep <- names(info_in) %>% 
+confoSheep <- info_in %>% 
               .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
               read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -388,7 +384,7 @@ confoSheep_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoSheep_kee
 ### Read in data
 
 ``` r
-toothfraxSheep <- names(info_in) %>% 
+toothfraxSheep <- info_in %>% 
                   .[grepl("Toothfrax", .) & grepl("Sheeps", .)] %>% 
                   read.xlsx(check.names = TRUE)
 ```
@@ -502,7 +498,7 @@ in the section about [Guinea Pigs](#guinea-pigs).
 ### Read in data
 
 ``` r
-confoLith <- names(info_in) %>% 
+confoLith <- info_in %>% 
              .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
              read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -551,7 +547,7 @@ confoLith_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoLith_keep[
 ### Read in data
 
 ``` r
-toothfraxLith <- names(info_in) %>% 
+toothfraxLith <- info_in %>% 
                  .[grepl("Toothfrax", .) & grepl("Lithics", .)] %>% 
                  read.xlsx(check.names = TRUE)
 ```

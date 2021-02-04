@@ -341,7 +341,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Import SSFA datasets</h1>
 <h4 class="author">Ivan Calandra</h4>
-<h4 class="date">2021-01-25 17:40:35</h4>
+<h4 class="date">2021-02-04 09:49:42</h4>
 
 </div>
 
@@ -372,18 +372,16 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <hr />
 </div>
-<div id="get-names-path-and-information-of-all-files" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Get names, path and information of all files</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>info_in <span class="ot">&lt;-</span> <span class="fu">list.files</span>(dir_in, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.csv|xlsx$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">md5sum</span>()</span></code></pre></div>
-<p>The checksum (MD5 hashes) of the imported files are:</p>
-<pre><code>                                   files                         checksum
-1 SSFA-ConfoMap_GuineaPigs_NMPfilled.csv bb465ffcd50b3c2038e2c29eb403acfe
-2    SSFA-ConfoMap_Lithics_NMPfilled.csv cd8819fa914a7f2a0a25d7a2b86913b9
-3     SSFA-ConfoMap_Sheeps_NMPfilled.csv e010ebe147f86c23a2ccd8fe9f507d3c
-4         SSFA-Toothfrax_GuineaPigs.xlsx 59684695c021e541699ea075a8c597a3
-5            SSFA-Toothfrax_Lithics.xlsx 5f9c641b05212b7565e79578d3a4eeac
-6             SSFA-Toothfrax_Sheeps.xlsx 90be4f96fe6178125f579b5b4993bdd5</code></pre>
+<div id="get-names-and-path-all-files" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Get names and path all files</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>info_in <span class="ot">&lt;-</span> <span class="fu">list.files</span>(dir_in, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.csv|xlsx$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>info_in</span></code></pre></div>
+<pre><code>[1] &quot;R_analysis/raw_data/SSFA-ConfoMap_GuineaPigs_NMPfilled.csv&quot;
+[2] &quot;R_analysis/raw_data/SSFA-ConfoMap_Lithics_NMPfilled.csv&quot;   
+[3] &quot;R_analysis/raw_data/SSFA-ConfoMap_Sheeps_NMPfilled.csv&quot;    
+[4] &quot;R_analysis/raw_data/SSFA-Toothfrax_GuineaPigs.xlsx&quot;        
+[5] &quot;R_analysis/raw_data/SSFA-Toothfrax_Lithics.xlsx&quot;           
+[6] &quot;R_analysis/raw_data/SSFA-Toothfrax_Sheeps.xlsx&quot;            </code></pre>
 <hr />
 </div>
 <div id="guinea-pigs" class="section level1" number="4">
@@ -393,7 +391,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <div id="read-in-data" class="section level3" number="4.1.1">
 <h3 number="4.1.1"><span class="header-section-number">4.1.1</span> Read in data</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract file name for ConfoMap analysis on Guinea Pigs, and read in file</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>confoGP <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>confoGP <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           .[<span class="fu">grepl</span>(<span class="st">&quot;ConfoMap&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;GuineaPigs&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">read.csv</span>(<span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">na.strings =</span> <span class="st">&quot;*****&quot;</span>)</span></code></pre></div>
 </div>
@@ -446,7 +444,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <div id="read-in-data-1" class="section level3" number="4.2.1">
 <h3 number="4.2.1"><span class="header-section-number">4.2.1</span> Read in data</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract file name for Toothfrax analysis on Guinea Pigs</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>toothfraxGP <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>toothfraxGP <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>               .[<span class="fu">grepl</span>(<span class="st">&quot;Toothfrax&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;GuineaPigs&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Read in file</span></span>
@@ -544,7 +542,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <h2 number="5.1"><span class="header-section-number">5.1</span> ConfoMap</h2>
 <div id="read-in-data-2" class="section level3" number="5.1.1">
 <h3 number="5.1.1"><span class="header-section-number">5.1.1</span> Read in data</h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>confoSheep <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>confoSheep <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>              .[<span class="fu">grepl</span>(<span class="st">&quot;ConfoMap&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;Sheeps&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">read.csv</span>(<span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">na.strings =</span> <span class="st">&quot;*****&quot;</span>)</span></code></pre></div>
 </div>
@@ -583,7 +581,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <h2 number="5.2"><span class="header-section-number">5.2</span> Toothfrax</h2>
 <div id="read-in-data-3" class="section level3" number="5.2.1">
 <h3 number="5.2.1"><span class="header-section-number">5.2.1</span> Read in data</h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>toothfraxSheep <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>toothfraxSheep <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                  .[<span class="fu">grepl</span>(<span class="st">&quot;Toothfrax&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;Sheeps&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">read.xlsx</span>(<span class="at">check.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
@@ -674,7 +672,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <h2 number="6.1"><span class="header-section-number">6.1</span> ConfoMap</h2>
 <div id="read-in-data-4" class="section level3" number="6.1.1">
 <h3 number="6.1.1"><span class="header-section-number">6.1.1</span> Read in data</h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>confoLith <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>confoLith <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>             .[<span class="fu">grepl</span>(<span class="st">&quot;ConfoMap&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;Lithics&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">read.csv</span>(<span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">na.strings =</span> <span class="st">&quot;*****&quot;</span>)</span></code></pre></div>
 </div>
@@ -712,7 +710,7 @@ Formatted data will be saved in “~/R_analysis/derived_data”.</p>
 <h2 number="6.2"><span class="header-section-number">6.2</span> Toothfrax</h2>
 <div id="read-in-data-5" class="section level3" number="6.2.1">
 <h3 number="6.2.1"><span class="header-section-number">6.2.1</span> Read in data</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>toothfraxLith <span class="ot">&lt;-</span> <span class="fu">names</span>(info_in) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>toothfraxLith <span class="ot">&lt;-</span> info_in <span class="sc">%&gt;%</span> </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                 .[<span class="fu">grepl</span>(<span class="st">&quot;Toothfrax&quot;</span>, .) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&quot;Lithics&quot;</span>, .)] <span class="sc">%&gt;%</span> </span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">read.xlsx</span>(<span class="at">check.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>

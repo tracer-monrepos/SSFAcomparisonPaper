@@ -61,15 +61,10 @@ library(tidyverse)
 ---
 
 
-# Get names, path and information of all files 
+# Get names and path all files 
 ```{r}
-info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE) %>% 
-           md5sum()
-```
-
-The checksum (MD5 hashes) of the imported files are:  
-```{r, echo = FALSE}
-data.frame(files = basename(names(info_in)), checksum = info_in, row.names = NULL)
+info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
+info_in
 ```
 
 
@@ -81,7 +76,7 @@ data.frame(files = basename(names(info_in)), checksum = info_in, row.names = NUL
 ### Read in data
 ```{r}
 # Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
-confoGP <- names(info_in) %>% 
+confoGP <- info_in %>% 
            .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
            read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -140,7 +135,7 @@ confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Na
 ### Read in data
 ```{r}
 # Extract file name for Toothfrax analysis on Guinea Pigs
-toothfraxGP <- names(info_in) %>% 
+toothfraxGP <- info_in %>% 
                .[grepl("Toothfrax", .) & grepl("GuineaPigs", .)] %>% 
 
                # Read in file
@@ -220,7 +215,7 @@ Note that for compactness, comments to explain the code are given only in the se
 ## ConfoMap
 ### Read in data
 ```{r}
-confoSheep <- names(info_in) %>% 
+confoSheep <- info_in %>% 
               .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
               read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -264,7 +259,7 @@ confoSheep_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoSheep_kee
 ## Toothfrax
 ### Read in data
 ```{r}
-toothfraxSheep <- names(info_in) %>% 
+toothfraxSheep <- info_in %>% 
                   .[grepl("Toothfrax", .) & grepl("Sheeps", .)] %>% 
                   read.xlsx(check.names = TRUE)
 ```
@@ -337,7 +332,7 @@ Note that for compactness, comments to explain the code are given only in the se
 ## ConfoMap
 ### Read in data
 ```{r}
-confoLith <- names(info_in) %>% 
+confoLith <- info_in %>% 
              .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
              read.csv(header = FALSE, na.strings = "*****")
 ```
@@ -380,7 +375,7 @@ confoLith_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoLith_keep[
 ## Toothfrax
 ### Read in data
 ```{r}
-toothfraxLith <- names(info_in) %>% 
+toothfraxLith <- info_in %>% 
                  .[grepl("Toothfrax", .) & grepl("Lithics", .)] %>% 
                  read.xlsx(check.names = TRUE)
 ```

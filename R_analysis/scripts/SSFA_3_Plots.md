@@ -1,13 +1,13 @@
 Plots of SSFA variables
 ================
 Ivan Calandra
-2021-01-26 10:38:18
+2021-02-04 09:47:53
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
 -   [Read in data](#read-in-data)
-    -   [Get names, path and information of input
-        file](#get-names-path-and-information-of-input-file)
+    -   [Get name and path of input
+        file](#get-name-and-path-of-input-file)
     -   [Read in Rbin file](#read-in-rbin-file)
 -   [Define variables](#define-variables)
 -   [Calculate y-scales](#calculate-y-scales)
@@ -55,22 +55,19 @@ library(ggh4x)
 
 # Read in data
 
-## Get names, path and information of input file
+## Get name and path of input file
 
 ``` r
-info_in <- list.files(dir_in, pattern = "\\.Rbin$", full.names = TRUE) %>% 
-           md5sum()
+info_in <- list.files(dir_in, pattern = "\\.Rbin$", full.names = TRUE)
+info_in
 ```
 
-The checksum (MD5 hashes) of the loaded file is:
-
-                   files                         checksum
-    1 SSFA_all_data.Rbin d2fc242595873d663b12beb7633acb0a
+    [1] "R_analysis/derived_data/SSFA_all_data.Rbin"
 
 ## Read in Rbin file
 
 ``` r
-all_data <- loadObject(names(info_in))
+all_data <- loadObject(info_in)
 str(all_data)
 ```
 
@@ -240,7 +237,7 @@ print(p_GP)
 
     Warning: Removed 70 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_GuineaPigs_plot.pdf", path = dir_out, 
@@ -281,7 +278,7 @@ print(p_sheep)
 
     Warning: Removed 40 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_Sheeps_plot.pdf", path = dir_out, 
@@ -327,7 +324,7 @@ print(p_lith)
 
     Warning: Removed 30 rows containing missing values (geom_point).
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
 ggsave(filename = "/SSFA_Lithics_plot.pdf", path = dir_out, 
@@ -361,7 +358,7 @@ p_GP_Smfc <- ggplot(GP_plot_Smfc,
 print(p_GP_Smfc)
 ```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
 ggsave(plot = p_GP_Smfc, filename = "/SSFA_GuineaPigs_plot_Smfc.pdf", path = dir_out, 
@@ -380,7 +377,7 @@ p_sheep_Smfc <- ggplot(sheep_plot_Smfc_filt,
 print(p_sheep_Smfc)
 ```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ``` r
 ggsave(plot = p_sheep_Smfc, filename = "/SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
@@ -400,7 +397,7 @@ p_lith_Smfc <- ggplot(lith_plot_Smfc_filt,
 print(p_lith_Smfc) 
 ```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-13-3.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
 ``` r
 ggsave(plot = p_lith_Smfc, filename = "/SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
@@ -457,9 +454,11 @@ sessionInfo()
     Matrix products: default
 
     locale:
-    [1] LC_COLLATE=French_France.1252  LC_CTYPE=French_France.1252   
-    [3] LC_MONETARY=French_France.1252 LC_NUMERIC=C                  
-    [5] LC_TIME=French_France.1252    
+    [1] LC_COLLATE=English_United Kingdom.1252 
+    [2] LC_CTYPE=English_United Kingdom.1252   
+    [3] LC_MONETARY=English_United Kingdom.1252
+    [4] LC_NUMERIC=C                           
+    [5] LC_TIME=English_United Kingdom.1252    
 
     attached base packages:
     [1] tools     stats     graphics  grDevices datasets  utils     methods  
