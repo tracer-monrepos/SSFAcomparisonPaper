@@ -64,7 +64,6 @@ library(tidyverse)
 # Get names and path all files 
 ```{r}
 info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
-info_in
 ```
 
 
@@ -77,13 +76,13 @@ info_in
 ```{r}
 # Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
 confoGP <- info_in %>% 
-           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
+           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .) & grepl("v8.2.9678", .)] %>% 
            read.csv(header = FALSE, na.strings = "*****")
 ```
 
 ### Exclude repeated rows and select columns
 ```{r}
-confoGP_keep_col  <- c(12, 46:52) # Define columns to keep
+confoGP_keep_col  <- c(12, 34, 50:56) # Define columns to keep
 confoGP_keep_rows <- which(confoGP[[1]] != "#") # Define rows to keep
 confoGP_keep      <- confoGP[confoGP_keep_rows, confoGP_keep_col] # Subset rows and columns
 ```
@@ -103,13 +102,10 @@ colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>%
                           gsub("\\.$", "", x = .) %>%
   
                           # Keep only part after the last period
-                          gsub("^([A-Za-z0-9]+\\.)+", "", x = .) 
-```
+                          gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
 
-### Edit column "Name"
-```{r}
-# Delete everything from the beginning to " --- "
-confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
+# Edit name for NMP
+colnames(confoGP_keep)[2] <- "NMP"
 ```
 
 ### Extract units
@@ -122,12 +118,6 @@ names(confoGP_units) <- colnames(confoGP_keep)[-1]        # Get names associated
 ```{r}
 confoGP_keep <- type_convert(confoGP_keep) %>% 
                 mutate(Software = "ConfoMap")
-```
-
-### Edit column "Name"
-```{r}
-# Delete everything from the beginning to " --- "
-confoGP_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoGP_keep[["Name"]])
 ```
 
 
@@ -191,7 +181,7 @@ GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry bamboo"
 ```{r}
 GP_final <- GP_keep %>% 
             mutate(Dataset = "GuineaPigs") %>% 
-            select(Dataset, Name, Diet, Software, everything())
+            select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
 ### Combine both sets of units
@@ -216,13 +206,13 @@ Note that for compactness, comments to explain the code are given only in the se
 ### Read in data
 ```{r}
 confoSheep <- info_in %>% 
-              .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
+              .[grepl("ConfoMap", .) & grepl("Sheeps", .) & grepl("v8.2.9678", .)] %>% 
               read.csv(header = FALSE, na.strings = "*****")
 ```
 
 ### Exclude repeated rows and select columns
 ```{r}
-confoSheep_keep_col  <- c(12, 43:49)
+confoSheep_keep_col  <- c(12, 30, 46:52)
 confoSheep_keep_rows <- which(confoSheep[[1]] != "#")  
 confoSheep_keep      <- confoSheep[confoSheep_keep_rows, confoSheep_keep_col]
 ```
@@ -234,6 +224,7 @@ colnames(confoSheep_keep) <- confoSheep[2, confoSheep_keep_col] %>%
                              gsub("\\.+", "\\.", x = .) %>% 
                              gsub("\\.$", "", x = .) %>%
                              gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
+colnames(confoSheep_keep)[2] <- "NMP"
 ```
 
 ### Extract units
@@ -247,12 +238,6 @@ names(confoSheep_units) <- colnames(confoSheep_keep)[-1]
 ```{r}
 confoSheep_keep <- type_convert(confoSheep_keep) %>% 
                    mutate(Software = "ConfoMap")
-```
-
-### Edit column "Name"
-```{r}
-# Delete everything from the beginning to " --- "
-confoSheep_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoSheep_keep[["Name"]])
 ```
 
 
@@ -308,7 +293,7 @@ sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+dust"
 ```{r}
 sheep_final <- sheep_keep %>% 
                mutate(Dataset = "Sheeps") %>% 
-               select(Dataset, Name, Diet, Software, everything())
+               select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
 ### Add units
@@ -333,13 +318,13 @@ Note that for compactness, comments to explain the code are given only in the se
 ### Read in data
 ```{r}
 confoLith <- info_in %>% 
-             .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
+             .[grepl("ConfoMap", .) & grepl("Lithics", .) & grepl("v8.2.9678", .)] %>% 
              read.csv(header = FALSE, na.strings = "*****")
 ```
 
 ### Exclude repeated rows and select columns
 ```{r}
-confoLith_keep_col  <- c(12, 47:53) 
+confoLith_keep_col  <- c(4, 39:46) 
 confoLith_keep_rows <- which(confoLith[[1]] != "#")
 confoLith_keep      <- confoLith[confoLith_keep_rows, confoLith_keep_col] 
 ```
@@ -351,6 +336,7 @@ colnames(confoLith_keep) <- confoLith[2, confoLith_keep_col] %>%
                             gsub("\\.+", "\\.", x = .) %>% 
                             gsub("\\.$", "", x = .) %>%
                             gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
+colnames(confoLith_keep)[2] <- "NMP"
 ```
 
 ### Extract units
@@ -363,12 +349,6 @@ names(confoLith_units) <- colnames(confoLith_keep)[-1]
 ```{r}
 confoLith_keep <- type_convert(confoLith_keep) %>% 
                   mutate(Software = "ConfoMap")
-```
-
-### Edit column "Name"
-```{r}
-# Delete everything from the beginning to " --- "
-confoLith_keep[["Name"]] <- gsub("(^([_A-Za-z0-9-]+) --- )", "", confoLith_keep[["Name"]])
 ```
 
 
@@ -412,12 +392,6 @@ names(toothfraxLith_units) <- "Toothfrax_units"
 lith_keep <- merge(confoLith_keep, toothfraxLith_keep, all = TRUE)
 ```
 
-### Exclude FLT3-8_Area1 ("before" wrongly acquired )
-```{r}
-FLT3_8_Area1 <- grep("^FLT3-8_.+_Area1", lith_keep[["Name"]])
-lith_keep    <- lith_keep[-FLT3_8_Area1, ]
-```
-
 ### Add columns about before/after and treatment
 ```{r}
 lith_keep[grep("LSM_",  lith_keep[["Name"]]), "Before.after"] <- "Before"
@@ -436,7 +410,7 @@ lith_keep[["Treatment"]] <- factor(lith_keep[["Treatment"]],
 ```{r}
 lith_final <- lith_keep %>% 
               mutate(Dataset = "Lithics") %>% 
-              select(Dataset, Name, Treatment, Before.after, Software, everything())
+              select(Dataset, Name, Treatment, Before.after, Software, NMP, everything())
 ```
 
 ### Add units
@@ -464,7 +438,7 @@ all_data <- merge(GP_final, sheep_final, all = TRUE) %>%
             merge(lith_final, all = TRUE) %>% 
   
             # Re-order columns
-            select(Dataset, Name, Software, Diet, Treatment, Before.after, everything()) %>% 
+            select(Dataset, Name, Software, Diet, Treatment, Before.after, NMP, everything()) %>% 
   
             # Re-order rows
             arrange(Dataset, Name, Software, Diet, Treatment, Before.after)
