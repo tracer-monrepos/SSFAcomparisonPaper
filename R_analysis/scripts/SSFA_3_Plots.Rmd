@@ -136,19 +136,86 @@ ratio_diet <- diet_GP / diet_sheep
 ---
 
 
+# Create column for categories of NMP
+```{r}
+all_data[all_data$NMP < 5, "NMP_cat"] <- "0-5%"
+```
+
+---
+
+
 # Plot each set of the selected numeric variables
 ## Guinea Pigs
 ```{r}
-# Filter dataset
-GP <- filter(all_data, Dataset == "GuineaPigs")
+# Filter data for guinea pigs and by NMP (<5%, 5-10% and >= 10%)
+GP_all <- filter(all_data, Dataset == "GuineaPigs")
+
+nmp10 <- filter(GP_all, NMP >= 10)
+nmp5_10 <- filter(GP_all, NMP < 10 & NMP >= 5)
+nmp0_5 <- filter(GP_all, NMP < 5)
+
+GP_nmp10   <- filter(GP_all, Name %in% nmp10[["Name"]])
+GP_nmp5_10 <- filter(GP_all, Name %in% nmp5_10[["Name"]])
+GP_nmp0_5  <- filter(GP_all, Name %in% nmp0_5[["Name"]])
+
 
 # Change from wide to long format
-GP_plot <- pivot_longer(GP[c(x_var_GP, grp_colors, y_var)], all_of(y_var))
+GP_plot_all  <- pivot_longer(GP_all[c(x_var_GP,     grp_colors, y_var)], all_of(y_var))
+GP_plot_10   <- pivot_longer(GP_nmp10[c(x_var_GP,   grp_colors, y_var)], all_of(y_var))
+GP_plot_5_10 <- pivot_longer(GP_nmp5_10[c(x_var_GP, grp_colors, y_var)], all_of(y_var))
+GP_plot_0_5  <- pivot_longer(GP_nmp0_5[c(x_var_GP,  grp_colors, y_var)], all_of(y_var))
 
 # Re-order factor levels to fit order of plots on facet
-GP_plot$name <- factor(GP_plot$name, levels = y_var)
+GP_plot_all$name  <- factor(GP_plot_all$name,  levels = y_var)
+GP_plot_10$name   <- factor(GP_plot_10$name,   levels = y_var)
+GP_plot_5_10$name <- factor(GP_plot_5_10$name, levels = y_var)
+GP_plot_0_5$name  <- factor(GP_plot_0_5$name,  levels = y_var)
 
 # Plot all variables at once using facet_wrap()
+p_GP <- ggplot(mapping = aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
+        
+        # Hide outliers (all points are shown with geom_point() below)
+        # The factor 'ratio_diet' ensures that the boxes have the same width 
+        # as for the sheep dataset
+        geom_boxplot(data = GP_plot_all, outlier.shape = NA, 
+                     position = position_dodge(preserve = "single", width = 0.9*ratio_diet),
+                     width = 0.8*ratio_diet) + 
+  
+        # Define jitter for points within boxplots
+        # The factor 'ratio_diet' ensures that the boxes have the same width 
+        # as for the sheep dataset
+        geom_point(data = GP_plot_0_5, shape = 19, 
+                   position = position_jitterdodge(jitter.width = 0.3*ratio_diet,
+                                                   dodge.width = 0.9*ratio_diet,
+                                                   seed = 123)) +
+  
+        geom_point(data = GP_plot_5_10, shape = 3, 
+                   position = position_jitterdodge(jitter.width = 0.3*ratio_diet,
+                                                   dodge.width = 0.9*ratio_diet,
+                                                   seed = 123)) +
+  
+        geom_point(data = GP_plot_10, shape = 4, 
+                   position = position_jitterdodge(jitter.width = 0.3*ratio_diet,
+                                                   dodge.width = 0.9*ratio_diet,
+                                                   seed = 123)) +
+  
+        # Wrap around parameters
+        facet_wrap(~name, scales = "free_y", ncol = 2) +
+  
+        # Use custom y-scales
+        facetted_pos_scales(y = yscales) +
+  
+        # Remove axis labels
+        labs(x = NULL, y = NULL) + 
+
+        # Choose a light theme
+        theme_classic() +
+
+        # Move legend to bottom and remove legend title
+        theme(legend.position="bottom", legend.title = element_blank()) +
+
+        scale_shape_manual(values = c(3, 4, 19), name = NULL)
+
 p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
         
         # Hide outliers (all points are shown with geom_point() below)

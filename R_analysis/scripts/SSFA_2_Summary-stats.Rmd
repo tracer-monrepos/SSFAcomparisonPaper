@@ -123,13 +123,11 @@ cat(colnames(select(all_data, where(is.numeric))), sep="\n")
 ```
 
 
-## Filter out surfaces with too many non-measured points (NMP)
+## Subset out surfaces with too many non-measured points (NMP)
 ```{r}
-nmp10 <- filter(all_data, NMP < 10)
-data_nmp10 <- filter(all_data, Name %in% nmp10[["Name"]])
-
-nmp5 <- filter(all_data, NMP < 5)
-data_nmp5 <- filter(all_data, Name %in% nmp5[["Name"]])
+data_nmp10   <- filter(all_data, NMP >= 10)
+data_nmp5_10 <- filter(all_data, NMP < 10 & NMP >= 5)
+data_nmp0_5  <- filter(all_data, NMP < 5)
 ```
 
 

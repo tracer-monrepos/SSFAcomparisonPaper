@@ -479,6 +479,39 @@ if (all(sapply(list(GP_units, sheep_units), FUN = identical, lith_units)) == TRU
 Type `comment(all_data)` to check the units of the parameters.
 
 
+## Fill in NMP values for Toothfrax samples
+The NMP values were computed in the ConfoMap templates used to (1) pre-process acquired surfaces, (2) export the pre-processed surfaces for the SSFA analysis in Toothfrax and (3) run the SSFA analysis in ConfoMap on the pre-processed surfaces.  
+NMP values are therefore not available in the Toothfrax datasets. However, the same pre-processed surfaces were used in both ConfoMap and Toothfrax, so the NMP values calculated in ConfoMap also apply to the Toothfrax dataset.  
+Thus, here we copy the values from ConfoMap rows to Toothfrax rows.
+```{r}
+all_data <- fill(all_data, NMP)
+```
+
+
+## Add column for NMP categories
+Here we define four ranges of non-measured points (NMP):
+
+- $<$ 5% NMP: "<5%"  
+- $\ge$ 5% and $<$ 10% NMP: "5-10%"  
+- $\ge$ 10% and $<$ 20% NMP: "10-20%"  
+- $\ge$ 20% NMP: ">20%" (these surfaces were not acquired correctly and should not be used) 
+ 
+
+```{r}
+# Create new column and fill it
+all_data[all_data$NMP < 5                      , "NMP_cat"] <- "<5%"
+all_data[all_data$NMP >= 5  & all_data$NMP < 10, "NMP_cat"] <- "5-10%"
+all_data[all_data$NMP >= 10 & all_data$NMP < 20, "NMP_cat"] <- "10-20%"
+all_data[all_data$NMP >= 20                    , "NMP_cat"] <- ">20%"
+
+# Convert to ordered factor
+all_data[["NMP_cat"]] <- factor(all_data[["NMP_cat"]], 
+                                levels = c("<5%", "5-10%", "10-20%", ">20%"), ordered = TRUE)
+
+# Re-order columns
+all_data <- select(all_data, Dataset:NMP, NMP_cat, everything())
+```
+
 ## Check the result
 ```{r}
 str(all_data)
