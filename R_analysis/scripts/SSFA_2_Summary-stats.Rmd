@@ -113,28 +113,46 @@ grp <- c("Dataset", "Software", "Diet", "Treatment", "Before.after")
 ```
 
 The following grouping variables will be used: 
-
 ```{r, echo = FALSE}
 cat(colnames(select(all_data, all_of(grp))), sep="\n")
 ```
 
 All numerical variables will be used: 
-
 ```{r, echo = FALSE}
 cat(colnames(select(all_data, where(is.numeric))), sep="\n")
 ```
 
 
+## Filter out surfaces with too many non-measured points (NMP)
+```{r}
+nmp10 <- filter(all_data, NMP < 10)
+data_nmp10 <- filter(all_data, Name %in% nmp10[["Name"]])
+
+nmp5 <- filter(all_data, NMP < 5)
+data_nmp5 <- filter(all_data, Name %in% nmp5[["Name"]])
+```
+
+
 ## Compute summary statistics
 ```{r}
-all_stats <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
+# All data
+stats_all <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
              summaryBy(data = all_data, FUN = nminmaxmeanmedsd)
+
+# NMP < 10%
+stats_nmp10 <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
+               summaryBy(data = data_nmp10, FUN = nminmaxmeanmedsd)
+
+# NMP < 5%
+stats_nmp5 <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
+              summaryBy(data = data_nmp5, FUN = nminmaxmeanmedsd)
 ```
 
 The warnings are due to the missing values for NewEplsar - Toothfrax. NewEplsar can only be computed in ConfoMap.
-
 ```{r}
-str(all_stats)
+str(stats_all)
+str(stats_nmp10)
+str(stats_nmp5)
 ```
 
 
@@ -143,7 +161,7 @@ str(all_stats)
 
 # Write results to XLSX
 ```{r}
-write.xlsx(list(summary_stats = all_stats), 
+write.xlsx(list(all_data = stats_all, NMP10 = stats_nmp10, NMP5 = stats_nmp5), 
            file = paste0(dir_out, "/SSFA_summary_stats.xlsx"))
 ```
 
