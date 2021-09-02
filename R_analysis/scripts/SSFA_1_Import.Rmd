@@ -36,8 +36,8 @@ The script will:
 3. Write XLSX-files and save R objects ready for further analysis in R  
 
 ```{r}
-dir_in  <- "R_analysis/raw_data"
 dir_out <- "R_analysis/derived_data"
+dir_in  <- "R_analysis/raw_data"
 ```
 
 Raw data must be located in "`r paste0("~/", dir_in)`".  
@@ -51,10 +51,8 @@ The knit directory for this script is the project directory.
 
 # Load packages
 ```{r}
-library(openxlsx)
-library(R.utils)
-library(tools)
-library(tidyverse)
+pack_to_load <- c("openxlsx", "R.utils", "tidyverse")
+sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE) 
 ```
 
 
@@ -491,22 +489,22 @@ all_data <- fill(all_data, NMP)
 ## Add column for NMP categories
 Here we define four ranges of non-measured points (NMP):
 
-- $<$ 5% NMP: "<5%"  
+- $<$ 5% NMP: "0-5%"  
 - $\ge$ 5% and $<$ 10% NMP: "5-10%"  
 - $\ge$ 10% and $<$ 20% NMP: "10-20%"  
-- $\ge$ 20% NMP: ">20%" (these surfaces were not acquired correctly and should not be used) 
+- $\ge$ 20% NMP: "20-100%" (these surfaces were not acquired correctly and should not be used) 
  
 
 ```{r}
 # Create new column and fill it
-all_data[all_data$NMP < 5                      , "NMP_cat"] <- "<5%"
+all_data[all_data$NMP < 5                      , "NMP_cat"] <- "0-5%"
 all_data[all_data$NMP >= 5  & all_data$NMP < 10, "NMP_cat"] <- "5-10%"
 all_data[all_data$NMP >= 10 & all_data$NMP < 20, "NMP_cat"] <- "10-20%"
-all_data[all_data$NMP >= 20                    , "NMP_cat"] <- ">20%"
+all_data[all_data$NMP >= 20                    , "NMP_cat"] <- "20-100%"
 
 # Convert to ordered factor
 all_data[["NMP_cat"]] <- factor(all_data[["NMP_cat"]], 
-                                levels = c("<5%", "5-10%", "10-20%", ">20%"), ordered = TRUE)
+                                levels = c("0-5%", "5-10%", "10-20%", "20-100%"), ordered = TRUE)
 
 # Re-order columns
 all_data <- select(all_data, Dataset:NMP, NMP_cat, everything())
@@ -553,6 +551,18 @@ sessionInfo()
 ```
 
 RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n = 1)`.
+
+
+---
+
+
+# Cite R packages used
+```{r, echo = FALSE}
+for (i in pack_to_load) {
+  cat(i, "\n")
+  cat(citation(i)$textVersion, "\n", "\n")
+} 
+```
 
 
 ---

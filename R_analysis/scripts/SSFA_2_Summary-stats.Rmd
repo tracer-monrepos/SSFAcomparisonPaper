@@ -59,11 +59,8 @@ The knit directory for this script is the project directory.
 
 # Load packages
 ```{r}
-library(openxlsx)
-library(R.utils)
-library(tools)
-library(doBy)
-library(tidyverse)
+pack_to_load <- c("openxlsx", "R.utils", "doBy", "tidyverse")
+sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE) 
 ```
 
 
@@ -109,7 +106,7 @@ nminmaxmeanmedsd <- function(x){
 ## Define grouping and numerical variables to use
 ```{r}
 # Define grouping variables
-grp <- c("Dataset", "Software", "Diet", "Treatment", "Before.after")
+grp <- c("Dataset", "Software", "Diet", "Treatment", "Before.after", "NMP_cat")
 ```
 
 The following grouping variables will be used: 
@@ -123,34 +120,22 @@ cat(colnames(select(all_data, where(is.numeric))), sep="\n")
 ```
 
 
-## Subset out surfaces with too many non-measured points (NMP)
+## Exclude surfaces with NMP > 20%
 ```{r}
-data_nmp10   <- filter(all_data, NMP >= 10)
-data_nmp5_10 <- filter(all_data, NMP < 10 & NMP >= 5)
-data_nmp0_5  <- filter(all_data, NMP < 5)
+data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
 ```
 
 
 ## Compute summary statistics
 ```{r}
 # All data
-stats_all <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
-             summaryBy(data = all_data, FUN = nminmaxmeanmedsd)
-
-# NMP < 10%
-stats_nmp10 <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
-               summaryBy(data = data_nmp10, FUN = nminmaxmeanmedsd)
-
-# NMP < 5%
-stats_nmp5 <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
-              summaryBy(data = data_nmp5, FUN = nminmaxmeanmedsd)
+all_stats <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
+             summaryBy(data = data_nmp0_20, FUN = nminmaxmeanmedsd)
 ```
 
 The warnings are due to the missing values for NewEplsar - Toothfrax. NewEplsar can only be computed in ConfoMap.
 ```{r}
-str(stats_all)
-str(stats_nmp10)
-str(stats_nmp5)
+str(all_stats)
 ```
 
 
@@ -159,8 +144,8 @@ str(stats_nmp5)
 
 # Write results to XLSX
 ```{r}
-write.xlsx(list(all_data = stats_all, NMP10 = stats_nmp10, NMP5 = stats_nmp5), 
-           file = paste0(dir_out, "/SSFA_summary_stats.xlsx"))
+write.xlsx(list(summary_stats = all_stats), 
+           file = paste0(dir_out, "/SSFA_summary-stats.xlsx"))
 ```
 
 
@@ -178,5 +163,16 @@ RStudio version `r readLines("R_analysis/scripts/SSFA_0_RStudioVersion.txt", n =
 
 ---
 
+
+# Cite R packages used
+```{r, echo = FALSE}
+for (i in pack_to_load) {
+  cat(i, "\n")
+  cat(citation(i)$textVersion, "\n", "\n")
+} 
+```
+
+
+---
 
 END OF SCRIPT
