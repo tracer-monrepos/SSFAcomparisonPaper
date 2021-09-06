@@ -146,6 +146,65 @@ data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
 
 
 # Plot each set of the selected numeric variables
+## Define plotting function
+```{r}
+boxes_points <- function(dat, x_var, y_var, 
+                         group_col, group_shape, 
+                         box_width = 0.9, box_size = 0.25, med_size = 3, point_size = 0.8, shape_scale,
+                         point_jitter = 0.6, point_dodge = 0.9, jitter_seed = 123, 
+                         wrap_grid, facet_var, facet_ncol = 2, facet_yscales,
+                         grid_row, grid_col,
+                         xlab = NULL, ylab = NULL) {
+  
+  # package 'ggh4x' is required for the function facetted_pos_scales()
+  require(ggh4x)
+  
+  # Supply x, y and color variables as strings for the plotting
+  p_out <- ggplot(dat, aes_string(x = x_var, y = y_var, color = group_col)) +
+    
+    # Boxplots:
+    # hide outliers (all points are shown with geom_point() below) 
+    # and adjust proportions of elements
+    geom_boxplot(outlier.shape = NA, width = box_width, size = box_size, fatten = med_size) + 
+    
+    # Points:
+    # Add a layer of shapes for points using the variable 'group_shape' ('group' necessary for dodging)
+    # Define jitter for points (jitter) within boxplots (dodge)
+    # Set seed for repeatability
+    geom_point(mapping = aes_string(shape = group_shape, group = group_col), 
+               size = point_size,
+               position = position_jitterdodge(jitter.width = point_jitter,
+                                               dodge.width = point_dodge,
+                                               seed = jitter_seed)) +
+  
+    # Remove axis labels
+    labs(x = xlab, y = ylab) + 
+  
+    # Adjust values for shapes
+    scale_shape_manual(values = shape_scale) +
+  
+    # Choose a light theme
+    theme_classic() +
+  
+    # Move legend to bottom and remove legend title
+    theme(legend.position = "bottom", legend.title = element_blank())
+  
+  if (wrap_grid == "wrap") {
+    # Wrap around parameters with free y-scales
+    p_out <- p_out + facet_wrap(as.formula(paste0("~", facet_var)), 
+                                scales = "free_y", ncol = facet_ncol) + 
+             # Use custom y-scales if argument provided
+             if (!missing(facet_yscales)) facetted_pos_scales(y = facet_yscales)
+  } 
+  if (wrap_grid == "grid") {
+    # Plot a grid of subplots, with variables in rows and treatments in columns
+    p_out <- p_out + facet_grid(as.formula(paste0(grid_row, "~", grid_col)), scales = "free_y")
+  }
+  return(p_out)
+}
+```
+
+
 ## Guinea Pigs
 ```{r}
 # Filter data for guinea pigs and by NMP (<5%, 5-10% and >= 10%)
@@ -158,71 +217,35 @@ GP_plot  <- pivot_longer(GP[c(x_var_GP, grp_colors, grp_shapes, y_var)], all_of(
 GP_plot$name  <- factor(GP_plot$name, levels = y_var)
 
 # Plot all variables at once using facet_wrap()
-p_GP <- ggplot(GP_plot, aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
-        
-        # Hide outliers (all points are shown with geom_point() below)
-        # The factor 'ratio_diet' ensures that the boxes have the same width 
-        # as for the sheep dataset
-        geom_boxplot(outlier.shape = NA, width = 0.9*ratio_diet, size = 0.25, fatten = 3) + 
-  
-        # Define jitter for points within boxplots
-        # The factor 'ratio_diet' ensures that the boxes have the same width 
-        # as for the sheep dataset
-        geom_point(mapping = aes_string(shape = grp_shapes, group = grp_colors), 
-                   size = 0.8,
-                   position = position_jitterdodge(jitter.width = 0.6,
-                                                   dodge.width = 0.9*ratio_diet,
-                                                   seed = 123)) +
-  
-        # Wrap around parameters
-        facet_wrap(~name, scales = "free_y", ncol = 2) +
-  
-        # Use custom y-scales
-        facetted_pos_scales(y = yscales) +
-  
-        # Remove axis labels
-        labs(x = NULL, y = NULL) + 
-  
-        # Adjust values for shapes
-        scale_shape_manual(values = c(19, 3, 4)) +
-
-        # Choose a light theme
-        theme_classic() +
-
-        # Move legend to bottom and remove legend title
-        theme(legend.position = "bottom", legend.title = element_blank())
+# The factor 'ratio_diet' ensures that the boxes have the same width as for the sheep dataset
+p_GP <- boxes_points(dat = GP_plot, x_var = x_var_GP, y_var = "value", 
+                     group_col = grp_colors, group_shape = grp_shapes,
+                     box_width = 0.9*ratio_diet, 
+                     point_jitter = 0.6, point_dodge = 0.9*ratio_diet,
+                     wrap_grid = "wrap", facet_var = "name", facet_yscales = yscales, 
+                     shape_scale = c(19, 3, 4))
 
 # Print and save resulting plot
 print(p_GP)
-ggsave(filename = "SSFA_GuineaPigs_plot.pdf", path = dir_out, 
-       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 Warnings are due to the missing values for Toothfrax - NewEplsar.
 
 
 ## Sheeps
-Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs).  
-The only difference is that all surfaces have 0% NMP, so the code can be simplified (no 'shape' aesthetics).
+Note that for compactness, comments to explain the code are given only in the section about [Guinea Pigs](#guinea-pigs).  .
 
 ```{r}
 sheep <- filter(data_nmp0_20, Dataset == "Sheeps")
-sheep_plot <- pivot_longer(sheep[c(x_var_sheep, grp_colors, y_var)], all_of(y_var))
+sheep_plot <- pivot_longer(sheep[c(x_var_sheep, grp_colors, grp_shapes, y_var)], all_of(y_var))
 sheep_plot$name <- factor(sheep_plot$name, levels = y_var)
-p_sheep <- ggplot(sheep_plot, aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
-           geom_boxplot(outlier.shape = NA, width = 0.9, size = 0.25, fatten = 3) + 
-           geom_point(size = 0.8,
-                      position = position_jitterdodge(jitter.width = 0.3, 
-                                                      dodge.width = 0.9,
-                                                      seed = 123)) +
-           facet_wrap(~name, scales = "free_y", ncol = 2) +
-           facetted_pos_scales(y = yscales) +
-           labs(x = NULL, y = NULL) + 
-           theme_classic() +
-           theme(legend.position = "bottom", legend.title = element_blank())
+p_sheep <- boxes_points(dat = sheep_plot, x_var = x_var_sheep, y_var = "value", 
+                        group_col = grp_colors, group_shape = grp_shapes,
+                        box_width = 0.9, 
+                        point_jitter = 0.9, point_dodge = 0.9,
+                        wrap_grid = "wrap", facet_var = "name", facet_yscales = yscales, 
+                        shape_scale = c(19, 3, 4))
 print(p_sheep)
-ggsave(filename = "SSFA_Sheeps_plot.pdf", path = dir_out, 
-       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 
@@ -239,21 +262,13 @@ lith <- filter(data_nmp0_20, Dataset == "Lithics")
 lith_plot <- pivot_longer(lith[c(x_var_lith, grp_colors, grp_shapes, facet_lith, y_var)],
                           all_of(y_var))
 lith_plot$name <- factor(lith_plot$name, levels = y_var)
-p_lith <- ggplot(lith_plot, aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
-          geom_boxplot(outlier.shape = NA, width = 0.9, size = 0.25, fatten = 3) + 
-          geom_point(mapping = aes_string(shape = grp_shapes, group = grp_colors), 
-                     size = 0.8,
-                     position = position_jitterdodge(jitter.width = 0.9, 
-                                                     dodge.width = 0.9,
-                                                     seed = 123)) +
-          facet_grid(as.formula(paste0("name~", facet_lith)), scales = "free_y") +
-          labs(x = NULL, y = NULL) + 
-          scale_shape_manual(values = c(19, 3, 4)) +
-          theme_classic() +
-          theme(legend.position = "bottom", legend.title = element_blank())
+p_lith <- boxes_points(dat = lith_plot, x_var = x_var_lith, y_var = "value", 
+                       group_col = grp_colors, group_shape = grp_shapes,
+                       box_width = 0.9, 
+                       point_jitter = 0.9, point_dodge = 0.9,
+                       wrap_grid = "grid", grid_row = "name", grid_col = facet_lith, 
+                       shape_scale = c(19, 3, 4))
 print(p_lith)
-ggsave(filename = "SSFA_Lithics_plot.pdf", path = dir_out, 
-       device = "pdf", width = 190, height = 240, units = "mm")
 ```
 
 
@@ -268,58 +283,33 @@ ext_val <- 10
 # Guinea pig dataset
 GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
 GP_plot_Smfc_filt <- filter(GP_plot_Smfc, value <= ext_val)
-p_GP_Smfc <- ggplot(GP_plot_Smfc_filt, 
-                    aes_string(x = x_var_GP, y = "value", color = grp_colors)) +
-             geom_boxplot(outlier.shape = NA, width = 0.9*ratio_diet, size = 0.25, fatten = 3) + 
-             geom_point(mapping = aes_string(shape = grp_shapes, group = grp_colors),
-                        size = 1,
-                        position = position_jitterdodge(jitter.width = 0.9,
-                                                        dodge.width = 0.9*ratio_diet, 
-                                                        seed = 123)) +
-             labs(x = NULL, y = y_Smfc) + 
-             scale_shape_manual(values = c(19, 3, 4)) +
-             theme_classic() +
-             theme(legend.position = "bottom", legend.title = element_blank())
+p_GP_Smfc <- boxes_points(dat = GP_plot_Smfc_filt, x_var = x_var_GP, y_var = "value", 
+                          group_col = grp_colors, group_shape = grp_shapes,
+                          box_width = 0.9*ratio_diet, 
+                          point_jitter = 0.9, point_dodge = 0.9*ratio_diet, point_size = 1,
+                          ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
 print(p_GP_Smfc)
-ggsave(plot = p_GP_Smfc, filename = "SSFA_GuineaPigs_plot_Smfc.pdf", path = dir_out, 
-       device = "pdf")
 
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
 sheep_plot_Smfc_filt <- filter(sheep_plot_Smfc, value <= ext_val)
-p_sheep_Smfc <- ggplot(sheep_plot_Smfc_filt, 
-                       aes_string(x = x_var_sheep, y = "value", color = grp_colors)) +
-                geom_boxplot(outlier.shape = NA, width = 0.9, size = 0.25, fatten = 3) + 
-                geom_point(size = 1,
-                           position = position_jitterdodge(jitter.width = 0.3, 
-                                                           dodge.width = 0.9, 
-                                                           seed = 123)) +
-                labs(x = NULL, y = y_Smfc) + 
-                theme_classic() +
-                theme(legend.position = "bottom", legend.title = element_blank())
+p_sheep_Smfc <- boxes_points(dat = sheep_plot_Smfc_filt, x_var = x_var_sheep, y_var = "value", 
+                             group_col = grp_colors, group_shape = grp_shapes,
+                             box_width = 0.9, 
+                             point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
+                             ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
 print(p_sheep_Smfc)
-ggsave(plot = p_sheep_Smfc, filename = "SSFA_Sheeps_plot_Smfc.pdf", path = dir_out, 
-       device = "pdf")
 
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
 lith_plot_Smfc_filt <- filter(lith_plot_Smfc, value <= ext_val)
-p_lith_Smfc <- ggplot(lith_plot_Smfc_filt, 
-                      aes_string(x = x_var_lith, y = "value", color = grp_colors)) +
-               geom_boxplot(outlier.shape = NA, width = 0.9, size = 0.25, fatten = 3) + 
-               geom_point(mapping = aes_string(shape = grp_shapes, group = grp_colors),
-                          size = 1,
-                          position = position_jitterdodge(jitter.width = 0.9, 
-                                                          dodge.width = 0.9,
-                                                          seed = 123)) +
-               facet_wrap(~Treatment, scale = "free_y") +
-               labs(x = NULL, y = y_Smfc) + 
-               scale_shape_manual(values = c(19, 3, 4)) +
-               theme_classic() +
-               theme(legend.position="bottom", legend.title = element_blank())
+p_lith_Smfc <- boxes_points(dat = lith_plot_Smfc_filt, x_var = x_var_lith, y_var = "value", 
+                            group_col = grp_colors, group_shape = grp_shapes,
+                            box_width = 0.9, 
+                            point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
+                            ylab = y_Smfc, shape_scale = c(19, 3, 4),
+                            wrap_grid = "wrap", facet_var = "Treatment")
 print(p_lith_Smfc) 
-ggsave(plot = p_lith_Smfc, filename = "SSFA_Lithics_plot_Smfc.pdf", path = dir_out, 
-       device = "pdf")
 ```
 
 These plots of Smfc do not show all data points.  
@@ -336,6 +326,26 @@ data.frame(sheep_plot_Smfc[sheep_plot_Smfc$value > ext_val, ])
 For the lithic plots, these points are outside of the y-ranges shown and were therefore excluded from the plots:   
 ```{r}
 data.frame(lith_plot_Smfc[lith_plot_Smfc$value > ext_val, ])
+```
+
+
+## Save plots
+```{r}
+# Define filenames
+plot_files <- paste0("SSFA_", c("GuineaPigs", "Sheeps", "Lithics"), 
+                     rep(c("_plot.pdf", "_plot-Smfc.pdf"), each = 3))
+
+# Add names to 'plot_files' from object names
+names(plot_files) <- c("p_GP", "p_sheep", "p_lith", "p_GP_Smfc", "p_sheep_Smfc", "p_lith_Smfc")
+
+# Save plots as PDF
+for (i in seq_along(plot_files)[1:3]) {
+  ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out, 
+         width = 190, height = 240, units = "mm")
+}
+for (i in seq_along(plot_files)[4:6]) {
+  ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out)
+}
 ```
 
 
