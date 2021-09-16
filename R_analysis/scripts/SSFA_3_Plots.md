@@ -1,7 +1,7 @@
 Plots of SSFA variables
 ================
 Ivan Calandra
-2021-09-06 16:22:11
+2021-09-16 18:18:12
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -48,12 +48,12 @@ The knit directory for this script is the project directory.
 # Load packages
 
 ``` r
-pack_to_load <- c("R.utils", "ggplot2", "tidyverse", "ggh4x")
+pack_to_load <- c("R.utils", "ggplot2", "tidyverse", "ggh4x", "patchwork")
 sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE)
 ```
 
-      R.utils   ggplot2 tidyverse     ggh4x 
-         TRUE      TRUE      TRUE      TRUE 
+      R.utils   ggplot2 tidyverse     ggh4x patchwork 
+         TRUE      TRUE      TRUE      TRUE      TRUE 
 
 ------------------------------------------------------------------------
 
@@ -196,7 +196,28 @@ ratio_diet <- diet_GP / diet_sheep
 
 ``` r
 data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
+data_nmp0_20$NMP_cat <- factor(data_nmp0_20$NMP_cat)
+str(data_nmp0_20)
 ```
+
+    'data.frame':   278 obs. of  15 variables:
+     $ Dataset     : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
+     $ Name        : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
+     $ Software    : chr  "ConfoMap" "Toothfrax" "ConfoMap" "Toothfrax" ...
+     $ Diet        : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
+     $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
+     $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
+     $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
+     $ NMP_cat     : Ord.factor w/ 3 levels "0-5%"<"5-10%"<..: 1 1 1 1 1 1 1 1 1 1 ...
+     $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
+     $ R²          : num  0.997 0.999 0.998 1 0.997 ...
+     $ Asfc        : num  16 12.9 14.1 12 15.1 ...
+     $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
+     $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
+     $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
+     $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
+     - attr(*, "comment")= Named chr [1:9] "%" "<no unit>" "<no unit>" "<no unit>" ...
+      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "R²" ...
 
 ------------------------------------------------------------------------
 
@@ -238,7 +259,7 @@ boxes_points <- function(dat, x_var, y_var,
     labs(x = xlab, y = ylab) + 
   
     # Adjust values for shapes
-    scale_shape_manual(values = shape_scale) +
+    scale_shape_manual(values = shape_scale, drop = FALSE) +
   
     # Choose a light theme
     theme_classic() +
@@ -370,12 +391,7 @@ p_GP_Smfc <- boxes_points(dat = GP_plot_Smfc_filt, x_var = x_var_GP, y_var = "va
                           box_width = 0.9*ratio_diet, 
                           point_jitter = 0.9, point_dodge = 0.9*ratio_diet, point_size = 1,
                           ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
-print(p_GP_Smfc)
-```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
-
-``` r
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
 sheep_plot_Smfc_filt <- filter(sheep_plot_Smfc, value <= ext_val)
@@ -384,12 +400,7 @@ p_sheep_Smfc <- boxes_points(dat = sheep_plot_Smfc_filt, x_var = x_var_sheep, y_
                              box_width = 0.9, 
                              point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                              ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
-print(p_sheep_Smfc)
-```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
-
-``` r
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
 lith_plot_Smfc_filt <- filter(lith_plot_Smfc, value <= ext_val)
@@ -399,10 +410,14 @@ p_lith_Smfc <- boxes_points(dat = lith_plot_Smfc_filt, x_var = x_var_lith, y_var
                             point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                             ylab = y_Smfc, shape_scale = c(19, 3, 4),
                             wrap_grid = "wrap", facet_var = "Treatment")
-print(p_lith_Smfc) 
+
+# Combine all three plots
+p_Smfc <- p_GP_Smfc / p_sheep_Smfc / p_lith_Smfc + 
+  plot_layout(heights = c(1,1,2), guides = "collect") & theme(legend.position='bottom')
+print(p_Smfc)
 ```
 
-![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-14-3.png)<!-- -->
+![](SSFA_3_Plots_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 These plots of Smfc do not show all data points.  
 For the guinea pigs plot, these points are outside of the y-range shown
@@ -442,14 +457,14 @@ data.frame(lith_plot_Smfc[lith_plot_Smfc$value > ext_val, ])
 
 ``` r
 # Define filenames
-plot_files <- paste0("SSFA_", c("GuineaPigs", "Sheeps", "Lithics"), 
-                     rep(c("_plot.pdf", "_plot-Smfc.pdf"), each = 3))
+plot_files <- c("SSFA_GuineaPigs_plot.pdf", "SSFA_Sheeps_plot.pdf", "SSFA_Lithics_plot.pdf",
+                "SSFA_plots-Smfc.pdf")
 
 # Add names to 'plot_files' from object names
-names(plot_files) <- c("p_GP", "p_sheep", "p_lith", "p_GP_Smfc", "p_sheep_Smfc", "p_lith_Smfc")
+names(plot_files) <- c("p_GP", "p_sheep", "p_lith", "p_Smfc")
 
 # Save plots as PDF
-for (i in seq_along(plot_files)[1:3]) {
+for (i in seq_along(plot_files)) {
   ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out, 
          width = 190, height = 240, units = "mm")
 }
@@ -466,12 +481,6 @@ for (i in seq_along(plot_files)[1:3]) {
     Warning: Removed 29 rows containing non-finite values (stat_boxplot).
 
     Warning: Removed 29 rows containing missing values (geom_point).
-
-``` r
-for (i in seq_along(plot_files)[4:6]) {
-  ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out)
-}
-```
 
 ------------------------------------------------------------------------
 
@@ -498,10 +507,10 @@ sessionInfo()
     [1] stats     graphics  grDevices datasets  utils     methods   base     
 
     other attached packages:
-     [1] ggh4x_0.2.0.9000  forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7      
-     [5] purrr_0.3.4       readr_2.0.1       tidyr_1.1.3       tibble_3.1.4     
-     [9] tidyverse_1.3.1   ggplot2_3.3.5     R.utils_2.10.1    R.oo_1.24.0      
-    [13] R.methodsS3_1.8.1
+     [1] patchwork_1.1.1   ggh4x_0.2.0.9000  forcats_0.5.1     stringr_1.4.0    
+     [5] dplyr_1.0.7       purrr_0.3.4       readr_2.0.1       tidyr_1.1.3      
+     [9] tibble_3.1.4      tidyverse_1.3.1   ggplot2_3.3.5     R.utils_2.10.1   
+    [13] R.oo_1.24.0       R.methodsS3_1.8.1
 
     loaded via a namespace (and not attached):
      [1] Rcpp_1.0.7       lubridate_1.7.10 assertthat_0.2.1 rprojroot_2.0.2 
@@ -537,6 +546,9 @@ RStudio version 1.4.1717.
      
     ggh4x 
     Teun van den Brand (2021). ggh4x: Hacks for 'ggplot2'. R package version 0.2.0.9000. https://github.com/teunbrand/ggh4x 
+     
+    patchwork 
+    Thomas Lin Pedersen (2020). patchwork: The Composer of Plots. R package version 1.1.1. https://CRAN.R-project.org/package=patchwork 
      
 
 ------------------------------------------------------------------------

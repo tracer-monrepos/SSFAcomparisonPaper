@@ -45,7 +45,7 @@ The knit directory for this script is the project directory.
 
 # Load packages
 ```{r}
-pack_to_load <- c("R.utils", "ggplot2", "tidyverse", "ggh4x")
+pack_to_load <- c("R.utils", "ggplot2", "tidyverse", "ggh4x", "patchwork")
 sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE)
 ```
 
@@ -139,6 +139,8 @@ ratio_diet <- diet_GP / diet_sheep
 # Exclude surfaces with NMP > 20%
 ```{r}
 data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
+data_nmp0_20$NMP_cat <- factor(data_nmp0_20$NMP_cat)
+str(data_nmp0_20)
 ```
 
 
@@ -181,7 +183,7 @@ boxes_points <- function(dat, x_var, y_var,
     labs(x = xlab, y = ylab) + 
   
     # Adjust values for shapes
-    scale_shape_manual(values = shape_scale) +
+    scale_shape_manual(values = shape_scale, drop = FALSE) +
   
     # Choose a light theme
     theme_classic() +
@@ -288,7 +290,6 @@ p_GP_Smfc <- boxes_points(dat = GP_plot_Smfc_filt, x_var = x_var_GP, y_var = "va
                           box_width = 0.9*ratio_diet, 
                           point_jitter = 0.9, point_dodge = 0.9*ratio_diet, point_size = 1,
                           ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
-print(p_GP_Smfc)
 
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
@@ -298,7 +299,6 @@ p_sheep_Smfc <- boxes_points(dat = sheep_plot_Smfc_filt, x_var = x_var_sheep, y_
                              box_width = 0.9, 
                              point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                              ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
-print(p_sheep_Smfc)
 
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
@@ -309,7 +309,11 @@ p_lith_Smfc <- boxes_points(dat = lith_plot_Smfc_filt, x_var = x_var_lith, y_var
                             point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                             ylab = y_Smfc, shape_scale = c(19, 3, 4),
                             wrap_grid = "wrap", facet_var = "Treatment")
-print(p_lith_Smfc) 
+
+# Combine all three plots
+p_Smfc <- p_GP_Smfc / p_sheep_Smfc / p_lith_Smfc + 
+  plot_layout(heights = c(1,1,2), guides = "collect") & theme(legend.position='bottom')
+print(p_Smfc)
 ```
 
 These plots of Smfc do not show all data points.  
@@ -332,19 +336,16 @@ data.frame(lith_plot_Smfc[lith_plot_Smfc$value > ext_val, ])
 ## Save plots
 ```{r}
 # Define filenames
-plot_files <- paste0("SSFA_", c("GuineaPigs", "Sheeps", "Lithics"), 
-                     rep(c("_plot.pdf", "_plot-Smfc.pdf"), each = 3))
+plot_files <- c("SSFA_GuineaPigs_plot.pdf", "SSFA_Sheeps_plot.pdf", "SSFA_Lithics_plot.pdf",
+                "SSFA_plots-Smfc.pdf")
 
 # Add names to 'plot_files' from object names
-names(plot_files) <- c("p_GP", "p_sheep", "p_lith", "p_GP_Smfc", "p_sheep_Smfc", "p_lith_Smfc")
+names(plot_files) <- c("p_GP", "p_sheep", "p_lith", "p_Smfc")
 
 # Save plots as PDF
-for (i in seq_along(plot_files)[1:3]) {
+for (i in seq_along(plot_files)) {
   ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out, 
          width = 190, height = 240, units = "mm")
-}
-for (i in seq_along(plot_files)[4:6]) {
-  ggsave(plot = get(names(plot_files)[i]), filename = plot_files[i], path = dir_out)
 }
 ```
 
