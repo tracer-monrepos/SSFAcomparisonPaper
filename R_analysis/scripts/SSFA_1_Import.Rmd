@@ -61,7 +61,7 @@ sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE)
 
 # Get names and path all files 
 ```{r}
-info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
+info_in <- list.files(dir_in, pattern = "\\_v8.2.9767.csv$", full.names = TRUE)
 ```
 
 
@@ -74,7 +74,7 @@ info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
 ```{r}
 # Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
 confoGP <- info_in %>% 
-           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .) & grepl("v8.2.9678", .)] %>% 
+           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
            read.csv(header = FALSE, na.strings = "*****")
 ```
 
@@ -127,7 +127,7 @@ toothfraxGP <- info_in %>%
                .[grepl("Toothfrax", .) & grepl("GuineaPigs", .)] %>% 
 
                # Read in file
-               read.xlsx(check.names = TRUE)
+               read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
@@ -140,9 +140,10 @@ toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm,
 
 ### Edit column "Name"
 ```{r}
-# Remove ".sur" at the end of the name and delete everything from the beginning to " --- "
-toothfraxGP_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                   toothfraxGP_keep[["Name"]])
+# Remove ".sur" at the end of the name and keep only the part of the name after " --- "
+toothfraxGP_keep[["Name"]] <- gsub("_v8.2.9767\\.sur$", "", toothfraxGP_keep[["Name"]]) %>% 
+                              strsplit(" --- ") %>% 
+                              sapply(`[`, 2)
 ```
 
 ### Get units
@@ -179,6 +180,7 @@ GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry bamboo"
 ```{r}
 GP_final <- GP_keep %>% 
             mutate(Dataset = "GuineaPigs") %>% 
+            mutate_if(is.character, as.factor) %>% 
             select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
@@ -204,7 +206,7 @@ Note that for compactness, comments to explain the code are given only in the se
 ### Read in data
 ```{r}
 confoSheep <- info_in %>% 
-              .[grepl("ConfoMap", .) & grepl("Sheeps", .) & grepl("v8.2.9678", .)] %>% 
+              .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
               read.csv(header = FALSE, na.strings = "*****")
 ```
 
@@ -316,7 +318,7 @@ Note that for compactness, comments to explain the code are given only in the se
 ### Read in data
 ```{r}
 confoLith <- info_in %>% 
-             .[grepl("ConfoMap", .) & grepl("Lithics", .) & grepl("v8.2.9678", .)] %>% 
+             .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
              read.csv(header = FALSE, na.strings = "*****")
 ```
 
