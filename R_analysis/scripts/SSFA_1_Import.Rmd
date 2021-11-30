@@ -103,7 +103,7 @@ colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>%
                           gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
 
 # Edit name for NMP
-colnames(confoGP_keep)[2] <- "NMP"
+colnames(confoGP_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ```
 
 ### Extract units
@@ -133,7 +133,7 @@ toothfraxGP <- info_in %>%
 ### Select columns, edit headers and add column about software
 ```{r}
 toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm, 
-                           R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                           Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                            HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                     mutate(Software = "Toothfrax")
 ```
@@ -224,7 +224,8 @@ colnames(confoSheep_keep) <- confoSheep[2, confoSheep_keep_col] %>%
                              gsub("\\.+", "\\.", x = .) %>% 
                              gsub("\\.$", "", x = .) %>%
                              gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
-colnames(confoSheep_keep)[2] <- "NMP"
+colnames(confoSheep_keep)[c(2, 5)] <- c("NMP", "Rsquared")
+
 ```
 
 ### Extract units
@@ -246,21 +247,22 @@ confoSheep_keep <- type_convert(confoSheep_keep) %>%
 ```{r}
 toothfraxSheep <- info_in %>% 
                   .[grepl("Toothfrax", .) & grepl("Sheeps", .)] %>% 
-                  read.xlsx(check.names = TRUE)
+                  read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
 ```{r}
 toothfraxSheep_keep <- select(toothfraxSheep, Name = Filename, epLsar = epLsar1.80µm, 
-                              R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                              Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                               HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                        mutate(Software = "Toothfrax")
 ```
 
 ### Edit column "Name"
 ```{r}
-toothfraxSheep_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                      toothfraxSheep_keep[["Name"]]) 
+toothfraxSheep_keep[["Name"]] <- gsub("\\.sur$", "", toothfraxSheep_keep[["Name"]]) %>% 
+                                 strsplit(" --- ") %>% 
+                                 sapply(`[`, 2)
 ```
 
 ### Get units
@@ -293,6 +295,7 @@ sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+dust"
 ```{r}
 sheep_final <- sheep_keep %>% 
                mutate(Dataset = "Sheeps") %>% 
+               mutate_if(is.character, as.factor) %>% 
                select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
@@ -336,12 +339,13 @@ colnames(confoLith_keep) <- confoLith[2, confoLith_keep_col] %>%
                             gsub("\\.+", "\\.", x = .) %>% 
                             gsub("\\.$", "", x = .) %>%
                             gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
-colnames(confoLith_keep)[2] <- "NMP"
+colnames(confoLith_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ```
 
 ### Extract units
 ```{r}
-confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) 
+confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) %>%
+                  gsub("ï¿½mï¿½", "µm²", .)
 names(confoLith_units) <- colnames(confoLith_keep)[-1]
 ```
 
@@ -357,21 +361,22 @@ confoLith_keep <- type_convert(confoLith_keep) %>%
 ```{r}
 toothfraxLith <- info_in %>% 
                  .[grepl("Toothfrax", .) & grepl("Lithics", .)] %>% 
-                 read.xlsx(check.names = TRUE)
+                 read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
 ```{r}
 toothfraxLith_keep <- select(toothfraxLith, Name = Filename, epLsar = epLsar1.80µm, 
-                             R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                             Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                              HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                       mutate(Software = "Toothfrax")
 ```
 
 ### Edit column "Name"
 ```{r}
-toothfraxLith_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                     toothfraxLith_keep[["Name"]])
+toothfraxLith_keep[["Name"]] <- gsub("\\.sur$", "", toothfraxLith_keep[["Name"]]) %>% 
+                                strsplit(" --- ") %>% 
+                                sapply(`[`, 2)
 ```
 
 ### Get units
@@ -410,6 +415,7 @@ lith_keep[["Treatment"]] <- factor(lith_keep[["Treatment"]],
 ```{r}
 lith_final <- lith_keep %>% 
               mutate(Dataset = "Lithics") %>% 
+              mutate_if(is.character, as.factor) %>% 
               select(Dataset, Name, Treatment, Before.after, Software, NMP, everything())
 ```
 
