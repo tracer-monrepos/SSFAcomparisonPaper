@@ -62,6 +62,7 @@ sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE)
 # Get names and path all files 
 ```{r}
 info_in <- list.files(dir_in, pattern = "\\_v8.2.9767.csv$", full.names = TRUE)
+info_in
 ```
 
 
@@ -140,7 +141,7 @@ toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm,
 
 ### Edit column "Name"
 ```{r}
-# Remove ".sur" at the end of the name and keep only the part of the name after " --- "
+# Remove the extension (".sur") from the name and keep only the part of the name after " --- "
 toothfraxGP_keep[["Name"]] <- gsub("_v8.2.9767\\.sur$", "", toothfraxGP_keep[["Name"]]) %>% 
                               strsplit(" --- ") %>% 
                               sapply(`[`, 2)
@@ -345,7 +346,7 @@ colnames(confoLith_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ### Extract units
 ```{r}
 confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) %>%
-                  gsub("ï¿½mï¿½", "µm²", .)
+                   gsub("ï¿½mï¿½", "µm²", .)
 names(confoLith_units) <- colnames(confoLith_keep)[-1]
 ```
 

@@ -1,7 +1,7 @@
 Import SSFA datasets
 ================
 Ivan Calandra
-2021-09-02 09:26:38
+2021-12-01 10:24:55
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -103,8 +103,8 @@ dir_out <- "R_analysis/derived_data"
 dir_in  <- "R_analysis/raw_data"
 ```
 
-Raw data must be located in “\~/R\_analysis/raw\_data”.  
-Formatted data will be saved in “\~/R\_analysis/derived\_data”.
+Raw data must be located in “\~/R_analysis/raw_data”.  
+Formatted data will be saved in “\~/R_analysis/derived_data”.
 
 The knit directory for this script is the project directory.
 
@@ -125,8 +125,16 @@ sapply(pack_to_load, library, character.only = TRUE, logical.return = TRUE)
 # Get names and path all files
 
 ``` r
-info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
+info_in <- list.files(dir_in, pattern = "\\_v8.2.9767.csv$", full.names = TRUE)
+info_in
 ```
+
+    [1] "R_analysis/raw_data/SSFA-ConfoMap_GuineaPigs_NMPfilled_v8.2.9767.csv"
+    [2] "R_analysis/raw_data/SSFA-ConfoMap_Lithics_NMPfilled_v8.2.9767.csv"   
+    [3] "R_analysis/raw_data/SSFA-ConfoMap_Sheeps_NMPfilled_v8.2.9767.csv"    
+    [4] "R_analysis/raw_data/SSFA-Toothfrax_GuineaPigs_v8.2.9767.csv"         
+    [5] "R_analysis/raw_data/SSFA-Toothfrax_Lithics_v8.2.9767.csv"            
+    [6] "R_analysis/raw_data/SSFA-Toothfrax_Sheeps_v8.2.9767.csv"             
 
 ------------------------------------------------------------------------
 
@@ -139,7 +147,7 @@ info_in <- list.files(dir_in, pattern = "\\.csv|xlsx$", full.names = TRUE)
 ``` r
 # Extract file name for ConfoMap analysis on Guinea Pigs, and read in file
 confoGP <- info_in %>% 
-           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .) & grepl("v8.2.9678", .)] %>% 
+           .[grepl("ConfoMap", .) & grepl("GuineaPigs", .)] %>% 
            read.csv(header = FALSE, na.strings = "*****")
 ```
 
@@ -170,7 +178,7 @@ colnames(confoGP_keep) <- confoGP[2, confoGP_keep_col] %>%
                           gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
 
 # Edit name for NMP
-colnames(confoGP_keep)[2] <- "NMP"
+colnames(confoGP_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ```
 
 ### Extract units
@@ -197,14 +205,14 @@ toothfraxGP <- info_in %>%
                .[grepl("Toothfrax", .) & grepl("GuineaPigs", .)] %>% 
 
                # Read in file
-               read.xlsx(check.names = TRUE)
+               read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
 
 ``` r
 toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm, 
-                           R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                           Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                            HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                     mutate(Software = "Toothfrax")
 ```
@@ -212,9 +220,10 @@ toothfraxGP_keep <- select(toothfraxGP, Name = Filename, epLsar = epLsar1.80µm,
 ### Edit column “Name”
 
 ``` r
-# Remove ".sur" at the end of the name and delete everything from the beginning to " --- "
-toothfraxGP_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                   toothfraxGP_keep[["Name"]])
+# Remove the extension (".sur") from the name and keep only the part of the name after " --- "
+toothfraxGP_keep[["Name"]] <- gsub("_v8.2.9767\\.sur$", "", toothfraxGP_keep[["Name"]]) %>% 
+                              strsplit(" --- ") %>% 
+                              sapply(`[`, 2)
 ```
 
 ### Get units
@@ -255,6 +264,7 @@ GP_keep[grep("2CC6", GP_keep[["Name"]]), "Diet"] <- "Dry bamboo"
 ``` r
 GP_final <- GP_keep %>% 
             mutate(Dataset = "GuineaPigs") %>% 
+            mutate_if(is.character, as.factor) %>% 
             select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
@@ -271,13 +281,13 @@ str(GP_final)
 ```
 
     'data.frame':   140 obs. of  12 variables:
-     $ Dataset  : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
-     $ Name     : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
-     $ Diet     : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
-     $ Software : chr  "Toothfrax" "ConfoMap" "Toothfrax" "ConfoMap" ...
+     $ Dataset  : Factor w/ 1 level "GuineaPigs": 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name     : Factor w/ 70 levels "capor_2CC4B1_txP4_#1_1_100xL_1",..: 1 1 2 2 3 3 4 4 5 5 ...
+     $ Diet     : Factor w/ 3 levels "Dry bamboo","Dry grass",..: 3 3 3 3 3 3 3 3 3 3 ...
+     $ Software : Factor w/ 2 levels "ConfoMap","Toothfrax": 2 1 2 1 2 1 2 1 1 2 ...
      $ NMP      : num  NA 1.9 NA 1.31 NA ...
      $ epLsar   : num  0.00147 0.00196 0.00269 0.00366 0.0028 ...
-     $ R²       : num  0.999 0.997 1 0.998 0.999 ...
+     $ Rsquared : num  0.999 0.997 1 0.998 0.999 ...
      $ Asfc     : num  12.9 16 12 14.1 12.7 ...
      $ Smfc     : num  0.119 0.33 0.119 0.35 0.119 ...
      $ HAsfc9   : num  0.182 0.179 0.159 0.136 0.117 ...
@@ -295,7 +305,7 @@ head(GP_final)
     4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Dry lucerne  ConfoMap 1.307524
     5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry lucerne Toothfrax       NA
     6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Dry lucerne  ConfoMap 0.806428
-           epLsar        R²     Asfc      Smfc    HAsfc9   HAsfc81  NewEplsar
+           epLsar  Rsquared     Asfc      Smfc    HAsfc9   HAsfc81  NewEplsar
     1 0.001471000 0.9993430 12.92579 0.1192190 0.1819939 0.3368939         NA
     2 0.001960011 0.9967182 16.00717 0.3303686 0.1785900 0.3908931 0.01842431
     3 0.002693000 0.9995140 11.99982 0.1192190 0.1586045 0.3818615         NA
@@ -316,7 +326,7 @@ in the section about [Guinea Pigs](#guinea-pigs).
 
 ``` r
 confoSheep <- info_in %>% 
-              .[grepl("ConfoMap", .) & grepl("Sheeps", .) & grepl("v8.2.9678", .)] %>% 
+              .[grepl("ConfoMap", .) & grepl("Sheeps", .)] %>% 
               read.csv(header = FALSE, na.strings = "*****")
 ```
 
@@ -336,7 +346,7 @@ colnames(confoSheep_keep) <- confoSheep[2, confoSheep_keep_col] %>%
                              gsub("\\.+", "\\.", x = .) %>% 
                              gsub("\\.$", "", x = .) %>%
                              gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
-colnames(confoSheep_keep)[2] <- "NMP"
+colnames(confoSheep_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ```
 
 ### Extract units
@@ -361,14 +371,14 @@ confoSheep_keep <- type_convert(confoSheep_keep) %>%
 ``` r
 toothfraxSheep <- info_in %>% 
                   .[grepl("Toothfrax", .) & grepl("Sheeps", .)] %>% 
-                  read.xlsx(check.names = TRUE)
+                  read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
 
 ``` r
 toothfraxSheep_keep <- select(toothfraxSheep, Name = Filename, epLsar = epLsar1.80µm, 
-                              R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                              Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                               HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                        mutate(Software = "Toothfrax")
 ```
@@ -376,8 +386,9 @@ toothfraxSheep_keep <- select(toothfraxSheep, Name = Filename, epLsar = epLsar1.
 ### Edit column “Name”
 
 ``` r
-toothfraxSheep_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                      toothfraxSheep_keep[["Name"]]) 
+toothfraxSheep_keep[["Name"]] <- gsub("\\.sur$", "", toothfraxSheep_keep[["Name"]]) %>% 
+                                 strsplit(" --- ") %>% 
+                                 sapply(`[`, 2)
 ```
 
 ### Get units
@@ -414,6 +425,7 @@ sheep_keep[grep("L8", sheep_keep[["Name"]]), "Diet"] <- "Grass+dust"
 ``` r
 sheep_final <- sheep_keep %>% 
                mutate(Dataset = "Sheeps") %>% 
+               mutate_if(is.character, as.factor) %>% 
                select(Dataset, Name, Diet, Software, NMP, everything())
 ```
 
@@ -430,13 +442,13 @@ str(sheep_final)
 ```
 
     'data.frame':   80 obs. of  12 variables:
-     $ Dataset  : chr  "Sheeps" "Sheeps" "Sheeps" "Sheeps" ...
-     $ Name     : chr  "L5_Ovis_10098_lm2_sin" "L5_Ovis_10098_lm2_sin" "L5_Ovis_11723_lm2_sin" "L5_Ovis_11723_lm2_sin" ...
-     $ Diet     : chr  "Clover" "Clover" "Clover" "Clover" ...
-     $ Software : chr  "Toothfrax" "ConfoMap" "ConfoMap" "Toothfrax" ...
+     $ Dataset  : Factor w/ 1 level "Sheeps": 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name     : Factor w/ 40 levels "L5_Ovis_10098_lm2_sin",..: 1 1 2 2 3 3 4 4 5 5 ...
+     $ Diet     : Factor w/ 4 levels "Clover","Clover+dust",..: 1 1 1 1 1 1 1 1 1 1 ...
+     $ Software : Factor w/ 2 levels "ConfoMap","Toothfrax": 2 1 1 2 2 1 2 1 2 1 ...
      $ NMP      : num  NA 0 0 NA NA 0 NA 0 NA 0 ...
      $ epLsar   : num  0.00192 0.0025 0.00121 0.00142 0.00243 ...
-     $ R²       : num  1 0.999 0.999 1 1 ...
+     $ Rsquared : num  1 0.999 0.999 1 1 ...
      $ Asfc     : num  9.56 10.74 2.3 2.23 5.88 ...
      $ Smfc     : num  2.7 12.29 3.37 1.2 1.2 ...
      $ HAsfc9   : num  1.33 1.44 0.288 0.248 0.483 ...
@@ -447,7 +459,7 @@ str(sheep_final)
 head(sheep_final)
 ```
 
-      Dataset                  Name   Diet  Software NMP      epLsar        R²
+      Dataset                  Name   Diet  Software NMP      epLsar  Rsquared
     1  Sheeps L5_Ovis_10098_lm2_sin Clover Toothfrax  NA 0.001922000 0.9995440
     2  Sheeps L5_Ovis_10098_lm2_sin Clover  ConfoMap   0 0.002497369 0.9986401
     3  Sheeps L5_Ovis_11723_lm2_sin Clover  ConfoMap   0 0.001207926 0.9987381
@@ -475,7 +487,7 @@ in the section about [Guinea Pigs](#guinea-pigs).
 
 ``` r
 confoLith <- info_in %>% 
-             .[grepl("ConfoMap", .) & grepl("Lithics", .) & grepl("v8.2.9678", .)] %>% 
+             .[grepl("ConfoMap", .) & grepl("Lithics", .)] %>% 
              read.csv(header = FALSE, na.strings = "*****")
 ```
 
@@ -495,13 +507,14 @@ colnames(confoLith_keep) <- confoLith[2, confoLith_keep_col] %>%
                             gsub("\\.+", "\\.", x = .) %>% 
                             gsub("\\.$", "", x = .) %>%
                             gsub("^([A-Za-z0-9]+\\.)+", "", x = .)
-colnames(confoLith_keep)[2] <- "NMP"
+colnames(confoLith_keep)[c(2, 5)] <- c("NMP", "Rsquared")
 ```
 
 ### Extract units
 
 ``` r
-confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) 
+confoLith_units <- unlist(confoLith[3, confoLith_keep_col[-1]]) %>%
+                   gsub("ï¿½mï¿½", "µm²", .)
 names(confoLith_units) <- colnames(confoLith_keep)[-1]
 ```
 
@@ -519,14 +532,14 @@ confoLith_keep <- type_convert(confoLith_keep) %>%
 ``` r
 toothfraxLith <- info_in %>% 
                  .[grepl("Toothfrax", .) & grepl("Lithics", .)] %>% 
-                 read.xlsx(check.names = TRUE)
+                 read.csv(fileEncoding = "UTF-16")
 ```
 
 ### Select columns, edit headers and add column about software
 
 ``` r
 toothfraxLith_keep <- select(toothfraxLith, Name = Filename, epLsar = epLsar1.80µm, 
-                             R² = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
+                             Rsquared = Rsquared, Asfc = Asfc1om, Smfc = LineStart, 
                              HAsfc9 = X3x3HAsfc, HAsfc81 = X9x9HAsfc) %>% 
                       mutate(Software = "Toothfrax")
 ```
@@ -534,8 +547,9 @@ toothfraxLith_keep <- select(toothfraxLith, Name = Filename, epLsar = epLsar1.80
 ### Edit column “Name”
 
 ``` r
-toothfraxLith_keep[["Name"]] <- gsub("(\\.sur$)|(^([_A-Za-z0-9-]+) --- )", "", 
-                                     toothfraxLith_keep[["Name"]])
+toothfraxLith_keep[["Name"]] <- gsub("\\.sur$", "", toothfraxLith_keep[["Name"]]) %>% 
+                                strsplit(" --- ") %>% 
+                                sapply(`[`, 2)
 ```
 
 ### Get units
@@ -578,6 +592,7 @@ lith_keep[["Treatment"]] <- factor(lith_keep[["Treatment"]],
 ``` r
 lith_final <- lith_keep %>% 
               mutate(Dataset = "Lithics") %>% 
+              mutate_if(is.character, as.factor) %>% 
               select(Dataset, Name, Treatment, Before.after, Software, NMP, everything())
 ```
 
@@ -594,19 +609,19 @@ str(lith_final)
 ```
 
     'data.frame':   64 obs. of  13 variables:
-     $ Dataset     : chr  "Lithics" "Lithics" "Lithics" "Lithics" ...
-     $ Name        : chr  "FLT3-10_LSM_50x-0.95_20190328_Area1_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area1_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area2_Topo" "FLT3-10_LSM_50x-0.95_20190328_Area2_Topo" ...
+     $ Dataset     : Factor w/ 1 level "Lithics": 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name        : Factor w/ 32 levels "FLT3-10_LSM_50x-0.95_20190328_Area1_Topo",..: 1 1 2 2 3 3 4 4 5 5 ...
      $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: 4 4 4 4 4 4 4 4 2 2 ...
      $ Before.after: Factor w/ 2 levels "Before","After": 1 1 1 1 2 2 2 2 1 1 ...
-     $ Software    : chr  "Toothfrax" "ConfoMap" "Toothfrax" "ConfoMap" ...
-     $ NMP         : num  NA 1.77 NA 1.92 NA ...
-     $ epLsar      : num  0.00133 0.00282 0.0015 0.00253 0.00159 ...
-     $ R²          : num  0.999 0.999 0.999 0.999 0.999 ...
-     $ Asfc        : num  42.5 44.7 39.3 43.7 45.7 ...
-     $ Smfc        : num  0.0145 0.1005 0.0145 0.1005 0.0145 ...
-     $ HAsfc9      : num  0.0846 0.0766 0.1142 0.0999 0.079 ...
-     $ HAsfc81     : num  0.148 0.237 0.161 0.261 0.127 ...
-     $ NewEplsar   : num  NA 0.0165 NA 0.017 NA ...
+     $ Software    : Factor w/ 2 levels "ConfoMap","Toothfrax": 2 1 2 1 1 2 2 1 1 2 ...
+     $ NMP         : num  NA 1.77 NA 1.92 2.21 ...
+     $ epLsar      : num  0.00269 0.00282 0.00221 0.00253 0.00268 ...
+     $ Rsquared    : num  1 0.999 1 0.999 0.999 ...
+     $ Asfc        : num  37.2 44.7 36.5 43.7 45.7 ...
+     $ Smfc        : num  0.0145 0.1005 0.0145 0.1005 0.1005 ...
+     $ HAsfc9      : num  0.0819 0.0766 0.0881 0.0999 0.0925 ...
+     $ HAsfc81     : num  0.168 0.237 0.22 0.261 0.189 ...
+     $ NewEplsar   : num  NA 0.0165 NA 0.017 0.0166 ...
 
 ``` r
 head(lith_final)
@@ -619,20 +634,20 @@ head(lith_final)
     4 Lithics  FLT3-10_LSM_50x-0.95_20190328_Area2_Topo BrushDirt       Before
     5 Lithics FLT3-10_LSM2_50x-0.95_20190731_Area1_Topo BrushDirt        After
     6 Lithics FLT3-10_LSM2_50x-0.95_20190731_Area1_Topo BrushDirt        After
-       Software      NMP      epLsar        R²     Asfc      Smfc     HAsfc9
-    1 Toothfrax       NA 0.001330000 0.9993130 42.52394 0.0145140 0.08457134
+       Software      NMP      epLsar  Rsquared     Asfc      Smfc     HAsfc9
+    1 Toothfrax       NA 0.002693000 0.9998420 37.18201 0.0145140 0.08192972
     2  ConfoMap 1.766336 0.002819223 0.9989832 44.67407 0.1004648 0.07663490
-    3 Toothfrax       NA 0.001502000 0.9994600 39.32644 0.0145140 0.11421294
+    3 Toothfrax       NA 0.002211000 0.9997200 36.54107 0.0145140 0.08806302
     4  ConfoMap 1.922810 0.002529152 0.9991157 43.74264 0.1004648 0.09994383
-    5 Toothfrax       NA 0.001594000 0.9994940 45.69748 0.0145140 0.07897466
-    6  ConfoMap 2.211463 0.002683912 0.9986472 45.72611 0.1004648 0.09252342
+    5  ConfoMap 2.211463 0.002683912 0.9986472 45.72611 0.1004648 0.09252342
+    6 Toothfrax       NA 0.002752000 0.9998380 38.80595 0.0145140 0.09561877
         HAsfc81  NewEplsar
-    1 0.1481977         NA
+    1 0.1676768         NA
     2 0.2368160 0.01654116
-    3 0.1611069         NA
+    3 0.2196744         NA
     4 0.2608172 0.01702859
-    5 0.1266690         NA
-    6 0.1887984 0.01664714
+    5 0.1887984 0.01664714
+    6 0.1460229         NA
 
 ------------------------------------------------------------------------
 
@@ -708,9 +723,9 @@ all_data <- fill(all_data, NMP)
 
 Here we define four ranges of non-measured points (NMP):
 
--   &lt; 5% NMP: “0-5%”  
--   ≥ 5% and &lt; 10% NMP: “5-10%”  
--   ≥ 10% and &lt; 20% NMP: “10-20%”  
+-   \< 5% NMP: “0-5%”  
+-   ≥ 5% and \< 10% NMP: “5-10%”  
+-   ≥ 10% and \< 20% NMP: “10-20%”  
 -   ≥ 20% NMP: “20-100%” (these surfaces were not acquired correctly and
     should not be used)
 
@@ -736,23 +751,23 @@ str(all_data)
 ```
 
     'data.frame':   284 obs. of  15 variables:
-     $ Dataset     : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
-     $ Name        : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
-     $ Software    : chr  "ConfoMap" "Toothfrax" "ConfoMap" "Toothfrax" ...
-     $ Diet        : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
+     $ Dataset     : Factor w/ 3 levels "GuineaPigs","Sheeps",..: 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name        : Factor w/ 142 levels "capor_2CC4B1_txP4_#1_1_100xL_1",..: 1 1 2 2 3 3 4 4 5 5 ...
+     $ Software    : Factor w/ 2 levels "ConfoMap","Toothfrax": 1 2 1 2 1 2 1 2 1 2 ...
+     $ Diet        : Factor w/ 7 levels "Dry bamboo","Dry grass",..: 3 3 3 3 3 3 3 3 3 3 ...
      $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
      $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
      $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
      $ NMP_cat     : Ord.factor w/ 4 levels "0-5%"<"5-10%"<..: 1 1 1 1 1 1 1 1 1 1 ...
      $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
-     $ R²          : num  0.997 0.999 0.998 1 0.997 ...
+     $ Rsquared    : num  0.997 0.999 0.998 1 0.997 ...
      $ Asfc        : num  16 12.9 14.1 12 15.1 ...
      $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
      $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
      $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
      $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
      - attr(*, "comment")= Named chr [1:9] "%" "<no unit>" "<no unit>" "<no unit>" ...
-      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "R²" ...
+      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "Rsquared" ...
 
 ``` r
 head(all_data)
@@ -765,7 +780,7 @@ head(all_data)
     4 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_2 Toothfrax Dry lucerne      <NA>
     5 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3  ConfoMap Dry lucerne      <NA>
     6 GuineaPigs capor_2CC4B1_txP4_#1_1_100xL_3 Toothfrax Dry lucerne      <NA>
-      Before.after      NMP NMP_cat      epLsar        R²     Asfc      Smfc
+      Before.after      NMP NMP_cat      epLsar  Rsquared     Asfc      Smfc
     1         <NA> 1.896275    0-5% 0.001960011 0.9967182 16.00717 0.3303686
     2         <NA> 1.896275    0-5% 0.001471000 0.9993430 12.92579 0.1192190
     3         <NA> 1.307524    0-5% 0.003662312 0.9976931 14.05932 0.3498752
@@ -819,9 +834,9 @@ rbin_data <- loadObject("SSFA_all_data.Rbin")
 sessionInfo()
 ```
 
-    R version 4.1.1 (2021-08-10)
+    R version 4.1.2 (2021-11-01)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 19041)
+    Running under: Windows 10 x64 (build 19043)
 
     Matrix products: default
 
@@ -837,27 +852,27 @@ sessionInfo()
 
     other attached packages:
      [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
-     [5] readr_2.0.1       tidyr_1.1.3       tibble_3.1.4      ggplot2_3.3.5    
-     [9] tidyverse_1.3.1   R.utils_2.10.1    R.oo_1.24.0       R.methodsS3_1.8.1
+     [5] readr_2.1.0       tidyr_1.1.4       tibble_3.1.6      ggplot2_3.3.5    
+     [9] tidyverse_1.3.1   R.utils_2.11.0    R.oo_1.24.0       R.methodsS3_1.8.1
     [13] openxlsx_4.2.4   
 
     loaded via a namespace (and not attached):
-     [1] tidyselect_1.1.1 xfun_0.25        haven_2.4.3      colorspace_2.0-2
-     [5] vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2  yaml_2.2.1      
-     [9] utf8_1.2.2       rlang_0.4.11     pillar_1.6.2     withr_2.4.2     
-    [13] glue_1.4.2       DBI_1.1.1        dbplyr_2.1.1     readxl_1.3.1    
-    [17] modelr_0.1.8     lifecycle_1.0.0  cellranger_1.1.0 munsell_0.5.0   
-    [21] gtable_0.3.0     rvest_1.0.1      zip_2.2.0        evaluate_0.14   
-    [25] knitr_1.33       tzdb_0.1.2       fastmap_1.1.0    fansi_0.5.0     
-    [29] broom_0.7.9      Rcpp_1.0.7       renv_0.14.0      backports_1.2.1 
-    [33] scales_1.1.1     jsonlite_1.7.2   fs_1.5.0         hms_1.1.0       
-    [37] digest_0.6.27    stringi_1.7.4    rprojroot_2.0.2  grid_4.1.1      
-    [41] cli_3.0.1        tools_4.1.1      magrittr_2.0.1   crayon_1.4.1    
-    [45] pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2       reprex_2.0.1    
-    [49] lubridate_1.7.10 rstudioapi_0.13  assertthat_0.2.1 rmarkdown_2.10  
-    [53] httr_1.4.2       R6_2.5.1         compiler_4.1.1  
+     [1] tidyselect_1.1.1 xfun_0.28        haven_2.4.3      colorspace_2.0-2
+     [5] vctrs_0.3.8      generics_0.1.1   htmltools_0.5.2  yaml_2.2.1      
+     [9] utf8_1.2.2       rlang_0.4.12     jquerylib_0.1.4  pillar_1.6.4    
+    [13] withr_2.4.2      glue_1.5.0       DBI_1.1.1        dbplyr_2.1.1    
+    [17] readxl_1.3.1     modelr_0.1.8     lifecycle_1.0.1  cellranger_1.1.0
+    [21] munsell_0.5.0    gtable_0.3.0     rvest_1.0.2      zip_2.2.0       
+    [25] evaluate_0.14    knitr_1.36       tzdb_0.2.0       fastmap_1.1.0   
+    [29] fansi_0.5.0      broom_0.7.10     Rcpp_1.0.7       renv_0.14.0     
+    [33] backports_1.4.0  scales_1.1.1     jsonlite_1.7.2   fs_1.5.0        
+    [37] hms_1.1.1        digest_0.6.28    stringi_1.7.6    rprojroot_2.0.2 
+    [41] grid_4.1.2       cli_3.1.0        tools_4.1.2      magrittr_2.0.1  
+    [45] crayon_1.4.2     pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2      
+    [49] reprex_2.0.1     lubridate_1.8.0  rstudioapi_0.13  assertthat_0.2.1
+    [53] rmarkdown_2.11   httr_1.4.2       R6_2.5.1         compiler_4.1.2  
 
-RStudio version 1.4.1717.
+RStudio version 2021.9.1.372.
 
 ------------------------------------------------------------------------
 
@@ -867,7 +882,7 @@ RStudio version 1.4.1717.
     Philipp Schauberger and Alexander Walker (2021). openxlsx: Read, Write and Edit xlsx Files. R package version 4.2.4. https://CRAN.R-project.org/package=openxlsx 
      
     R.utils 
-    Henrik Bengtsson (2020). R.utils: Various Programming Utilities. R package version 2.10.1. https://CRAN.R-project.org/package=R.utils 
+    Henrik Bengtsson (2021). R.utils: Various Programming Utilities. R package version 2.11.0. https://CRAN.R-project.org/package=R.utils 
      
     tidyverse 
     Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686 
