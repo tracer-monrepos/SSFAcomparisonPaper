@@ -1,7 +1,7 @@
 Summary statistics on SSFA datasets
 ================
 Ivan Calandra
-2021-12-01 10:51:14
+2021-12-01 10:59:02
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -17,6 +17,7 @@ Ivan Calandra
     -   [Exclude surfaces with NMP >=
         20%](#exclude-surfaces-with-nmp--20)
     -   [Compute summary statistics](#compute-summary-statistics)
+    -   [Add units](#add-units)
 -   [Write results to XLSX](#write-results-to-xlsx)
 -   [sessionInfo() and RStudio
     version](#sessioninfo-and-rstudio-version)
@@ -340,12 +341,18 @@ str(all_stats)
      $ NewEplsar.median: num  0.0198 NA 0.0195 NA 0.0192 ...
      $ NewEplsar.sd    : num  0.000394 NA 0.000498 NA 0.000538 ...
 
+## Add units
+
+``` r
+units_stats <- data.frame(variable = names(comment(all_data)), units = comment(all_data))
+```
+
 ------------------------------------------------------------------------
 
 # Write results to XLSX
 
 ``` r
-write.xlsx(list(summary_stats = all_stats), 
+write.xlsx(list(summary_stats = all_stats, units = units_stats), 
            file = paste0(dir_out, "/SSFA_summary-stats.xlsx"))
 ```
 

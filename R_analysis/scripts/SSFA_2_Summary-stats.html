@@ -325,7 +325,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Summary statistics on SSFA datasets</h1>
 <h4 class="author">Ivan Calandra</h4>
-<h4 class="date">2021-12-01 10:51:10</h4>
+<h4 class="date">2021-12-01 10:58:58</h4>
 
 </div>
 
@@ -568,18 +568,22 @@ NewEplsar</code></pre>
  $ NewEplsar.mean  : num  0.0199 NaN 0.0195 NaN 0.0193 ...
  $ NewEplsar.median: num  0.0198 NA 0.0195 NA 0.0192 ...
  $ NewEplsar.sd    : num  0.000394 NA 0.000498 NA 0.000538 ...</code></pre>
+</div>
+<div id="add-units" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Add units</h2>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>units_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">variable =</span> <span class="fu">names</span>(<span class="fu">comment</span>(all_data)), <span class="at">units =</span> <span class="fu">comment</span>(all_data))</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="write-results-to-xlsx" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Write results to XLSX</h1>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">summary_stats =</span> all_stats), </span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">file =</span> <span class="fu">paste0</span>(dir_out, <span class="st">&quot;/SSFA_summary-stats.xlsx&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">summary_stats =</span> all_stats, <span class="at">units =</span> units_stats), </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">file =</span> <span class="fu">paste0</span>(dir_out, <span class="st">&quot;/SSFA_summary-stats.xlsx&quot;</span>))</span></code></pre></div>
 <hr />
 </div>
 <div id="sessioninfo-and-rstudio-version" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> sessionInfo() and RStudio version</h1>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)

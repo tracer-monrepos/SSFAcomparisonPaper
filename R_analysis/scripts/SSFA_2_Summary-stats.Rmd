@@ -144,12 +144,18 @@ str(all_stats)
 ```
 
 
+## Add units
+```{r}
+units_stats <- data.frame(variable = names(comment(all_data)), units = comment(all_data))
+```
+
+
 ---
 
 
 # Write results to XLSX
 ```{r}
-write.xlsx(list(summary_stats = all_stats), 
+write.xlsx(list(summary_stats = all_stats, units = units_stats), 
            file = paste0(dir_out, "/SSFA_summary-stats.xlsx"))
 ```
 
