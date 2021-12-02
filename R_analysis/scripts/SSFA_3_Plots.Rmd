@@ -72,13 +72,15 @@ str(all_data)
 
 
 # Define variables
+Here we define which columns are used for X and Y axes on the plots.  
+
 ```{r}
 # x-axis (grouping)
 x_var_GP <- x_var_sheep <- "Diet"
 x_var_lith <- "Before.after"
 
 # y-axis
-y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar")
+y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar", "Rsquared")
 
 # colors
 grp_colors <- "Software"
@@ -136,7 +138,7 @@ ratio_diet <- diet_GP / diet_sheep
 ---
 
 
-# Exclude surfaces with NMP > 20%
+# Exclude surfaces with NMP >= 20%
 ```{r}
 data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
 data_nmp0_20$NMP_cat <- factor(data_nmp0_20$NMP_cat)
@@ -167,7 +169,8 @@ boxes_points <- function(dat, x_var, y_var,
     # Boxplots:
     # hide outliers (all points are shown with geom_point() below) 
     # and adjust proportions of elements
-    geom_boxplot(outlier.shape = NA, width = box_width, size = box_size, fatten = med_size) + 
+    geom_boxplot(outlier.shape = NA, width = box_width, size = box_size, fatten = med_size, 
+                 position = position_dodge2(preserve = "single")) +
     
     # Points:
     # Add a layer of shapes for points using the variable 'group_shape' ('group' necessary for dodging)
@@ -175,8 +178,8 @@ boxes_points <- function(dat, x_var, y_var,
     # Set seed for repeatability
     geom_point(mapping = aes_string(shape = group_shape, group = group_col), 
                size = point_size,
-               position = position_jitterdodge(jitter.width = point_jitter,
-                                               dodge.width = point_dodge,
+               position = position_jitterdodge(jitter.width = point_jitter, 
+                                               dodge.width = point_dodge, 
                                                seed = jitter_seed)) +
   
     # Remove axis labels
@@ -209,10 +212,10 @@ boxes_points <- function(dat, x_var, y_var,
 
 ## Guinea Pigs
 ```{r}
-# Filter data for guinea pigs and by NMP (<5%, 5-10% and >= 10%)
+# Filter data for guinea pigs and by NMP (0-5%, 5-10% and 10-20%)
 GP <- filter(data_nmp0_20, Dataset == "GuineaPigs")
 
-# Change from wide to long format
+# Change from wide to long format for easier plotting
 GP_plot  <- pivot_longer(GP[c(x_var_GP, grp_colors, grp_shapes, y_var)], all_of(y_var))
 
 # Re-order factor levels to fit order of plots on facet
@@ -275,12 +278,12 @@ print(p_lith)
 
 
 ## Zoom in for Smfc
-The previous plots for the parameter Smfc show some extreme values for the sheep and lithic datasets.  
-In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values (> 10).
+The previous plots for the parameter Smfc show some extreme values, especially for the sheep dataset.  
+In order to better visualize the differences in software, we need zoomed-in plots excluding these extreme values (> 5).
 
 ```{r}
 y_Smfc <- "Smfc"
-ext_val <- 10
+ext_val <- 5
 
 # Guinea pig dataset
 GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
@@ -289,7 +292,8 @@ p_GP_Smfc <- boxes_points(dat = GP_plot_Smfc_filt, x_var = x_var_GP, y_var = "va
                           group_col = grp_colors, group_shape = grp_shapes,
                           box_width = 0.9*ratio_diet, 
                           point_jitter = 0.9, point_dodge = 0.9*ratio_diet, point_size = 1,
-                          ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
+                          ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none") +
+             ggtitle("Guinea Pigs")
 
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
@@ -298,7 +302,8 @@ p_sheep_Smfc <- boxes_points(dat = sheep_plot_Smfc_filt, x_var = x_var_sheep, y_
                              group_col = grp_colors, group_shape = grp_shapes,
                              box_width = 0.9, 
                              point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
-                             ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
+                             ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none") +
+                ggtitle("Sheep") 
 
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
@@ -308,7 +313,9 @@ p_lith_Smfc <- boxes_points(dat = lith_plot_Smfc_filt, x_var = x_var_lith, y_var
                             box_width = 0.9, 
                             point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                             ylab = y_Smfc, shape_scale = c(19, 3, 4),
-                            wrap_grid = "wrap", facet_var = "Treatment")
+                            wrap_grid = "wrap", facet_var = "Treatment") +
+               ggtitle("Lithics")
+
 
 # Combine all three plots
 p_Smfc <- p_GP_Smfc / p_sheep_Smfc / p_lith_Smfc + 

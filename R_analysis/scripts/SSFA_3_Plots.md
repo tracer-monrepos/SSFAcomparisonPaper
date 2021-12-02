@@ -1,7 +1,7 @@
 Plots of SSFA variables
 ================
 Ivan Calandra
-2021-09-16 18:18:12
+2021-12-02 10:49:13
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -12,7 +12,7 @@ Ivan Calandra
 -   [Define variables](#define-variables)
 -   [Calculate y-scales](#calculate-y-scales)
 -   [Number of diets](#number-of-diets)
--   [Exclude surfaces with NMP &gt; 20%](#exclude-surfaces-with-nmp--20)
+-   [Exclude surfaces with NMP >= 20%](#exclude-surfaces-with-nmp--20)
 -   [Plot each set of the selected numeric
     variables](#plot-each-set-of-the-selected-numeric-variables)
     -   [Define plotting function](#define-plotting-function)
@@ -37,9 +37,8 @@ dir_in  <- "R_analysis/derived_data"
 dir_out <- "R_analysis/plots"
 ```
 
-Input Rbin data file must be located in
-“\~/R\_analysis/derived\_data”.  
-Plots will be saved in “\~/R\_analysis/plots”.
+Input Rbin data file must be located in “\~/R_analysis/derived_data”.  
+Plots will be saved in “\~/R_analysis/plots”.
 
 The knit directory for this script is the project directory.
 
@@ -76,27 +75,29 @@ str(all_data)
 ```
 
     'data.frame':   284 obs. of  15 variables:
-     $ Dataset     : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
-     $ Name        : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
-     $ Software    : chr  "ConfoMap" "Toothfrax" "ConfoMap" "Toothfrax" ...
-     $ Diet        : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
+     $ Dataset     : Factor w/ 3 levels "GuineaPigs","Sheeps",..: 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name        : Factor w/ 142 levels "capor_2CC4B1_txP4_#1_1_100xL_1",..: 1 1 2 2 3 3 4 4 5 5 ...
+     $ Software    : Factor w/ 2 levels "ConfoMap","Toothfrax": 1 2 1 2 1 2 1 2 1 2 ...
+     $ Diet        : Factor w/ 7 levels "Dry bamboo","Dry grass",..: 3 3 3 3 3 3 3 3 3 3 ...
      $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
      $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
      $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
      $ NMP_cat     : Ord.factor w/ 4 levels "0-5%"<"5-10%"<..: 1 1 1 1 1 1 1 1 1 1 ...
      $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
-     $ R²          : num  0.997 0.999 0.998 1 0.997 ...
+     $ Rsquared    : num  0.997 0.999 0.998 1 0.997 ...
      $ Asfc        : num  16 12.9 14.1 12 15.1 ...
      $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
      $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
      $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
      $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
      - attr(*, "comment")= Named chr [1:9] "%" "<no unit>" "<no unit>" "<no unit>" ...
-      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "R²" ...
+      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "Rsquared" ...
 
 ------------------------------------------------------------------------
 
 # Define variables
+
+Here we define which columns are used for X and Y axes on the plots.
 
 ``` r
 # x-axis (grouping)
@@ -104,7 +105,7 @@ x_var_GP <- x_var_sheep <- "Diet"
 x_var_lith <- "Before.after"
 
 # y-axis
-y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar")
+y_var <- c("Asfc", "Smfc", "HAsfc9", "HAsfc81", "epLsar", "NewEplsar", "Rsquared")
 
 # colors
 grp_colors <- "Software"
@@ -153,6 +154,7 @@ y_var
 ```
 
     [1] "Asfc"      "Smfc"      "HAsfc9"    "HAsfc81"   "epLsar"    "NewEplsar"
+    [7] "Rsquared" 
 
 ------------------------------------------------------------------------
 
@@ -192,7 +194,7 @@ ratio_diet <- diet_GP / diet_sheep
 
 ------------------------------------------------------------------------
 
-# Exclude surfaces with NMP &gt; 20%
+# Exclude surfaces with NMP \>= 20%
 
 ``` r
 data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
@@ -201,23 +203,23 @@ str(data_nmp0_20)
 ```
 
     'data.frame':   278 obs. of  15 variables:
-     $ Dataset     : chr  "GuineaPigs" "GuineaPigs" "GuineaPigs" "GuineaPigs" ...
-     $ Name        : chr  "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_1" "capor_2CC4B1_txP4_#1_1_100xL_2" "capor_2CC4B1_txP4_#1_1_100xL_2" ...
-     $ Software    : chr  "ConfoMap" "Toothfrax" "ConfoMap" "Toothfrax" ...
-     $ Diet        : chr  "Dry lucerne" "Dry lucerne" "Dry lucerne" "Dry lucerne" ...
+     $ Dataset     : Factor w/ 3 levels "GuineaPigs","Sheeps",..: 1 1 1 1 1 1 1 1 1 1 ...
+     $ Name        : Factor w/ 142 levels "capor_2CC4B1_txP4_#1_1_100xL_1",..: 1 1 2 2 3 3 4 4 5 5 ...
+     $ Software    : Factor w/ 2 levels "ConfoMap","Toothfrax": 1 2 1 2 1 2 1 2 1 2 ...
+     $ Diet        : Factor w/ 7 levels "Dry bamboo","Dry grass",..: 3 3 3 3 3 3 3 3 3 3 ...
      $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
      $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
      $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
      $ NMP_cat     : Ord.factor w/ 3 levels "0-5%"<"5-10%"<..: 1 1 1 1 1 1 1 1 1 1 ...
      $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
-     $ R²          : num  0.997 0.999 0.998 1 0.997 ...
+     $ Rsquared    : num  0.997 0.999 0.998 1 0.997 ...
      $ Asfc        : num  16 12.9 14.1 12 15.1 ...
      $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
      $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
      $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
      $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
      - attr(*, "comment")= Named chr [1:9] "%" "<no unit>" "<no unit>" "<no unit>" ...
-      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "R²" ...
+      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "Rsquared" ...
 
 ------------------------------------------------------------------------
 
@@ -243,7 +245,8 @@ boxes_points <- function(dat, x_var, y_var,
     # Boxplots:
     # hide outliers (all points are shown with geom_point() below) 
     # and adjust proportions of elements
-    geom_boxplot(outlier.shape = NA, width = box_width, size = box_size, fatten = med_size) + 
+    geom_boxplot(outlier.shape = NA, width = box_width, size = box_size, fatten = med_size, 
+                 position = position_dodge2(preserve = "single")) +
     
     # Points:
     # Add a layer of shapes for points using the variable 'group_shape' ('group' necessary for dodging)
@@ -251,8 +254,8 @@ boxes_points <- function(dat, x_var, y_var,
     # Set seed for repeatability
     geom_point(mapping = aes_string(shape = group_shape, group = group_col), 
                size = point_size,
-               position = position_jitterdodge(jitter.width = point_jitter,
-                                               dodge.width = point_dodge,
+               position = position_jitterdodge(jitter.width = point_jitter, 
+                                               dodge.width = point_dodge, 
                                                seed = jitter_seed)) +
   
     # Remove axis labels
@@ -285,10 +288,10 @@ boxes_points <- function(dat, x_var, y_var,
 ## Guinea Pigs
 
 ``` r
-# Filter data for guinea pigs and by NMP (<5%, 5-10% and >= 10%)
+# Filter data for guinea pigs and by NMP (0-5%, 5-10% and 10-20%)
 GP <- filter(data_nmp0_20, Dataset == "GuineaPigs")
 
-# Change from wide to long format
+# Change from wide to long format for easier plotting
 GP_plot  <- pivot_longer(GP[c(x_var_GP, grp_colors, grp_shapes, y_var)], all_of(y_var))
 
 # Re-order factor levels to fit order of plots on facet
@@ -374,14 +377,14 @@ print(p_lith)
 
 ## Zoom in for Smfc
 
-The previous plots for the parameter Smfc show some extreme values for
-the sheep and lithic datasets.  
+The previous plots for the parameter Smfc show some extreme values,
+especially for the sheep dataset.  
 In order to better visualize the differences in software, we need
-zoomed-in plots excluding these extreme values (&gt; 10).
+zoomed-in plots excluding these extreme values (> 5).
 
 ``` r
 y_Smfc <- "Smfc"
-ext_val <- 10
+ext_val <- 5
 
 # Guinea pig dataset
 GP_plot_Smfc <- filter(GP_plot, name == y_Smfc)
@@ -390,7 +393,8 @@ p_GP_Smfc <- boxes_points(dat = GP_plot_Smfc_filt, x_var = x_var_GP, y_var = "va
                           group_col = grp_colors, group_shape = grp_shapes,
                           box_width = 0.9*ratio_diet, 
                           point_jitter = 0.9, point_dodge = 0.9*ratio_diet, point_size = 1,
-                          ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
+                          ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none") +
+             ggtitle("Guinea Pigs")
 
 # Sheep dataset
 sheep_plot_Smfc <- filter(sheep_plot, name == y_Smfc)
@@ -399,7 +403,8 @@ p_sheep_Smfc <- boxes_points(dat = sheep_plot_Smfc_filt, x_var = x_var_sheep, y_
                              group_col = grp_colors, group_shape = grp_shapes,
                              box_width = 0.9, 
                              point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
-                             ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none")
+                             ylab = y_Smfc, shape_scale = c(19, 3, 4), wrap_grid = "none") +
+                ggtitle("Sheep") 
 
 # Lithic dataset
 lith_plot_Smfc <- filter(lith_plot, name == y_Smfc)
@@ -409,7 +414,9 @@ p_lith_Smfc <- boxes_points(dat = lith_plot_Smfc_filt, x_var = x_var_lith, y_var
                             box_width = 0.9, 
                             point_jitter = 0.9, point_dodge = 0.9, point_size = 1,
                             ylab = y_Smfc, shape_scale = c(19, 3, 4),
-                            wrap_grid = "wrap", facet_var = "Treatment")
+                            wrap_grid = "wrap", facet_var = "Treatment") +
+               ggtitle("Lithics")
+
 
 # Combine all three plots
 p_Smfc <- p_GP_Smfc / p_sheep_Smfc / p_lith_Smfc + 
@@ -437,11 +444,15 @@ are therefore excluded from the plot:
 data.frame(sheep_plot_Smfc[sheep_plot_Smfc$value > ext_val, ])
 ```
 
-        Diet  Software NMP_cat name    value
-    1 Clover  ConfoMap    0-5% Smfc 12.28573
-    2 Clover  ConfoMap    0-5% Smfc 12.28573
-    3  Grass  ConfoMap    0-5% Smfc 44.73203
-    4  Grass Toothfrax    0-5% Smfc 89.99452
+        Diet  Software NMP_cat name      value
+    1 Clover  ConfoMap    0-5% Smfc  12.285733
+    2 Clover  ConfoMap    0-5% Smfc   5.577438
+    3 Clover  ConfoMap    0-5% Smfc  12.285733
+    4  Grass  ConfoMap    0-5% Smfc   6.917848
+    5  Grass  ConfoMap    0-5% Smfc  44.732034
+    6  Grass Toothfrax    0-5% Smfc   9.061024
+    7  Grass Toothfrax    0-5% Smfc   7.488449
+    8  Grass Toothfrax    0-5% Smfc 108.133207
 
 For the lithic plots, these points are outside of the y-ranges shown and
 were therefore excluded from the plots:
@@ -450,8 +461,8 @@ were therefore excluded from the plots:
 data.frame(lith_plot_Smfc[lith_plot_Smfc$value > ext_val, ])
 ```
 
-      Before.after  Software NMP_cat Treatment name    value
-    1        After Toothfrax    0-5%   Control Smfc 26.21508
+      Before.after Software NMP_cat   Treatment name    value
+    1        After ConfoMap    0-5% BrushNoDirt Smfc 9.899664
 
 ## Save plots
 
@@ -490,9 +501,9 @@ for (i in seq_along(plot_files)) {
 sessionInfo()
 ```
 
-    R version 4.1.1 (2021-08-10)
+    R version 4.1.2 (2021-11-01)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 19041)
+    Running under: Windows 10 x64 (build 19043)
 
     Matrix products: default
 
@@ -507,36 +518,36 @@ sessionInfo()
     [1] stats     graphics  grDevices datasets  utils     methods   base     
 
     other attached packages:
-     [1] patchwork_1.1.1   ggh4x_0.2.0.9000  forcats_0.5.1     stringr_1.4.0    
-     [5] dplyr_1.0.7       purrr_0.3.4       readr_2.0.1       tidyr_1.1.3      
-     [9] tibble_3.1.4      tidyverse_1.3.1   ggplot2_3.3.5     R.utils_2.10.1   
+     [1] patchwork_1.1.1   ggh4x_0.2.1.9000  forcats_0.5.1     stringr_1.4.0    
+     [5] dplyr_1.0.7       purrr_0.3.4       readr_2.1.0       tidyr_1.1.4      
+     [9] tibble_3.1.6      tidyverse_1.3.1   ggplot2_3.3.5     R.utils_2.11.0   
     [13] R.oo_1.24.0       R.methodsS3_1.8.1
 
     loaded via a namespace (and not attached):
-     [1] Rcpp_1.0.7       lubridate_1.7.10 assertthat_0.2.1 rprojroot_2.0.2 
-     [5] digest_0.6.27    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0
-     [9] backports_1.2.1  reprex_2.0.1     evaluate_0.14    highr_0.9       
-    [13] httr_1.4.2       pillar_1.6.2     rlang_0.4.11     readxl_1.3.1    
-    [17] rstudioapi_0.13  rmarkdown_2.10   labeling_0.4.2   munsell_0.5.0   
-    [21] broom_0.7.9      compiler_4.1.1   modelr_0.1.8     xfun_0.25       
+     [1] Rcpp_1.0.7       lubridate_1.8.0  assertthat_0.2.1 rprojroot_2.0.2 
+     [5] digest_0.6.28    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0
+     [9] backports_1.4.0  reprex_2.0.1     evaluate_0.14    highr_0.9       
+    [13] httr_1.4.2       pillar_1.6.4     rlang_0.4.12     readxl_1.3.1    
+    [17] rstudioapi_0.13  rmarkdown_2.11   labeling_0.4.2   munsell_0.5.0   
+    [21] broom_0.7.10     compiler_4.1.2   modelr_0.1.8     xfun_0.28       
     [25] pkgconfig_2.0.3  htmltools_0.5.2  tidyselect_1.1.1 fansi_0.5.0     
-    [29] crayon_1.4.1     tzdb_0.1.2       dbplyr_2.1.1     withr_2.4.2     
-    [33] grid_4.1.1       jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.0 
-    [37] DBI_1.1.1        magrittr_2.0.1   scales_1.1.1     cli_3.0.1       
-    [41] stringi_1.7.4    farver_2.1.0     renv_0.14.0      fs_1.5.0        
-    [45] xml2_1.3.2       ellipsis_0.3.2   generics_0.1.0   vctrs_0.3.8     
-    [49] tools_4.1.1      glue_1.4.2       hms_1.1.0        fastmap_1.1.0   
-    [53] yaml_2.2.1       colorspace_2.0-2 rvest_1.0.1      knitr_1.33      
+    [29] crayon_1.4.2     tzdb_0.2.0       dbplyr_2.1.1     withr_2.4.2     
+    [33] grid_4.1.2       jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.1 
+    [37] DBI_1.1.1        magrittr_2.0.1   scales_1.1.1     cli_3.1.0       
+    [41] stringi_1.7.6    farver_2.1.0     renv_0.14.0      fs_1.5.0        
+    [45] xml2_1.3.2       ellipsis_0.3.2   generics_0.1.1   vctrs_0.3.8     
+    [49] tools_4.1.2      glue_1.5.0       hms_1.1.1        fastmap_1.1.0   
+    [53] yaml_2.2.1       colorspace_2.0-2 rvest_1.0.2      knitr_1.36      
     [57] haven_2.4.3     
 
-RStudio version 1.4.1717.
+RStudio version 2021.9.1.372.
 
 ------------------------------------------------------------------------
 
 # Cite R packages used
 
     R.utils 
-    Henrik Bengtsson (2020). R.utils: Various Programming Utilities. R package version 2.10.1. https://CRAN.R-project.org/package=R.utils 
+    Henrik Bengtsson (2021). R.utils: Various Programming Utilities. R package version 2.11.0. https://CRAN.R-project.org/package=R.utils 
      
     ggplot2 
     H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016. 
@@ -545,7 +556,7 @@ RStudio version 1.4.1717.
     Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686 
      
     ggh4x 
-    Teun van den Brand (2021). ggh4x: Hacks for 'ggplot2'. R package version 0.2.0.9000. https://github.com/teunbrand/ggh4x 
+    Teun van den Brand (NA). ggh4x: Hacks for 'ggplot2'. R package version 0.2.1.9000. https://github.com/teunbrand/ggh4x 
      
     patchwork 
     Thomas Lin Pedersen (2020). patchwork: The Composer of Plots. R package version 1.1.1. https://CRAN.R-project.org/package=patchwork 
