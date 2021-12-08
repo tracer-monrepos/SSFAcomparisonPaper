@@ -1,7 +1,7 @@
 Summary statistics on SSFA datasets
 ================
 Ivan Calandra
-2021-12-01 10:59:02
+2021-12-08 14:24:24
 
 -   [Goal of the script](#goal-of-the-script)
 -   [Load packages](#load-packages)
@@ -14,8 +14,6 @@ Ivan Calandra
         once](#create-function-to-compute-the-statistics-at-once)
     -   [Define grouping and numerical variables to
         use](#define-grouping-and-numerical-variables-to-use)
-    -   [Exclude surfaces with NMP >=
-        20%](#exclude-surfaces-with-nmp--20)
     -   [Compute summary statistics](#compute-summary-statistics)
     -   [Add units](#add-units)
 -   [Write results to XLSX](#write-results-to-xlsx)
@@ -151,48 +149,21 @@ All numerical variables will be used:
     HAsfc81
     NewEplsar
 
-## Exclude surfaces with NMP \>= 20%
-
-``` r
-data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
-str(data_nmp0_20)
-```
-
-    'data.frame':   278 obs. of  15 variables:
-     $ Dataset     : Factor w/ 3 levels "GuineaPigs","Sheeps",..: 1 1 1 1 1 1 1 1 1 1 ...
-     $ Name        : Factor w/ 142 levels "capor_2CC4B1_txP4_#1_1_100xL_1",..: 1 1 2 2 3 3 4 4 5 5 ...
-     $ Software    : Factor w/ 2 levels "ConfoMap","Toothfrax": 1 2 1 2 1 2 1 2 1 2 ...
-     $ Diet        : Factor w/ 7 levels "Dry bamboo","Dry grass",..: 3 3 3 3 3 3 3 3 3 3 ...
-     $ Treatment   : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...
-     $ Before.after: Factor w/ 2 levels "Before","After": NA NA NA NA NA NA NA NA NA NA ...
-     $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
-     $ NMP_cat     : Ord.factor w/ 4 levels "0-5%"<"5-10%"<..: 1 1 1 1 1 1 1 1 1 1 ...
-     $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
-     $ Rsquared    : num  0.997 0.999 0.998 1 0.997 ...
-     $ Asfc        : num  16 12.9 14.1 12 15.1 ...
-     $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
-     $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
-     $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
-     $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
-     - attr(*, "comment")= Named chr [1:9] "%" "<no unit>" "<no unit>" "<no unit>" ...
-      ..- attr(*, "names")= chr [1:9] "NMP" "epLsar" "NewEplsar" "Rsquared" ...
-
-Surfaces with more than 20% NMP are likely the result of issues during
-acquisition and must be excluded. While surfaces having more than 10%
-(or 5%) NMP can also be problematic, they are still included in the
-summary statistics. Nevertheless, the summary statistics will be
-calculated for each NMP category (i.e. 0-5, 5-10 and 10-20% NMP).
-
-6 surfaces have been filtered out, i.e. 3 surfaces for each software
-package.
-
 ## Compute summary statistics
 
 ``` r
 # All data
 all_stats <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
-             summaryBy(data = data_nmp0_20, FUN = nminmaxmeanmedsd)
+             summaryBy(data = all_data, FUN = nminmaxmeanmedsd)
 ```
+
+    Warning in min(y): no non-missing arguments to min; returning Inf
+
+    Warning in max(y): no non-missing arguments to max; returning -Inf
+
+    Warning in min(y): no non-missing arguments to min; returning Inf
+
+    Warning in max(y): no non-missing arguments to max; returning -Inf
 
     Warning in min(y): no non-missing arguments to min; returning Inf
 
@@ -285,7 +256,7 @@ NewEplsar can only be computed in ConfoMap.
 str(all_stats)
 ```
 
-    'data.frame':   42 obs. of  54 variables:
+    'data.frame':   46 obs. of  54 variables:
      $ Dataset         : Factor w/ 3 levels "GuineaPigs","Sheeps",..: 1 1 1 1 1 1 1 1 1 1 ...
      $ Diet            : Factor w/ 7 levels "Dry bamboo","Dry grass",..: 1 1 1 1 1 1 2 2 2 2 ...
      $ Treatment       : Factor w/ 4 levels "Control","RubDirt",..: NA NA NA NA NA NA NA NA NA NA ...

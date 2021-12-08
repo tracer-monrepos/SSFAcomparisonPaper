@@ -111,31 +111,20 @@ grp <- c("Dataset", "Diet", "Treatment", "Before.after", "NMP_cat", "Software")
 
 The following grouping variables will be used: 
 ```{r, echo = FALSE}
-cat(colnames(select(all_data, all_of(grp))), sep="\n")
+cat(colnames(select(all_data, all_of(grp))), sep = "\n")
 ```
 
 All numerical variables will be used: 
 ```{r, echo = FALSE}
-cat(colnames(select(all_data, where(is.numeric))), sep="\n")
+cat(colnames(select(all_data, where(is.numeric))), sep = "\n")
 ```
-
-
-## Exclude surfaces with NMP >= 20%
-```{r}
-data_nmp0_20 <- filter(all_data, NMP_cat != "20-100%")
-str(data_nmp0_20)
-```
-
-Surfaces with more than 20% NMP are likely the result of issues during acquisition and must be excluded. While surfaces having more than 10% (or 5%) NMP can also be problematic, they are still included in the summary statistics. Nevertheless, the summary statistics will be calculated for each NMP category (i.e. 0-5, 5-10 and 10-20% NMP).  
-
-`r nrow(all_data) - nrow(data_nmp0_20)` surfaces have been filtered out, i.e. `r (nrow(all_data) - nrow(data_nmp0_20))/2` surfaces for each software package.  
 
 
 ## Compute summary statistics
 ```{r}
 # All data
 all_stats <- as.formula(paste(".~", paste(grp, collapse = "+"))) %>% 
-             summaryBy(data = data_nmp0_20, FUN = nminmaxmeanmedsd)
+             summaryBy(data = all_data, FUN = nminmaxmeanmedsd)
 ```
 
 The warnings are due to the missing values for NewEplsar - Toothfrax. NewEplsar can only be computed in ConfoMap.

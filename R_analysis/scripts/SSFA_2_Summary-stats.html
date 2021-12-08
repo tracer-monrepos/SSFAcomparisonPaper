@@ -325,7 +325,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Summary statistics on SSFA datasets</h1>
 <h4 class="author">Ivan Calandra</h4>
-<h4 class="date">2021-12-01 10:58:58</h4>
+<h4 class="date">2021-12-08 14:24:19</h4>
 
 </div>
 
@@ -439,36 +439,15 @@ HAsfc9
 HAsfc81
 NewEplsar</code></pre>
 </div>
-<div id="exclude-surfaces-with-nmp-20" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Exclude surfaces with NMP &gt;= 20%</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data_nmp0_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(all_data, NMP_cat <span class="sc">!=</span> <span class="st">&quot;20-100%&quot;</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_nmp0_20)</span></code></pre></div>
-<pre><code>&#39;data.frame&#39;:   278 obs. of  15 variables:
- $ Dataset     : Factor w/ 3 levels &quot;GuineaPigs&quot;,&quot;Sheeps&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
- $ Name        : Factor w/ 142 levels &quot;capor_2CC4B1_txP4_#1_1_100xL_1&quot;,..: 1 1 2 2 3 3 4 4 5 5 ...
- $ Software    : Factor w/ 2 levels &quot;ConfoMap&quot;,&quot;Toothfrax&quot;: 1 2 1 2 1 2 1 2 1 2 ...
- $ Diet        : Factor w/ 7 levels &quot;Dry bamboo&quot;,&quot;Dry grass&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
- $ Treatment   : Factor w/ 4 levels &quot;Control&quot;,&quot;RubDirt&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
- $ Before.after: Factor w/ 2 levels &quot;Before&quot;,&quot;After&quot;: NA NA NA NA NA NA NA NA NA NA ...
- $ NMP         : num  1.896 1.896 1.308 1.308 0.806 ...
- $ NMP_cat     : Ord.factor w/ 4 levels &quot;0-5%&quot;&lt;&quot;5-10%&quot;&lt;..: 1 1 1 1 1 1 1 1 1 1 ...
- $ epLsar      : num  0.00196 0.00147 0.00366 0.00269 0.00314 ...
- $ Rsquared    : num  0.997 0.999 0.998 1 0.997 ...
- $ Asfc        : num  16 12.9 14.1 12 15.1 ...
- $ Smfc        : num  0.33 0.119 0.35 0.119 0.33 ...
- $ HAsfc9      : num  0.179 0.182 0.136 0.159 0.131 ...
- $ HAsfc81     : num  0.391 0.337 0.443 0.382 0.357 ...
- $ NewEplsar   : num  0.0184 NA 0.0189 NA 0.0187 ...
- - attr(*, &quot;comment&quot;)= Named chr [1:9] &quot;%&quot; &quot;&lt;no unit&gt;&quot; &quot;&lt;no unit&gt;&quot; &quot;&lt;no unit&gt;&quot; ...
-  ..- attr(*, &quot;names&quot;)= chr [1:9] &quot;NMP&quot; &quot;epLsar&quot; &quot;NewEplsar&quot; &quot;Rsquared&quot; ...</code></pre>
-<p>Surfaces with more than 20% NMP are likely the result of issues during acquisition and must be excluded. While surfaces having more than 10% (or 5%) NMP can also be problematic, they are still included in the summary statistics. Nevertheless, the summary statistics will be calculated for each NMP category (i.e. 0-5, 5-10 and 10-20% NMP).</p>
-<p>6 surfaces have been filtered out, i.e. 3 surfaces for each software package.</p>
-</div>
-<div id="compute-summary-statistics" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Compute summary statistics</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All data</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>all_stats <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;.~&quot;</span>, <span class="fu">paste</span>(grp, <span class="at">collapse =</span> <span class="st">&quot;+&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">summaryBy</span>(<span class="at">data =</span> data_nmp0_20, <span class="at">FUN =</span> nminmaxmeanmedsd)</span></code></pre></div>
+<div id="compute-summary-statistics" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Compute summary statistics</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>all_stats <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;.~&quot;</span>, <span class="fu">paste</span>(grp, <span class="at">collapse =</span> <span class="st">&quot;+&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">summaryBy</span>(<span class="at">data =</span> all_data, <span class="at">FUN =</span> nminmaxmeanmedsd)</span></code></pre></div>
+<pre><code>Warning in min(y): no non-missing arguments to min; returning Inf</code></pre>
+<pre><code>Warning in max(y): no non-missing arguments to max; returning -Inf</code></pre>
+<pre><code>Warning in min(y): no non-missing arguments to min; returning Inf</code></pre>
+<pre><code>Warning in max(y): no non-missing arguments to max; returning -Inf</code></pre>
 <pre><code>Warning in min(y): no non-missing arguments to min; returning Inf</code></pre>
 <pre><code>Warning in max(y): no non-missing arguments to max; returning -Inf</code></pre>
 <pre><code>Warning in min(y): no non-missing arguments to min; returning Inf</code></pre>
@@ -512,8 +491,8 @@ NewEplsar</code></pre>
 <pre><code>Warning in min(y): no non-missing arguments to min; returning Inf</code></pre>
 <pre><code>Warning in max(y): no non-missing arguments to max; returning -Inf</code></pre>
 <p>The warnings are due to the missing values for NewEplsar - Toothfrax. NewEplsar can only be computed in ConfoMap.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(all_stats)</span></code></pre></div>
-<pre><code>&#39;data.frame&#39;:   42 obs. of  54 variables:
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(all_stats)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   46 obs. of  54 variables:
  $ Dataset         : Factor w/ 3 levels &quot;GuineaPigs&quot;,&quot;Sheeps&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Diet            : Factor w/ 7 levels &quot;Dry bamboo&quot;,&quot;Dry grass&quot;,..: 1 1 1 1 1 1 2 2 2 2 ...
  $ Treatment       : Factor w/ 4 levels &quot;Control&quot;,&quot;RubDirt&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
@@ -569,21 +548,21 @@ NewEplsar</code></pre>
  $ NewEplsar.median: num  0.0198 NA 0.0195 NA 0.0192 ...
  $ NewEplsar.sd    : num  0.000394 NA 0.000498 NA 0.000538 ...</code></pre>
 </div>
-<div id="add-units" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Add units</h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>units_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">variable =</span> <span class="fu">names</span>(<span class="fu">comment</span>(all_data)), <span class="at">units =</span> <span class="fu">comment</span>(all_data))</span></code></pre></div>
+<div id="add-units" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Add units</h2>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>units_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">variable =</span> <span class="fu">names</span>(<span class="fu">comment</span>(all_data)), <span class="at">units =</span> <span class="fu">comment</span>(all_data))</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="write-results-to-xlsx" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Write results to XLSX</h1>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">summary_stats =</span> all_stats, <span class="at">units =</span> units_stats), </span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">file =</span> <span class="fu">paste0</span>(dir_out, <span class="st">&quot;/SSFA_summary-stats.xlsx&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">summary_stats =</span> all_stats, <span class="at">units =</span> units_stats), </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">file =</span> <span class="fu">paste0</span>(dir_out, <span class="st">&quot;/SSFA_summary-stats.xlsx&quot;</span>))</span></code></pre></div>
 <hr />
 </div>
 <div id="sessioninfo-and-rstudio-version" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> sessionInfo() and RStudio version</h1>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
