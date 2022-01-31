@@ -657,24 +657,119 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
     df = pd.DataFrame(hdiList,columns=["Treatment_i","Treatment_j",                                    "hdi_{}_2.5%".format(dictSoftware[0]),"hdi_{}_97.5%".format(dictSoftware[0]),"isSignificant_on_{}".format(dictSoftware[0]),
                                   "hdi_{}_2.5%".format(dictSoftware[1]),"hdi_{}_97.5%".format(dictSoftware[1]),"isSignificant_on_{}".format(dictSoftware[1])])
     return df
-# End of script    
 
+def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3):
+        
+    SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
+    
+    mu_Val,sig_Val = dictMeanStd[yname]
+    
+    # get posterior samples
+    b1P = sig_Val*trace['{}_b1'.format(yname)]
+    b2P = sig_Val*trace['{}_b2'.format(yname)]
+    M12P = sig_Val*trace['{}_M12'.format(yname)]
+
+    # prepare color dict for treatments
+    # use groups of 4 colors, as in tab20c
+    colorIndex = dict({5:0,6:1,7:2,0:4,1:5,4:6,10:7,2:8,3:9,8:10,9:11})
+    
+    # prepare dataset dict for treatments   
+    dictDataset = dict({5:0,6:0,7:0,0:1,1:1,4:1,10:1,2:2,3:2,8:2,9:2})
+    
+    # === inverse dict ==== 
+    inv_dictDataset = defaultdict(list)                                                                  
+  
+    # using loop to perform reverse mapping 
+    for keys, vals in dictDataset.items():  
+        for val in [vals]:  
+            inv_dictDataset[val].append(keys) 
+    # === 
+    
+    # get number of datasets    
+    numDatasets = len(np.unique(list(dictDataset.values())))
+    
+    # get number of treatments per dataset
+    dictDataset2NumberTreats = dict()
+    for numDataset in range(numDatasets):        
+        n = len(inv_dictDataset[numDataset])
+        dictDataset2NumberTreats[numDataset] = n      
+         
+    # Get maximum of treatments per dataset
+    tmax = np.max(list(dictDataset2NumberTreats.values()))
     
     
+    # compute maximal number of pairs 
+    maxpair = int(tmax*(tmax-1)/2)
     
+    #fig = plt.subplots(squeeze=False, figsize=(numDatasets*widthInch,maxpair*heigthInch), dpi=dpi);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    # store list for hdi
+    hdiList = []
+
+    for indexDataset in np.arange(numDatasets):
+        # counter for row
+        rowCounter = 0
+        
+        # first treatment 
+        for treatmentNum_i,lvl2_i in enumerate(inv_dictDataset[indexDataset]):
+            
+            # second treatment 
+            for treatmentNum_j,lvl2_j in enumerate(inv_dictDataset[indexDataset]):
+                
+                if treatmentNum_i > treatmentNum_j:
+                    # ==== logic =========
+                    # compute difference between treatments for each software
+                    diffS0 = (M12P[:,0,lvl2_i]+b2P[:,lvl2_i]) -(M12P[:,0,lvl2_j]+b2P[:,lvl2_j])
+                    diffS1 = (M12P[:,1,lvl2_i]+b2P[:,lvl2_i]) -(M12P[:,1,lvl2_j]+b2P[:,lvl2_j])                 
+                                        
+                    # get hdi
+                    hdiS0 = az.hdi(az.convert_to_inference_data(diffS0),hdi_prob=0.95)['x'].values
+                    hdiS1 = az.hdi(az.convert_to_inference_data(diffS1),hdi_prob=0.95)['x'].values
+                    
+                    isSignificant = lambda x: (x[0] > 0.0) or (x[1] < 0.0)
+                    
+                    if isSignificant(hdiS0) != isSignificant(hdiS1):
+                    
+                        # set subplot                    
+                        fig = plt.figure(figsize=(widthInch,heigthInch), dpi=dpi);
+                        curr_ax = fig.add_subplot(111)
+
+                        # plot reference value zero
+                        curr_ax.axvline(x=0,color="C1")
+
+                        # set title 
+                        nameFirst = dictTreatment[lvl2_i]
+                        nameSecond = dictTreatment[lvl2_j]
+                        title = "{} vs. {}".format(nameFirst,nameSecond)
+                        if isSignificant(hdiS0):
+                            title += ": Significant on {}, not on {}".format(dictSoftware[0],dictSoftware[1])
+                            if isSignificant(hdiS1):
+                                title += " and {}".format(dictSoftware[1])                        
+                        else:
+                            if isSignificant(hdiS1):
+                                title += ": Significant on {}, not on {}".format(dictSoftware[1],dictSoftware[0])
+
+
+                        #plot posterior                    
+                        sns.kdeplot(diffS0,ax=curr_ax,label=dictSoftware[0],color='gray',alpha=0.3,ls='dotted');
+                        sns.kdeplot(diffS1,ax=curr_ax,label=dictSoftware[1],color='gray',alpha=0.3,ls='--');        
+                        
+                        curr_ax.set_title(title)
+                        
+                        
+                        # add legend
+                        curr_ax.legend()   
+
+                        # set x label
+                        curr_ax.set_xlabel('Delta {}'.format(yname))
+
+                        # remove y label decoration
+                        #curr_ax.tick_params(left=False)
+                        #curr_ax.set(yticklabels=[])
+                        
+                        plt.tight_layout() 
+                                                                                         
+                        if writeOut:
+                            plt.savefig(path + "treatment_diff_{}_{}_{}.pdf".format(yname,nameFirst,nameSecond),dpi=dpi)
+                            
+                        plt.show()
