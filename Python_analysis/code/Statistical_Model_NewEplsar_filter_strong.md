@@ -1068,10 +1068,14 @@ with new_epLsarModel as model:
             background: #F44336;
         }
     </style>
-  <progress value='7798' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  97.47% [7798/8000 01:08<00:01 Sampling 4 chains, 0 divergences]
+  <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [8000/8000 01:15<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
+
+
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 75 seconds.
+    The number of effective samples is smaller than 25% for some parameters.
 
 
 
@@ -1096,11 +1100,213 @@ pm.summary(dataTrace_new_epLsar,hdi_prob=0.95).round(2)
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_2.5%</th>
+      <th>hdi_97.5%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NewEplsar_mu_b0</th>
+      <td>-0.19</td>
+      <td>0.65</td>
+      <td>-1.43</td>
+      <td>1.20</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>1733.0</td>
+      <td>1733.0</td>
+      <td>1709.0</td>
+      <td>2342.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu_b2[0]</th>
+      <td>-0.88</td>
+      <td>0.48</td>
+      <td>-1.82</td>
+      <td>0.08</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>1512.0</td>
+      <td>1512.0</td>
+      <td>1586.0</td>
+      <td>1734.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu_b2[1]</th>
+      <td>-0.34</td>
+      <td>0.48</td>
+      <td>-1.30</td>
+      <td>0.58</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>2038.0</td>
+      <td>2038.0</td>
+      <td>2028.0</td>
+      <td>2408.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu_b2[2]</th>
+      <td>0.14</td>
+      <td>0.48</td>
+      <td>-0.72</td>
+      <td>1.14</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>2041.0</td>
+      <td>2041.0</td>
+      <td>2044.0</td>
+      <td>2527.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu_b2[3]</th>
+      <td>-0.18</td>
+      <td>0.45</td>
+      <td>-1.02</td>
+      <td>0.72</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>1866.0</td>
+      <td>1866.0</td>
+      <td>1891.0</td>
+      <td>2100.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu[110]</th>
+      <td>-0.54</td>
+      <td>0.22</td>
+      <td>-0.94</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4753.0</td>
+      <td>4655.0</td>
+      <td>4764.0</td>
+      <td>3355.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu[111]</th>
+      <td>-0.54</td>
+      <td>0.22</td>
+      <td>-0.94</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4753.0</td>
+      <td>4655.0</td>
+      <td>4764.0</td>
+      <td>3355.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu[112]</th>
+      <td>-0.54</td>
+      <td>0.22</td>
+      <td>-0.94</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4753.0</td>
+      <td>4655.0</td>
+      <td>4764.0</td>
+      <td>3355.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu[113]</th>
+      <td>-0.54</td>
+      <td>0.22</td>
+      <td>-0.94</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4753.0</td>
+      <td>4655.0</td>
+      <td>4764.0</td>
+      <td>3355.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>NewEplsar_mu[114]</th>
+      <td>-0.54</td>
+      <td>0.22</td>
+      <td>-0.94</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4753.0</td>
+      <td>4655.0</td>
+      <td>4764.0</td>
+      <td>3355.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>166 rows × 11 columns</p>
+</div>
+
+
+
+
 ```python
 az.plot_forest(dataTrace_new_epLsar,var_names=['b0','b2'],filter_vars='like',figsize=(widthInch,5*heigthInch),hdi_prob=0.95,ess=True,r_hat=True);
 if writeOut:
     plt.savefig(outPathPlots + "posterior_forest_{}.pdf".format('NewEplsar'),dpi=dpi)
 ```
+
+
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_65_0.png)
+    
+
 
 
 ```python
@@ -1109,10 +1315,22 @@ with new_epLsarModel as model:
 ```
 
 
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_66_0.png)
+    
+
+
+
 ```python
 with new_epLsarModel as model:
     plotting_lib.pm.energyplot(trace_new_epLsar)
 ```
+
+
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_67_0.png)
+    
+
 
 #### Posterior predictive distribution
 
@@ -1122,10 +1340,41 @@ with new_epLsarModel as model:
     posterior_pred_new_epLsar = pm.sample_posterior_predictive(trace_new_epLsar,samples=numPredSamples,random_seed=random_seed)
 ```
 
+    /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/pymc3/sampling.py:1708: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
+      "samples parameter is smaller than nchains times ndraws, some draws "
+
+
+
+
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [2000/2000 00:01<00:00]
+</div>
+
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,dfNewAvail.reset_index(),dictMeanStd,prior_pred_new_epLsar,posterior_pred_new_epLsar,newZ,'NewEplsar')
 ```
+
+
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_70_0.png)
+    
+
 
 ### Posterior check
 
@@ -1135,10 +1384,19 @@ with new_epLsarModel as model:
     pm_data_new_epLsar = az.from_pymc3(trace=trace_new_epLsar,prior=prior_pred_new_epLsar,posterior_predictive=posterior_pred_new_epLsar)
 ```
 
+    arviz.data.io_pymc3 - WARNING - posterior predictive variable NewEplsar_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
+
+
 
 ```python
 plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_new_epLsar,'NewEplsar')
 ```
+
+
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_73_0.png)
+    
+
 
 ### Compare treatment differences with other epLsar values
 
@@ -1291,9 +1549,266 @@ dfHDI = plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPl
 ```
 
 
+    
+![png](Statistical_Model_NewEplsar_filter_strong_files/Statistical_Model_NewEplsar_filter_strong_78_0.png)
+    
+
+
+
 ```python
 dfHDI
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>hdi_NewEplsar_2.5%</th>
+      <th>hdi_NewEplsar_97.5%</th>
+      <th>isSignificant_NewEplsar</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+      <th>isSignificant_on_Toothfrax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Dry grass</td>
+      <td>Dry bamboo</td>
+      <td>-0.002432</td>
+      <td>-0.001317</td>
+      <td>True</td>
+      <td>-0.002483</td>
+      <td>-0.001163</td>
+      <td>True</td>
+      <td>-0.002425</td>
+      <td>-0.001073</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Dry lucerne</td>
+      <td>Dry bamboo</td>
+      <td>-0.001744</td>
+      <td>-0.000967</td>
+      <td>True</td>
+      <td>-0.001994</td>
+      <td>-0.000989</td>
+      <td>True</td>
+      <td>-0.002125</td>
+      <td>-0.001123</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dry lucerne</td>
+      <td>Dry grass</td>
+      <td>-0.000005</td>
+      <td>0.001062</td>
+      <td>False</td>
+      <td>-0.000298</td>
+      <td>0.000995</td>
+      <td>False</td>
+      <td>-0.000566</td>
+      <td>0.000752</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BrushNoDirt</td>
+      <td>BrushDirt</td>
+      <td>-0.000096</td>
+      <td>0.001424</td>
+      <td>False</td>
+      <td>-0.000767</td>
+      <td>0.001198</td>
+      <td>False</td>
+      <td>-0.001081</td>
+      <td>0.000761</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Control</td>
+      <td>BrushDirt</td>
+      <td>0.000360</td>
+      <td>0.001854</td>
+      <td>True</td>
+      <td>-0.000681</td>
+      <td>0.001184</td>
+      <td>False</td>
+      <td>-0.000577</td>
+      <td>0.001413</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Control</td>
+      <td>BrushNoDirt</td>
+      <td>-0.000262</td>
+      <td>0.001256</td>
+      <td>False</td>
+      <td>-0.000922</td>
+      <td>0.000975</td>
+      <td>False</td>
+      <td>-0.000236</td>
+      <td>0.001565</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>RubDirt</td>
+      <td>BrushDirt</td>
+      <td>-0.000588</td>
+      <td>0.000882</td>
+      <td>False</td>
+      <td>-0.000482</td>
+      <td>0.001530</td>
+      <td>False</td>
+      <td>-0.000985</td>
+      <td>0.001008</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RubDirt</td>
+      <td>BrushNoDirt</td>
+      <td>-0.001186</td>
+      <td>0.000246</td>
+      <td>False</td>
+      <td>-0.000851</td>
+      <td>0.001292</td>
+      <td>False</td>
+      <td>-0.000745</td>
+      <td>0.001051</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RubDirt</td>
+      <td>Control</td>
+      <td>-0.001777</td>
+      <td>-0.000251</td>
+      <td>True</td>
+      <td>-0.000658</td>
+      <td>0.001312</td>
+      <td>False</td>
+      <td>-0.001443</td>
+      <td>0.000513</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Clover+dust</td>
+      <td>Clover</td>
+      <td>-0.000999</td>
+      <td>0.000210</td>
+      <td>False</td>
+      <td>-0.000614</td>
+      <td>0.000871</td>
+      <td>False</td>
+      <td>-0.000503</td>
+      <td>0.000937</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>-0.000745</td>
+      <td>0.000590</td>
+      <td>False</td>
+      <td>-0.000027</td>
+      <td>0.001613</td>
+      <td>False</td>
+      <td>0.000206</td>
+      <td>0.002019</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Grass</td>
+      <td>Clover+dust</td>
+      <td>-0.000304</td>
+      <td>0.000986</td>
+      <td>False</td>
+      <td>-0.000256</td>
+      <td>0.001459</td>
+      <td>False</td>
+      <td>-0.000011</td>
+      <td>0.001750</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Grass+dust</td>
+      <td>Clover</td>
+      <td>-0.001116</td>
+      <td>0.000149</td>
+      <td>False</td>
+      <td>0.000111</td>
+      <td>0.001722</td>
+      <td>True</td>
+      <td>0.000299</td>
+      <td>0.001861</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>-0.000669</td>
+      <td>0.000521</td>
+      <td>False</td>
+      <td>-0.000007</td>
+      <td>0.001696</td>
+      <td>False</td>
+      <td>0.000105</td>
+      <td>0.001703</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Grass+dust</td>
+      <td>Grass</td>
+      <td>-0.001049</td>
+      <td>0.000237</td>
+      <td>False</td>
+      <td>-0.000730</td>
+      <td>0.001062</td>
+      <td>False</td>
+      <td>-0.000989</td>
+      <td>0.000880</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -1312,6 +1827,117 @@ df_summary
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Treatment_i</th>
+      <th>Treatment_j</th>
+      <th>isSignificant_NewEplsar</th>
+      <th>isSignificant_on_Toothfrax</th>
+      <th>isSignificant_on_ConfoMap</th>
+      <th>hdi_NewEplsar_2.5%</th>
+      <th>hdi_NewEplsar_97.5%</th>
+      <th>hdi_ConfoMap_2.5%</th>
+      <th>hdi_ConfoMap_97.5%</th>
+      <th>hdi_Toothfrax_2.5%</th>
+      <th>hdi_Toothfrax_97.5%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Control</td>
+      <td>BrushDirt</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0.000360</td>
+      <td>0.001854</td>
+      <td>-0.000681</td>
+      <td>0.001184</td>
+      <td>-0.000577</td>
+      <td>0.001413</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RubDirt</td>
+      <td>Control</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-0.001777</td>
+      <td>-0.000251</td>
+      <td>-0.000658</td>
+      <td>0.001312</td>
+      <td>-0.001443</td>
+      <td>0.000513</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Grass</td>
+      <td>Clover</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.000745</td>
+      <td>0.000590</td>
+      <td>-0.000027</td>
+      <td>0.001613</td>
+      <td>0.000206</td>
+      <td>0.002019</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Grass+dust</td>
+      <td>Clover</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>-0.001116</td>
+      <td>0.000149</td>
+      <td>0.000111</td>
+      <td>0.001722</td>
+      <td>0.000299</td>
+      <td>0.001861</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Grass+dust</td>
+      <td>Clover+dust</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.000669</td>
+      <td>0.000521</td>
+      <td>-0.000007</td>
+      <td>0.001696</td>
+      <td>0.000105</td>
+      <td>0.001703</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 if writeOut:
     df_summary.to_csv(outPathData+ 'summary_filter_strong.csv')
@@ -1324,10 +1950,26 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_NewEplsar_filter_strong.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_strong.ipynb to html
+    [NbConvertApp] Writing 1076733 bytes to Statistical_Model_NewEplsar_filter_strong.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_NewEplsar_filter_strong.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_strong.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_NewEplsar_filter_strong_files/
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Writing 31345 bytes to Statistical_Model_NewEplsar_filter_strong.md
+
 
 
 ```python

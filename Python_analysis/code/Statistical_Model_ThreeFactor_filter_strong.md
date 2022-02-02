@@ -2811,9 +2811,233 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_2.5%</th>
+      <th>hdi_97.5%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HAsfc9_mu_b0</th>
+      <td>-0.00</td>
+      <td>0.82</td>
+      <td>-1.68</td>
+      <td>1.55</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>3782.0</td>
+      <td>2036.0</td>
+      <td>3779.0</td>
+      <td>2689.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu_b1[0]</th>
+      <td>0.01</td>
+      <td>0.69</td>
+      <td>-1.33</td>
+      <td>1.34</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>4279.0</td>
+      <td>2197.0</td>
+      <td>4390.0</td>
+      <td>3117.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu_b1[1]</th>
+      <td>-0.02</td>
+      <td>0.70</td>
+      <td>-1.38</td>
+      <td>1.35</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>4028.0</td>
+      <td>2107.0</td>
+      <td>4063.0</td>
+      <td>2662.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu_b2[0]</th>
+      <td>-0.26</td>
+      <td>0.53</td>
+      <td>-1.35</td>
+      <td>0.72</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>2143.0</td>
+      <td>2124.0</td>
+      <td>2150.0</td>
+      <td>2808.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu_b2[1]</th>
+      <td>0.07</td>
+      <td>0.50</td>
+      <td>-0.90</td>
+      <td>1.07</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>2457.0</td>
+      <td>2386.0</td>
+      <td>2444.0</td>
+      <td>2855.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu[225]</th>
+      <td>0.39</td>
+      <td>0.02</td>
+      <td>0.34</td>
+      <td>0.43</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4042.0</td>
+      <td>4035.0</td>
+      <td>3933.0</td>
+      <td>3252.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu[226]</th>
+      <td>0.36</td>
+      <td>0.20</td>
+      <td>0.13</td>
+      <td>0.63</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>288.0</td>
+      <td>288.0</td>
+      <td>455.0</td>
+      <td>3073.0</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu[227]</th>
+      <td>0.33</td>
+      <td>0.20</td>
+      <td>0.10</td>
+      <td>0.59</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>288.0</td>
+      <td>288.0</td>
+      <td>451.0</td>
+      <td>3108.0</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu[228]</th>
+      <td>-0.13</td>
+      <td>0.02</td>
+      <td>-0.16</td>
+      <td>-0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>5325.0</td>
+      <td>2741.0</td>
+      <td>3907.0</td>
+      <td>3274.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>HAsfc9_mu[229]</th>
+      <td>-0.16</td>
+      <td>0.02</td>
+      <td>-0.19</td>
+      <td>-0.13</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>5295.0</td>
+      <td>2994.0</td>
+      <td>3852.0</td>
+      <td>3338.0</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>623 rows × 11 columns</p>
+</div>
+
+
+
+
 ```python
 plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc9,dataTrace_HAsfc9,'HAsfc9')
 ```
+
+    /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/arviz/plots/backends/matplotlib/pairplot.py:216: UserWarning: rcParams['plot.max_subplots'] (40) is smaller than the number of resulting pair plots with these variables, generating only a 8x8 grid
+      UserWarning,
+
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_148_1.png)
+    
+
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_148_2.png)
+    
+
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_148_3.png)
+    
+
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_148_4.png)
+    
+
 
 
 ```python
@@ -2822,10 +3046,22 @@ with HAsfc9Model as model:
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_149_0.png)
+    
+
+
+
 ```python
 with HAsfc9Model as model:
     plotting_lib.pm.energyplot(trace_HAsfc9)
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_150_0.png)
+    
+
 
 #### Posterior predictive distribution
 
@@ -2835,10 +3071,41 @@ with HAsfc9Model as model:
     posterior_pred_HAsfc9 = pm.sample_posterior_predictive(trace_HAsfc9,samples=numPredSamples,random_seed=random_seed)
 ```
 
+    /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/pymc3/sampling.py:1708: UserWarning: samples parameter is smaller than nchains times ndraws, some draws and/or chains may not be represented in the returned posterior predictive sample
+      "samples parameter is smaller than nchains times ndraws, some draws "
+
+
+
+
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [2000/2000 00:01<00:00]
+</div>
+
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc9,posterior_pred_HAsfc9,dataZ["HAsfc9_z"].values,'HAsfc9')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_153_0.png)
+    
+
 
 #### Compare prior and posterior for model parameters
 
@@ -2848,10 +3115,19 @@ with HAsfc9Model as model:
     pm_data_HAsfc9 = az.from_pymc3(trace=trace_HAsfc9,prior=prior_pred_HAsfc9,posterior_predictive=posterior_pred_HAsfc9)
 ```
 
+    arviz.data.io_pymc3 - WARNING - posterior predictive variable HAsfc9_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
+
+
 
 ```python
 plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc9,'HAsfc9')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_156_0.png)
+    
+
 
 #### Posterior and contrasts
 
@@ -2861,9 +3137,21 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_158_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc9,'HAsfc9')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_159_0.png)
+    
+
 
 ## Summary <a name="summary"></a>
 The contrast plots between the two software packages are shown below again for each variable except Smfc
@@ -2874,9 +3162,21 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_161_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_Rsquared,'Rsquared')
 ```
+
+
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_162_0.png)
+    
+
 
 
 ```python
@@ -2884,14 +3184,21 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 ```
 
 
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_163_0.png)
+    
+
+
+
 ```python
 plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc9,'HAsfc9')
 ```
 
 
-```python
-plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,x1contrast_dict,trace_HAsfc81,'HAsfc81')
-```
+    
+![png](Statistical_Model_ThreeFactor_filter_strong_files/Statistical_Model_ThreeFactor_filter_strong_164_0.png)
+    
+
 
 ### Write out
 
@@ -2900,10 +3207,64 @@ plotting_lib.plotContrast(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMea
 !jupyter nbconvert --to html Statistical_Model_ThreeFactor_filter_strong.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor_filter_strong.ipynb to html
+    [NbConvertApp] Writing 7133045 bytes to Statistical_Model_ThreeFactor_filter_strong.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_ThreeFactor_filter_strong.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_ThreeFactor_filter_strong.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_ThreeFactor_filter_strong_files/
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_ThreeFactor_filter_strong_files
+    [NbConvertApp] Writing 69598 bytes to Statistical_Model_ThreeFactor_filter_strong.md
+
 
 
 ```python
