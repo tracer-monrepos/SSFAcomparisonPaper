@@ -96,7 +96,7 @@
 <text text-anchor="middle" x="255" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
 </g>
 <!-- epLsar_b1_dist&#45;&gt;epLsar_b1 -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>epLsar_b1_dist&#45;&gt;epLsar_b1</title>
 <path fill="none" stroke="#000000" d="M358.2932,-360.6577C340.8378,-348.7861 320.6838,-335.0791 302.838,-322.9419"/>
 <polygon fill="#000000" stroke="#000000" points="304.5218,-319.8543 294.2846,-317.1247 300.5852,-325.6425 304.5218,-319.8543"/>
@@ -162,7 +162,7 @@
 <text text-anchor="middle" x="1065" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
 </g>
 <!-- epLsar_M12_dist&#45;&gt;epLsar_M12 -->
-<g id="edge11" class="edge">
+<g id="edge13" class="edge">
 <title>epLsar_M12_dist&#45;&gt;epLsar_M12</title>
 <path fill="none" stroke="#000000" d="M1176.9947,-360.387C1157.8371,-348.4163 1135.7486,-334.6142 1116.2777,-322.4477"/>
 <polygon fill="#000000" stroke="#000000" points="1117.8709,-319.3162 1107.5357,-316.9852 1114.1615,-325.2526 1117.8709,-319.3162"/>
@@ -190,7 +190,7 @@
 <text text-anchor="middle" x="1399" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
 </g>
 <!-- epLsar_sigma12&#45;&gt;epLsar_M12 -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>epLsar_sigma12&#45;&gt;epLsar_M12</title>
 <path fill="none" stroke="#000000" d="M1343.7559,-364.4163C1333.9566,-360.2746 1323.7628,-356.2571 1314,-352.9066 1248.7889,-330.527 1171.4713,-312.3733 1120.4875,-301.5097"/>
 <polygon fill="#000000" stroke="#000000" points="1121.1604,-298.0747 1110.6533,-299.4351 1119.7155,-304.924 1121.1604,-298.0747"/>
@@ -218,7 +218,7 @@
 <text text-anchor="middle" x="243" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
 </g>
 <!-- epLsar_sigma1&#45;&gt;epLsar_b1 -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>epLsar_sigma1&#45;&gt;epLsar_b1</title>
 <path fill="none" stroke="#000000" d="M247.5025,-352.8712C248.5032,-344.5341 249.5632,-335.7023 250.5614,-327.3867"/>
 <polygon fill="#000000" stroke="#000000" points="254.0666,-327.5516 251.7834,-317.2057 247.1165,-326.7173 254.0666,-327.5516"/>
@@ -300,7 +300,7 @@
 <text text-anchor="middle" x="1049" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
 </g>
 <!-- epLsar_mu_M12&#45;&gt;epLsar_M12 -->
-<g id="edge12" class="edge">
+<g id="edge11" class="edge">
 <title>epLsar_mu_M12&#45;&gt;epLsar_M12</title>
 <path fill="none" stroke="#000000" d="M1055.0033,-352.8712C1056.3524,-344.4415 1057.7824,-335.506 1059.1261,-327.1097"/>
 <polygon fill="#000000" stroke="#000000" points="1062.5868,-327.6332 1060.7111,-317.2057 1055.6748,-326.527 1062.5868,-327.6332"/>

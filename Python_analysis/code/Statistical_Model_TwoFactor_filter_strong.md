@@ -12,7 +12,6 @@
    1. [Asfc](#Asfc)
    1. [Smfc](#Smfc)
    1. [HAsfc9](#HAsfc9)
-   1. [HAsfc81](#HAsfc81)
 1. [Summary](#summary)
 
 ## Used packages <a name="imports"></a>
@@ -919,7 +918,7 @@ Prior choice is as intended: Broad over the data range.
 
 ```python
 with epLsarModel as model:
-    trace_epLsar = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.95,random_seed=random_seed)
+    trace_epLsar = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.99,random_seed=random_seed)
     #fit_epLsar = pm.fit(random_seed=random_seed)
     #trace_epLsar = fit_epLsar.sample(draws=numSamples)
 ```
@@ -946,13 +945,12 @@ with epLsarModel as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 01:29<00:00 Sampling 4 chains, 1 divergences]
+  100.00% [8000/8000 02:45<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 90 seconds.
-    There was 1 divergence after tuning. Increase `target_accept` or reparameterize.
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 166 seconds.
 
 
 
@@ -1023,72 +1021,72 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
   <tbody>
     <tr>
       <th>epLsar_mu_b0</th>
-      <td>-0.06</td>
-      <td>0.80</td>
-      <td>-1.62</td>
-      <td>1.54</td>
+      <td>-0.04</td>
+      <td>0.81</td>
+      <td>-1.61</td>
+      <td>1.61</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6568.0</td>
-      <td>1939.0</td>
-      <td>6611.0</td>
-      <td>2872.0</td>
+      <td>5648.0</td>
+      <td>1752.0</td>
+      <td>5643.0</td>
+      <td>2897.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[0]</th>
+      <td>0.02</td>
+      <td>0.72</td>
+      <td>-1.38</td>
+      <td>1.48</td>
       <td>0.01</td>
-      <td>0.70</td>
-      <td>-1.47</td>
-      <td>1.30</td>
       <td>0.01</td>
-      <td>0.01</td>
-      <td>5782.0</td>
-      <td>1770.0</td>
-      <td>5782.0</td>
-      <td>2684.0</td>
+      <td>6045.0</td>
+      <td>1737.0</td>
+      <td>6074.0</td>
+      <td>2691.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b1[1]</th>
-      <td>-0.07</td>
+      <td>-0.06</td>
       <td>0.70</td>
-      <td>-1.52</td>
-      <td>1.25</td>
+      <td>-1.45</td>
+      <td>1.26</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6014.0</td>
-      <td>2052.0</td>
-      <td>5972.0</td>
-      <td>3415.0</td>
+      <td>5666.0</td>
+      <td>1688.0</td>
+      <td>5632.0</td>
+      <td>3055.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[0]</th>
-      <td>-0.13</td>
-      <td>0.69</td>
-      <td>-1.52</td>
-      <td>1.18</td>
+      <td>-0.12</td>
+      <td>0.65</td>
+      <td>-1.54</td>
+      <td>1.09</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>5704.0</td>
-      <td>1652.0</td>
-      <td>5713.0</td>
-      <td>2643.0</td>
+      <td>4895.0</td>
+      <td>1989.0</td>
+      <td>4940.0</td>
+      <td>2893.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu_b2[1]</th>
       <td>-0.11</td>
       <td>0.68</td>
-      <td>-1.42</td>
-      <td>1.25</td>
+      <td>-1.48</td>
+      <td>1.15</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>6099.0</td>
-      <td>1286.0</td>
-      <td>6033.0</td>
-      <td>2908.0</td>
+      <td>5403.0</td>
+      <td>1561.0</td>
+      <td>5390.0</td>
+      <td>2519.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1108,71 +1106,71 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
     <tr>
       <th>epLsar_mu[225]</th>
       <td>0.37</td>
-      <td>0.29</td>
-      <td>-0.20</td>
-      <td>0.95</td>
+      <td>0.28</td>
+      <td>-0.18</td>
+      <td>0.96</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4203.0</td>
-      <td>3833.0</td>
-      <td>4195.0</td>
-      <td>3730.0</td>
+      <td>3972.0</td>
+      <td>3951.0</td>
+      <td>3982.0</td>
+      <td>3531.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[226]</th>
-      <td>0.36</td>
+      <td>0.37</td>
       <td>0.30</td>
-      <td>-0.25</td>
-      <td>0.94</td>
+      <td>-0.22</td>
+      <td>0.95</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4139.0</td>
-      <td>3594.0</td>
-      <td>4122.0</td>
-      <td>3705.0</td>
+      <td>3719.0</td>
+      <td>3719.0</td>
+      <td>3723.0</td>
+      <td>3229.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[227]</th>
       <td>0.37</td>
-      <td>0.29</td>
-      <td>-0.20</td>
-      <td>0.95</td>
+      <td>0.28</td>
+      <td>-0.18</td>
+      <td>0.96</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4203.0</td>
-      <td>3833.0</td>
-      <td>4195.0</td>
-      <td>3730.0</td>
+      <td>3972.0</td>
+      <td>3951.0</td>
+      <td>3982.0</td>
+      <td>3531.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[228]</th>
-      <td>0.36</td>
+      <td>0.37</td>
       <td>0.30</td>
-      <td>-0.25</td>
-      <td>0.94</td>
+      <td>-0.22</td>
+      <td>0.95</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4139.0</td>
-      <td>3594.0</td>
-      <td>4122.0</td>
-      <td>3705.0</td>
+      <td>3719.0</td>
+      <td>3719.0</td>
+      <td>3723.0</td>
+      <td>3229.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>epLsar_mu[229]</th>
       <td>0.37</td>
-      <td>0.29</td>
-      <td>-0.20</td>
-      <td>0.95</td>
+      <td>0.28</td>
+      <td>-0.18</td>
+      <td>0.96</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>4203.0</td>
-      <td>3833.0</td>
-      <td>4195.0</td>
-      <td>3730.0</td>
+      <td>3972.0</td>
+      <td>3951.0</td>
+      <td>3982.0</td>
+      <td>3531.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1361,165 +1359,165 @@ df_hdi_epLsar
       <th>0</th>
       <td>Dry grass</td>
       <td>Dry bamboo</td>
-      <td>-0.004643</td>
-      <td>-0.002188</td>
+      <td>-0.004671</td>
+      <td>-0.002183</td>
       <td>True</td>
-      <td>-0.004397</td>
-      <td>-0.001964</td>
+      <td>-0.004478</td>
+      <td>-0.002005</td>
       <td>True</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Dry lucerne</td>
       <td>Dry bamboo</td>
-      <td>-0.003704</td>
-      <td>-0.001872</td>
+      <td>-0.003734</td>
+      <td>-0.001874</td>
       <td>True</td>
-      <td>-0.003929</td>
-      <td>-0.002080</td>
+      <td>-0.003890</td>
+      <td>-0.002062</td>
       <td>True</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Dry lucerne</td>
       <td>Dry grass</td>
-      <td>-0.000554</td>
-      <td>0.001779</td>
+      <td>-0.000557</td>
+      <td>0.001859</td>
       <td>False</td>
-      <td>-0.001026</td>
-      <td>0.001433</td>
+      <td>-0.001082</td>
+      <td>0.001336</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>BrushNoDirt</td>
       <td>BrushDirt</td>
-      <td>-0.001433</td>
-      <td>0.002212</td>
+      <td>-0.001341</td>
+      <td>0.002360</td>
       <td>False</td>
-      <td>-0.002135</td>
-      <td>0.001267</td>
+      <td>-0.002158</td>
+      <td>0.001258</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Control</td>
       <td>BrushDirt</td>
-      <td>-0.001220</td>
-      <td>0.002299</td>
+      <td>-0.001054</td>
+      <td>0.002426</td>
       <td>False</td>
-      <td>-0.000928</td>
-      <td>0.002773</td>
+      <td>-0.001096</td>
+      <td>0.002599</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Control</td>
       <td>BrushNoDirt</td>
-      <td>-0.001621</td>
-      <td>0.001920</td>
+      <td>-0.001753</td>
+      <td>0.001850</td>
       <td>False</td>
-      <td>-0.000468</td>
-      <td>0.002948</td>
+      <td>-0.000474</td>
+      <td>0.002917</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>RubDirt</td>
       <td>BrushDirt</td>
-      <td>-0.000880</td>
-      <td>0.003012</td>
+      <td>-0.000877</td>
+      <td>0.003022</td>
       <td>False</td>
-      <td>-0.002004</td>
-      <td>0.001707</td>
+      <td>-0.001946</td>
+      <td>0.001789</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RubDirt</td>
       <td>BrushNoDirt</td>
-      <td>-0.001245</td>
-      <td>0.002679</td>
+      <td>-0.001517</td>
+      <td>0.002491</td>
       <td>False</td>
-      <td>-0.001468</td>
-      <td>0.001930</td>
+      <td>-0.001351</td>
+      <td>0.002015</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>RubDirt</td>
       <td>Control</td>
-      <td>-0.001353</td>
-      <td>0.002504</td>
+      <td>-0.001317</td>
+      <td>0.002492</td>
       <td>False</td>
-      <td>-0.002719</td>
-      <td>0.001017</td>
+      <td>-0.002699</td>
+      <td>0.000872</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Clover+dust</td>
       <td>Clover</td>
-      <td>-0.001200</td>
-      <td>0.001581</td>
+      <td>-0.001231</td>
+      <td>0.001618</td>
       <td>False</td>
-      <td>-0.000904</td>
-      <td>0.001890</td>
+      <td>-0.001001</td>
+      <td>0.001813</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Grass</td>
       <td>Clover</td>
-      <td>-0.000091</td>
-      <td>0.003047</td>
+      <td>-0.000204</td>
+      <td>0.002888</td>
       <td>False</td>
-      <td>0.000486</td>
-      <td>0.003751</td>
+      <td>0.000434</td>
+      <td>0.003762</td>
       <td>True</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Grass</td>
       <td>Clover+dust</td>
-      <td>-0.000281</td>
-      <td>0.002971</td>
+      <td>-0.000339</td>
+      <td>0.002881</td>
       <td>False</td>
-      <td>0.000105</td>
-      <td>0.003410</td>
+      <td>0.000060</td>
+      <td>0.003390</td>
       <td>True</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Grass+dust</td>
       <td>Clover</td>
-      <td>0.000179</td>
-      <td>0.003309</td>
+      <td>0.000238</td>
+      <td>0.003278</td>
       <td>True</td>
-      <td>0.000571</td>
-      <td>0.003553</td>
+      <td>0.000589</td>
+      <td>0.003629</td>
       <td>True</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Grass+dust</td>
       <td>Clover+dust</td>
-      <td>0.000003</td>
-      <td>0.003144</td>
+      <td>0.000026</td>
+      <td>0.003130</td>
       <td>True</td>
-      <td>0.000194</td>
-      <td>0.003165</td>
+      <td>0.000228</td>
+      <td>0.003223</td>
       <td>True</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Grass+dust</td>
       <td>Grass</td>
-      <td>-0.001516</td>
-      <td>0.001911</td>
+      <td>-0.001440</td>
+      <td>0.001914</td>
       <td>False</td>
-      <td>-0.001688</td>
-      <td>0.001791</td>
+      <td>-0.001678</td>
+      <td>0.001754</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -3854,191 +3852,6 @@ plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,
     
 
 
-### HAsfc81 <a name="HAsfc81"></a>
-
-
-```python
-with pm.Model() as model:
-    HAsfc81Model = TwoFactorModel('HAsfc81',x1,x2,dataZ["HAsfc81_z"].values)
-```
-
-#### Verify model settings
-
-
-```python
-HAsfc81Model.printParams(x1,x2,dataZ["HAsfc81_z"].values)
-```
-
-
-```python
-pm.model_to_graphviz(HAsfc81Model)
-```
-
-#### Check prior choice
-
-
-```python
-with HAsfc81Model as model:
-    prior_pred_HAsfc81 = pm.sample_prior_predictive(samples=numPredSamples,random_seed=random_seed)
-```
-
-
-```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
-```
-
-Prior choice is as intended: Broad over the data range.
-
-#### Sampling
-
-
-```python
-with HAsfc81Model as model:
-    trace_HAsfc81 = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.99,random_seed=random_seed)
-```
-
-
-```python
-with HAsfc81Model as model:
-    if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('HAsfc81'), 'wb') as buff:
-            pickle.dump({'model': HAsfc81Model, 'trace': trace_HAsfc81}, buff)
-```
-
-#### Check sampling
-
-
-```python
-with HAsfc81Model as model:
-    dataTrace_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81)
-```
-
-
-```python
-pm.summary(dataTrace_HAsfc81,hdi_prob=0.95).round(2)
-```
-
-
-```python
-plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,dataTrace_HAsfc81,'HAsfc81')
-```
-
-
-```python
-with HAsfc81Model as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc81,'HAsfc81')
-```
-
-
-```python
-with HAsfc81Model as model:
-    plotting_lib.pm.energyplot(trace_HAsfc81)
-```
-
-#### Posterior predictive distribution
-
-
-```python
-with HAsfc81Model as model:
-    posterior_pred_HAsfc81 = pm.sample_posterior_predictive(trace_HAsfc81,samples=numPredSamples,random_seed=random_seed)
-```
-
-
-```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc81,posterior_pred_HAsfc81,dataZ["HAsfc81_z"].values,'HAsfc81')
-```
-
-
-```python
-plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
-```
-
-#### Compare prior and posterior for model parameters
-
-
-```python
-with HAsfc81Model as model:
-    pm_data_HAsfc81 = az.from_pymc3(trace=trace_HAsfc81,prior=prior_pred_HAsfc81,posterior_predictive=posterior_pred_HAsfc81)
-```
-
-
-```python
-plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
-```
-
-
-```python
-plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
-```
-
-#### Posterior and contrasts
-
-
-```python
-plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc81,'HAsfc81')
-```
-
-
-```python
-df_hdi_HAsfc81 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc81,'HAsfc81',x1,x2)
-```
-
-
-```python
-df_hdi_HAsfc81
-```
-
-
-```python
-if writeOut:
-    df_hdi_HAsfc81.to_csv(outPathData+ 'hdi_{}.csv'.format('HAsfc81'))
-```
-
-#### Bimodal distribution in contrast plots of HAsfc81
-For e.g. the pair Clover+Dust vs. Clover shows an unexpected bimodal distribution of the contrast.
-We now examine the traces carefully to exclude errors in the sampling:  
-Get the traces on ConfoMap of the interactions
-
-
-```python
-m12_clover = trace_HAsfc81['HAsfc81_M12'][:,0,2]
-m12_cloverDust = trace_HAsfc81['HAsfc81_M12'][:,0,3]
-diff_m12 = m12_cloverDust-m12_clover
-```
-
-Get the traces of the treatments:
-
-
-```python
-b2_clover = trace_HAsfc81['HAsfc81_b2'][:,2]
-b2_cloverDust = trace_HAsfc81['HAsfc81_b2'][:,3]
-diff_b2 = b2_cloverDust-b2_clover
-```
-
-Look at all the pairs
-
-
-```python
-sns.pairplot(data=pd.DataFrame.from_dict(
-    {'m12_clover':m12_clover,'m12_cloverDust':m12_cloverDust,'diff_m12':diff_m12,
-     'b2_clover':b2_clover,'b2_cloverDust':b2_cloverDust,'diff_b2':diff_b2
-    }
-));
-```
-
-Let's have that of the differences again
-
-
-```python
-sns.jointplot(x=diff_b2,y=diff_m12);
-```
-
-We see two sets that are distributed along parallel lines in the scatter plot.
-This means that the model estimates two subsets of possible differences.  
-However, when looking at the raw data at 'R_analysis/plots/SSFA_Sheeps_plot.pdf' one can see that the distribution of values for HAsfc81 on Clover (Sheep) measured by ConfoMap appear to have a bimodal distribution.  
-Thus, in combination with the chosen uninformative priors, the model correctly describes the distribution as bimodal.  
-In summary, we see no issue with the modeling and sampling.
-
 ## Summary<a name="summary"></a>
 
 Set the surface parameters for every treatment dataframe:
@@ -4047,7 +3860,6 @@ Set the surface parameters for every treatment dataframe:
 ```python
 df_hdi_Asfc["SurfaceParameter"] = "Asfc"
 df_hdi_HAsfc9["SurfaceParameter"] = "HAsfc9"
-#df_hdi_HAsfc81["SurfaceParameter"] = "HAsfc81"
 df_hdi_R["SurfaceParameter"] = "R²"
 df_hdi_epLsar["SurfaceParameter"] = "epLsar"
 ```
@@ -4225,10 +4037,84 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_TwoFactor_filter_strong.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor_filter_strong.ipynb to html
+    [NbConvertApp] Writing 20714790 bytes to Statistical_Model_TwoFactor_filter_strong.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_TwoFactor_filter_strong.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor_filter_strong.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_filter_strong_files/
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
+    [NbConvertApp] Writing 96926 bytes to Statistical_Model_TwoFactor_filter_strong.md
+
 
 
 ```python
