@@ -5,195 +5,195 @@
  -->
 <!-- Title: NewEplsar Pages: 1 -->
 <svg width="1142pt" height="563pt"
- viewBox="0.00 0.00 1141.95 562.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 1142.24 562.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 558.8133)">
 <title>NewEplsar</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-558.8133 1137.9483,-558.8133 1137.9483,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-558.8133 1138.2412,-558.8133 1138.2412,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster11</title>
-<path fill="none" stroke="#000000" d="M577.9741,-232.9066C577.9741,-232.9066 937.9741,-232.9066 937.9741,-232.9066 943.9741,-232.9066 949.9741,-238.9066 949.9741,-244.9066 949.9741,-244.9066 949.9741,-534.8133 949.9741,-534.8133 949.9741,-540.8133 943.9741,-546.8133 937.9741,-546.8133 937.9741,-546.8133 577.9741,-546.8133 577.9741,-546.8133 571.9741,-546.8133 565.9741,-540.8133 565.9741,-534.8133 565.9741,-534.8133 565.9741,-244.9066 565.9741,-244.9066 565.9741,-238.9066 571.9741,-232.9066 577.9741,-232.9066"/>
-<text text-anchor="middle" x="934.9741" y="-240.7066" font-family="Times,serif" font-size="14.00" fill="#000000">11</text>
+<path fill="none" stroke="#000000" d="M195.9741,-232.9066C195.9741,-232.9066 555.9741,-232.9066 555.9741,-232.9066 561.9741,-232.9066 567.9741,-238.9066 567.9741,-244.9066 567.9741,-244.9066 567.9741,-534.8133 567.9741,-534.8133 567.9741,-540.8133 561.9741,-546.8133 555.9741,-546.8133 555.9741,-546.8133 195.9741,-546.8133 195.9741,-546.8133 189.9741,-546.8133 183.9741,-540.8133 183.9741,-534.8133 183.9741,-534.8133 183.9741,-244.9066 183.9741,-244.9066 183.9741,-238.9066 189.9741,-232.9066 195.9741,-232.9066"/>
+<text text-anchor="middle" x="552.9741" y="-240.7066" font-family="Times,serif" font-size="14.00" fill="#000000">11</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster115</title>
-<path fill="none" stroke="#000000" d="M445.9741,-8C445.9741,-8 565.9741,-8 565.9741,-8 571.9741,-8 577.9741,-14 577.9741,-20 577.9741,-20 577.9741,-209.93 577.9741,-209.93 577.9741,-215.93 571.9741,-221.93 565.9741,-221.93 565.9741,-221.93 445.9741,-221.93 445.9741,-221.93 439.9741,-221.93 433.9741,-215.93 433.9741,-209.93 433.9741,-209.93 433.9741,-20 433.9741,-20 433.9741,-14 439.9741,-8 445.9741,-8"/>
-<text text-anchor="middle" x="559.4741" y="-15.8" font-family="Times,serif" font-size="14.00" fill="#000000">115</text>
-</g>
-<!-- NewEplsar_nuY -->
-<g id="node1" class="node">
-<title>NewEplsar_nuY</title>
-<ellipse fill="none" stroke="#000000" cx="349.9741" cy="-187.43" rx="75.8212" ry="37.4533"/>
-<text text-anchor="middle" x="349.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_nuY</text>
-<text text-anchor="middle" x="349.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="349.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Exponential</text>
-</g>
-<!-- NewEplsar_y -->
-<g id="node13" class="node">
-<title>NewEplsar_y</title>
-<ellipse fill="#d3d3d3" stroke="#000000" cx="505.9741" cy="-76.4767" rx="63.7795" ry="37.4533"/>
-<text text-anchor="middle" x="505.9741" y="-87.7767" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_y</text>
-<text text-anchor="middle" x="505.9741" y="-72.7767" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="505.9741" y="-57.7767" font-family="Times,serif" font-size="14.00" fill="#000000">StudentT</text>
-</g>
-<!-- NewEplsar_nuY&#45;&gt;NewEplsar_y -->
-<g id="edge12" class="edge">
-<title>NewEplsar_nuY&#45;&gt;NewEplsar_y</title>
-<path fill="none" stroke="#000000" d="M393.4288,-156.5233C413.1589,-142.4905 436.5846,-125.8292 456.9418,-111.3504"/>
-<polygon fill="#000000" stroke="#000000" points="459.0432,-114.1508 465.1637,-105.5026 454.986,-108.4464 459.0432,-114.1508"/>
-</g>
-<!-- NewEplsar_sigmaY -->
-<g id="node2" class="node">
-<title>NewEplsar_sigmaY</title>
-<ellipse fill="none" stroke="#000000" cx="674.9741" cy="-187.43" rx="89.191" ry="37.4533"/>
-<text text-anchor="middle" x="674.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigmaY</text>
-<text text-anchor="middle" x="674.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="674.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Gamma</text>
-</g>
-<!-- NewEplsar_sigmaY&#45;&gt;NewEplsar_y -->
-<g id="edge11" class="edge">
-<title>NewEplsar_sigmaY&#45;&gt;NewEplsar_y</title>
-<path fill="none" stroke="#000000" d="M626.5455,-155.6352C604.8465,-141.3892 579.2406,-124.5782 557.2198,-110.1209"/>
-<polygon fill="#000000" stroke="#000000" points="558.9378,-107.0619 548.6575,-104.4995 555.096,-112.9135 558.9378,-107.0619"/>
-</g>
-<!-- NewEplsar_sigma0 -->
-<g id="node3" class="node">
-<title>NewEplsar_sigma0</title>
-<ellipse fill="none" stroke="#000000" cx="86.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
-<text text-anchor="middle" x="86.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigma0</text>
-<text text-anchor="middle" x="86.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="86.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
-</g>
-<!-- NewEplsar_b0 -->
-<g id="node7" class="node">
-<title>NewEplsar_b0</title>
-<polygon fill="none" stroke="#000000" points="422.4741,-316.9066 325.4741,-316.9066 325.4741,-263.9066 422.4741,-263.9066 422.4741,-316.9066"/>
-<text text-anchor="middle" x="373.9741" y="-301.7066" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b0</text>
-<text text-anchor="middle" x="373.9741" y="-286.7066" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="373.9741" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
-</g>
-<!-- NewEplsar_sigma0&#45;&gt;NewEplsar_b0 -->
-<g id="edge1" class="edge">
-<title>NewEplsar_sigma0&#45;&gt;NewEplsar_b0</title>
-<path fill="none" stroke="#000000" d="M150.8189,-364.8857C161.5169,-360.7784 172.532,-356.65 182.9741,-352.9066 227.1426,-337.0728 277.6147,-320.627 315.5787,-308.5818"/>
-<polygon fill="#000000" stroke="#000000" points="316.9643,-311.8145 325.4432,-305.4616 314.8532,-305.1404 316.9643,-311.8145"/>
-</g>
-<!-- NewEplsar_b0_dist -->
-<g id="node4" class="node">
-<title>NewEplsar_b0_dist</title>
-<ellipse fill="none" stroke="#000000" cx="278.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
-<text text-anchor="middle" x="278.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b0_dist</text>
-<text text-anchor="middle" x="278.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="278.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
-</g>
-<!-- NewEplsar_b0_dist&#45;&gt;NewEplsar_b0 -->
-<g id="edge2" class="edge">
-<title>NewEplsar_b0_dist&#45;&gt;NewEplsar_b0</title>
-<path fill="none" stroke="#000000" d="M311.9339,-355.6969C321.4998,-345.6299 331.9364,-334.6466 341.4739,-324.6094"/>
-<polygon fill="#000000" stroke="#000000" points="344.2116,-326.8094 348.5627,-317.1493 339.1371,-321.9876 344.2116,-326.8094"/>
+<path fill="none" stroke="#000000" d="M381.9741,-8C381.9741,-8 501.9741,-8 501.9741,-8 507.9741,-8 513.9741,-14 513.9741,-20 513.9741,-20 513.9741,-209.93 513.9741,-209.93 513.9741,-215.93 507.9741,-221.93 501.9741,-221.93 501.9741,-221.93 381.9741,-221.93 381.9741,-221.93 375.9741,-221.93 369.9741,-215.93 369.9741,-209.93 369.9741,-209.93 369.9741,-20 369.9741,-20 369.9741,-14 375.9741,-8 381.9741,-8"/>
+<text text-anchor="middle" x="495.4741" y="-15.8" font-family="Times,serif" font-size="14.00" fill="#000000">115</text>
 </g>
 <!-- NewEplsar_b2_dist -->
-<g id="node5" class="node">
+<g id="node1" class="node">
 <title>NewEplsar_b2_dist</title>
-<ellipse fill="none" stroke="#000000" cx="1046.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
-<text text-anchor="middle" x="1046.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2_dist</text>
-<text text-anchor="middle" x="1046.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="1046.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Gumbel</text>
+<ellipse fill="none" stroke="#000000" cx="86.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
+<text text-anchor="middle" x="86.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2_dist</text>
+<text text-anchor="middle" x="86.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="86.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Gumbel</text>
 </g>
 <!-- NewEplsar_b2 -->
-<g id="node10" class="node">
+<g id="node11" class="node">
 <title>NewEplsar_b2</title>
-<polygon fill="none" stroke="#000000" points="807.4741,-316.9066 710.4741,-316.9066 710.4741,-263.9066 807.4741,-263.9066 807.4741,-316.9066"/>
-<text text-anchor="middle" x="758.9741" y="-301.7066" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2</text>
-<text text-anchor="middle" x="758.9741" y="-286.7066" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="758.9741" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
+<polygon fill="none" stroke="#000000" points="383.4741,-316.9066 286.4741,-316.9066 286.4741,-263.9066 383.4741,-263.9066 383.4741,-316.9066"/>
+<text text-anchor="middle" x="334.9741" y="-301.7066" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2</text>
+<text text-anchor="middle" x="334.9741" y="-286.7066" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="334.9741" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
 </g>
 <!-- NewEplsar_b2_dist&#45;&gt;NewEplsar_b2 -->
 <g id="edge6" class="edge">
 <title>NewEplsar_b2_dist&#45;&gt;NewEplsar_b2</title>
-<path fill="none" stroke="#000000" d="M984.1801,-364.3573C974.1247,-360.3985 963.7975,-356.4548 953.9741,-352.9066 908.5087,-336.4845 856.3267,-319.8748 817.3905,-307.9099"/>
-<polygon fill="#000000" stroke="#000000" points="818.3755,-304.5512 807.7889,-304.971 816.3266,-311.2447 818.3755,-304.5512"/>
+<path fill="none" stroke="#000000" d="M150.5183,-364.7666C189.5472,-349.0328 239.1554,-329.0342 277.0932,-313.7403"/>
+<polygon fill="#000000" stroke="#000000" points="278.5073,-316.944 286.4734,-309.9588 275.89,-310.4517 278.5073,-316.944"/>
 </g>
-<!-- NewEplsar_mu_b0 -->
+<!-- NewEplsar_sigmaY -->
+<g id="node2" class="node">
+<title>NewEplsar_sigmaY</title>
+<ellipse fill="none" stroke="#000000" cx="610.9741" cy="-187.43" rx="89.191" ry="37.4533"/>
+<text text-anchor="middle" x="610.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigmaY</text>
+<text text-anchor="middle" x="610.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="610.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Gamma</text>
+</g>
+<!-- NewEplsar_y -->
+<g id="node13" class="node">
+<title>NewEplsar_y</title>
+<ellipse fill="#d3d3d3" stroke="#000000" cx="441.9741" cy="-76.4767" rx="63.7795" ry="37.4533"/>
+<text text-anchor="middle" x="441.9741" y="-87.7767" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_y</text>
+<text text-anchor="middle" x="441.9741" y="-72.7767" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="441.9741" y="-57.7767" font-family="Times,serif" font-size="14.00" fill="#000000">StudentT</text>
+</g>
+<!-- NewEplsar_sigmaY&#45;&gt;NewEplsar_y -->
+<g id="edge10" class="edge">
+<title>NewEplsar_sigmaY&#45;&gt;NewEplsar_y</title>
+<path fill="none" stroke="#000000" d="M562.5455,-155.6352C540.8465,-141.3892 515.2406,-124.5782 493.2198,-110.1209"/>
+<polygon fill="#000000" stroke="#000000" points="494.9378,-107.0619 484.6575,-104.4995 491.096,-112.9135 494.9378,-107.0619"/>
+</g>
+<!-- NewEplsar_nuY -->
+<g id="node3" class="node">
+<title>NewEplsar_nuY</title>
+<ellipse fill="none" stroke="#000000" cx="793.9741" cy="-187.43" rx="75.8212" ry="37.4533"/>
+<text text-anchor="middle" x="793.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_nuY</text>
+<text text-anchor="middle" x="793.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="793.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Exponential</text>
+</g>
+<!-- NewEplsar_nuY&#45;&gt;NewEplsar_y -->
+<g id="edge12" class="edge">
+<title>NewEplsar_nuY&#45;&gt;NewEplsar_y</title>
+<path fill="none" stroke="#000000" d="M738.665,-161.6489C728.873,-157.4866 718.6984,-153.414 708.9741,-149.9533 642.9878,-126.4701 565.6373,-105.9192 511.2259,-92.5682"/>
+<polygon fill="#000000" stroke="#000000" points="511.8852,-89.1265 501.3409,-90.1599 510.2283,-95.9276 511.8852,-89.1265"/>
+</g>
+<!-- NewEplsar_b0_dist -->
+<g id="node4" class="node">
+<title>NewEplsar_b0_dist</title>
+<ellipse fill="none" stroke="#000000" cx="664.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
+<text text-anchor="middle" x="664.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b0_dist</text>
+<text text-anchor="middle" x="664.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="664.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
+</g>
+<!-- NewEplsar_b0 -->
 <g id="node6" class="node">
-<title>NewEplsar_mu_b0</title>
-<ellipse fill="none" stroke="#000000" cx="469.9741" cy="-390.3833" rx="86.0347" ry="37.4533"/>
-<text text-anchor="middle" x="469.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu_b0</text>
-<text text-anchor="middle" x="469.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="469.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
+<title>NewEplsar_b0</title>
+<polygon fill="none" stroke="#000000" points="809.4741,-316.9066 712.4741,-316.9066 712.4741,-263.9066 809.4741,-263.9066 809.4741,-316.9066"/>
+<text text-anchor="middle" x="760.9741" y="-301.7066" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b0</text>
+<text text-anchor="middle" x="760.9741" y="-286.7066" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="760.9741" y="-271.7066" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
 </g>
-<!-- NewEplsar_mu_b0&#45;&gt;NewEplsar_b0 -->
-<g id="edge3" class="edge">
-<title>NewEplsar_mu_b0&#45;&gt;NewEplsar_b0</title>
-<path fill="none" stroke="#000000" d="M436.6674,-355.6969C427.0008,-345.6299 416.4544,-334.6466 406.8165,-324.6094"/>
-<polygon fill="#000000" stroke="#000000" points="409.1038,-321.9382 399.6531,-317.1493 404.0547,-326.7865 409.1038,-321.9382"/>
+<!-- NewEplsar_b0_dist&#45;&gt;NewEplsar_b0 -->
+<g id="edge2" class="edge">
+<title>NewEplsar_b0_dist&#45;&gt;NewEplsar_b0</title>
+<path fill="none" stroke="#000000" d="M698.2809,-355.6969C707.9474,-345.6299 718.4939,-334.6466 728.1318,-324.6094"/>
+<polygon fill="#000000" stroke="#000000" points="730.8936,-326.7865 735.2952,-317.1493 725.8444,-321.9382 730.8936,-326.7865"/>
+</g>
+<!-- NewEplsar_sigma0 -->
+<g id="node5" class="node">
+<title>NewEplsar_sigma0</title>
+<ellipse fill="none" stroke="#000000" cx="856.9741" cy="-390.3833" rx="86.9483" ry="37.4533"/>
+<text text-anchor="middle" x="856.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigma0</text>
+<text text-anchor="middle" x="856.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="856.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
+</g>
+<!-- NewEplsar_sigma0&#45;&gt;NewEplsar_b0 -->
+<g id="edge1" class="edge">
+<title>NewEplsar_sigma0&#45;&gt;NewEplsar_b0</title>
+<path fill="none" stroke="#000000" d="M823.6674,-355.6969C814.0008,-345.6299 803.4544,-334.6466 793.8165,-324.6094"/>
+<polygon fill="#000000" stroke="#000000" points="796.1038,-321.9382 786.6531,-317.1493 791.0547,-326.7865 796.1038,-321.9382"/>
 </g>
 <!-- NewEplsar_mu -->
 <g id="node12" class="node">
 <title>NewEplsar_mu</title>
-<polygon fill="none" stroke="#000000" points="556.4741,-213.93 455.4741,-213.93 455.4741,-160.93 556.4741,-160.93 556.4741,-213.93"/>
-<text text-anchor="middle" x="505.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu</text>
-<text text-anchor="middle" x="505.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="505.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
+<polygon fill="none" stroke="#000000" points="492.4741,-213.93 391.4741,-213.93 391.4741,-160.93 492.4741,-160.93 492.4741,-213.93"/>
+<text text-anchor="middle" x="441.9741" y="-198.73" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu</text>
+<text text-anchor="middle" x="441.9741" y="-183.73" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="441.9741" y="-168.73" font-family="Times,serif" font-size="14.00" fill="#000000">Deterministic</text>
 </g>
 <!-- NewEplsar_b0&#45;&gt;NewEplsar_mu -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>NewEplsar_b0&#45;&gt;NewEplsar_mu</title>
-<path fill="none" stroke="#000000" d="M407.9674,-263.8876C424.9256,-250.6581 445.6034,-234.5268 463.5871,-220.4972"/>
-<polygon fill="#000000" stroke="#000000" points="465.9056,-223.1276 471.6373,-214.2171 461.5999,-217.6084 465.9056,-223.1276"/>
+<path fill="none" stroke="#000000" d="M712.2003,-273.2038C674.3677,-260.4393 620.3923,-243.4827 571.9741,-232.9066 546.1215,-227.2596 538.1732,-232.9847 512.9741,-224.9066 507.3622,-223.1076 501.6673,-220.8806 496.0698,-218.4159"/>
+<polygon fill="#000000" stroke="#000000" points="497.3156,-215.135 486.7737,-214.0775 494.3552,-221.4782 497.3156,-215.135"/>
+</g>
+<!-- NewEplsar_mu_b0 -->
+<g id="node7" class="node">
+<title>NewEplsar_mu_b0</title>
+<ellipse fill="none" stroke="#000000" cx="1047.9741" cy="-390.3833" rx="86.0347" ry="37.4533"/>
+<text text-anchor="middle" x="1047.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu_b0</text>
+<text text-anchor="middle" x="1047.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="1047.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
+</g>
+<!-- NewEplsar_mu_b0&#45;&gt;NewEplsar_b0 -->
+<g id="edge3" class="edge">
+<title>NewEplsar_mu_b0&#45;&gt;NewEplsar_b0</title>
+<path fill="none" stroke="#000000" d="M984.8128,-364.8454C974.224,-360.7429 963.3182,-356.6266 952.9741,-352.9066 908.6129,-336.9531 857.8746,-320.5134 819.7013,-308.5008"/>
+<polygon fill="#000000" stroke="#000000" points="820.3713,-305.0429 809.7822,-305.39 818.2765,-311.7222 820.3713,-305.0429"/>
 </g>
 <!-- NewEplsar_mu_b2 -->
 <g id="node8" class="node">
 <title>NewEplsar_mu_b2</title>
-<ellipse fill="none" stroke="#000000" cx="855.9741" cy="-390.3833" rx="86.0347" ry="37.4533"/>
-<text text-anchor="middle" x="855.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu_b2</text>
-<text text-anchor="middle" x="855.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="855.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
+<ellipse fill="none" stroke="#000000" cx="473.9741" cy="-390.3833" rx="86.0347" ry="37.4533"/>
+<text text-anchor="middle" x="473.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_mu_b2</text>
+<text text-anchor="middle" x="473.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="473.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">Normal</text>
 </g>
 <!-- NewEplsar_mu_b2&#45;&gt;NewEplsar_b2 -->
 <g id="edge5" class="edge">
 <title>NewEplsar_mu_b2&#45;&gt;NewEplsar_b2</title>
-<path fill="none" stroke="#000000" d="M822.3205,-355.6969C812.5532,-345.6299 801.8969,-334.6466 792.1586,-324.6094"/>
-<polygon fill="#000000" stroke="#000000" points="794.396,-321.8892 784.9205,-317.1493 789.372,-326.7636 794.396,-321.8892"/>
+<path fill="none" stroke="#000000" d="M429.2285,-358.1997C413.6931,-347.0258 396.2595,-334.4865 380.65,-323.2593"/>
+<polygon fill="#000000" stroke="#000000" points="382.3512,-320.1716 372.1893,-317.1739 378.2639,-325.8544 382.3512,-320.1716"/>
 </g>
 <!-- NewEplsar_sigma2 -->
 <g id="node9" class="node">
 <title>NewEplsar_sigma2</title>
-<ellipse fill="none" stroke="#000000" cx="662.9741" cy="-501.3366" rx="86.9483" ry="37.4533"/>
-<text text-anchor="middle" x="662.9741" y="-512.6366" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigma2</text>
-<text text-anchor="middle" x="662.9741" y="-497.6366" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="662.9741" y="-482.6366" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
+<ellipse fill="none" stroke="#000000" cx="280.9741" cy="-501.3366" rx="86.9483" ry="37.4533"/>
+<text text-anchor="middle" x="280.9741" y="-512.6366" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_sigma2</text>
+<text text-anchor="middle" x="280.9741" y="-497.6366" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="280.9741" y="-482.6366" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
 </g>
 <!-- NewEplsar_b2_beta -->
-<g id="node11" class="node">
+<g id="node10" class="node">
 <title>NewEplsar_b2_beta</title>
-<ellipse fill="none" stroke="#000000" cx="662.9741" cy="-390.3833" rx="89.191" ry="37.4533"/>
-<text text-anchor="middle" x="662.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2_beta</text>
-<text text-anchor="middle" x="662.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
-<text text-anchor="middle" x="662.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
+<ellipse fill="none" stroke="#000000" cx="280.9741" cy="-390.3833" rx="89.191" ry="37.4533"/>
+<text text-anchor="middle" x="280.9741" y="-401.6833" font-family="Times,serif" font-size="14.00" fill="#000000">NewEplsar_b2_beta</text>
+<text text-anchor="middle" x="280.9741" y="-386.6833" font-family="Times,serif" font-size="14.00" fill="#000000">~</text>
+<text text-anchor="middle" x="280.9741" y="-371.6833" font-family="Times,serif" font-size="14.00" fill="#000000">HalfNormal</text>
 </g>
 <!-- NewEplsar_sigma2&#45;&gt;NewEplsar_b2_beta -->
 <g id="edge4" class="edge">
 <title>NewEplsar_sigma2&#45;&gt;NewEplsar_b2_beta</title>
-<path fill="none" stroke="#000000" d="M662.9741,-463.7729C662.9741,-455.549 662.9741,-446.7367 662.9741,-438.1736"/>
-<polygon fill="#000000" stroke="#000000" points="666.4742,-437.9083 662.9741,-427.9083 659.4742,-437.9084 666.4742,-437.9083"/>
-</g>
-<!-- NewEplsar_b2&#45;&gt;NewEplsar_mu -->
-<g id="edge9" class="edge">
-<title>NewEplsar_b2&#45;&gt;NewEplsar_mu</title>
-<path fill="none" stroke="#000000" d="M710.3519,-274.9752C673.2711,-262.713 621.2153,-244.4286 576.9741,-224.9066 572.3894,-222.8836 567.6921,-220.6896 563.0042,-218.4126"/>
-<polygon fill="#000000" stroke="#000000" points="564.5456,-215.2702 554.0328,-213.9545 561.4305,-221.5389 564.5456,-215.2702"/>
+<path fill="none" stroke="#000000" d="M280.9741,-463.7729C280.9741,-455.549 280.9741,-446.7367 280.9741,-438.1736"/>
+<polygon fill="#000000" stroke="#000000" points="284.4742,-437.9083 280.9741,-427.9083 277.4742,-437.9084 284.4742,-437.9083"/>
 </g>
 <!-- NewEplsar_b2_beta&#45;&gt;NewEplsar_b2 -->
 <g id="edge7" class="edge">
 <title>NewEplsar_b2_beta&#45;&gt;NewEplsar_b2</title>
-<path fill="none" stroke="#000000" d="M696.5503,-355.4163C706.2017,-345.3651 716.7108,-334.4207 726.3065,-324.4275"/>
-<polygon fill="#000000" stroke="#000000" points="729.0354,-326.6389 733.437,-317.0016 723.9862,-321.7905 729.0354,-326.6389"/>
+<path fill="none" stroke="#000000" d="M300.7751,-353.7234C305.6453,-344.7066 310.8526,-335.0656 315.6977,-326.0955"/>
+<polygon fill="#000000" stroke="#000000" points="318.9134,-327.5066 320.5862,-317.0447 312.7543,-324.1799 318.9134,-327.5066"/>
+</g>
+<!-- NewEplsar_b2&#45;&gt;NewEplsar_mu -->
+<g id="edge8" class="edge">
+<title>NewEplsar_b2&#45;&gt;NewEplsar_mu</title>
+<path fill="none" stroke="#000000" d="M362.5293,-263.8876C376.028,-250.8965 392.4342,-235.1071 406.8249,-221.2576"/>
+<polygon fill="#000000" stroke="#000000" points="409.3622,-223.6732 414.1405,-214.2171 404.5082,-218.6296 409.3622,-223.6732"/>
 </g>
 <!-- NewEplsar_mu&#45;&gt;NewEplsar_y -->
-<g id="edge10" class="edge">
+<g id="edge11" class="edge">
 <title>NewEplsar_mu&#45;&gt;NewEplsar_y</title>
-<path fill="none" stroke="#000000" d="M505.9741,-160.8539C505.9741,-149.9351 505.9741,-136.944 505.9741,-124.4675"/>
-<polygon fill="#000000" stroke="#000000" points="509.4742,-124.1649 505.9741,-114.165 502.4742,-124.165 509.4742,-124.1649"/>
+<path fill="none" stroke="#000000" d="M441.9741,-160.8539C441.9741,-149.9351 441.9741,-136.944 441.9741,-124.4675"/>
+<polygon fill="#000000" stroke="#000000" points="445.4742,-124.1649 441.9741,-114.165 438.4742,-124.165 445.4742,-124.1649"/>
 </g>
 </g>
 </svg>

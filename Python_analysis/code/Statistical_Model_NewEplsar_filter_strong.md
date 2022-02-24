@@ -1069,12 +1069,12 @@ with new_epLsarModel as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 01:15<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [8000/8000 01:03<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 75 seconds.
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 64 seconds.
     The number of effective samples is smaller than 25% for some parameters.
 
 
@@ -1601,11 +1601,11 @@ dfHDI
       <td>-0.002432</td>
       <td>-0.001317</td>
       <td>True</td>
-      <td>-0.002483</td>
-      <td>-0.001163</td>
+      <td>-0.002497</td>
+      <td>-0.001167</td>
       <td>True</td>
-      <td>-0.002425</td>
-      <td>-0.001073</td>
+      <td>-0.002394</td>
+      <td>-0.001072</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1615,11 +1615,11 @@ dfHDI
       <td>-0.001744</td>
       <td>-0.000967</td>
       <td>True</td>
-      <td>-0.001994</td>
-      <td>-0.000989</td>
+      <td>-0.001996</td>
+      <td>-0.001002</td>
       <td>True</td>
-      <td>-0.002125</td>
-      <td>-0.001123</td>
+      <td>-0.002079</td>
+      <td>-0.001102</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1630,10 +1630,10 @@ dfHDI
       <td>0.001062</td>
       <td>False</td>
       <td>-0.000298</td>
-      <td>0.000995</td>
+      <td>0.000994</td>
       <td>False</td>
-      <td>-0.000566</td>
-      <td>0.000752</td>
+      <td>-0.000578</td>
+      <td>0.000714</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1643,11 +1643,11 @@ dfHDI
       <td>-0.000096</td>
       <td>0.001424</td>
       <td>False</td>
-      <td>-0.000767</td>
-      <td>0.001198</td>
+      <td>-0.000717</td>
+      <td>0.001262</td>
       <td>False</td>
-      <td>-0.001081</td>
-      <td>0.000761</td>
+      <td>-0.001153</td>
+      <td>0.000672</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1657,11 +1657,11 @@ dfHDI
       <td>0.000360</td>
       <td>0.001854</td>
       <td>True</td>
-      <td>-0.000681</td>
-      <td>0.001184</td>
+      <td>-0.000564</td>
+      <td>0.001297</td>
       <td>False</td>
-      <td>-0.000577</td>
-      <td>0.001413</td>
+      <td>-0.000586</td>
+      <td>0.001389</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1671,11 +1671,11 @@ dfHDI
       <td>-0.000262</td>
       <td>0.001256</td>
       <td>False</td>
-      <td>-0.000922</td>
-      <td>0.000975</td>
+      <td>-0.000937</td>
+      <td>0.000989</td>
       <td>False</td>
-      <td>-0.000236</td>
-      <td>0.001565</td>
+      <td>-0.000253</td>
+      <td>0.001559</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1685,11 +1685,11 @@ dfHDI
       <td>-0.000588</td>
       <td>0.000882</td>
       <td>False</td>
-      <td>-0.000482</td>
-      <td>0.001530</td>
+      <td>-0.000469</td>
+      <td>0.001615</td>
       <td>False</td>
-      <td>-0.000985</td>
-      <td>0.001008</td>
+      <td>-0.001040</td>
+      <td>0.000956</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1699,11 +1699,11 @@ dfHDI
       <td>-0.001186</td>
       <td>0.000246</td>
       <td>False</td>
-      <td>-0.000851</td>
-      <td>0.001292</td>
+      <td>-0.000811</td>
+      <td>0.001332</td>
       <td>False</td>
-      <td>-0.000745</td>
-      <td>0.001051</td>
+      <td>-0.000722</td>
+      <td>0.001077</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1713,11 +1713,11 @@ dfHDI
       <td>-0.001777</td>
       <td>-0.000251</td>
       <td>True</td>
-      <td>-0.000658</td>
-      <td>0.001312</td>
+      <td>-0.000704</td>
+      <td>0.001332</td>
       <td>False</td>
       <td>-0.001443</td>
-      <td>0.000513</td>
+      <td>0.000466</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1727,11 +1727,11 @@ dfHDI
       <td>-0.000999</td>
       <td>0.000210</td>
       <td>False</td>
-      <td>-0.000614</td>
-      <td>0.000871</td>
+      <td>-0.000658</td>
+      <td>0.000865</td>
       <td>False</td>
-      <td>-0.000503</td>
-      <td>0.000937</td>
+      <td>-0.000535</td>
+      <td>0.000969</td>
       <td>False</td>
     </tr>
     <tr>
@@ -1741,11 +1741,11 @@ dfHDI
       <td>-0.000745</td>
       <td>0.000590</td>
       <td>False</td>
-      <td>-0.000027</td>
-      <td>0.001613</td>
+      <td>-0.000109</td>
+      <td>0.001544</td>
       <td>False</td>
-      <td>0.000206</td>
-      <td>0.002019</td>
+      <td>0.000232</td>
+      <td>0.002011</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1755,12 +1755,12 @@ dfHDI
       <td>-0.000304</td>
       <td>0.000986</td>
       <td>False</td>
-      <td>-0.000256</td>
-      <td>0.001459</td>
+      <td>-0.000181</td>
+      <td>0.001540</td>
       <td>False</td>
-      <td>-0.000011</td>
-      <td>0.001750</td>
-      <td>False</td>
+      <td>0.000032</td>
+      <td>0.001812</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>12</th>
@@ -1769,11 +1769,11 @@ dfHDI
       <td>-0.001116</td>
       <td>0.000149</td>
       <td>False</td>
-      <td>0.000111</td>
-      <td>0.001722</td>
+      <td>0.000127</td>
+      <td>0.001752</td>
       <td>True</td>
-      <td>0.000299</td>
-      <td>0.001861</td>
+      <td>0.000315</td>
+      <td>0.001940</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1783,11 +1783,11 @@ dfHDI
       <td>-0.000669</td>
       <td>0.000521</td>
       <td>False</td>
-      <td>-0.000007</td>
-      <td>0.001696</td>
-      <td>False</td>
-      <td>0.000105</td>
-      <td>0.001703</td>
+      <td>0.000014</td>
+      <td>0.001673</td>
+      <td>True</td>
+      <td>0.000122</td>
+      <td>0.001723</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1797,11 +1797,11 @@ dfHDI
       <td>-0.001049</td>
       <td>0.000237</td>
       <td>False</td>
-      <td>-0.000730</td>
-      <td>0.001062</td>
+      <td>-0.000770</td>
+      <td>0.001023</td>
       <td>False</td>
-      <td>-0.000989</td>
-      <td>0.000880</td>
+      <td>-0.000897</td>
+      <td>0.000937</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -1870,10 +1870,10 @@ df_summary
       <td>False</td>
       <td>0.000360</td>
       <td>0.001854</td>
-      <td>-0.000681</td>
-      <td>0.001184</td>
-      <td>-0.000577</td>
-      <td>0.001413</td>
+      <td>-0.000564</td>
+      <td>0.001297</td>
+      <td>-0.000586</td>
+      <td>0.001389</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1884,10 +1884,10 @@ df_summary
       <td>False</td>
       <td>-0.001777</td>
       <td>-0.000251</td>
-      <td>-0.000658</td>
-      <td>0.001312</td>
+      <td>-0.000704</td>
+      <td>0.001332</td>
       <td>-0.001443</td>
-      <td>0.000513</td>
+      <td>0.000466</td>
     </tr>
     <tr>
       <th>10</th>
@@ -1898,10 +1898,24 @@ df_summary
       <td>False</td>
       <td>-0.000745</td>
       <td>0.000590</td>
-      <td>-0.000027</td>
-      <td>0.001613</td>
-      <td>0.000206</td>
-      <td>0.002019</td>
+      <td>-0.000109</td>
+      <td>0.001544</td>
+      <td>0.000232</td>
+      <td>0.002011</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Grass</td>
+      <td>Clover+dust</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-0.000304</td>
+      <td>0.000986</td>
+      <td>-0.000181</td>
+      <td>0.001540</td>
+      <td>0.000032</td>
+      <td>0.001812</td>
     </tr>
     <tr>
       <th>12</th>
@@ -1912,10 +1926,10 @@ df_summary
       <td>True</td>
       <td>-0.001116</td>
       <td>0.000149</td>
-      <td>0.000111</td>
-      <td>0.001722</td>
-      <td>0.000299</td>
-      <td>0.001861</td>
+      <td>0.000127</td>
+      <td>0.001752</td>
+      <td>0.000315</td>
+      <td>0.001940</td>
     </tr>
     <tr>
       <th>13</th>
@@ -1923,13 +1937,13 @@ df_summary
       <td>Clover+dust</td>
       <td>False</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
       <td>-0.000669</td>
       <td>0.000521</td>
-      <td>-0.000007</td>
-      <td>0.001696</td>
-      <td>0.000105</td>
-      <td>0.001703</td>
+      <td>0.000014</td>
+      <td>0.001673</td>
+      <td>0.000122</td>
+      <td>0.001723</td>
     </tr>
   </tbody>
 </table>
@@ -1951,7 +1965,7 @@ if writeOut:
 ```
 
     [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_strong.ipynb to html
-    [NbConvertApp] Writing 1076733 bytes to Statistical_Model_NewEplsar_filter_strong.html
+    [NbConvertApp] Writing 4782053 bytes to Statistical_Model_NewEplsar_filter_strong.html
 
 
 
@@ -1968,7 +1982,13 @@ if writeOut:
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
     [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
-    [NbConvertApp] Writing 31345 bytes to Statistical_Model_NewEplsar_filter_strong.md
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_strong_files
+    [NbConvertApp] Writing 46160 bytes to Statistical_Model_NewEplsar_filter_strong.md
 
 
 
