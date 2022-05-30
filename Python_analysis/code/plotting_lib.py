@@ -84,7 +84,7 @@ def plotPosterior(widthInch,heigthInch,dpi,writeOut,path,dictMeanStd,pm_data,yna
     if writeOut:
         plt.savefig(path + "{}_posterior_b_{}.pdf".format(prefix,yname),dpi=dpi)
 
-def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname):
+def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname,prefix):
     # get list of varnames to plot as intersection of targeted and existing ones 
     target_var_names=['{}_b0'.format(yname),'{}_b1'.format(yname),'{}_b2'.format(yname)]
     varnames_trace = trace.varnames
@@ -92,7 +92,7 @@ def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname):
     
     pm.traceplot(trace,var_names=intersec,figsize=(widthInch,heigthIch));
     if writeOut:
-        plt.savefig(path + "prefix_trace_{}.pdf".format(prefix,yname),dpi=dpi)
+        plt.savefig(path + "{}_trace_{}.pdf".format(prefix,yname),dpi=dpi)
     
         
 def plotOverlayDataInformation(fig,dfData):
@@ -163,7 +163,7 @@ def plotPriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,pri
     labelbottom=False) # labels along the bottom edge are off
     
     if writeOut:
-        plt.savefig(path + "{}_prior_predicitive_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_prior_predicitive_{}.pdf".format(prefix,yname),dpi=dpi)
 
 def plotPriorPosteriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,prior_pred,post_pred,y,yname,prefix):
     
