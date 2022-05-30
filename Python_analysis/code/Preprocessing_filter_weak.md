@@ -2163,7 +2163,7 @@ with open(datafile, "wb") as f:
 ```
 
     [NbConvertApp] Converting notebook Preprocessing_filter_weak.ipynb to html
-    [NbConvertApp] Writing 629839 bytes to Preprocessing_filter_weak.html
+    [NbConvertApp] Writing 1318852 bytes to Preprocessing_filter_weak.html
 
 
 
@@ -2172,7 +2172,14 @@ with open(datafile, "wb") as f:
 ```
 
     [NbConvertApp] Converting notebook Preprocessing_filter_weak.ipynb to markdown
-    [NbConvertApp] Writing 26117 bytes to Preprocessing_filter_weak.md
+    [NbConvertApp] Support files will be in Preprocessing_filter_weak_files/
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Making directory Preprocessing_filter_weak_files
+    [NbConvertApp] Writing 50782 bytes to Preprocessing_filter_weak.md
 
 
 
