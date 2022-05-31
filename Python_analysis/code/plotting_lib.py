@@ -658,7 +658,7 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
                                   "hdi_{}_2.5%".format(dictSoftware[1]),"hdi_{}_97.5%".format(dictSoftware[1]),"isSignificant_on_{}".format(dictSoftware[1])])
     return df
 
-def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3):
+def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3,prefix):
         
     SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
     
