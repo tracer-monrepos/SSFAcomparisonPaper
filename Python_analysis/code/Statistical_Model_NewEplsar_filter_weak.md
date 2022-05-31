@@ -64,6 +64,7 @@ import plotting_lib
 writeOut = True
 outPathPlots = "../plots/statistical_model_neweplsar_filter_weak/"
 outPathData = "../derived_data/statistical_model_neweplsar_filter_weak/"
+prefix = "NewEplsar_filter_weak"
 ```
 
 #### Plotting
@@ -1028,7 +1029,8 @@ with new_epLsarModel as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,dfNewAvail.reset_index(),dictMeanStd,prior_pred_new_epLsar,newZ,'NewEplsar')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,dfNewAvail.reset_index(),\
+                                 dictMeanStd,prior_pred_new_epLsar,newZ,'NewEplsar',prefix)
 ```
 
 
@@ -1082,7 +1084,7 @@ with new_epLsarModel as model:
 ```python
 with new_epLsarModel as model:
     if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('NewEplsar'), 'wb') as buff:
+        with open(outPathData + '{}_model_{}.pkl'.format(prefix,'NewEplsar'), 'wb') as buff:
             pickle.dump({'model':new_epLsarModel, 'trace': trace_new_epLsar}, buff)
 ```
 
@@ -1299,7 +1301,7 @@ pm.summary(dataTrace_new_epLsar,hdi_prob=0.95).round(2)
 ```python
 az.plot_forest(dataTrace_new_epLsar,var_names=['b0','b2'],filter_vars='like',figsize=(widthInch,5*heigthInch),hdi_prob=0.95,ess=True,r_hat=True);
 if writeOut:
-    plt.savefig(outPathPlots + "posterior_forest_{}.pdf".format('NewEplsar'),dpi=dpi)
+    plt.savefig(outPathPlots + "{}_posterior_forest_{}.pdf".format(prefix,'NewEplsar'),dpi=dpi)
 ```
 
 
@@ -1311,7 +1313,7 @@ if writeOut:
 
 ```python
 with new_epLsarModel as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_new_epLsar,'NewEplsar')
+    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_new_epLsar,'NewEplsar',prefix)
 ```
 
 
@@ -1367,7 +1369,9 @@ with new_epLsarModel as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,dfNewAvail.reset_index(),dictMeanStd,prior_pred_new_epLsar,posterior_pred_new_epLsar,newZ,'NewEplsar')
+plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,\
+                                          outPathPlots,dfNewAvail.reset_index(),dictMeanStd,\
+                                          prior_pred_new_epLsar,posterior_pred_new_epLsar,newZ,'NewEplsar',prefix)
 ```
 
 
@@ -1389,7 +1393,8 @@ with new_epLsarModel as model:
 
 
 ```python
-plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_new_epLsar,'NewEplsar')
+plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,\
+                           pm_data_new_epLsar,'NewEplsar',prefix)
 ```
 
 
@@ -1402,9 +1407,9 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 
 
 ```python
-b1P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/epLsar_oldb1.npy")
-b2P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/epLsar_oldb2.npy")
-M12P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/epLsar_oldM12.npy")
+b1P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/statistical_model_two_factors_filter_weak_epLsar_oldb1.npy")
+b2P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/statistical_model_two_factors_filter_weak_epLsar_oldb2.npy")
+M12P_Old = np.load("../derived_data/statistical_model_two_factors_filter_weak/statistical_model_two_factors_filter_weak_epLsar_oldM12.npy")
 ```
 
 
@@ -1414,7 +1419,7 @@ from collections import defaultdict
 
 
 ```python
-def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3):
+def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3,prefix):
         
     SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
     
@@ -1545,7 +1550,7 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
 
 
 ```python
-dfHDI = plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_new_epLsar,'NewEplsar',x1[newIndex],x2[newIndex])
+dfHDI = plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_new_epLsar,'NewEplsar',x1[newIndex],x2[newIndex],prefix)
 ```
 
 
@@ -1813,7 +1818,7 @@ dfHDI
 
 ```python
 if writeOut:
-    dfHDI.to_csv(outPathData+ 'hdi_{}_filter_weak.csv'.format('NewEplsar'))
+    dfHDI.to_csv(outPathData+ '{}_hdi_{}_filter_weak.csv'.format(prefix,'NewEplsar'))
 ```
 
 ## Summary<a name="summary"></a>
@@ -1968,7 +1973,7 @@ df_summary
 
 ```python
 if writeOut:
-    df_summary.to_csv(outPathData+ 'summary_filter_weak.csv')
+    df_summary.to_csv(outPathData+ 'neweplsar_summary_filter_weak.csv')
 ```
 
 ### Write out
@@ -1978,26 +1983,10 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_NewEplsar_filter_weak.ipynb
 ```
 
-    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_weak.ipynb to html
-    [NbConvertApp] Writing 1094900 bytes to Statistical_Model_NewEplsar_filter_weak.html
-
-
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_NewEplsar_filter_weak.ipynb
 ```
-
-    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_weak.ipynb to markdown
-    [NbConvertApp] Support files will be in Statistical_Model_NewEplsar_filter_weak_files/
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
-    [NbConvertApp] Writing 31306 bytes to Statistical_Model_NewEplsar_filter_weak.md
-
 
 
 ```python
