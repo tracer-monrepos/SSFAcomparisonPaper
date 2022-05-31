@@ -64,7 +64,7 @@ import plotting_lib
 writeOut = True
 outPathPlots = "../plots/statistical_model_neweplsar_filter_strong/"
 outPathData = "../derived_data/statistical_model_neweplsar_filter_strong/"
-prefix = "TwoFactor_filter_strong"
+prefix = "NewEplsar_filter_strong"
 ```
 
 #### Plotting
@@ -1071,7 +1071,7 @@ with new_epLsarModel as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 00:58<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [8000/8000 00:59<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
