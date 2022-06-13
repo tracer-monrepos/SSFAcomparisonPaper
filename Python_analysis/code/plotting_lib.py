@@ -55,7 +55,7 @@ def doScatterPlotAlphaLines(pred,mu,sigma,colorstring,label,alphaMin,alphaMax):
     plt.fill_between(x,l,m,alpha=alphaFill,color=colorstring)
     plt.fill_between(x,m,u,alpha=alphaFill,color=colorstring)
 
-def plotPriorPosteriorB(widthInch,heigthIch,dpi,sizes,writeOut,path,dictMeanStd,pm_data,yname):
+def plotPriorPosteriorB(widthInch,heigthIch,dpi,sizes,writeOut,path,dictMeanStd,pm_data,yname,prefix):
         
     SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
     
@@ -68,9 +68,9 @@ def plotPriorPosteriorB(widthInch,heigthIch,dpi,sizes,writeOut,path,dictMeanStd,
         axes = az.plot_dist_comparison(pm_data,var_names=var,transform=trans,figsize=(widthInch,heigthIch),textsize=SMALL_SIZE);
         
         if writeOut:
-            plt.savefig(path + "prior_posterior_{}.pdf".format(var),dpi=dpi)
+            plt.savefig(path+ "{}_prior_posterior_{}.pdf".format(prefix,var),dpi=dpi)
 
-def plotPosterior(widthInch,heigthInch,dpi,writeOut,path,dictMeanStd,pm_data,yname):
+def plotPosterior(widthInch,heigthInch,dpi,writeOut,path,dictMeanStd,pm_data,yname,prefix):
     # get list of varnames to plot as intersection of targeted and existing ones 
     target_var_names=['{}_b0'.format(yname),'{}_b1'.format(yname),'{}_b2'.format(yname)]
     varnames_trace = list(pm_data.posterior.data_vars.keys())
@@ -82,9 +82,9 @@ def plotPosterior(widthInch,heigthInch,dpi,writeOut,path,dictMeanStd,pm_data,yna
     az.plot_posterior(pm_data,var_names=intersec,transform=trans,figsize=(2*widthInch,3*heigthInch),hdi_prob=0.95);
     
     if writeOut:
-        plt.savefig(path + "posterior_b_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_posterior_b_{}.pdf".format(prefix,yname),dpi=dpi)
 
-def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname):
+def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname,prefix):
     # get list of varnames to plot as intersection of targeted and existing ones 
     target_var_names=['{}_b0'.format(yname),'{}_b1'.format(yname),'{}_b2'.format(yname)]
     varnames_trace = trace.varnames
@@ -92,7 +92,7 @@ def plotTracesB(widthInch,heigthIch,dpi,writeOut,path,trace,yname):
     
     pm.traceplot(trace,var_names=intersec,figsize=(widthInch,heigthIch));
     if writeOut:
-        plt.savefig(path + "trace_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_trace_{}.pdf".format(prefix,yname),dpi=dpi)
     
         
 def plotOverlayDataInformation(fig,dfData):
@@ -135,7 +135,7 @@ def plotOverlayDataInformation(fig,dfData):
         if t == list(dictTreatIndices.keys())[-1]:
             plt.axvline(x=b,ymin=0.8,ymax=1.0,color='k',ls='-',lw=0.5,alpha=0.5)
 
-def plotPriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,prior_pred,y,yname):
+def plotPriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,prior_pred,y,yname,prefix):
         
     fig = plt.figure(figsize=(widthInch,heigthIch),dpi=dpi, facecolor='w');
 
@@ -163,9 +163,9 @@ def plotPriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,pri
     labelbottom=False) # labels along the bottom edge are off
     
     if writeOut:
-        plt.savefig(path + "prior_predicitive_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_prior_predicitive_{}.pdf".format(prefix,yname),dpi=dpi)
 
-def plotPriorPosteriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,prior_pred,post_pred,y,yname):
+def plotPriorPosteriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMeanStd,prior_pred,post_pred,y,yname,prefix):
     
     fig = plt.figure(figsize=(widthInch,heigthIch), dpi= dpi, facecolor='w');
 
@@ -195,9 +195,9 @@ def plotPriorPosteriorPredictive(widthInch,heigthIch,dpi,writeOut,path,df,dictMe
     labelbottom=False) # labels along the bottom edge are off
     
     if writeOut:
-        plt.savefig(path + "prior_posterior_predicitive_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_prior_posterior_predicitive_{}.pdf".format(prefix,yname),dpi=dpi)
 
-def plotContrast(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contrast_dict,trace,yname):
+def plotContrast(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contrast_dict,trace,yname,prefix):
     
     mu_Val,sig_Val = dictMeanStd[yname]
     b1_sample = sig_Val*trace['{}_b1'.format(yname)]
@@ -208,9 +208,9 @@ def plotContrast(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contrast_di
         plt.title('Contrast {} on {}'.format(key,yname));
         
         if writeOut:
-            plt.savefig(path + "contrast_{}_{}.pdf".format(key,yname),dpi=dpi)
+            plt.savefig(path + "{}_contrast_{}_{}.pdf".format(prefix,key,yname),dpi=dpi)
 
-def plotDiagnostics(widthInch,heigthInch,dpi,writeOut,path,trace,dataTrace,yname):
+def plotDiagnostics(widthInch,heigthInch,dpi,writeOut,path,trace,dataTrace,yname,prefix):
     # Report divergences 
     #diverging = trace['diverging']
     #print('Number of Divergent Chains: {}'.format(diverging.nonzero()[0].size))
@@ -225,23 +225,23 @@ def plotDiagnostics(widthInch,heigthInch,dpi,writeOut,path,trace,dataTrace,yname
     #print("\n \n \nCorrelations in posterior")
     az.plot_pair(dataTrace,var_names=['b1'],filter_vars='like',figsize=(2.0*widthInch,2.0*heigthInch),divergences=True,marginals=True);
     if writeOut:
-        plt.savefig(path + "posterior_pair_b1_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_posterior_pair_b1_{}.pdf".format(prefix,yname),dpi=dpi)
         
     az.plot_pair(dataTrace,var_names=['b1','b2'],filter_vars='like',figsize=(2.0*widthInch,2.0*heigthInch),divergences=True,marginals=True);
     if writeOut:
-        plt.savefig(path + "posterior_pair_b2_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_posterior_pair_b2_{}.pdf".format(prefix,yname),dpi=dpi)
     
     # look for correlations in posterior
     #print("\n \n \nDivergences in posterior")
     az.plot_parallel(dataTrace,var_names=['b0','b1','b2'],filter_vars='like',figsize=(2.0*widthInch,heigthInch), norm_method='normal');
     if writeOut:
-        plt.savefig(path + "posterior_parallel_{}.pdf".format(yname),dpi=dpi)    
+        plt.savefig(path + "{}_posterior_parallel_{}.pdf".format(prefix,yname),dpi=dpi)    
     
     # forest plot
     #print("\n \n \nForest plot of posterior")
     az.plot_forest(dataTrace,var_names=['b0','b1','b3','M'],filter_vars='like',figsize=(widthInch,5*heigthInch),hdi_prob=0.95,ess=True,r_hat=True);
     if writeOut:
-        plt.savefig(path + "posterior_forest_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_posterior_forest_{}.pdf".format(prefix,yname),dpi=dpi)
         
 def getPercentiles(y,lower=2.5,middle=50.,upper=92.5,axis=0):
     l = np.percentile(y, lower, axis=axis)
@@ -514,7 +514,7 @@ def plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictT
             curr_ax.set_ylabel("Delta_{}".format(yname))
     plt.show()
     
-def plotContrastLevel(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contrast_dict,trace,yname):
+def plotContrastLevel(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contrast_dict,trace,yname,prefix):
     
     
     
@@ -527,10 +527,10 @@ def plotContrastLevel(widthInch,heigthIch,dpi,writeOut,path,dictMeanStd,x1contra
         plt.title('Contrast {} on {}'.format(key,yname));
         
         if writeOut:
-            plt.savefig(path + "contrast_{}_{}.pdf".format(key,yname),dpi=dpi)
+            plt.savefig(path + "{}_contrast_{}_{}.pdf".format(prefix,key,yname),dpi=dpi)
 
             
-def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3):
+def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3,prefix):
         
     SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
     
@@ -649,7 +649,7 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
     plt.tight_layout()                
     
     if writeOut:
-        plt.savefig(path + "treatment_pairs_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_treatment_pairs_{}.pdf".format(prefix,yname),dpi=dpi)
     
     plt.show()
     
@@ -658,7 +658,7 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
                                   "hdi_{}_2.5%".format(dictSoftware[1]),"hdi_{}_97.5%".format(dictSoftware[1]),"isSignificant_on_{}".format(dictSoftware[1])])
     return df
 
-def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3):
+def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMeanStd,dictTreatment,dictSoftware,trace,yname,x1,x3,prefix):
         
     SMALL_SIZE,MEDIUM_SIZE,BIGGER_SIZE = sizes
     
@@ -770,6 +770,6 @@ def plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,path,dict
                         plt.tight_layout() 
                                                                                          
                         if writeOut:
-                            plt.savefig(path + "treatment_diff_{}_{}_{}.pdf".format(yname,nameFirst,nameSecond),dpi=dpi)
+                            plt.savefig(path + "{}_treatment_diff_{}_{}_{}.pdf".format(prefix,yname,nameFirst,nameSecond),dpi=dpi)
                             
                         plt.show()

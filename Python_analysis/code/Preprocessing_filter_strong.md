@@ -2129,12 +2129,22 @@ with open(datafile, "wb") as f:
 !jupyter nbconvert --to html Preprocessing_filter_strong.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Preprocessing_filter_strong.ipynb to html
+    [NbConvertApp] Writing 1323315 bytes to Preprocessing_filter_strong.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Preprocessing_filter_strong.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Preprocessing_filter_strong.ipynb to markdown
+    [NbConvertApp] Support files will be in Preprocessing_filter_strong_files/
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Making directory Preprocessing_filter_strong_files
+    [NbConvertApp] Writing 48738 bytes to Preprocessing_filter_strong.md
 
-```python
-
-```

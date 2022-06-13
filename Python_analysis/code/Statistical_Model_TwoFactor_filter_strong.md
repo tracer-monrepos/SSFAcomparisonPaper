@@ -67,6 +67,7 @@ import plotting_lib
 writeOut = True
 outPathPlots = "../plots/statistical_model_two_factors_filter_strong/"
 outPathData = "../derived_data/statistical_model_two_factors_filter_strong/"
+prefix = "TwoFactor_filter_strong"
 ```
 
 #### Plotting
@@ -902,7 +903,8 @@ with epLsarModel as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_epLsar,dataZ.epLsar_z.values,'epLsar')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                 prior_pred_epLsar,dataZ.epLsar_z.values,'epLsar',prefix)
 ```
 
 
@@ -919,8 +921,6 @@ Prior choice is as intended: Broad over the data range.
 ```python
 with epLsarModel as model:
     trace_epLsar = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.99,random_seed=random_seed)
-    #fit_epLsar = pm.fit(random_seed=random_seed)
-    #trace_epLsar = fit_epLsar.sample(draws=numSamples)
 ```
 
     Auto-assigning NUTS sampler...
@@ -957,7 +957,7 @@ with epLsarModel as model:
 ```python
 with epLsarModel as model:
     if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('epLsar'), 'wb') as buff:
+        with open(outPathData + '{}_model_{}.pkl'.format(prefix,'epLsar'), 'wb') as buff:
             pickle.dump({'model':epLsarModel, 'trace': trace_epLsar}, buff)            
 ```
 
@@ -966,9 +966,9 @@ with epLsarModel as model:
 
 ```python
 if writeOut:
-    np.save('../derived_data/statistical_model_two_factors_filter_strong/epLsar_oldb1', trace_epLsar['epLsar_b1'])
-    np.save('../derived_data/statistical_model_two_factors_filter_strong/epLsar_oldb2', trace_epLsar['epLsar_b2'])
-    np.save('../derived_data/statistical_model_two_factors_filter_strong/epLsar_oldM12', trace_epLsar['epLsar_M12'])
+    np.save('../derived_data/statistical_model_two_factors_filter_strong/statistical_model_two_factors_filter_strong_epLsar_oldb1', trace_epLsar['epLsar_b1'])
+    np.save('../derived_data/statistical_model_two_factors_filter_strong/statistical_model_two_factors_filter_strong_epLsar_oldb2', trace_epLsar['epLsar_b2'])
+    np.save('../derived_data/statistical_model_two_factors_filter_strong/statistical_model_two_factors_filter_strong_epLsar_oldM12', trace_epLsar['epLsar_M12'])
 ```
 
 #### Check sampling
@@ -1182,7 +1182,8 @@ pm.summary(dataTrace_epLsar,hdi_prob=0.95).round(2)
 
 
 ```python
-plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_epLsar,dataTrace_epLsar,'epLsar')
+plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_epLsar,dataTrace_epLsar,\
+                             'epLsar',prefix)
 ```
 
     /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/arviz/plots/backends/matplotlib/pairplot.py:216: UserWarning: rcParams['plot.max_subplots'] (40) is smaller than the number of resulting pair plots with these variables, generating only a 8x8 grid
@@ -1216,7 +1217,7 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 ```python
 with epLsarModel as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_epLsar,'epLsar')
+    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_epLsar,'epLsar',prefix)
 ```
 
 
@@ -1272,7 +1273,9 @@ with epLsarModel as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_epLsar,posterior_pred_epLsar,dataZ.epLsar_z.values,'epLsar')
+plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                          prior_pred_epLsar,posterior_pred_epLsar,dataZ.epLsar_z.values,\
+                                          'epLsar',prefix)
 ```
 
 
@@ -1281,22 +1284,21 @@ plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outP
     
 
 
-#### Level plots
+#### Compare prior and posterior for model parameters
 
 
 ```python
-plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_epLsar,'epLsar',x1,x2)
+with epLsarModel as model:
+    pm_data_epLsar = az.from_pymc3(trace=trace_epLsar,prior=prior_pred_epLsar,posterior_predictive=posterior_pred_epLsar)
 ```
 
-
-    
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_56_0.png)
-    
+    arviz.data.io_pymc3 - WARNING - posterior predictive variable epLsar_y's shape not compatible with number of chains and draws. This can mean that some draws or even whole chains are not represented.
 
 
 
 ```python
-plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_epLsar,'epLsar',x1,x2)
+plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                 pm_data_epLsar,'epLsar',prefix)
 ```
 
 
@@ -1305,16 +1307,53 @@ plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,
     
 
 
-#### Posterior and contrasts
+
+```python
+plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                        dictSoftware,trace_epLsar,'epLsar',x1,x2)
+```
+
+
+    
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_58_0.png)
+    
+
 
 
 ```python
-df_hdi_epLsar = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_epLsar,'epLsar',x1,x2)
+plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                           dictSoftware,trace_epLsar,'epLsar',x1,x2)
 ```
 
 
     
 ![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_59_0.png)
+    
+
+
+#### Posterior and contrasts
+
+
+```python
+plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_epLsar,'epLsar',prefix)
+```
+
+
+    
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_61_0.png)
+    
+
+
+
+```python
+df_hdi_epLsar = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,\
+                                                    dictMeanStd,dictTreatment,dictSoftware,trace_epLsar,\
+                                                    'epLsar',x1,x2,prefix)
+```
+
+
+    
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_62_0.png)
     
 
 
@@ -1528,25 +1567,26 @@ df_hdi_epLsar
 
 
 ```python
-plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_epLsar,'epLsar',x1,x2)
+plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                        dictTreatment,dictSoftware,trace_epLsar,'epLsar',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_61_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_64_0.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_61_1.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_64_1.png)
     
 
 
 
 ```python
 if writeOut:
-    df_hdi_epLsar.to_csv(outPathData+ 'hdi_{}.csv'.format('epLsar'))
+    df_hdi_epLsar.to_csv(outPathData+ '{}_hdi_{}.csv'.format(prefix,'epLsar'))
 ```
 
 ### R²<a name="r"></a>
@@ -1578,7 +1618,7 @@ pm.model_to_graphviz(RsquaredModel)
 
 
     
-![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_67_0.svg)
+![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_70_0.svg)
     
 
 
@@ -1593,12 +1633,13 @@ with RsquaredModel as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_Rsquared,dataZ["Rsquared_z"].values,'Rsquared')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                 prior_pred_Rsquared,dataZ["Rsquared_z"].values,'Rsquared',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_70_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_73_0.png)
     
 
 
@@ -1632,19 +1673,19 @@ with RsquaredModel as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 34:38<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [8000/8000 34:04<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 2079 seconds.
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 2044 seconds.
 
 
 
 ```python
 with RsquaredModel as model:
     if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('Rsquared'), 'wb') as buff:
+        with open(outPathData + '{}_model_{}.pkl'.format(prefix,'Rsquared'), 'wb') as buff:
             pickle.dump({'model': RsquaredModel, 'trace': trace_Rsquared}, buff)
 ```
 
@@ -1859,7 +1900,8 @@ pm.summary(dataTrace_Rsquared,hdi_prob=0.95).round(2)
 
 
 ```python
-plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Rsquared,dataTrace_Rsquared,'Rsquared')
+plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Rsquared,\
+                             dataTrace_Rsquared,'Rsquared',prefix)
 ```
 
     /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/arviz/plots/backends/matplotlib/pairplot.py:216: UserWarning: rcParams['plot.max_subplots'] (40) is smaller than the number of resulting pair plots with these variables, generating only a 8x8 grid
@@ -1868,37 +1910,37 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_77_1.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_80_1.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_77_2.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_80_2.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_77_3.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_80_3.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_77_4.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_80_4.png)
     
 
 
 
 ```python
 with RsquaredModel as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Rsquared,'Rsquared')
+    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Rsquared,'Rsquared',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_78_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_81_0.png)
     
 
 
@@ -1910,7 +1952,7 @@ with RsquaredModel as model:
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_79_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_82_0.png)
     
 
 
@@ -1949,12 +1991,14 @@ with RsquaredModel as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_Rsquared,posterior_pred_Rsquared,dataZ["Rsquared_z"].values,'Rsquared')
+plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                          prior_pred_Rsquared,posterior_pred_Rsquared,\
+                                          dataZ["Rsquared_z"].values,'Rsquared',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_82_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_85_0.png)
     
 
 
@@ -1971,42 +2015,20 @@ with RsquaredModel as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_Rsquared,'Rsquared')
+plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                 pm_data_Rsquared,'Rsquared',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_85_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_88_0.png)
     
 
 
 
 ```python
-plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
-```
-
-
-    
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_86_0.png)
-    
-
-
-
-```python
-plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
-```
-
-
-    
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_87_0.png)
-    
-
-
-#### Posterior and contrasts
-
-
-```python
-plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_Rsquared,'Rsquared')
+plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                        dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
 ```
 
 
@@ -2017,12 +2039,39 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 
 
 ```python
-df_hdi_R = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
+plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                           dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
 ```
 
 
     
 ![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_90_0.png)
+    
+
+
+#### Posterior and contrasts
+
+
+```python
+plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,\
+                           pm_data_Rsquared,'Rsquared',prefix)
+```
+
+
+    
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_0.png)
+    
+
+
+
+```python
+df_hdi_R = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                               dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2,prefix)
+```
+
+
+    
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_93_0.png)
     
 
 
@@ -2236,43 +2285,44 @@ df_hdi_R
 
 
 ```python
-plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2)
+plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                        dictTreatment,dictSoftware,trace_Rsquared,'Rsquared',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_95_0.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_1.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_95_1.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_2.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_95_2.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_3.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_95_3.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_92_4.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_95_4.png)
     
 
 
 
 ```python
 if writeOut:
-    df_hdi_R.to_csv(outPathData+ 'hdi_{}.csv'.format('Rsquared'))
+    df_hdi_R.to_csv(outPathData+ '{}_hdi_{}.csv'.format(prefix,'Rsquared'))
 ```
 
 ### Asfc  <a name="Asfc"></a>
@@ -2304,7 +2354,7 @@ pm.model_to_graphviz(AsfcModel)
 
 
     
-![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_98_0.svg)
+![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_101_0.svg)
     
 
 
@@ -2319,12 +2369,13 @@ with AsfcModel as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_Asfc,dataZ["Asfc_z"].values,'Asfc')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                 prior_pred_Asfc,dataZ["Asfc_z"].values,'Asfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_101_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_104_0.png)
     
 
 
@@ -2360,12 +2411,12 @@ with AsfcModel as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 10:44<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [8000/8000 10:43<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 645 seconds.
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 644 seconds.
     The estimated number of effective samples is smaller than 200 for some parameters.
 
 
@@ -2373,7 +2424,7 @@ with AsfcModel as model:
 ```python
 with AsfcModel as model:
     if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('Asfc'), 'wb') as buff:
+        with open(outPathData + '{}_model_{}.pkl'.format(prefix,'Asfc'), 'wb') as buff:
             pickle.dump({'model': AsfcModel, 'trace': trace_Asfc}, buff)
 ```
 
@@ -2588,7 +2639,7 @@ pm.summary(dataTrace_Asfc,hdi_prob=0.95).round(2)
 
 
 ```python
-plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Asfc,dataTrace_Asfc,'Asfc')
+plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Asfc,dataTrace_Asfc,'Asfc',prefix)
 ```
 
     /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/arviz/plots/backends/matplotlib/pairplot.py:216: UserWarning: rcParams['plot.max_subplots'] (40) is smaller than the number of resulting pair plots with these variables, generating only a 8x8 grid
@@ -2597,37 +2648,37 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_109_1.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_112_1.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_109_2.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_112_2.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_109_3.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_112_3.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_109_4.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_112_4.png)
     
 
 
 
 ```python
 with AsfcModel as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Asfc,'Asfc')
+    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_Asfc,'Asfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_110_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_113_0.png)
     
 
 
@@ -2639,7 +2690,7 @@ with AsfcModel as model:
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_111_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_114_0.png)
     
 
 
@@ -2671,41 +2722,45 @@ with AsfcModel as model:
         }
     </style>
   <progress value='2000' class='' max='2000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [2000/2000 00:01<00:00]
+  100.00% [2000/2000 00:02<00:00]
 </div>
 
 
 
 
 ```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_Asfc,posterior_pred_Asfc,dataZ["Asfc_z"].values,'Asfc')
+plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,\
+                                          dictMeanStd,prior_pred_Asfc,posterior_pred_Asfc,\
+                                          dataZ["Asfc_z"].values,'Asfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_114_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_117_0.png)
     
 
 
 
 ```python
-plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2)
+plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                        dictSoftware,trace_Asfc,'Asfc',x1,x2)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_115_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_118_0.png)
     
 
 
 
 ```python
-plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2)
+plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                           dictSoftware,trace_Asfc,'Asfc',x1,x2)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_116_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_119_0.png)
     
 
 
@@ -2722,12 +2777,13 @@ with AsfcModel as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_Asfc,'Asfc')
+plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                 pm_data_Asfc,'Asfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_119_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_122_0.png)
     
 
 
@@ -2735,23 +2791,25 @@ plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPath
 
 
 ```python
-plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_Asfc,'Asfc')
+plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_Asfc,'Asfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_121_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_124_0.png)
     
 
 
 
 ```python
-df_hdi_Asfc = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2)
+df_hdi_Asfc = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,\
+                                                  outPathPlots,dictMeanStd,dictTreatment,dictSoftware,\
+                                                  trace_Asfc,'Asfc',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_122_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_125_0.png)
     
 
 
@@ -2965,19 +3023,20 @@ df_hdi_Asfc
 
 
 ```python
-plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2)
+plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                        dictTreatment,dictSoftware,trace_Asfc,'Asfc',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_124_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_127_0.png)
     
 
 
 
 ```python
 if writeOut:
-    df_hdi_Asfc.to_csv(outPathData+ 'hdi_{}.csv'.format('Asfc'))
+    df_hdi_Asfc.to_csv(outPathData+ '{}_hdi_{}.csv'.format(prefix,'Asfc'))
 ```
 
 ### 	Smfc  <a name="Smfc"></a>
@@ -3009,7 +3068,7 @@ pm.model_to_graphviz(SmfcModel)
 
 
     
-![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_130_0.svg)
+![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_133_0.svg)
     
 
 
@@ -3024,12 +3083,13 @@ with SmfcModel as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_Smfc,dataZ.Smfc_z.values,'Smfc')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                 prior_pred_Smfc,dataZ.Smfc_z.values,'Smfc',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_133_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_136_0.png)
     
 
 
@@ -3064,8 +3124,8 @@ with SmfcModel as model:
             background: #F44336;
         }
     </style>
-  <progress value='810' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  10.12% [810/8000 00:15<02:21 Sampling 4 chains, 0 divergences]
+  <progress value='811' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  10.14% [811/8000 00:16<02:29 Sampling 4 chains, 0 divergences]
 </div>
 
 
@@ -3113,7 +3173,7 @@ with SmfcModel as model:
 
     ValueError                                Traceback (most recent call last)
 
-    <ipython-input-121-4de91012caf3> in <module>
+    <ipython-input-104-4de91012caf3> in <module>
           1 with SmfcModel as model:
     ----> 2     trace_Smfc = pm.sample(numSamples,cores=numCores,tune=numTune,max_treedepth=20, init='auto',target_accept=0.99,random_seed=random_seed)
     
@@ -3177,7 +3237,7 @@ pm.model_to_graphviz(HAsfc9Model)
 
 
     
-![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_142_0.svg)
+![svg](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_145_0.svg)
     
 
 
@@ -3192,12 +3252,13 @@ with HAsfc9Model as model:
 
 
 ```python
-plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc9,dataZ["HAsfc9_z"].values,'HAsfc9')
+plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                 prior_pred_HAsfc9,dataZ["HAsfc9_z"].values,'HAsfc9',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_145_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_148_0.png)
     
 
 
@@ -3233,19 +3294,19 @@ with HAsfc9Model as model:
         }
     </style>
   <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [8000/8000 14:02<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [8000/8000 13:52<00:00 Sampling 4 chains, 0 divergences]
 </div>
 
 
 
-    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 842 seconds.
+    Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 833 seconds.
 
 
 
 ```python
 with HAsfc9Model as model:
     if writeOut:
-        with open(outPathData + 'model_{}.pkl'.format('HAsfc9'), 'wb') as buff:
+        with open(outPathData + '{}_model_{}.pkl'.format(prefix,'HAsfc9'), 'wb') as buff:
             pickle.dump({'model': HAsfc9Model, 'trace': trace_HAsfc9}, buff)
 ```
 
@@ -3460,7 +3521,8 @@ pm.summary(dataTrace_HAsfc9,hdi_prob=0.95).round(2)
 
 
 ```python
-plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc9,dataTrace_HAsfc9,'HAsfc9')
+plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc9,\
+                             dataTrace_HAsfc9,'HAsfc9',prefix)
 ```
 
     /home/bob/Documents/Projekt_Neuwied/SSFA/ssfa-env/lib/python3.7/site-packages/arviz/plots/backends/matplotlib/pairplot.py:216: UserWarning: rcParams['plot.max_subplots'] (40) is smaller than the number of resulting pair plots with these variables, generating only a 8x8 grid
@@ -3469,37 +3531,37 @@ plotting_lib.plotDiagnostics(widthInch,heigthInch,dpi,writeOut,outPathPlots,trac
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_153_1.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_156_1.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_153_2.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_156_2.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_153_3.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_156_3.png)
     
 
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_153_4.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_156_4.png)
     
 
 
 
 ```python
 with HAsfc9Model as model:
-    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc9,'HAsfc9')
+    plotting_lib.plotTracesB(widthInch,heigthInch,dpi,writeOut,outPathPlots,trace_HAsfc9,'HAsfc9',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_154_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_157_0.png)
     
 
 
@@ -3511,7 +3573,7 @@ with HAsfc9Model as model:
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_155_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_158_0.png)
     
 
 
@@ -3550,34 +3612,38 @@ with HAsfc9Model as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,prior_pred_HAsfc9,posterior_pred_HAsfc9,dataZ["HAsfc9_z"].values,'HAsfc9')
+plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,df,dictMeanStd,\
+                                          prior_pred_HAsfc9,posterior_pred_HAsfc9,dataZ["HAsfc9_z"].values,\
+                                          'HAsfc9',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_158_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_161_0.png)
     
 
 
 
 ```python
-plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
+plotting_lib.plotLevels(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                        dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_159_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_162_0.png)
     
 
 
 
 ```python
-plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
+plotting_lib.plotLevelsStd(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,\
+                           dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_160_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_163_0.png)
     
 
 
@@ -3594,12 +3660,13 @@ with HAsfc9Model as model:
 
 
 ```python
-plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc9,'HAsfc9')
+plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                 pm_data_HAsfc9,'HAsfc9',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_163_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_166_0.png)
     
 
 
@@ -3607,23 +3674,25 @@ plotting_lib.plotPriorPosteriorB(widthInch,heigthInch,dpi,sizes,writeOut,outPath
 
 
 ```python
-plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc9,'HAsfc9')
+plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMeanStd,pm_data_HAsfc9,'HAsfc9',prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_165_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_168_0.png)
     
 
 
 
 ```python
-df_hdi_HAsfc9 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
+df_hdi_HAsfc9 = plotting_lib.plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,\
+                                                    outPathPlots,dictMeanStd,dictTreatment,dictSoftware,\
+                                                    trace_HAsfc9,'HAsfc9',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_166_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_169_0.png)
     
 
 
@@ -3838,17 +3907,18 @@ df_hdi_HAsfc9
 
 ```python
 if writeOut:
-    df_hdi_HAsfc9.to_csv(outPathData+ 'hdi_{}.csv'.format('HAsfc9'))
+    df_hdi_HAsfc9.to_csv(outPathData+ '{}_hdi_{}.csv'.format(prefix,'HAsfc9'))
 ```
 
 
 ```python
-plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,dictTreatment,dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2)
+plotting_lib.plotTreatmentPosteriorDiff(widthInch,heigthInch,dpi,sizes,writeOut,outPathPlots,dictMeanStd,\
+                                        dictTreatment,dictSoftware,trace_HAsfc9,'HAsfc9',x1,x2,prefix)
 ```
 
 
     
-![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_169_0.png)
+![png](Statistical_Model_TwoFactor_filter_strong_files/Statistical_Model_TwoFactor_filter_strong_172_0.png)
     
 
 
@@ -3917,10 +3987,10 @@ df_summary
       <td>epLsar</td>
       <td>False</td>
       <td>True</td>
-      <td>-0.000091</td>
-      <td>0.003047</td>
-      <td>0.000486</td>
-      <td>0.003751</td>
+      <td>-0.000204</td>
+      <td>0.002888</td>
+      <td>0.000434</td>
+      <td>0.003762</td>
     </tr>
     <tr>
       <th>11</th>
@@ -3929,10 +3999,10 @@ df_summary
       <td>epLsar</td>
       <td>False</td>
       <td>True</td>
-      <td>-0.000281</td>
-      <td>0.002971</td>
-      <td>0.000105</td>
-      <td>0.003410</td>
+      <td>-0.000339</td>
+      <td>0.002881</td>
+      <td>0.000060</td>
+      <td>0.003390</td>
     </tr>
     <tr>
       <th>15</th>
@@ -4027,7 +4097,7 @@ df_summary
 
 ```python
 if writeOut:
-    df_summary.to_csv(outPathData+ 'summary_filter_strong.csv')
+    df_summary.to_csv(outPathData+ 'TwoFactor_summary_filter_strong.csv')
 ```
 
 ### Write out
@@ -4037,84 +4107,10 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_TwoFactor_filter_strong.ipynb
 ```
 
-    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor_filter_strong.ipynb to html
-    [NbConvertApp] Writing 20714790 bytes to Statistical_Model_TwoFactor_filter_strong.html
-
-
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_TwoFactor_filter_strong.ipynb
 ```
-
-    [NbConvertApp] Converting notebook Statistical_Model_TwoFactor_filter_strong.ipynb to markdown
-    [NbConvertApp] Support files will be in Statistical_Model_TwoFactor_filter_strong_files/
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Making directory Statistical_Model_TwoFactor_filter_strong_files
-    [NbConvertApp] Writing 96926 bytes to Statistical_Model_TwoFactor_filter_strong.md
-
 
 
 ```python
