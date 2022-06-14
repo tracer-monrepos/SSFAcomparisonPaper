@@ -23,7 +23,7 @@ To load the image from disk, run
 
 #### Run container
 Run the image with  
-`docker run -p 8888:8888 ssfa_comparison`  
+`docker run -p 8888:8888 ssfa`  
 The option `-p` allows you to specify the port.
 
 #### Open the web interface
