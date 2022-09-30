@@ -1,15 +1,15 @@
 README
 ================
 Ivan Calandra
-2022-09-30 11:53:19
+2022-09-30 12:02:56
 
 -   <a href="#ssfacomparisonpaper"
     id="toc-ssfacomparisonpaper">SSFAcomparisonPaper</a>
 -   <a href="#how-to-cite" id="toc-how-to-cite">How to cite</a>
 -   <a href="#contents" id="toc-contents">Contents</a>
--   <a href="#how-to-run-in-your-browser-or-download-and-run-locally"
-    id="toc-how-to-run-in-your-browser-or-download-and-run-locally">How to
-    run in your browser or download and run locally</a>
+-   <a href="#how-to-download-and-run-locally"
+    id="toc-how-to-download-and-run-locally">How to download and run
+    locally</a>
 -   <a href="#licenses" id="toc-licenses">Licenses</a>
 -   <a href="#contributions" id="toc-contributions">Contributions</a>
 
@@ -203,7 +203,7 @@ details.
 See the section [Contributions](#contributions) for details on
 [CONDUCT.md](/CONDUCT.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
-# How to run in your browser or download and run locally
+# How to download and run locally
 
 This research compendium has been developed using the statistical
 programming languages R and Python. To work with the compendium, you
@@ -215,8 +215,8 @@ analysis, and [Python
 packages listed in [requirements.txt](/Python_analysis/requirements.txt)
 for the Python analysis.
 
-If you want to work locally with the R analysis, either from the ZIP
-archive or from cloning the GitHub repository to your computer:
+To work locally with the R analysis, either from the ZIP archive or from
+cloning the GitHub repository to your computer:
 
 -   open the [SSFAcomparisonPaper.Rproj](/SSFAcomparisonPaper.Rproj)
     file in RStudio; this takes some time the first time.  

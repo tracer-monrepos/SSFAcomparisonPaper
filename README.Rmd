@@ -117,11 +117,11 @@ The [Dockerfile](/Dockerfile) contains the instruction to build the Docker image
 See the section [Contributions](#contributions) for details on [CONDUCT.md](/CONDUCT.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
-# How to run in your browser or download and run locally
+# How to download and run locally
 
 This research compendium has been developed using the statistical programming languages R and Python. To work with the compendium, you will need to install on your computer the [R software](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) for the R analysis, and [Python 3.8.5](https://www.python.org/downloads/release/python-385/) and the packages listed in [requirements.txt](/Python_analysis/requirements.txt) for the Python analysis.
 
-If you want to work locally with the R analysis, either from the ZIP archive or from cloning the GitHub repository to your computer:
+To work locally with the R analysis, either from the ZIP archive or from cloning the GitHub repository to your computer:
 
 - open the [`r repo`.Rproj](/`r repo`.Rproj) file in RStudio; this takes some time the first time.  
 - run `renv::status()` and then `renv::restore()` to restore the state of your project from [renv.lock](/renv.lock). Make sure that the package `devtools` is installed to be able to install packages from source.
