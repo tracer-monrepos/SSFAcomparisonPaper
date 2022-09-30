@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2022-09-30 11:42:56
+2022-09-30 11:53:19
 
 -   <a href="#ssfacomparisonpaper"
     id="toc-ssfacomparisonpaper">SSFAcomparisonPaper</a>
@@ -20,9 +20,9 @@ Ivan Calandra
 This repository contains the data and code for the paper:
 
 > Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
-> Schulz-Kornas E, Souron A & Winkler DE (year \[TBA\]). *Dental
-> microwear texture analysis in Toothfrax and MountainsMap® SSFA module:
-> Different software packages, different results?* PCI Archaeology.
+> Schulz-Kornas E, Souron A & Winkler DE (year \[TBA\]). *Surface
+> texture analysis in Toothfrax and MountainsMap® SSFA module: Different
+> software packages, different results?* PCI Archaeology.
 > <https://doi.org/10.5281/zenodo.4671438>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4671438.svg)](https://doi.org/10.5281/zenodo.4671438)
@@ -33,9 +33,9 @@ Please cite this compendium as:
 
 > Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
 > Schulz-Kornas E, Souron A & Winkler DE (2022). Compendium of code and
-> data for *Dental microwear texture analysis in Toothfrax and
-> MountainsMap® SSFA module: Different software packages, different
-> results?* Online at <https://doi.org/10.5281/zenodo.4439450>
+> data for *Surface texture analysis in Toothfrax and MountainsMap® SSFA
+> module: Different software packages, different results?* Online at
+> <https://doi.org/10.5281/zenodo.4439450>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
 

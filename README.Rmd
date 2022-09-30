@@ -13,7 +13,7 @@ output:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
-Title <- "Dental microwear texture analysis in Toothfrax and MountainsMap® SSFA module: Different software packages, different results?"
+Title <- "Surface texture analysis in Toothfrax and MountainsMap® SSFA module: Different software packages, different results?"
 Authors <- "Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A, Schulz-Kornas E, Souron A & Winkler DE"
 repo <- basename(getwd())
 ```
