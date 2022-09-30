@@ -22,13 +22,15 @@ repo <- basename(getwd())
 
 This repository contains the data and code for the paper:
 
-> `r Authors` (year). *`r Title`* Journal. DOI.
+> `r Authors` (year [TBA]). *`r Title`* PCI Archaeology. <https://doi.org/10.5281/zenodo.4671438>
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4671438.svg)](https://doi.org/10.5281/zenodo.4671438)
 
 # How to cite
 
 Please cite this compendium as:
 
-> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`* Accessed date. Online at <https://doi.org/10.5281/zenodo.4439450>
+> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`* Online at <https://doi.org/10.5281/zenodo.4439450>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
 
