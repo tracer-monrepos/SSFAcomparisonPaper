@@ -1,5 +1,5 @@
 # Analysis for SSFA project: NewEplsar model
-# Filtered strongly by < 20% NMP
+# Filtered weakly by < 20% NMP
 
 ## Table of contents
 1. [Used packages](#imports)
@@ -773,9 +773,7 @@ ax.set_ylim(yrange);
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_33_0.png)
-    
 
 
 Could be linear, but there is also a lot of noise.
@@ -790,9 +788,7 @@ ax.set_ylim(yrange);
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_35_0.png)
-    
 
 
 Too crowded, let's try it per dataset
@@ -805,9 +801,7 @@ ax.set_ylim(yrange);
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_37_0.png)
-    
 
 
 
@@ -818,9 +812,7 @@ ax.set_ylim(yrange);
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_38_0.png)
-    
 
 
 
@@ -831,9 +823,7 @@ ax.set_ylim(yrange);
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_39_0.png)
-    
 
 
 ### Standardization in z scores
@@ -1013,9 +1003,7 @@ graph_new_epLsar
 
 
 
-    
 ![svg](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_54_0.svg)
-    
 
 
 
@@ -1034,9 +1022,7 @@ plotting_lib.plotPriorPredictive(widthInch,heigthInch,dpi,writeOut,outPathPlots,
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_57_0.png)
-    
 
 
 Prior choice is as intended: Broad over the data range.
@@ -1305,9 +1291,7 @@ if writeOut:
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_65_0.png)
-    
 
 
 
@@ -1317,9 +1301,7 @@ with new_epLsarModel as model:
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_66_0.png)
-    
 
 
 
@@ -1329,9 +1311,7 @@ with new_epLsarModel as model:
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_67_0.png)
-    
 
 
 #### Posterior predictive distribution
@@ -1375,9 +1355,7 @@ plotting_lib.plotPriorPosteriorPredictive(widthInch,heigthInch,dpi,writeOut,\
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_70_0.png)
-    
 
 
 ### Posterior check
@@ -1398,9 +1376,7 @@ plotting_lib.plotPosterior(widthInch,heigthInch,dpi,writeOut,outPathPlots,dictMe
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_73_0.png)
-    
 
 
 ### Compare treatment differences with other epLsar values
@@ -1537,7 +1513,7 @@ def plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,path,dictMean
     plt.tight_layout()                
     
     if writeOut:
-        plt.savefig(path + "treatment_pairs_{}.pdf".format(yname),dpi=dpi)
+        plt.savefig(path + "{}_treatment_pairs_{}.pdf".format(prefix,yname),dpi=dpi)
     
     plt.show()
     
@@ -1554,9 +1530,7 @@ dfHDI = plotTreatmentPosterior(widthInch,heigthInch,dpi,sizes,writeOut,outPathPl
 ```
 
 
-    
 ![png](Statistical_Model_NewEplsar_filter_weak_files/Statistical_Model_NewEplsar_filter_weak_78_0.png)
-    
 
 
 
@@ -1983,10 +1957,32 @@ if writeOut:
 !jupyter nbconvert --to html Statistical_Model_NewEplsar_filter_weak.ipynb
 ```
 
+    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_weak.ipynb to html
+    [NbConvertApp] Writing 4866766 bytes to Statistical_Model_NewEplsar_filter_weak.html
+
+
 
 ```python
 !jupyter nbconvert --to markdown Statistical_Model_NewEplsar_filter_weak.ipynb
 ```
+
+    [NbConvertApp] Converting notebook Statistical_Model_NewEplsar_filter_weak.ipynb to markdown
+    [NbConvertApp] Support files will be in Statistical_Model_NewEplsar_filter_weak_files/
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Making directory Statistical_Model_NewEplsar_filter_weak_files
+    [NbConvertApp] Writing 45502 bytes to Statistical_Model_NewEplsar_filter_weak.md
+
 
 
 ```python
