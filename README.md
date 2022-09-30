@@ -1,35 +1,28 @@
 README
 ================
 Ivan Calandra
-2022-06-14 15:04:10
+2022-09-30 11:36:42
 
--   [SSFAcomparisonPaper](#ssfacomparisonpaper)
--   [How to cite](#how-to-cite)
--   [Contents](#contents)
--   [How to run in your browser or download and run
-    locally](#how-to-run-in-your-browser-or-download-and-run-locally)
--   [Licenses](#licenses)
--   [Contributions](#contributions)
+-   <a href="#ssfacomparisonpaper"
+    id="toc-ssfacomparisonpaper">SSFAcomparisonPaper</a>
+-   <a href="#how-to-cite" id="toc-how-to-cite">How to cite</a>
+-   <a href="#contents" id="toc-contents">Contents</a>
+-   <a href="#how-to-run-in-your-browser-or-download-and-run-locally"
+    id="toc-how-to-run-in-your-browser-or-download-and-run-locally">How to
+    run in your browser or download and run locally</a>
+-   <a href="#licenses" id="toc-licenses">Licenses</a>
+-   <a href="#contributions" id="toc-contributions">Contributions</a>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- badges: start -->
-
-[![Launch Rstudio
-Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/master?urlpath=rstudio)
-
-<!-- badges: end -->
 
 # SSFAcomparisonPaper
 
 This repository contains the data and code for the paper:
 
 > Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
-> Schulz-Kornas E, Souron A & Winkler DE (submitted). *Dental microwear
+> Schulz-Kornas E, Souron A & Winkler DE (year). *Dental microwear
 > texture analysis in Toothfrax and MountainsMap® SSFA module: Different
-> software packages, different results?*. Pre-print
-> <https://doi.org/10.5281/zenodo.4671438>
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4671438.svg)](https://doi.org/10.5281/zenodo.4671438)
+> software packages, different results?* Journal. DOI.
 
 # How to cite
 
@@ -39,7 +32,7 @@ Please cite this compendium as:
 > Schulz-Kornas E, Souron A & Winkler DE (2022). Compendium of code and
 > data for *Dental microwear texture analysis in Toothfrax and
 > MountainsMap® SSFA module: Different software packages, different
-> results?* Accessed 14 Jun 2022. Online at
+> results?* Accessed date. Online at
 > <https://doi.org/10.5281/zenodo.4439450>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
@@ -199,10 +192,9 @@ script](/renv/activate.R) and the R project’s library. All these files
 have been created using the package
 [renv](https://rstudio.github.io/renv/index.html).
 
-The [.binder](/.binder) directory contains the Docker image for the R
-analysis, while [Dockerfile](/Dockerfile) contains the instruction to
-build the Docker image for the Python analysis. See section [How to run
-in your browser or download and run
+The [Dockerfile](/Dockerfile) contains the instruction to build the
+Docker image for the Python analysis. See section [How to run in your
+browser or download and run
 locally](#how-to-run-in-your-browser-or-download-and-run-locally) for
 details.
 
@@ -220,15 +212,6 @@ analysis, and [Python
 3.8.5](https://www.python.org/downloads/release/python-385/) and the
 packages listed in [requirements.txt](/Python_analysis/requirements.txt)
 for the Python analysis.
-
-The simplest way to explore the R analysis is to open an instance of
-RStudio in your browser using [binder](https://mybinder.org/), either by
-clicking on the “launch binder” badge at the top of this README, or by
-following [this
-link](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/master?urlpath=rstudio).
-Binder will have the compendium files ready to work with. Binder uses
-Docker images to ensure a consistent and reproducible computational
-environment. These Docker images can also be used locally.
 
 If you want to work locally with the R analysis, either from the ZIP
 archive or from cloning the GitHub repository to your computer:

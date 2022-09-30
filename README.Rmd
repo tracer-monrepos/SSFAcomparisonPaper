@@ -10,12 +10,6 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<!-- badges: start -->
-
-[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tracer-monrepos/SSFAcomparisonPaper/master?urlpath=rstudio)
-
-<!-- badges: end -->
-
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "NA")
@@ -28,15 +22,13 @@ repo <- basename(getwd())
 
 This repository contains the data and code for the paper:
 
-> `r Authors` (submitted). *`r Title`*. Pre-print <https://doi.org/10.5281/zenodo.4671438>
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4671438.svg)](https://doi.org/10.5281/zenodo.4671438)
+> `r Authors` (year). *`r Title`* Journal. DOI.
 
 # How to cite
 
 Please cite this compendium as:
 
-> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`* Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.4439450>
+> `r Authors` (`r format(Sys.Date(), "%Y")`). Compendium of code and data for *`r Title`* Accessed date. Online at <https://doi.org/10.5281/zenodo.4439450>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4439450.svg)](https://doi.org/10.5281/zenodo.4439450)
 
@@ -118,7 +110,7 @@ Here are direct links to display the files directly in your browser:
 
 The [renv.lock](/renv.lock) file is the lockfile describing the state of the R project's library. It is associated to the [activation script](/renv/activate.R) and the R project's library. All these files have been created using the package [renv](https://rstudio.github.io/renv/index.html).
 
-The [.binder](/.binder) directory contains the Docker image for the R analysis, while [Dockerfile](/Dockerfile) contains the instruction to build the Docker image for the Python analysis. See section [How to run in your browser or download and run locally](#how-to-run-in-your-browser-or-download-and-run-locally) for details.
+The [Dockerfile](/Dockerfile) contains the instruction to build the Docker image for the Python analysis. See section [How to run in your browser or download and run locally](#how-to-run-in-your-browser-or-download-and-run-locally) for details.
 
 See the section [Contributions](#contributions) for details on [CONDUCT.md](/CONDUCT.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -126,8 +118,6 @@ See the section [Contributions](#contributions) for details on [CONDUCT.md](/CON
 # How to run in your browser or download and run locally
 
 This research compendium has been developed using the statistical programming languages R and Python. To work with the compendium, you will need to install on your computer the [R software](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) for the R analysis, and [Python 3.8.5](https://www.python.org/downloads/release/python-385/) and the packages listed in [requirements.txt](/Python_analysis/requirements.txt) for the Python analysis.
-
-The simplest way to explore the R analysis is to open an instance of RStudio in your browser using [binder](https://mybinder.org/), either by clicking on the "launch binder" badge at the top of this README, or by following [this link](https://mybinder.org/v2/gh/tracer-monrepos/`r repo`/master?urlpath=rstudio). Binder will have the compendium files ready to work with. Binder uses Docker images to ensure a consistent and reproducible computational environment. These Docker images can also be used locally.
 
 If you want to work locally with the R analysis, either from the ZIP archive or from cloning the GitHub repository to your computer:
 

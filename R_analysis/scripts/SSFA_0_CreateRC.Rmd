@@ -120,12 +120,6 @@ I have run this command to add the dependencies to the DESCRIPTION file.
 rrtools::add_dependencies_to_description()
 ```
 
-## Create Binder badge
-```{r}
-holepunch::write_dockerfile(maintainer = "Ivan Calandra")
-holepunch::generate_badge()
-```
-Now paste to the README.Rmd, where you want the badge to appear.
 
 ## renv
 Save the state of the project library using the `renv` package.  

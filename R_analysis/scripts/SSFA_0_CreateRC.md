@@ -1,26 +1,36 @@
 Create Research Compendium - SSFAcomparisonPaper
 ================
 Ivan Calandra
-2021-01-26 15:14:44
+2022-09-30 11:05:14
 
--   [Goal of the script](#goal-of-the-script)
--   [Prerequisites](#prerequisites)
--   [Preparations](#preparations)
--   [Create the research compendium](#create-the-research-compendium)
-    -   [Load packages](#load-packages)
-    -   [Create compendium](#create-compendium)
-    -   [Create CC-BY, CC-0 or MIT
-        license](#create-cc-by-cc-0-or-mit-license)
-    -   [Create README.Rmd file](#create-readme.rmd-file)
-    -   [Create a folders](#create-a-folders)
-    -   [Delete file ‘NAMESPACE’](#delete-file-namespace)
--   [Before running the analyses](#before-running-the-analyses)
--   [After running the analyses](#after-running-the-analyses)
-    -   [Packages](#packages)
-    -   [Create Binder badge](#create-binder-badge)
-    -   [renv](#renv)
--   [sessionInfo() and RStudio
-    version](#sessioninfo-and-rstudio-version)
+-   <a href="#goal-of-the-script" id="toc-goal-of-the-script">Goal of the
+    script</a>
+-   <a href="#prerequisites" id="toc-prerequisites">Prerequisites</a>
+-   <a href="#preparations" id="toc-preparations">Preparations</a>
+-   <a href="#create-the-research-compendium"
+    id="toc-create-the-research-compendium">Create the research
+    compendium</a>
+    -   <a href="#load-packages" id="toc-load-packages">Load packages</a>
+    -   <a href="#create-compendium" id="toc-create-compendium">Create
+        compendium</a>
+    -   <a href="#create-cc-by-cc-0-or-mit-license"
+        id="toc-create-cc-by-cc-0-or-mit-license">Create CC-BY, CC-0 or MIT
+        license</a>
+    -   <a href="#create-readmermd-file" id="toc-create-readmermd-file">Create
+        README.Rmd file</a>
+    -   <a href="#create-a-folders" id="toc-create-a-folders">Create a
+        folders</a>
+    -   <a href="#delete-file-namespace" id="toc-delete-file-namespace">Delete
+        file ‘NAMESPACE’</a>
+-   <a href="#before-running-the-analyses"
+    id="toc-before-running-the-analyses">Before running the analyses</a>
+-   <a href="#after-running-the-analyses"
+    id="toc-after-running-the-analyses">After running the analyses</a>
+    -   <a href="#packages" id="toc-packages">Packages</a>
+    -   <a href="#renv" id="toc-renv">renv</a>
+-   <a href="#sessioninfo-and-rstudio-version"
+    id="toc-sessioninfo-and-rstudio-version">sessionInfo() and RStudio
+    version</a>
 
 ------------------------------------------------------------------------
 
@@ -99,9 +109,9 @@ Make sure you render (knit) it to create the `README.md` file.
 
 ## Create a folders
 
-Create a folder ‘R\_analysis’ and subfolders to contain raw data,
-derived data, plots, statistics and scripts. Also create a folder for
-the Python analysis:
+Create a folder ‘R_analysis’ and subfolders to contain raw data, derived
+data, plots, statistics and scripts. Also create a folder for the Python
+analysis:
 
 ``` r
 dir.create("R_analysis", showWarnings = FALSE)
@@ -142,15 +152,6 @@ I have run this command to add the dependencies to the DESCRIPTION file.
 rrtools::add_dependencies_to_description()
 ```
 
-## Create Binder badge
-
-``` r
-holepunch::write_dockerfile(maintainer = "Ivan Calandra")
-holepunch::generate_badge()
-```
-
-Now paste to the README.Rmd, where you want the badge to appear.
-
 ## renv
 
 Save the state of the project library using the `renv` package.
@@ -167,38 +168,40 @@ renv::init()
 sessionInfo()
 ```
 
-    R version 4.0.3 (2020-10-10)
+    R version 4.1.2 (2021-11-01)
     Platform: x86_64-w64-mingw32/x64 (64-bit)
-    Running under: Windows 10 x64 (build 19041)
+    Running under: Windows 10 x64 (build 19043)
 
     Matrix products: default
 
     locale:
-    [1] LC_COLLATE=French_France.1252  LC_CTYPE=French_France.1252   
-    [3] LC_MONETARY=French_France.1252 LC_NUMERIC=C                  
-    [5] LC_TIME=French_France.1252    
+    [1] LC_COLLATE=English_United States.1252 
+    [2] LC_CTYPE=English_United States.1252   
+    [3] LC_MONETARY=English_United States.1252
+    [4] LC_NUMERIC=C                          
+    [5] LC_TIME=English_United States.1252    
 
     attached base packages:
     [1] stats     graphics  grDevices datasets  utils     methods   base     
 
     other attached packages:
-    [1] holepunch_0.1.28.9000 renv_0.12.5           usethis_2.0.0        
-    [4] rrtools_0.1.0        
+    [1] holepunch_0.1.28.9000 renv_0.14.0           usethis_2.1.3        
+    [4] rrtools_0.1.5        
 
     loaded via a namespace (and not attached):
-     [1] Rcpp_1.0.6        cliapp_0.1.1      compiler_4.0.3    git2r_0.28.0     
-     [5] prettyunits_1.1.1 tools_4.0.3       progress_1.2.2    digest_0.6.27    
-     [9] lubridate_1.7.9.2 jsonlite_1.7.2    evaluate_0.14     lifecycle_0.2.0  
-    [13] pkgconfig_2.0.3   rlang_0.4.10      cli_2.2.0         rstudioapi_0.13  
-    [17] curl_4.3          yaml_2.2.1        xfun_0.20         httr_1.4.2       
-    [21] xml2_1.3.2        withr_2.4.0       stringr_1.4.0     knitr_1.30       
-    [25] generics_0.1.0    desc_1.2.0        fs_1.5.0          vctrs_0.3.6      
-    [29] hms_1.0.0         rprojroot_2.0.2   glue_1.4.2        here_1.0.1       
-    [33] R6_2.5.0          gh_1.2.0          fansi_0.4.2       rmarkdown_2.6    
-    [37] bookdown_0.21     purrr_0.3.4       selectr_0.4-2     magrittr_2.0.1   
-    [41] clisymbols_1.2.0  htmltools_0.5.1.1 ellipsis_0.3.1    assertthat_0.2.1 
-    [45] stringi_1.5.3     crayon_1.3.4     
+     [1] cliapp_0.1.1      compiler_4.1.2    git2r_0.29.0      prettyunits_1.1.1
+     [5] tools_4.1.2       progress_1.2.2    digest_0.6.28     lubridate_1.8.0  
+     [9] jsonlite_1.7.2    evaluate_0.14     lifecycle_1.0.1   pkgconfig_2.0.3  
+    [13] rlang_0.4.12      cli_3.1.0         rstudioapi_0.13   curl_4.3.2       
+    [17] yaml_2.2.1        xfun_0.28         fastmap_1.1.0     httr_1.4.2       
+    [21] xml2_1.3.2        withr_2.4.2       stringr_1.4.0     knitr_1.36       
+    [25] generics_0.1.1    desc_1.4.0        fs_1.5.0          vctrs_0.3.8      
+    [29] hms_1.1.1         rprojroot_2.0.2   glue_1.5.0        here_1.0.1       
+    [33] R6_2.5.1          gh_1.3.0          fansi_0.5.0       rmarkdown_2.11   
+    [37] bookdown_0.24     purrr_0.3.4       selectr_0.4-2     magrittr_2.0.1   
+    [41] clisymbols_1.2.0  htmltools_0.5.2   ellipsis_0.3.2    stringi_1.7.6    
+    [45] crayon_1.4.2     
 
-RStudio version 1.4.1103.
+RStudio version 2021.9.1.372.
 
 END OF SCRIPT
