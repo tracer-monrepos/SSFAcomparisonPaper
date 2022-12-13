@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2022-09-30 12:02:56
+2022-12-13 16:16:54
 
 -   <a href="#ssfacomparisonpaper"
     id="toc-ssfacomparisonpaper">SSFAcomparisonPaper</a>
@@ -20,12 +20,10 @@ Ivan Calandra
 This repository contains the data and code for the paper:
 
 > Calandra I, Bob K, Merceron G, Blateyron F, Hildebrandt A,
-> Schulz-Kornas E, Souron A & Winkler DE (year \[TBA\]). *Surface
-> texture analysis in Toothfrax and MountainsMap® SSFA module: Different
-> software packages, different results?* PCI Archaeology.
-> <https://doi.org/10.5281/zenodo.4671438>
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4671438.svg)](https://doi.org/10.5281/zenodo.4671438)
+> Schulz-Kornas E, Souron A & Winkler DE (2022). *Surface texture
+> analysis in Toothfrax and MountainsMap® SSFA module: Different
+> software packages, different results?* Peer Community Journal 2: e77.
+> <https://doi.org/10.24072/pcjournal.204>
 
 # How to cite
 
