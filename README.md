@@ -1,7 +1,7 @@
 README
 ================
 Ivan Calandra
-2022-12-13 16:16:54
+2022-12-13 16:21:52
 
 -   <a href="#ssfacomparisonpaper"
     id="toc-ssfacomparisonpaper">SSFAcomparisonPaper</a>
@@ -24,6 +24,8 @@ This repository contains the data and code for the paper:
 > analysis in Toothfrax and MountainsMap® SSFA module: Different
 > software packages, different results?* Peer Community Journal 2: e77.
 > <https://doi.org/10.24072/pcjournal.204>
+
+[![DOI](https://zenodo.org/badge/DOI/10.24072/pcjournal.204.svg)](https://doi.org/10.24072/pcjournal.204)
 
 # How to cite
 

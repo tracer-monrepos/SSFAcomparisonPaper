@@ -24,6 +24,8 @@ This repository contains the data and code for the paper:
 
 > `r Authors` (2022). *`r Title`* Peer Community Journal 2: e77. <https://doi.org/10.24072/pcjournal.204>
 
+[![DOI](https://zenodo.org/badge/DOI/10.24072/pcjournal.204.svg)](https://doi.org/10.24072/pcjournal.204)
+
 # How to cite
 
 Please cite this compendium as:
